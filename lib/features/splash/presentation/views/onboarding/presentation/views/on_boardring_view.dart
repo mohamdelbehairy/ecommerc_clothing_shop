@@ -1,5 +1,7 @@
+import 'package:e_clot_shop/core/utils/app_router.dart';
 import 'package:e_clot_shop/core/utils/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../data/on_boardring_button_model.dart';
 import '../../data/page_view_model.dart';
@@ -65,6 +67,7 @@ class _OnBoardringViewState extends State<OnBoardringView> {
                 isLastPage: isLastPage,
                 onTap: () {
                   if (isLastPage) {
+                    GoRouter.of(context).go(AppRouter.login);
                   } else {
                     _pageController.nextPage(
                         duration: const Duration(milliseconds: 500),
@@ -77,8 +80,9 @@ class _OnBoardringViewState extends State<OnBoardringView> {
                 right: 16,
                 top: 812 - 690,
                 child: OnBoardringButtonTop(
-                  onBoardringButtonModel:
-                      OnBoardringButtonModel(text: 'skip', onTap: () {}),
+                  onBoardringButtonModel: OnBoardringButtonModel(
+                      text: 'skip',
+                      onTap: () => GoRouter.of(context).go(AppRouter.login)),
                 )),
           if (index != 0)
             Positioned(

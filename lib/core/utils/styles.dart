@@ -57,4 +57,9 @@ class Styles {
       fontSize: 16,
       fontWeight: FontWeight.w600,
       color: const Color(0xff25213C).withOpacity(.8));
+
+  static TextStyle styleTextField16 = GoogleFonts.nunito(
+      fontWeight: FontWeight.w500,
+      color: const Color(0xff272727).withOpacity(.5),
+      fontSize: 16);
 }
