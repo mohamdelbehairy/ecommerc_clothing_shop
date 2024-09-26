@@ -1,6 +1,8 @@
 import 'package:e_clot_shop/core/utils/assets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../auth/presentation/manager/google_auth/google_auth_cubit.dart';
 import '../../data/auth_item_model.dart';
 import 'provider_auth_item.dart';
 
@@ -13,7 +15,9 @@ class LoginProviderAuth extends StatelessWidget {
       AuthItemModel(
           icon: Assets.imagesGoogle,
           text: 'Continue With Google',
-          onTap: () {}),
+          onTap: () async{
+            await context.read<GoogleAuthCubit>().signInWIthGoogle();
+          }),
       AuthItemModel(
           icon: Assets.imagesFacebook,
           text: 'Continue With Facebook',
