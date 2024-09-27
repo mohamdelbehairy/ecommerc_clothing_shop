@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Ecomerce Clot Shop</string>
+    <string name="facebook_app_id">1191001332203082</string>
+    <string name="fb_login_protocol_scheme">fb1191001332203082</string>
+    <string name="facebook_client_token">ad48505d2d60e494261ab019d3dee4ed</string>
+</resources>

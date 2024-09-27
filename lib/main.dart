@@ -1,4 +1,4 @@
-import 'package:e_clot_shop/firebase_options.dart';
+import 'package:e_clot_shop/core/utils/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
