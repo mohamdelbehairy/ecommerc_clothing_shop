@@ -1,5 +1,7 @@
 import 'package:e_clot_shop/core/models/text_field_model.dart';
+import 'package:e_clot_shop/core/utils/app_router.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../core/models/custom_button_model.dart';
 import '../../../../core/widgets/custom_button.dart';
@@ -14,13 +16,16 @@ class LoginTextFieldAndButtonsSection extends StatelessWidget {
     return Column(
       children: [
         CustomTextField(
-          textFieldModel: TextFieldModel(
-              hintText: 'Email Address', controller: TextEditingController()),
-        ),
+            textFieldModel: TextFieldModel(
+                hintText: 'Email Address',
+                controller: TextEditingController())),
         const SizedBox(height: 20),
         CustomButton(
-            customButtonModel:
-                CustomButtonModel(onTap: () {}, buttonName: 'Continue')),
+            customButtonModel: CustomButtonModel(
+                onTap: () {
+                  GoRouter.of(context).push(AppRouter.loginPassword);
+                },
+                buttonName: 'Continue')),
         const SizedBox(height: 20),
         const DontHaveAccountAndCreateOne(),
       ],
