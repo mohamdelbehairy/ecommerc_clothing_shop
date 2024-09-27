@@ -1,34 +1,22 @@
-import 'package:e_clot_shop/core/models/text_field_model.dart';
-import 'package:e_clot_shop/core/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../../core/widgets/custom_text_field.dart';
+import '../manager/build_register/build_register_cubit.dart';
 
 class RegisterTextFields extends StatelessWidget {
   const RegisterTextFields({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var buildRegister = context.watch<BuildRegisterCubit>();
     return Column(
-      children: [
-        CustomTextField(
-          textFieldModel: TextFieldModel(
-              hintText: 'Firstname', controller: TextEditingController()),
-        ),
-        const SizedBox(height: 16),
-        CustomTextField(
-          textFieldModel: TextFieldModel(
-              hintText: 'Lastname', controller: TextEditingController()),
-        ),
-        const SizedBox(height: 16),
-        CustomTextField(
-          textFieldModel: TextFieldModel(
-              hintText: 'Email Address', controller: TextEditingController()),
-        ),
-        const SizedBox(height: 16),
-        CustomTextField(
-          textFieldModel: TextFieldModel(
-              hintText: 'Password', controller: TextEditingController()),
-        ),
-      ],
+      children: List.generate(
+          buildRegister.items.length,
+          (index) => Padding(
+              padding: const EdgeInsets.only(bottom: 16),
+              child:
+                  CustomTextField(textFieldModel: buildRegister.items[index]))),
     );
   }
 }

@@ -9,23 +9,22 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 56,
-      decoration: BoxDecoration(
-          color: AppColors.secondaryColor,
-          borderRadius: BorderRadius.circular(4)),
-      child: Center(
-        child: TextField(
-          controller: textFieldModel.controller,
-          obscureText: textFieldModel.obscureText,
-          decoration: InputDecoration(
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(4),
+      child: TextFormField(
+        cursorColor: AppColors.primaryColor,
+        keyboardType: textFieldModel.keyboardType,
+        validator: textFieldModel.validator,
+        controller: textFieldModel.controller,
+        obscureText: textFieldModel.obscureText,
+        decoration: InputDecoration(
+            contentPadding:
+                const EdgeInsets.symmetric(vertical: 16, horizontal: 12),
             hintText: textFieldModel.hintText,
             hintStyle: Styles.styleTextField16,
             border: InputBorder.none,
             filled: true,
-            fillColor: Colors.transparent,
-          ),
-        ),
+            fillColor: AppColors.secondaryColor),
       ),
     );
   }
