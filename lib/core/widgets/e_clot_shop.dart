@@ -1,6 +1,9 @@
 import 'package:e_clot_shop/core/utils/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../features/login/presentation/manager/build_login/build_login_cubit.dart';
 
 class EClotShop extends StatelessWidget {
   const EClotShop({super.key});
@@ -13,10 +16,13 @@ class EClotShop extends StatelessWidget {
         statusBarIconBrightness: Brightness.dark,
       ),
     );
-    return MaterialApp.router(
-      theme: ThemeData(scaffoldBackgroundColor: Colors.white),
-      debugShowCheckedModeBanner: false,
-      routerConfig: AppRouter.router,
+    return BlocProvider(
+      create: (context) => BuildLoginCubit(),
+      child: MaterialApp.router(
+        theme: ThemeData(scaffoldBackgroundColor: Colors.white),
+        debugShowCheckedModeBanner: false,
+        routerConfig: AppRouter.router,
+      ),
     );
   }
 }

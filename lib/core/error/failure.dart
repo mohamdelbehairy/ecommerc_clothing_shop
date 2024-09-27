@@ -9,8 +9,10 @@ class FirebaseFailure extends Failure {
 
   factory FirebaseFailure.fromCode(String code) {
     switch (code) {
-      case 'invalid-email':
-        return FirebaseFailure(message: 'Invalid email');
+      case 'invalid-credential':
+        return FirebaseFailure(
+            message:
+                'There was a problem logging in. Please check your email and password');
       case 'user-disabled':
         return FirebaseFailure(message: 'Account disabled');
       case 'user-not-found':

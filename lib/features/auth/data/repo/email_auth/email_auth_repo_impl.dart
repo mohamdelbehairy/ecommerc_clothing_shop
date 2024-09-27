@@ -24,7 +24,18 @@ class EmailAuthRepoImpl extends EmailAuthRepo {
   }
 
   @override
-  Future<Either<Failure, UserCredential>> signInWithEmailAndPassword() {
-    throw UnimplementedError();
+  Future<Either<Failure, UserCredential>> signInWithEmailAndPassword(
+      String email, String password) async {
+    try {
+      final credential = await FirebaseAuth.instance
+          .signInWithEmailAndPassword(email: email, password: password);
+      return Right(credential);
+    } catch (e) {
+      if (e is FirebaseAuthException) {
+        return Left(FirebaseFailure.fromCode(e.code));
+      }
+
+      return Left(Failure(message: e.toString()));
+    }
   }
 }

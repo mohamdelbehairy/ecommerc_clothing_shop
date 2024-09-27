@@ -1,4 +1,7 @@
+import 'package:e_clot_shop/features/auth/data/repo/email_auth/email_auth_repo_impl.dart';
+import 'package:e_clot_shop/features/auth/presentation/manager/email_login/email_login_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../widgets/login_password_view_body.dart';
 
@@ -7,9 +10,11 @@ class LoginPasswordView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: LoginPasswordViewBody(),
+    return BlocProvider(
+      create: (context) => EmailLoginCubit(EmailAuthRepoImpl()),
+      child: const Scaffold(
+        body: LoginPasswordViewBody(),
+      ),
     );
   }
 }
-
