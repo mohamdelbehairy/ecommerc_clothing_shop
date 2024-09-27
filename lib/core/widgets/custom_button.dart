@@ -1,6 +1,7 @@
 import 'package:e_clot_shop/core/models/custom_button_model.dart';
 import 'package:e_clot_shop/core/utils/colors.dart';
 import 'package:e_clot_shop/core/utils/styles.dart';
+import 'package:e_clot_shop/core/widgets/function/loading_animation_widget.dart';
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
@@ -18,8 +19,10 @@ class CustomButton extends StatelessWidget {
             color: AppColors.primaryColor,
             borderRadius: BorderRadius.circular(100)),
         child: Center(
-            child: Text(customButtonModel.buttonName,
-                style: Styles.styleMediumWhite16)),
+            child: customButtonModel.isLoading
+                ? loadingAnimationWidget(color: Colors.white)
+                : Text(customButtonModel.buttonName,
+                    style: Styles.styleMediumWhite16)),
       ),
     );
   }

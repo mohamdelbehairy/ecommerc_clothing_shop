@@ -11,27 +11,27 @@ class BlocConsumerGoogleAuth extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var isLoading = false;
+    var googleAuth = context.read<GoogleAuthCubit>();
     return BlocConsumer<GoogleAuthCubit, GoogleAuthState>(
       listener: (context, state) {
         if (state is GoogleAuthLoading) {
-          isLoading = state.isLoading;
+          googleAuth.isLoading = state.isLoading;
         }
         if (state is GoogleAuthSuccess) {
-          isLoading = false;
+          googleAuth.isLoading = false;
         }
         if (state is GoogleAuthFailure) {
-          isLoading = false;
+          googleAuth.isLoading = false;
         }
       },
       builder: (context, state) {
         return ProviderAuthItem(
             authItemModel: AuthItemModel(
-                isLoading: isLoading,
+                isLoading: googleAuth.isLoading,
                 icon: Assets.imagesGoogle,
                 text: 'Continue With Google',
                 onTap: () async {
-                  await context.read<GoogleAuthCubit>().signInWIthGoogle();
+                  await googleAuth.signInWIthGoogle();
                 }));
       },
     );

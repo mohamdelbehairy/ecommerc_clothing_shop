@@ -8,7 +8,8 @@ part 'google_auth_state.dart';
 class GoogleAuthCubit extends Cubit<GoogleAuthState> {
   GoogleAuthCubit(this._socialAuthRepo) : super(GoogleAuthInitial());
   final SocialAuthRepo _socialAuthRepo;
-
+  
+  bool isLoading = false;
   Future<void> signInWIthGoogle() async {
     emit(GoogleAuthLoading(isLoading: true));
     final result = await _socialAuthRepo.signInWithGoogle();
