@@ -13,11 +13,9 @@ class LoginView extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => GoogleAuthCubit(SocialAuthRepoImpl()),
-        ),
+            create: (context) => GoogleAuthCubit(SocialAuthRepoImpl())),
         BlocProvider(
-          create: (context) => FacebookAuthCubit(SocialAuthRepoImpl()),
-        ),
+            create: (context) => FacebookAuthCubit(SocialAuthRepoImpl())),
       ],
       child: const Scaffold(
         body: LoginViewBody(),

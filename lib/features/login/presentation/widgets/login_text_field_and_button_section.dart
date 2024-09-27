@@ -1,3 +1,4 @@
+import 'package:e_clot_shop/core/models/text_field_model.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/models/custom_button_model.dart';
@@ -12,7 +13,10 @@ class LoginTextFieldAndButtonsSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const CustomTextField(),
+        CustomTextField(
+          textFieldModel: TextFieldModel(
+              hintText: 'Email Address', controller: TextEditingController()),
+        ),
         const SizedBox(height: 20),
         CustomButton(
             customButtonModel:
@@ -23,4 +27,3 @@ class LoginTextFieldAndButtonsSection extends StatelessWidget {
     );
   }
 }
-

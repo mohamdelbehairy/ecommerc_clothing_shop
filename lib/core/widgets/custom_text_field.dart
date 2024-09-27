@@ -1,9 +1,11 @@
+import 'package:e_clot_shop/core/models/text_field_model.dart';
 import 'package:e_clot_shop/core/utils/colors.dart';
 import 'package:e_clot_shop/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
-  const CustomTextField({super.key});
+  const CustomTextField({super.key, required this.textFieldModel});
+  final TextFieldModel textFieldModel;
 
   @override
   Widget build(BuildContext context) {
@@ -14,8 +16,10 @@ class CustomTextField extends StatelessWidget {
           borderRadius: BorderRadius.circular(4)),
       child: Center(
         child: TextField(
+          controller: textFieldModel.controller,
+          obscureText: textFieldModel.obscureText,
           decoration: InputDecoration(
-            hintText: 'Email Address',
+            hintText: textFieldModel.hintText,
             hintStyle: Styles.styleTextField16,
             border: InputBorder.none,
             filled: true,
