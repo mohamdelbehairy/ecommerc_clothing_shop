@@ -1,3 +1,4 @@
+import 'package:e_clot_shop/core/utils/setup_service_locator.dart';
 import 'package:e_clot_shop/features/auth/data/repo/social_auth/social_auth_repo_impl.dart';
 import 'package:e_clot_shop/features/auth/presentation/manager/facebook_auth/facebook_auth_cubit.dart';
 import 'package:e_clot_shop/features/auth/presentation/manager/google_auth/google_auth_cubit.dart';
@@ -13,9 +14,11 @@ class LoginView extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-            create: (context) => GoogleAuthCubit(SocialAuthRepoImpl())),
+            create: (context) =>
+                GoogleAuthCubit(getIt.get<SocialAuthRepoImpl>())),
         BlocProvider(
-            create: (context) => FacebookAuthCubit(SocialAuthRepoImpl())),
+            create: (context) =>
+                FacebookAuthCubit(getIt.get<SocialAuthRepoImpl>())),
       ],
       child: const Scaffold(
         body: LoginViewBody(),
