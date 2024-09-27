@@ -10,14 +10,16 @@ class GoogleAuthCubit extends Cubit<GoogleAuthState> {
   final AuthRepo _authRepo;
 
   Future<void> signInWIthGoogle() async {
-    emit(GoogleAuthLoading());
-    try {
-      final userCredential = await _authRepo.signInWIthGoogle();
-      log('user credential: ${userCredential?.user}');
-      emit(GoogleAuthSuccess());
-    } catch (e) {
-      emit(GoogleAuthFailure(errorMessage: e.toString()));
-      log('error from google auth: $e');
-    }
+    emit(GoogleAuthLoading(isLoading: true));
+    final result = await _authRepo.signInWIthGoogle();
+    result.fold(
+      (failure) {
+        emit(GoogleAuthFailure(errorMessage: failure.message));
+        log('error from google auth: ${failure.message}');
+      },
+      (userCredential) {
+        emit(GoogleAuthSuccess());
+      },
+    );
   }
 }

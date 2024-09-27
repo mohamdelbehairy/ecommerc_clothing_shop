@@ -4,7 +4,11 @@ sealed class GoogleAuthState {}
 
 final class GoogleAuthInitial extends GoogleAuthState {}
 
-final class GoogleAuthLoading extends GoogleAuthState {}
+final class GoogleAuthLoading extends GoogleAuthState {
+  final bool isLoading;
+
+  GoogleAuthLoading({required this.isLoading});
+}
 
 final class GoogleAuthSuccess extends GoogleAuthState {}
 

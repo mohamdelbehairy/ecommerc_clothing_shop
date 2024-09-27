@@ -4,6 +4,7 @@ import 'package:e_clot_shop/core/widgets/custom_svg.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/models/svg_model.dart';
+import '../../../../core/widgets/function/loading_animation_widget.dart';
 import '../../data/auth_item_model.dart';
 
 class ProviderAuthItem extends StatelessWidget {
@@ -30,7 +31,9 @@ class ProviderAuthItem extends StatelessWidget {
                     svgModel: SvgModel(image: authItemModel.icon, height: 24))),
             Align(
                 alignment: Alignment.center,
-                child: Text(authItemModel.text, style: Styles.styleMedium16))
+                child: authItemModel.isLoading
+                    ? loadingAnimationWidget()
+                    : Text(authItemModel.text, style: Styles.styleMedium16))
           ],
         ),
       ),
