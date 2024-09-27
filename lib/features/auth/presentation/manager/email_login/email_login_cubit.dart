@@ -21,7 +21,7 @@ class EmailLoginCubit extends Cubit<EmailLoginState> {
     result.fold(
       (failure) {
         emit(EmailLoginFailure(errorMessage: failure.message));
-        log('error from email auth: ${failure.message}');
+        log('error from sign in with email and password: ${failure.message}');
       },
       (userCredential) {
         emit(EmailLoginSuccess());

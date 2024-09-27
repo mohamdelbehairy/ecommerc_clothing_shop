@@ -7,4 +7,5 @@ abstract class EmailAuthRepo {
       String email, String password);
   Future<Either<Failure, UserCredential>> signInWithEmailAndPassword(
       String email, String password);
+  Future<Either<Failure, void>> forgetPassword(String email);
 }

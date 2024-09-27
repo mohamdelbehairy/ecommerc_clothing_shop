@@ -14,7 +14,7 @@ class CustomButton extends StatelessWidget {
       onTap: customButtonModel.onTap,
       child: Container(
         height: 55,
-        width: MediaQuery.sizeOf(context).width,
+        width: customButtonModel.width ?? MediaQuery.sizeOf(context).width,
         decoration: BoxDecoration(
             color: AppColors.primaryColor,
             borderRadius: BorderRadius.circular(100)),

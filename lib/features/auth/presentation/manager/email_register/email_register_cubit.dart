@@ -9,7 +9,7 @@ class EmailRegisterCubit extends Cubit<EmailRegisterState> {
   EmailRegisterCubit(this._emailAuthRepo) : super(EmailRegisterInitial());
 
   final EmailAuthRepo _emailAuthRepo;
-  
+
   bool isLoading = false;
   Future<void> registerWithEmailAndPassword(
       {required String email, required String password}) async {
@@ -20,7 +20,7 @@ class EmailRegisterCubit extends Cubit<EmailRegisterState> {
     result.fold(
       (failure) {
         emit(EmailRegisterFailure(errorMessage: failure.message));
-        log('error from email auth: ${failure.message}');
+        log('error from register with email and password: ${failure.message}');
       },
       (userCredential) {
         emit(EmailRegisterSuccess());

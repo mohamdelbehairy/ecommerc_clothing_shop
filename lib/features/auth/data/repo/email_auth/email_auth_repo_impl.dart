@@ -1,9 +1,6 @@
 import 'package:dartz/dartz.dart';
-
 import 'package:e_clot_shop/core/error/failure.dart';
-
 import 'package:firebase_auth/firebase_auth.dart';
-
 import 'email_auth_repo.dart';
 
 class EmailAuthRepoImpl extends EmailAuthRepo {
@@ -30,6 +27,20 @@ class EmailAuthRepoImpl extends EmailAuthRepo {
       final credential = await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
       return Right(credential);
+    } catch (e) {
+      if (e is FirebaseAuthException) {
+        return Left(FirebaseFailure.fromCode(e.code));
+      }
+
+      return Left(Failure(message: e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, void>> forgetPassword(String email) async {
+    try {
+      await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
+      return const Right(null);
     } catch (e) {
       if (e is FirebaseAuthException) {
         return Left(FirebaseFailure.fromCode(e.code));
