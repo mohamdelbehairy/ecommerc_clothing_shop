@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:e_clot_shop/core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,8 +18,6 @@ class SelectTypeToShopButtons extends StatelessWidget {
             return InkWell(
                 onTap: () {
                   selectType.activeIndexChange(index);
-                  log('${selectType.activeIndex}');
-                  log(selectType.type);
                 },
                 child:
                     CustomButton(customButtonModel: selectType.items[index]));
