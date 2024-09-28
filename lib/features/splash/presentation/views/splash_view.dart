@@ -32,7 +32,7 @@ class _SplashViewState extends State<SplashView> {
   void navigation() {
     Future.delayed(const Duration(seconds: 1), () {
       // ignore: use_build_context_synchronously
-      GoRouter.of(context).go(AppRouter.tellAbout);
+      GoRouter.of(context).go(AppRouter.login);
     });
   }
 }
