@@ -7,7 +7,8 @@ import 'package:flutter/material.dart';
 import '../../../../core/widgets/custom_svg.dart';
 
 class AgeRangeWidget extends StatelessWidget {
-  const AgeRangeWidget({super.key});
+  const AgeRangeWidget({super.key, required this.onTap});
+  final Function() onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -23,10 +24,13 @@ class AgeRangeWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text('Age Range', style: Styles.styleMedium16),
-            Transform.rotate(
-                angle: -3.14 / 2,
-                child: CustomSvg(
-                    svgModel: SvgModel(image: Assets.imagesBack, height: 18)))
+            GestureDetector(
+              onTap: onTap,
+              child: Transform.rotate(
+                  angle: -3.14 / 2,
+                  child: CustomSvg(
+                      svgModel: SvgModel(image: Assets.imagesBack, height: 18))),
+            )
           ],
         ),
       ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../manager/select_type/select_type_cubit.dart';
+import '../manager/tell_us/tell_us_cubit.dart';
 import '../widgets/tell_about_view_body.dart';
 
 class TellAboutView extends StatelessWidget {
@@ -10,7 +10,7 @@ class TellAboutView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => SelectTypeCubit(),
+      create: (context) => TellUsCubit(),
       child: const Scaffold(body: TellAboutViewBody()),
     );
   }

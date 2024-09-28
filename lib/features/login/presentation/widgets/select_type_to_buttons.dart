@@ -2,15 +2,15 @@ import 'package:e_clot_shop/core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../manager/select_type/select_type_cubit.dart';
+import '../manager/tell_us/tell_us_cubit.dart';
 
 class SelectTypeToShopButtons extends StatelessWidget {
   const SelectTypeToShopButtons({super.key});
 
   @override
   Widget build(BuildContext context) {
-    var selectType = context.read<SelectTypeCubit>();
-    return BlocBuilder<SelectTypeCubit, SelectTypeState>(
+    var selectType = context.read<TellUsCubit>();
+    return BlocBuilder<TellUsCubit, TellUsState>(
       builder: (context, state) {
         return Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

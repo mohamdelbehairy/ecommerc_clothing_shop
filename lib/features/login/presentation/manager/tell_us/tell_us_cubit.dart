@@ -2,16 +2,18 @@ import 'package:e_clot_shop/core/models/custom_button_model.dart';
 import 'package:e_clot_shop/core/utils/colors.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-part 'select_type_state.dart';
+part 'tell_us_state.dart';
 
-class SelectTypeCubit extends Cubit<SelectTypeState> {
-  SelectTypeCubit() : super(SelectTypeInitial()) {
+class TellUsCubit extends Cubit<TellUsState> {
+  TellUsCubit() : super(TellUsInitial()) {
     _initItems();
   }
 
   List items = [];
   int activeIndex = 0;
   String type = 'Men';
+  int year = 0;
+
   void activeIndexChange(int index) {
     activeIndex = index;
     _initItems();
@@ -34,5 +36,10 @@ class SelectTypeCubit extends Cubit<SelectTypeState> {
           width: 161,
           buttonName: 'Women')
     ];
+  }
+
+  void pickYear(int index) {
+    year = DateTime.now().year - index;
+    emit(PickYearSuccess());
   }
 }
