@@ -16,13 +16,15 @@ class CustomButton extends StatelessWidget {
         height: 55,
         width: customButtonModel.width ?? MediaQuery.sizeOf(context).width,
         decoration: BoxDecoration(
-            color: AppColors.primaryColor,
+            color: customButtonModel.buttonColor ?? AppColors.primaryColor,
             borderRadius: BorderRadius.circular(100)),
         child: Center(
             child: customButtonModel.isLoading
                 ? loadingAnimationWidget(color: Colors.white)
                 : Text(customButtonModel.buttonName,
-                    style: Styles.styleMediumWhite16)),
+                    style: customButtonModel.buttonColor != null
+                        ? Styles.styleMedium16
+                        : Styles.styleMediumWhite16)),
       ),
     );
   }

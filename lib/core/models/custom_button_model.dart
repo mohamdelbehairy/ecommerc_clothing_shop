@@ -1,12 +1,16 @@
+import 'package:flutter/material.dart';
+
 class CustomButtonModel {
-  final Function() onTap;
+  final Function()? onTap;
   final String buttonName;
   final bool isLoading;
   final double? width;
+  final Color? buttonColor;
 
   CustomButtonModel(
-      {required this.onTap,
+      {this.onTap,
       required this.buttonName,
       this.isLoading = false,
-      this.width});
+      this.width,
+      this.buttonColor});
 }

@@ -1,4 +1,5 @@
 import 'package:e_clot_shop/features/login/presentation/views/login_view.dart';
+import 'package:e_clot_shop/features/login/presentation/views/tell_about_view.dart';
 import 'package:e_clot_shop/features/register/presentation/views/register_view.dart';
 import 'package:go_router/go_router.dart';
 
@@ -15,6 +16,8 @@ class AppRouter {
   static const loginPassword = '/loginPasswordView';
   static const forgetPassword = '/forgetPasswordView';
   static const checkEmail = '/checkEmailView';
+  static const tellAbout = '/tellAboutView';
+
   static final router = GoRouter(
     routes: [
       GoRoute(path: '/', builder: (context, state) => const SplashView()),
@@ -33,6 +36,9 @@ class AppRouter {
       GoRoute(
           path: checkEmail,
           builder: (context, state) => const CheckEmailView()),
+      GoRoute(
+          path: tellAbout,
+          builder: (context, state) => const TellAboutView()),
     ],
   );
 }
