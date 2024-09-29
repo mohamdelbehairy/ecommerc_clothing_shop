@@ -2,6 +2,8 @@ import 'package:e_clot_shop/core/utils/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/widgets/function/custom_snack_bar_widget.dart';
+import '../../../../core/widgets/function/show_alert_sign_in_successful.dart';
 import '../../../auth/presentation/manager/google_auth/google_auth_cubit.dart';
 import '../../data/auth_item_model.dart';
 import 'provider_auth_item.dart';
@@ -19,9 +21,11 @@ class BlocConsumerGoogleAuth extends StatelessWidget {
         }
         if (state is GoogleAuthSuccess) {
           googleAuth.isLoading = false;
+          showAlertSignInSuccessful(context);
         }
         if (state is GoogleAuthFailure) {
           googleAuth.isLoading = false;
+          customSnackbarWidget(context, message: state.errorMessage);
         }
       },
       builder: (context, state) {

@@ -2,15 +2,15 @@ import 'package:e_clot_shop/core/utils/constants.dart';
 
 class UserDataModel {
   final String userName, email, userId, userImage;
-  final int type, age;
+  final int? type, age;
 
   UserDataModel(
       {required this.userName,
       required this.email,
       required this.userId,
       this.userImage = Constants.defaultUserImageUrl,
-      required this.type,
-      required this.age});
+      this.type = 0,
+      this.age});
 
   factory UserDataModel.fromJson(Map<String, dynamic> jsonData) {
     return UserDataModel(

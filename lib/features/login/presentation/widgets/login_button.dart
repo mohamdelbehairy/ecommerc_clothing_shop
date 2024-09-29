@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/models/custom_button_model.dart';
 import '../../../../core/widgets/custom_button.dart';
 import '../../../../core/widgets/function/custom_snack_bar_widget.dart';
+import '../../../../core/widgets/function/show_alert_sign_in_successful.dart';
 import '../../../auth/presentation/manager/email_login/email_login_cubit.dart';
 import '../manager/build_login/build_login_cubit.dart';
 
@@ -21,6 +22,7 @@ class LoginButton extends StatelessWidget {
         }
         if (state is EmailLoginSuccess) {
           emailLogin.isLoading = false;
+          showAlertSignInSuccessful(context);
         }
         if (state is EmailLoginFailure) {
           emailLogin.isLoading = false;
