@@ -21,7 +21,8 @@ class SelectAgeSection extends StatelessWidget {
           const SizedBox(height: 16),
           AgeRangeWidget(onTap: () {
             BottomPicker.date(
-              maxDateTime: DateTime.now(),
+              initialDateTime: DateTime(2000),
+              maxDateTime: DateTime(DateTime.now().year - 2),
               backgroundColor: AppColors.secondaryColor,
               pickerTitle: Text('Select a Date',
                   style: Styles.styleBold16.copyWith(color: Colors.blue)),

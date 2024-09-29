@@ -19,6 +19,9 @@ class BuildLoginCubit extends Cubit<BuildLoginState> {
 
   List<TextFieldModel> items = [];
 
+
+  String userName = '';
+
   void _initializeItems() {
     items = [
       TextFieldModel(

@@ -29,6 +29,7 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   bottom_picker: ^2.8.0
+  cloud_firestore: ^5.4.3
   cupertino_icons: ^1.0.8
   dartz: ^0.10.1
   email_validator: ^3.0.0

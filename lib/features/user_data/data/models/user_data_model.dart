@@ -1,22 +1,25 @@
 import 'package:e_clot_shop/core/utils/constants.dart';
 
 class UserDataModel {
-  final String userName;
-  final String email;
-  final String userId;
-  final String userImage;
+  final String userName, email, userId, userImage;
+  final int type, age;
 
   UserDataModel(
       {required this.userName,
       required this.email,
       required this.userId,
-      this.userImage = Constants.defaultUserImageUrl});
+      this.userImage = Constants.defaultUserImageUrl,
+      required this.type,
+      required this.age});
 
   factory UserDataModel.fromJson(Map<String, dynamic> jsonData) {
     return UserDataModel(
         userName: jsonData['userName'],
         email: jsonData['email'],
-        userId: jsonData['userId']);
+        userId: jsonData['userId'],
+        userImage: jsonData['userImage'],
+        type: jsonData['type'],
+        age: jsonData['age']);
   }
 
   toJson() {
@@ -24,7 +27,9 @@ class UserDataModel {
       'userName': userName,
       'email': email,
       'userId': userId,
-      'userImage': userImage
+      'userImage': userImage,
+      'type': type,
+      'age': age
     };
   }
 }
