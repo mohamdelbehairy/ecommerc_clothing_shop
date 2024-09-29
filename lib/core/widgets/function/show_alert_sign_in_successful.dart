@@ -1,12 +1,14 @@
 import 'package:e_clot_shop/core/models/svg_model.dart';
+import 'package:e_clot_shop/core/utils/app_router.dart';
 import 'package:e_clot_shop/core/utils/assets.dart';
 import 'package:e_clot_shop/core/utils/colors.dart';
 import 'package:e_clot_shop/core/utils/styles.dart';
 import 'package:e_clot_shop/core/widgets/custom_svg.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 Future<Object?> showAlertSignInSuccessful(BuildContext context) {
-  return showGeneralDialog(
+  showGeneralDialog(
       context: context,
       pageBuilder: (_, __, ___) => Material(
             color: Colors.transparent,
@@ -46,4 +48,9 @@ Future<Object?> showAlertSignInSuccessful(BuildContext context) {
               ),
             ),
           ));
+  Future.delayed(const Duration(seconds: 3), () {
+    // ignore: use_build_context_synchronously
+    GoRouter.of(context).go(AppRouter.home);
+  });
+  return Future.value();
 }

@@ -10,8 +10,9 @@ class SaveUserDataCubit extends Cubit<SaveUserDataState> {
   SaveUserDataCubit(this._userDataRepo) : super(SaveUserDataInitial());
 
   final UserDataRepo _userDataRepo;
-
+  bool isLoading = false;
   Future<void> saveUserData({required UserDataModel userDataModel}) async {
+    emit(SaveUserDataLoading(isLoading: true));
     final result = await _userDataRepo.saveUserData(userDataModel);
     result.fold(
       (failure) {

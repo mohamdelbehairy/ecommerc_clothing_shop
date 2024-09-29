@@ -3,6 +3,7 @@ import 'package:e_clot_shop/features/login/presentation/views/tell_about_view.da
 import 'package:e_clot_shop/features/register/presentation/views/register_view.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../features/home/presentation/views/home_view.dart';
 import '../../features/login/presentation/views/check_email_view.dart';
 import '../../features/login/presentation/views/forget_password_view.dart';
 import '../../features/login/presentation/views/login_password_view.dart';
@@ -17,6 +18,7 @@ class AppRouter {
   static const forgetPassword = '/forgetPasswordView';
   static const checkEmail = '/checkEmailView';
   static const tellAbout = '/tellAboutView';
+  static const home = '/homeView';
 
   static final router = GoRouter(
     routes: [
@@ -39,6 +41,8 @@ class AppRouter {
       GoRoute(
           path: tellAbout,
           builder: (context, state) => const TellAboutView()),
+
+      GoRoute(path: home, builder: (context, state) => const HomeView()),
     ],
   );
 }
