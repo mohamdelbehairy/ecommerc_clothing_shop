@@ -62,4 +62,14 @@ class Styles {
       fontWeight: FontWeight.w500,
       color: const Color(0xff272727).withOpacity(.5),
       fontSize: 16);
+
+  static TextStyle styleBoldUrbainst24 = GoogleFonts.urbanist(
+      fontWeight: FontWeight.bold,
+      color: const Color(0xff8E6CEF),
+      fontSize: 24);
+
+  static TextStyle styleMediumUrbainst16 = GoogleFonts.urbanist(
+      fontWeight: FontWeight.w500,
+      color: const Color(0xff59606E),
+      fontSize: 16);
 }
