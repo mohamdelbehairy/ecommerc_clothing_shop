@@ -12,6 +12,11 @@ class Styles {
       color: const Color(0xff272727),
       fontSize: 16);
 
+  static TextStyle styleMedium16WithOpacity = GoogleFonts.nunito(
+      fontWeight: FontWeight.w500,
+      color: const Color(0xff272727).withOpacity(.5),
+      fontSize: 16);
+
   static TextStyle styleMediumWhite16 = GoogleFonts.nunito(
       fontWeight: FontWeight.w500, color: Colors.white, fontSize: 16);
 
