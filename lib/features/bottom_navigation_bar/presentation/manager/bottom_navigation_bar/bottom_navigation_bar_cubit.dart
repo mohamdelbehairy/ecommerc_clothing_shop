@@ -1,4 +1,6 @@
 import 'package:e_clot_shop/core/utils/assets.dart';
+import 'package:e_clot_shop/features/setting/presentation/views/setting_view.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../data/models/bottom_navigation_bar_model.dart';
@@ -16,6 +18,13 @@ class BottomNavigationBarCubit extends Cubit<BottomNavigationBarState> {
   ];
 
   int activeIndex = 0;
+
+  List views = [
+    const Scaffold(),
+    const Scaffold(),
+    const Scaffold(),
+    const SettingView(),
+  ];
 
   void changeIndex(int index) {
     activeIndex = index;

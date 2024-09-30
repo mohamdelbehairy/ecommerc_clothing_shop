@@ -13,6 +13,7 @@ BottomNavigationBarItem customBottomNavigationBarItem(
                 image: model.icon,
                 colorFilter: ColorFilter.mode(
                     isActive ? model.activeColor : model.inActiveColor,
-                    BlendMode.srcIn))),
+                    BlendMode.srcIn)
+                    )),
         label: '');
   }

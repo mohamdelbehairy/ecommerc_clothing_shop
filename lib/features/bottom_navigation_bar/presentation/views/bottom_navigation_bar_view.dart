@@ -11,6 +11,7 @@ class BottomNavigationBarView extends StatelessWidget {
   Widget build(BuildContext context) {
     var bottomNavigationBar = context.watch<BottomNavigationBarCubit>();
     return Scaffold(
+      body: bottomNavigationBar.views[bottomNavigationBar.activeIndex],
       bottomNavigationBar: Theme(
         data: ThemeData(
             highlightColor: Colors.transparent,
