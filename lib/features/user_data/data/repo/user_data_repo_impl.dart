@@ -3,8 +3,7 @@ import 'package:dartz/dartz.dart';
 
 import 'package:e_clot_shop/core/error/failure.dart';
 import 'package:e_clot_shop/core/utils/constants.dart';
-import 'package:e_clot_shop/features/user_data/data/models/user_data_model.dart';
-
+import '../models/user_data_model.dart';
 import 'user_data_repo.dart';
 
 class UserDataRepoImpl extends UserDataRepo {
@@ -24,5 +23,14 @@ class UserDataRepoImpl extends UserDataRepo {
       }
       return Left(Failure(message: e.toString()));
     }
+  }
+
+  @override
+  void getUserData(
+      Function(QuerySnapshot<Map<String, dynamic>>)? onData) async {
+    FirebaseFirestore.instance
+        .collection(Constants.usersCollection)
+        .snapshots()
+        .listen(onData);
   }
 }
