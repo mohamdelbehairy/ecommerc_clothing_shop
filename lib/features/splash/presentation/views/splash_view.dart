@@ -39,7 +39,7 @@ class _SplashViewState extends State<SplashView> {
       if (await sharedPref.getBool(key: Constants.firstLogin)) {
         if (await sharedPref.getString(key: Constants.userId) != null) {
           // ignore: use_build_context_synchronously
-          GoRouter.of(context).go(AppRouter.home);
+          GoRouter.of(context).go(AppRouter.bottomNavigationBar);
         } else {
           // ignore: use_build_context_synchronously
           GoRouter.of(context).go(AppRouter.login);

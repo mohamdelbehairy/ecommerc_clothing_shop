@@ -1,9 +1,9 @@
+import 'package:e_clot_shop/features/bottom_navigation_bar/presentation/views/bottom_navigation_bar_view.dart';
 import 'package:e_clot_shop/features/login/presentation/views/login_view.dart';
 import 'package:e_clot_shop/features/login/presentation/views/tell_about_view.dart';
 import 'package:e_clot_shop/features/register/presentation/views/register_view.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../features/home/presentation/views/home_view.dart';
 import '../../features/login/presentation/views/check_email_view.dart';
 import '../../features/login/presentation/views/forget_password_view.dart';
 import '../../features/login/presentation/views/login_password_view.dart';
@@ -18,7 +18,7 @@ class AppRouter {
   static const forgetPassword = '/forgetPasswordView';
   static const checkEmail = '/checkEmailView';
   static const tellAbout = '/tellAboutView';
-  static const home = '/homeView';
+  static const bottomNavigationBar = '/bottomNavigationBarView';
 
   static final router = GoRouter(
     routes: [
@@ -39,10 +39,10 @@ class AppRouter {
           path: checkEmail,
           builder: (context, state) => const CheckEmailView()),
       GoRoute(
-          path: tellAbout,
-          builder: (context, state) => const TellAboutView()),
-
-      GoRoute(path: home, builder: (context, state) => const HomeView()),
+          path: tellAbout, builder: (context, state) => const TellAboutView()),
+      GoRoute(
+          path: bottomNavigationBar,
+          builder: (context, state) => const BottomNavigationBarView()),
     ],
   );
 }

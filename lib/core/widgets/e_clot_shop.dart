@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../features/bottom_navigation_bar/presentation/manager/bottom_navigation_bar/bottom_navigation_bar_cubit.dart';
 import '../../features/login/presentation/manager/build_login/build_login_cubit.dart';
 
 class EClotShop extends StatelessWidget {
@@ -14,15 +15,15 @@ class EClotShop extends StatelessWidget {
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(
-        statusBarColor: Colors.transparent,
-        statusBarIconBrightness: Brightness.dark,
-      ),
+          statusBarColor: Colors.transparent,
+          statusBarIconBrightness: Brightness.dark),
     );
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => BuildLoginCubit()),
         BlocProvider(
             create: (context) => SharedPrefCubit(SharedPrefRepoImpl())),
+        BlocProvider(create: (context) => BottomNavigationBarCubit())
       ],
       child: MaterialApp.router(
         theme: ThemeData(scaffoldBackgroundColor: Colors.white),

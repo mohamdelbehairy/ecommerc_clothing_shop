@@ -18,13 +18,29 @@ class Assets {
   /// assets/images/google.svg
   static const String imagesGoogle = "assets/images/google.svg";
 
+  /// Assets for imagesHome2
+  /// assets/images/home2.svg
+  static const String imagesHome2 = "assets/images/home2.svg";
+
   /// Assets for imagesLogo
   /// assets/images/logo.png
   static const String imagesLogo = "assets/images/logo.png";
 
+  /// Assets for imagesNotificationbing
+  /// assets/images/notificationbing.svg
+  static const String imagesNotificationbing = "assets/images/notificationbing.svg";
+
   /// Assets for imagesOne
   /// assets/images/one.png
   static const String imagesOne = "assets/images/one.png";
+
+  /// Assets for imagesOrders
+  /// assets/images/orders.svg
+  static const String imagesOrders = "assets/images/orders.svg";
+
+  /// Assets for imagesProfile
+  /// assets/images/profile.svg
+  static const String imagesProfile = "assets/images/profile.svg";
 
   /// Assets for imagesSigninSuccess
   /// assets/images/signin_success.svg
