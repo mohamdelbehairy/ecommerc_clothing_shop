@@ -9,7 +9,14 @@ class SharedPrefCubit extends Cubit<SharedPrefState> {
 
   Future<bool> getBool({required String key}) async {
     return await _sharedPrefRepo.getBool(key).then((value) {
-      emit(SharedPrefGetSuccess());
+      emit(SharedPrefGetBoolSuccess());
+      return value;
+    });
+  }
+
+  Future<String?> getString({required String key}) async {
+    return await _sharedPrefRepo.getString(key).then((value) {
+      emit(SharedPrefGetStringSuccess());
       return value;
     });
   }

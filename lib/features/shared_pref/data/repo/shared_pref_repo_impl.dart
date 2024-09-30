@@ -21,4 +21,10 @@ class SharedPrefRepoImpl extends SharedPrefRepo {
     final prefs = await SharedPreferences.getInstance();
     return prefs.getBool(key) ?? false;
   }
+
+  @override
+  Future<String?> getString(String key) async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getString(key);
+  }
 }

@@ -5,4 +5,6 @@ class Constants {
   static const usersCollection = 'users';
 
   static const firstLogin = 'first_login';
+
+  static const userId = 'user_id';
 }

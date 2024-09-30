@@ -1,14 +1,10 @@
 import 'package:dartz/dartz.dart';
 import 'package:e_clot_shop/core/error/failure.dart';
-import 'package:e_clot_shop/core/utils/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import '../../../../shared_pref/data/models/shared_pref_model.dart';
-import '../../../../shared_pref/data/repo/shared_pref_repo.dart';
-import '../../../../shared_pref/data/repo/shared_pref_repo_impl.dart';
+import '../../../../../core/utils/cached_user_id_and_first_login.dart';
 import 'email_auth_repo.dart';
 
 class EmailAuthRepoImpl extends EmailAuthRepo {
-  final SharedPrefRepo _sharedPrefRepo = SharedPrefRepoImpl();
   @override
   Future<Either<Failure, void>> registerWithEmailAndPassword(
       String email, String password) async {
@@ -16,8 +12,7 @@ class EmailAuthRepoImpl extends EmailAuthRepo {
       final credential = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(email: email, password: password);
       if (credential.user != null) {
-        await _sharedPrefRepo
-            .setBool(SharedPrefModel(key: Constants.firstLogin, value: true));
+        await cachedUserIdAndFirstLogin(credential);
       }
       return const Right(null);
     } catch (e) {
@@ -36,8 +31,7 @@ class EmailAuthRepoImpl extends EmailAuthRepo {
       final credential = await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
       if (credential.user != null) {
-        await _sharedPrefRepo
-            .setBool(SharedPrefModel(key: Constants.firstLogin, value: true));
+        await cachedUserIdAndFirstLogin(credential);
       }
       return const Right(null);
     } catch (e) {

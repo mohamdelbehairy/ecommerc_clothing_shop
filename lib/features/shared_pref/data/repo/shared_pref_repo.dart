@@ -4,4 +4,5 @@ abstract class SharedPrefRepo {
   Future<void> setString(SharedPrefModel sharedPrefModel);
   Future<void> setBool(SharedPrefModel sharedPrefModel);
   Future<bool> getBool(String key);
+  Future<String?> getString(String key);
 }
