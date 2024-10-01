@@ -1,7 +1,7 @@
 import 'package:e_clot_shop/core/utils/constants.dart';
 
 class UserDataModel {
-  final String userName, email, userId, userImage;
+  final String userName, email, userId, userImage, authType;
   final int? type, age;
 
   UserDataModel(
@@ -9,6 +9,7 @@ class UserDataModel {
       required this.email,
       required this.userId,
       this.userImage = Constants.defaultUserImageUrl,
+      this.authType = Constants.email,
       this.type = 0,
       this.age});
 
@@ -18,6 +19,7 @@ class UserDataModel {
         email: jsonData['email'],
         userId: jsonData['userId'],
         userImage: jsonData['userImage'],
+        authType: jsonData['authType'],
         type: jsonData['type'],
         age: jsonData['age']);
   }
@@ -28,6 +30,7 @@ class UserDataModel {
       'email': email,
       'userId': userId,
       'userImage': userImage,
+      'authType': authType,
       'type': type,
       'age': age
     };

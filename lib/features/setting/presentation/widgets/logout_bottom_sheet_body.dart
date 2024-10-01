@@ -1,11 +1,17 @@
 import 'package:e_clot_shop/core/models/custom_button_model.dart';
+import 'package:e_clot_shop/core/utils/constants.dart';
 import 'package:e_clot_shop/core/utils/styles.dart';
 import 'package:e_clot_shop/core/widgets/custom_button.dart';
+import 'package:e_clot_shop/features/user_data/data/models/user_data_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../auth/presentation/manager/logout/logout_cubit.dart';
+
 class LogoutBottomSheetBody extends StatelessWidget {
-  const LogoutBottomSheetBody({super.key});
+  const LogoutBottomSheetBody({super.key, required this.userData});
+  final UserDataModel userData;
 
   @override
   Widget build(BuildContext context) {
@@ -25,8 +31,10 @@ class LogoutBottomSheetBody extends StatelessWidget {
           CustomButton(
               customButtonModel: CustomButtonModel(
                   buttonName: 'Log out',
-                  onTap: () {
-                    GoRouter.of(context).pop();
+                  onTap: () async {
+                    if (userData.authType == Constants.email) {
+                      await context.read<LogoutCubit>().emailLogout();
+                    }
                   })),
           const SizedBox(height: 4),
           CustomButton(

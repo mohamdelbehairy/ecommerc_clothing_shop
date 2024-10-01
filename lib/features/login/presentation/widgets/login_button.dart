@@ -23,6 +23,8 @@ class LoginButton extends StatelessWidget {
         if (state is EmailLoginSuccess) {
           emailLogin.isLoading = false;
           showAlertSignInSuccessful(context);
+          buildLogin.email.clear();
+          buildLogin.password.clear();
         }
         if (state is EmailLoginFailure) {
           emailLogin.isLoading = false;

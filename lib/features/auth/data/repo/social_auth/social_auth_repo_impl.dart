@@ -3,6 +3,7 @@ import 'package:dartz/dartz.dart';
 import 'package:e_clot_shop/core/error/failure.dart';
 import 'package:e_clot_shop/core/utils/cached_user_id_and_first_login.dart';
 import 'package:e_clot_shop/core/utils/constants.dart';
+import 'package:e_clot_shop/core/utils/remove_user_id.dart';
 import 'package:e_clot_shop/features/user_data/data/models/user_data_model.dart';
 import 'package:e_clot_shop/features/user_data/data/repo/user_data_repo.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -40,6 +41,10 @@ class SocialAuthRepoImpl extends SocialAuthRepo {
       }
       return const Right(null);
     } catch (e) {
+      if (e is FirebaseAuthException) {
+        return Left(FirebaseFailure.fromCode(e.code));
+      }
+
       return Left(Failure(message: e.toString()));
     }
   }
@@ -69,6 +74,10 @@ class SocialAuthRepoImpl extends SocialAuthRepo {
 
       return const Right(null);
     } catch (e) {
+      if (e is FirebaseAuthException) {
+        return Left(FirebaseFailure.fromCode(e.code));
+      }
+
       return Left(Failure(message: e.toString()));
     }
   }
@@ -80,5 +89,26 @@ class SocialAuthRepoImpl extends SocialAuthRepo {
         .doc(userId)
         .get();
     return snapshot.exists;
+  }
+
+  @override
+  Future<Either<Failure, void>> googleLogout() async {
+    try {
+      await removeUserId();
+      await GoogleSignIn().signOut();
+      return const Right(null);
+    } catch (e) {
+      if (e is FirebaseAuthException) {
+        return Left(FirebaseFailure.fromCode(e.code));
+      }
+
+      return Left(Failure(message: e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, void>> facebookLogout() {
+    // TODO: implement facebookLogout
+    throw UnimplementedError();
   }
 }

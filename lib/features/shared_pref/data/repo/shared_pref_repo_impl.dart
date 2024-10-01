@@ -27,4 +27,10 @@ class SharedPrefRepoImpl extends SharedPrefRepo {
     final prefs = await SharedPreferences.getInstance();
     return prefs.getString(key);
   }
+  
+  @override
+  Future<void> remove(String key) async{
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.remove(key);
+  }
 }

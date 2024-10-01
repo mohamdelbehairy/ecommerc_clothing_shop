@@ -8,4 +8,6 @@ abstract class EmailAuthRepo {
   Future<Either<Failure, void>> signInWithEmailAndPassword(
       String email, String password);
   Future<Either<Failure, void>> forgetPassword(String email);
+
+  Future<Either<Failure, void>> emailLogout();
 }

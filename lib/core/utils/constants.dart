@@ -7,4 +7,8 @@ class Constants {
   static const firstLogin = 'first_login';
 
   static const userId = 'user_id';
+
+  static const email = 'email';
+  static const google = 'google';
+  static const facebook = 'facebook';
 }

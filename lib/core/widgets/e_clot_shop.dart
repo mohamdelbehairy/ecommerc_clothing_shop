@@ -29,7 +29,7 @@ class EClotShop extends StatelessWidget {
         BlocProvider(create: (context) => BottomNavigationBarCubit()),
         BlocProvider(
             create: (context) =>
-                GetUserDataCubit(getIt.get<UserDataRepoImpl>())..getUserData())
+                GetUserDataCubit(getIt.get<UserDataRepoImpl>()))
       ],
       child: MaterialApp.router(
         theme: ThemeData(scaffoldBackgroundColor: Colors.white),
