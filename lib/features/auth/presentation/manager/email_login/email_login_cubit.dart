@@ -15,7 +15,7 @@ class EmailLoginCubit extends Cubit<EmailLoginState> {
   Future<void> signInWithEmailAndPassword(
       {required String email, required String password}) async {
     emit(EmailLoginLoading(isLoading: true));
-    
+
     final result =
         await _emailAuthRepo.signInWithEmailAndPassword(email, password);
     result.fold(
@@ -24,7 +24,9 @@ class EmailLoginCubit extends Cubit<EmailLoginState> {
         log('error from sign in with email and password: ${failure.message}');
       },
       (userCredential) {
-        emit(EmailLoginSuccess());
+        if (userCredential.user != null) {
+          emit(EmailLoginSuccess());
+        }
       },
     );
   }

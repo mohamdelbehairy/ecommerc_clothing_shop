@@ -19,7 +19,9 @@ class FacebookAuthCubit extends Cubit<FacebookAuthState> {
         log('error from facebook auth: ${failure.message}');
       },
       (userCredential) {
-        emit(FacebookAuthSuccess());
+        if (userCredential.user != null) {
+          emit(FacebookAuthSuccess());
+        }
       },
     );
   }

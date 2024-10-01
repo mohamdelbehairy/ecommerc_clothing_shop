@@ -8,7 +8,7 @@ part 'google_auth_state.dart';
 class GoogleAuthCubit extends Cubit<GoogleAuthState> {
   GoogleAuthCubit(this._socialAuthRepo) : super(GoogleAuthInitial());
   final SocialAuthRepo _socialAuthRepo;
-  
+
   bool isLoading = false;
   Future<void> signInWIthGoogle() async {
     emit(GoogleAuthLoading(isLoading: true));
@@ -19,7 +19,9 @@ class GoogleAuthCubit extends Cubit<GoogleAuthState> {
         log('error from google auth: ${failure.message}');
       },
       (userCredential) {
-        emit(GoogleAuthSuccess());
+        if (userCredential.user != null) {
+          emit(GoogleAuthSuccess());
+        }
       },
     );
   }

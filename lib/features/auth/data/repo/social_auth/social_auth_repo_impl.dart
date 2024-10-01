@@ -16,8 +16,9 @@ import 'social_auth_repo.dart';
 class SocialAuthRepoImpl extends SocialAuthRepo {
   final UserDataRepo _userDataRepo = UserDataRepoImpl();
   @override
-  Future<Either<Failure, void>> signInWithGoogle() async {
+  Future<Either<Failure, UserCredential>> signInWithGoogle() async {
     try {
+      UserCredential? userCredential;
       GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
       GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
 
@@ -25,21 +26,23 @@ class SocialAuthRepoImpl extends SocialAuthRepo {
         final credential = GoogleAuthProvider.credential(
             accessToken: googleAuth.accessToken, idToken: googleAuth.idToken);
 
-        var userCredential =
+        userCredential =
             await FirebaseAuth.instance.signInWithCredential(credential);
 
         if (userCredential.user != null) {
           if (!await isUserDataSaved(userCredential.user!.uid)) {
             await _userDataRepo.saveUserData(UserDataModel(
-                userName: userCredential.user!.displayName!,
-                email: userCredential.user!.email!,
-                userId: userCredential.user!.uid));
+              userName: userCredential.user!.displayName!,
+              email: userCredential.user!.email!,
+              userId: userCredential.user!.uid,
+              authType: Constants.google,
+            ));
           }
 
           await cachedUserIdAndFirstLogin(userCredential);
         }
       }
-      return const Right(null);
+      return Right(userCredential!);
     } catch (e) {
       if (e is FirebaseAuthException) {
         return Left(FirebaseFailure.fromCode(e.code));
@@ -50,15 +53,16 @@ class SocialAuthRepoImpl extends SocialAuthRepo {
   }
 
   @override
-  Future<Either<Failure, void>> signInWithFacebook() async {
+  Future<Either<Failure, UserCredential>> signInWithFacebook() async {
     try {
+      UserCredential? userCredential;
       final LoginResult loginResult = await FacebookAuth.instance.login();
       if (loginResult.accessToken != null) {
         final OAuthCredential facebookAuthCredential =
             FacebookAuthProvider.credential(
                 loginResult.accessToken!.tokenString);
 
-        final userCredential = await FirebaseAuth.instance
+        userCredential = await FirebaseAuth.instance
             .signInWithCredential(facebookAuthCredential);
 
         if (userCredential.user != null) {
@@ -66,13 +70,14 @@ class SocialAuthRepoImpl extends SocialAuthRepo {
             await _userDataRepo.saveUserData(UserDataModel(
                 userName: userCredential.user!.displayName!,
                 email: userCredential.user!.email!,
-                userId: userCredential.user!.uid));
+                userId: userCredential.user!.uid,
+                authType: Constants.facebook));
           }
           await cachedUserIdAndFirstLogin(userCredential);
         }
       }
 
-      return const Right(null);
+      return Right(userCredential!);
     } catch (e) {
       if (e is FirebaseAuthException) {
         return Left(FirebaseFailure.fromCode(e.code));
@@ -92,11 +97,12 @@ class SocialAuthRepoImpl extends SocialAuthRepo {
   }
 
   @override
-  Future<Either<Failure, void>> googleLogout() async {
+  Future<Either<Failure, bool>> googleLogout() async {
     try {
       await removeUserId();
       await GoogleSignIn().signOut();
-      return const Right(null);
+
+      return const Right(true);
     } catch (e) {
       if (e is FirebaseAuthException) {
         return Left(FirebaseFailure.fromCode(e.code));
@@ -107,8 +113,17 @@ class SocialAuthRepoImpl extends SocialAuthRepo {
   }
 
   @override
-  Future<Either<Failure, void>> facebookLogout() {
-    // TODO: implement facebookLogout
-    throw UnimplementedError();
+  Future<Either<Failure, void>> facebookLogout() async {
+    try {
+      await removeUserId();
+      await FacebookAuth.instance.logOut();
+      return const Right(null);
+    } catch (e) {
+      if (e is FirebaseAuthException) {
+        return Left(FirebaseFailure.fromCode(e.code));
+      }
+
+      return Left(Failure(message: e.toString()));
+    }
   }
 }

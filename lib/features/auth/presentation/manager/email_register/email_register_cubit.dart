@@ -23,7 +23,9 @@ class EmailRegisterCubit extends Cubit<EmailRegisterState> {
         log('error from register with email and password: ${failure.message}');
       },
       (userCredential) {
-        emit(EmailRegisterSuccess());
+        if (userCredential.user != null) {
+          emit(EmailRegisterSuccess());
+        }
       },
     );
   }

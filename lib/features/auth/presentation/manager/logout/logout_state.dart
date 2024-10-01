@@ -8,6 +8,10 @@ final class LogoutLoading extends LogoutState {}
 
 final class EmailLogoutSuccess extends LogoutState {}
 
+final class GoogleLogoutSuccess extends LogoutState {}
+
+final class FacebookLogoutSuccess extends LogoutState {}
+
 final class LogoutFailure extends LogoutState {
   final String errorMessage;
 

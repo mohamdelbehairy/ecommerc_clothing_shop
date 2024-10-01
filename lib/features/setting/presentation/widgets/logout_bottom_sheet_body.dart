@@ -15,6 +15,7 @@ class LogoutBottomSheetBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var logout = context.read<LogoutCubit>();
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Column(
@@ -32,8 +33,13 @@ class LogoutBottomSheetBody extends StatelessWidget {
               customButtonModel: CustomButtonModel(
                   buttonName: 'Log out',
                   onTap: () async {
+                    // await logout.googleLogout();
                     if (userData.authType == Constants.email) {
-                      await context.read<LogoutCubit>().emailLogout();
+                      await logout.emailLogout();
+                    } else if (userData.authType == Constants.google) {
+                      await logout.googleLogout();
+                    } else {
+                      await logout.facebookLogout();
                     }
                   })),
           const SizedBox(height: 4),

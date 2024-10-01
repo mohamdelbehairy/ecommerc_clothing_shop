@@ -6,9 +6,8 @@ import '../../../../../core/utils/cached_user_id_and_first_login.dart';
 import 'email_auth_repo.dart';
 
 class EmailAuthRepoImpl extends EmailAuthRepo {
-  
   @override
-  Future<Either<Failure, void>> registerWithEmailAndPassword(
+  Future<Either<Failure, UserCredential>> registerWithEmailAndPassword(
       String email, String password) async {
     try {
       final credential = await FirebaseAuth.instance
@@ -16,7 +15,7 @@ class EmailAuthRepoImpl extends EmailAuthRepo {
       if (credential.user != null) {
         await cachedUserIdAndFirstLogin(credential);
       }
-      return const Right(null);
+      return Right(credential);
     } catch (e) {
       if (e is FirebaseAuthException) {
         return Left(FirebaseFailure.fromCode(e.code));
@@ -27,7 +26,7 @@ class EmailAuthRepoImpl extends EmailAuthRepo {
   }
 
   @override
-  Future<Either<Failure, void>> signInWithEmailAndPassword(
+  Future<Either<Failure, UserCredential>> signInWithEmailAndPassword(
       String email, String password) async {
     try {
       final credential = await FirebaseAuth.instance
@@ -35,7 +34,7 @@ class EmailAuthRepoImpl extends EmailAuthRepo {
       if (credential.user != null) {
         await cachedUserIdAndFirstLogin(credential);
       }
-      return const Right(null);
+      return Right(credential);
     } catch (e) {
       if (e is FirebaseAuthException) {
         return Left(FirebaseFailure.fromCode(e.code));
@@ -74,6 +73,4 @@ class EmailAuthRepoImpl extends EmailAuthRepo {
       return Left(Failure(message: e.toString()));
     }
   }
-
-  
 }
