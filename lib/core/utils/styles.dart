@@ -7,6 +7,11 @@ class Styles {
       color: const Color(0xff272727),
       fontSize: 32);
 
+  static TextStyle styleBold20 = GoogleFonts.nunito(
+      fontWeight: FontWeight.bold,
+      color: const Color(0xff272727),
+      fontSize: 20);
+
   static TextStyle styleMedium16 = GoogleFonts.nunito(
       fontWeight: FontWeight.w500,
       color: const Color(0xff272727),
@@ -32,6 +37,11 @@ class Styles {
       fontWeight: FontWeight.w500,
       color: const Color(0xff272727),
       fontSize: 12);
+
+  static TextStyle styleRegular15 = GoogleFonts.nunito(
+      fontWeight: FontWeight.w400,
+      color: const Color(0xff272727),
+      fontSize: 15);
 
   static TextStyle styleMedium24 = GoogleFonts.nunito(
       fontWeight: FontWeight.w500,
