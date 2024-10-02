@@ -34,4 +34,3 @@ class HomeWhenStateSuccess extends StatelessWidget {
     );
   }
 }
-

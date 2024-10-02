@@ -9,6 +9,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../features/bottom_navigation_bar/presentation/manager/bottom_navigation_bar/bottom_navigation_bar_cubit.dart';
+import '../../features/home/presentation/manager/build_home/build_home_cubit.dart';
 import '../../features/login/presentation/manager/build_login/build_login_cubit.dart';
 
 class EClotShop extends StatelessWidget {
@@ -29,7 +30,8 @@ class EClotShop extends StatelessWidget {
         BlocProvider(create: (context) => BottomNavigationBarCubit()),
         BlocProvider(
             create: (context) =>
-                GetUserDataCubit(getIt.get<UserDataRepoImpl>())..getUserData())
+                GetUserDataCubit(getIt.get<UserDataRepoImpl>())..getUserData()),
+        BlocProvider(create: (context) => BuildHomeCubit())
       ],
       child: MaterialApp.router(
         theme: ThemeData(scaffoldBackgroundColor: Colors.white),

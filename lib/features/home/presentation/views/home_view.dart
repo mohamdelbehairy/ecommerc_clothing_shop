@@ -1,7 +1,4 @@
-import 'package:e_clot_shop/features/home/presentation/manager/build_home/build_home_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../widgets/home_view_body.dart';
 
 class HomeView extends StatelessWidget {
@@ -9,11 +6,8 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => BuildHomeCubit(),
-      child: const Scaffold(
-        body: HomeViewBody(),
-      ),
+    return const Scaffold(
+      body: HomeViewBody(),
     );
   }
 }
