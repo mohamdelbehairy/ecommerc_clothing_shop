@@ -16,7 +16,7 @@ class HomeSearchWidget extends StatelessWidget {
       backgroundModel: BackgroundModel(
           height: 44,
           borderRadius: 100,
-          borderRadius2: 20,
+          padding: 20,
           child: Row(
             children: [
               CustomSvg(

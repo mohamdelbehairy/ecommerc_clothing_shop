@@ -10,13 +10,13 @@ class CustomBakgroundContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: backgroundModel.height,
-      width: double.infinity,
+      width: backgroundModel.width ?? double.infinity,
       decoration: BoxDecoration(
           color: AppColors.secondaryColor,
           borderRadius: BorderRadius.circular(backgroundModel.borderRadius)),
       child: Padding(
           padding:
-              EdgeInsets.symmetric(horizontal: backgroundModel.borderRadius2),
+              EdgeInsets.symmetric(horizontal: backgroundModel.padding),
           child: backgroundModel.child),
     );
   }

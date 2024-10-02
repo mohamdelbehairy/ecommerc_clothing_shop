@@ -26,6 +26,10 @@ class Assets {
   /// assets/images/facebook.svg
   static const String imagesFacebook = "assets/images/facebook.svg";
 
+  /// Assets for imagesFavIcon
+  /// assets/images/fav-icon.svg
+  static const String imagesFavIcon = "assets/images/fav-icon.svg";
+
   /// Assets for imagesGoogle
   /// assets/images/google.svg
   static const String imagesGoogle = "assets/images/google.svg";
@@ -73,6 +77,22 @@ class Assets {
   /// Assets for imagesSigninSuccess
   /// assets/images/signin_success.svg
   static const String imagesSigninSuccess = "assets/images/signin_success.svg";
+
+  /// Assets for imagesTest1
+  /// assets/images/test1.png
+  static const String imagesTest1 = "assets/images/test1.png";
+
+  /// Assets for imagesTest2
+  /// assets/images/test2.png
+  static const String imagesTest2 = "assets/images/test2.png";
+
+  /// Assets for imagesTest3
+  /// assets/images/test3.png
+  static const String imagesTest3 = "assets/images/test3.png";
+
+  /// Assets for imagesTest4
+  /// assets/images/test4.png
+  static const String imagesTest4 = "assets/images/test4.png";
 
   /// Assets for imagesThree
   /// assets/images/three.png
