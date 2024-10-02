@@ -15,10 +15,13 @@ class CategoriesViewListView extends StatelessWidget {
         return Column(
           children: List.generate(
               buildHome.items.length,
-              (index) => Padding(
-                  padding: const EdgeInsets.only(bottom: 12),
-                  child: CategoriesViewListTile(
-                      categoryItem: buildHome.items[index]))),
+              (index) => GestureDetector(
+                    onTap: () {},
+                    child: Padding(
+                        padding: const EdgeInsets.only(bottom: 12),
+                        child: CategoriesViewListTile(
+                            categoryItem: buildHome.items[index])),
+                  )),
         );
       },
     );

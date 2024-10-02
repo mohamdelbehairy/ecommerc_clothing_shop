@@ -14,4 +14,11 @@ class BuildHomeCubit extends Cubit<BuildHomeState> {
     CategoryItemModel(image: Assets.imagesBag, title: 'Bag'),
     CategoryItemModel(image: Assets.imagesAccessories, title: 'Accessories'),
   ];
+
+  // int activeIndex = -1;
+
+  // void activeIndexChange(int index) {
+  //   activeIndex = index;
+  //   emit(ChangeIndex());
+  // }
 }
