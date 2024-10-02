@@ -3,17 +3,19 @@ import 'package:e_clot_shop/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 import '../models/background_model.dart';
+import '../models/custom_product_model.dart';
 import 'custom_background_container.dart';
 
 class ProductItem extends StatelessWidget {
-  const ProductItem({super.key});
+  const ProductItem({super.key, required this.customProductModel});
+  final CustomProductModel customProductModel;
 
   @override
   Widget build(BuildContext context) {
     return CustomBakgroundContainer(
       backgroundModel: BackgroundModel(
           height: 281,
-          width: 159,
+          width: customProductModel.width ?? 159,
           padding: 4,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

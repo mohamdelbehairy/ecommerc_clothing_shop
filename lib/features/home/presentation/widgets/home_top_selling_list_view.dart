@@ -7,17 +7,17 @@ class HomeTopSellingListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return const SizedBox(
       height: 281,
-      child: ListView.builder(
-          itemCount: 10,
-          scrollDirection: Axis.horizontal,
-          physics: const BouncingScrollPhysics(),
-          itemBuilder: (context, index) {
-            return const Padding(
-                padding: EdgeInsets.only(right: 12),
-                child: ProductItemWidget());
-          }),
+      // child: ListView.builder(
+      //     itemCount: 10,
+      //     scrollDirection: Axis.horizontal,
+      //     physics: const BouncingScrollPhysics(),
+      //     itemBuilder: (context, index) {
+      //       return const Padding(
+      //           padding: EdgeInsets.only(right: 12),
+      //           child: ProductItemWidget());
+      //     }),
     );
   }
 }

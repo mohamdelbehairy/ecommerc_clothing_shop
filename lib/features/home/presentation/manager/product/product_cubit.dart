@@ -10,15 +10,18 @@ class ProductCubit extends Cubit<ProductState> {
   ProductCubit(this._productRepo) : super(ProductInitial());
   final ProductRepo _productRepo;
 
-  List<ProductModel> products = [];
+  List<ProductModel> hoddies = [];
   void getProduct() {
     try {
       _productRepo.getAllProducts((snapshot) {
-        products = [];
+        hoddies = [];
         for (var element in snapshot.docs) {
-          products.add(ProductModel.fromJson(element.data()));
+          var product = ProductModel.fromJson(element.data());
+          if (product.category.contains('hoodies')) {
+            hoddies.add(product);
+          }
         }
-        log('products length: ${products.length}');
+        log('products length: ${hoddies.length}');
         emit(ProductSuccess());
       });
     } catch (e) {
