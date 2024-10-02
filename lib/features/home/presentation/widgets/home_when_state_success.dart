@@ -1,10 +1,9 @@
-import 'package:e_clot_shop/core/utils/styles.dart';
-import 'package:e_clot_shop/core/widgets/see_all_widget.dart';
 import 'package:flutter/material.dart';
 import '../../../user_data/data/models/user_data_model.dart';
 import 'home_categories_section.dart';
 import 'home_header_section.dart';
 import 'home_search_widget.dart';
+import 'home_top_selling_header.dart';
 
 class HomeWhenStateSuccess extends StatelessWidget {
   const HomeWhenStateSuccess({super.key, required this.userData});
@@ -23,24 +22,10 @@ class HomeWhenStateSuccess extends StatelessWidget {
           const SizedBox(height: 28),
           const HomeCategoiresSection(),
           const SizedBox(height: 24),
-          // const HomeTopSellingHeader(),
+          const HomeTopSellingHeader(),
         ],
       ),
     );
   }
 }
 
-// class HomeTopSellingHeader extends StatelessWidget {
-//   const HomeTopSellingHeader({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Row(
-//       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//       children: [
-//         Text('Top Selling', style: Styles.styleBold16),
-//         SeeAllWidget(onTap: () {}),
-//       ],
-//     );
-//   }
-// }
