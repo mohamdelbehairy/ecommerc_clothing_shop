@@ -1,3 +1,4 @@
+import 'package:e_clot_shop/core/models/background_model.dart';
 import 'package:e_clot_shop/core/models/cached_network_image_model.dart';
 import 'package:e_clot_shop/core/utils/colors.dart';
 import 'package:e_clot_shop/core/utils/styles.dart';
@@ -24,15 +25,17 @@ class SettingUserImageAndSection extends StatelessWidget {
                 imageUrl: userData.userImage)),
         const SizedBox(height: 24),
         CustomBakgroundContainer(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              SettingUserInfoWidget(userData: userData),
-              Text('Edit',
-                  style: Styles.styleBoldGarabito12
-                      .copyWith(color: AppColors.primaryColor))
-            ],
-          ),
+          backgroundModel: BackgroundModel(
+              borderRadius: 8,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  SettingUserInfoWidget(userData: userData),
+                  Text('Edit',
+                      style: Styles.styleBoldGarabito12
+                          .copyWith(color: AppColors.primaryColor))
+                ],
+              )),
         ),
       ],
     );
