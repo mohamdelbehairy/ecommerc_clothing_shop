@@ -1,11 +1,12 @@
+import 'package:e_clot_shop/core/models/cached_network_image_model.dart';
 import 'package:e_clot_shop/core/utils/colors.dart';
 import 'package:e_clot_shop/core/utils/styles.dart';
 import 'package:e_clot_shop/features/user_data/data/models/user_data_model.dart';
 import 'package:flutter/material.dart';
 
-import 'setting_background_container.dart';
+import '../../../../core/widgets/custom_background_container.dart';
 import 'setting_user_info_widget.dart';
-import 'user_image_widget.dart';
+import '../../../../core/widgets/user_image_widget.dart';
 
 class SettingUserImageAndSection extends StatelessWidget {
   const SettingUserImageAndSection({super.key, required this.userData});
@@ -15,9 +16,14 @@ class SettingUserImageAndSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        UserImageWidget(imageUrl: userData.userImage),
+        UserImageWidget(
+            imageModel: CachedNetworkImageModel(
+                height: 100,
+                width: 100,
+                borderRadius: 100,
+                imageUrl: userData.userImage)),
         const SizedBox(height: 24),
-        SettingBakgroundContainer(
+        CustomBakgroundContainer(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [

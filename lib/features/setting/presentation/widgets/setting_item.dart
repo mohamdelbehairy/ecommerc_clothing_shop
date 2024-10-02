@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import '../../../../core/models/svg_model.dart';
 import '../../../../core/widgets/custom_svg.dart';
 import '../../data/models/setting_item_model.dart';
-import 'setting_background_container.dart';
+import '../../../../core/widgets/custom_background_container.dart';
 
 class SettingItem extends StatelessWidget {
   const SettingItem({super.key, required this.settingItemModel});
@@ -17,7 +17,7 @@ class SettingItem extends StatelessWidget {
       highlightColor: Colors.transparent,
       splashColor: Colors.transparent,
       onTap: settingItemModel.onTap,
-      child: SettingBakgroundContainer(
+      child: CustomBakgroundContainer(
           height: 56,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

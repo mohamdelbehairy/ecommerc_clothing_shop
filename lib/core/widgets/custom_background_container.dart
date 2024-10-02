@@ -1,8 +1,8 @@
 import 'package:e_clot_shop/core/utils/colors.dart';
 import 'package:flutter/material.dart';
 
-class SettingBakgroundContainer extends StatelessWidget {
-  const SettingBakgroundContainer(
+class CustomBakgroundContainer extends StatelessWidget {
+  const CustomBakgroundContainer(
       {super.key, this.height, required this.child});
   final double? height;
   final Widget child;
