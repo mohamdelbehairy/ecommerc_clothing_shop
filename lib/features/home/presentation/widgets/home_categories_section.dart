@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'home_categories_header.dart';
-import 'home_category_itemd.dart';
+import 'home_categories_list_view.dart';
 
 class HomeCategoiresSection extends StatelessWidget {
   const HomeCategoiresSection({super.key});
@@ -13,8 +13,9 @@ class HomeCategoiresSection extends StatelessWidget {
       children: [
         HomeCategoriesHeader(),
         SizedBox(height: 16),
-        HomeCategoryItem(),
+        HomeCategoriesListView(),
       ],
     );
   }
 }
+

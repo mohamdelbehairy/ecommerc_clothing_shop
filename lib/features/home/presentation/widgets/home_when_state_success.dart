@@ -1,3 +1,5 @@
+import 'package:e_clot_shop/core/utils/styles.dart';
+import 'package:e_clot_shop/core/widgets/see_all_widget.dart';
 import 'package:flutter/material.dart';
 import '../../../user_data/data/models/user_data_model.dart';
 import 'home_categories_section.dart';
@@ -20,9 +22,25 @@ class HomeWhenStateSuccess extends StatelessWidget {
           const HomeSearchWidget(),
           const SizedBox(height: 28),
           const HomeCategoiresSection(),
+          const SizedBox(height: 24),
+          // const HomeTopSellingHeader(),
         ],
       ),
     );
   }
 }
 
+// class HomeTopSellingHeader extends StatelessWidget {
+//   const HomeTopSellingHeader({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Row(
+//       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//       children: [
+//         Text('Top Selling', style: Styles.styleBold16),
+//         SeeAllWidget(onTap: () {}),
+//       ],
+//     );
+//   }
+// }
