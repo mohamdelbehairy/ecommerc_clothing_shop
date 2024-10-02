@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
 import '../../../user_data/data/models/user_data_model.dart';
+import 'home_categories_section.dart';
 import 'home_header_section.dart';
 import 'home_search_widget.dart';
 
@@ -17,9 +17,12 @@ class HomeWhenStateSuccess extends StatelessWidget {
           const SizedBox(height: 63),
           HomeHeaderSection(userData: userData),
           const SizedBox(height: 24),
-          const HomeSearchWidget()
+          const HomeSearchWidget(),
+          const SizedBox(height: 28),
+          const HomeCategoiresSection(),
         ],
       ),
     );
   }
 }
+
