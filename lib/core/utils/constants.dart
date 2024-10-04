@@ -11,4 +11,10 @@ class Constants {
   static const email = 'email';
   static const google = 'google';
   static const facebook = 'facebook';
+
+  static const hoodies = 'Hoodies';
+  static const shorts = 'Shorts';
+  static const shoes = 'Shoes';
+  static const bags = 'Bags';
+  static const accessories = 'Accessories';
 }

@@ -24,13 +24,7 @@ class CategoryProductsGridView extends StatelessWidget {
             return ProductItemWidget(
               customProductModel: CustomProductModel(
                   width: 180,
-                  productModel: ProductModel(
-                      id: 'id',
-                      name: 'name',
-                      price: 'price',
-                      image: 'image',
-                      category: 'category',
-                      createdTime: DateTime.now())),
+                  productModel: products[index]),
             );
           }),
     );

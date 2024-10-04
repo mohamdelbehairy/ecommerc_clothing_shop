@@ -11,7 +11,7 @@ class BuildHomeCubit extends Cubit<BuildHomeState> {
     CategoryItemModel(image: Assets.imagesHoodies, title: 'Hoodies'),
     CategoryItemModel(image: Assets.imagesShorts, title: 'Shorts'),
     CategoryItemModel(image: Assets.imagesShoes, title: 'Shoes'),
-    CategoryItemModel(image: Assets.imagesBag, title: 'Bag'),
+    CategoryItemModel(image: Assets.imagesBag, title: 'Bags'),
     CategoryItemModel(image: Assets.imagesAccessories, title: 'Accessories'),
   ];
 
