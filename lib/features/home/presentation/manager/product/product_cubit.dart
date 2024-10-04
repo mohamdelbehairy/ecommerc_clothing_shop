@@ -13,22 +13,40 @@ class ProductCubit extends Cubit<ProductState> {
 
   List<ProductModel> hoddies = [];
   List<ProductModel> bags = [];
+  List<ProductModel> shoes = [];
+  List<ProductModel> shorts = [];
+  List<ProductModel> accessories = [];
   void getProduct() {
     emit(ProductLoading());
     try {
       _productRepo.getAllProducts((snapshot) {
         hoddies = [];
+        shorts = [];
         bags = [];
+        shoes = [];
+        accessories = [];
         for (var element in snapshot.docs) {
           var product = ProductModel.fromJson(element.data());
           if (product.category.contains(Constants.hoodies)) {
             hoddies.add(product);
           }
+
+          if (product.category.contains(Constants.shorts)) {
+            shorts.add(product);
+          }
+
+          if (product.category.contains(Constants.shoes)) {
+            shoes.add(product);
+          }
+
           if (product.category.contains(Constants.bags)) {
             bags.add(product);
           }
+
+          if (product.category.contains(Constants.accessories)) {
+            accessories.add(product);
+          }
         }
-        log('products length: ${hoddies.length}');
         emit(ProductSuccess());
       });
     } catch (e) {
