@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/category_products_view_body.dart';
+import '../../../../core/widgets/build_view_body.dart';
+import '../widgets/category_products_section.dart';
 
 class CategoryProductsView extends StatelessWidget {
   const CategoryProductsView({super.key});
@@ -8,7 +9,7 @@ class CategoryProductsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: CategoryProductsViewBody(),
+      body: BuildViewBody(child: CategoryProductsSection()),
     );
   }
 }

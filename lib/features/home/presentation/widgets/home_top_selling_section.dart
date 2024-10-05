@@ -1,21 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../../core/widgets/custom_products_list_view.dart';
+import '../manager/product/product_cubit.dart';
 import 'home_top_selling_header.dart';
-import 'home_top_selling_list_view.dart';
 
 class HomeTopSellingSection extends StatelessWidget {
   const HomeTopSellingSection({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    var topSelling = context.watch<ProductCubit>();
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
+        const Padding(
             padding: EdgeInsets.symmetric(horizontal: 24),
             child: HomeTopSellingHeader()),
-        SizedBox(height: 16),
+        const SizedBox(height: 16),
         Padding(
-            padding: EdgeInsets.only(left: 24), child: HomeTopSellingListView())
+            padding: const EdgeInsets.only(left: 24),
+            child: CustomProductsListView(products: topSelling.topSelling))
       ],
     );
   }

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/models/custom_product_model.dart';
-import '../../../../core/widgets/product_item_widget.dart';
-import '../../data/models/product_model.dart';
+import '../../features/home/data/models/product_model.dart';
+import '../models/custom_product_model.dart';
+import 'product_item_widget.dart';
 
-class CategoryProductsGridView extends StatelessWidget {
-  const CategoryProductsGridView({super.key, required this.products});
+class CustomProductsGridView extends StatelessWidget {
+  const CustomProductsGridView({super.key, required this.products});
+
   final List<ProductModel> products;
 
   @override
@@ -22,9 +23,8 @@ class CategoryProductsGridView extends StatelessWidget {
               childAspectRatio: 161 / 281),
           itemBuilder: (context, index) {
             return ProductItemWidget(
-              customProductModel: CustomProductModel(
-                  width: 180,
-                  productModel: products[index]),
+              customProductModel:
+                  CustomProductModel(width: 180, productModel: products[index]),
             );
           }),
     );
