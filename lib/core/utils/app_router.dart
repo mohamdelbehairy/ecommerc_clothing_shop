@@ -6,6 +6,8 @@ import 'package:go_router/go_router.dart';
 
 import '../../features/home/presentation/views/categories_view.dart';
 import '../../features/home/presentation/views/category_products_view.dart';
+import '../../features/home/presentation/views/new_in_view.dart';
+import '../../features/home/presentation/views/top_selling_view.dart';
 import '../../features/login/presentation/views/check_email_view.dart';
 import '../../features/login/presentation/views/forget_password_view.dart';
 import '../../features/login/presentation/views/login_password_view.dart';
@@ -23,6 +25,8 @@ class AppRouter {
   static const bottomNavigationBar = '/bottomNavigationBarView';
   static const categories = '/categoriesView';
   static const categoryProducts = '/categoryProductsView';
+  static const topSelling = '/topSellingView';
+  static const newIn = '/newInView';
 
   static final router = GoRouter(
     routes: [
@@ -53,6 +57,11 @@ class AppRouter {
       GoRoute(
           path: categoryProducts,
           builder: (context, state) => const CategoryProductsView()),
+      GoRoute(
+          path: topSelling,
+          builder: (context, state) => const TopSellingView()),
+      GoRoute(
+          path: newIn, builder: (context, state) => const NewInView()),
     ],
   );
 }
