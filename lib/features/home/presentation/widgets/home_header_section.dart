@@ -11,13 +11,16 @@ class HomeHeaderSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        HomeUserImage(userData: userData),
-        HomeSelectTypeWidget(userData: userData),
-        const HomeWishlistWidget(),
-      ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 24),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          HomeUserImage(userData: userData),
+          HomeSelectTypeWidget(userData: userData),
+          const HomeWishlistWidget(),
+        ],
+      ),
     );
   }
 }

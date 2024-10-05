@@ -12,19 +12,22 @@ class HomeSearchWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomBakgroundContainer(
-      backgroundModel: BackgroundModel(
-          height: 44,
-          borderRadius: 100,
-          padding: 20,
-          child: Row(
-            children: [
-              CustomSvg(
-                  svgModel: SvgModel(height: 18, image: Assets.imagesSearch)),
-              const SizedBox(width: 12),
-              Text('Search', style: Styles.styleMedium16)
-            ],
-          )),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 24),
+      child: CustomBakgroundContainer(
+        backgroundModel: BackgroundModel(
+            height: 44,
+            borderRadius: 100,
+            padding: 20,
+            child: Row(
+              children: [
+                CustomSvg(
+                    svgModel: SvgModel(height: 18, image: Assets.imagesSearch)),
+                const SizedBox(width: 12),
+                Text('Search', style: Styles.styleMedium16)
+              ],
+            )),
+      ),
     );
   }
 }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-
 import 'home_new_in_header.dart';
-import 'home_top_selling_list_view.dart';
+import 'home_new_in_list_view.dart';
 
 class HomeNewInSection extends StatelessWidget {
   const HomeNewInSection({super.key});
@@ -10,10 +9,13 @@ class HomeNewInSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Column(
       children: [
-        HomeNewInHeader(),
+        Padding(
+            padding: EdgeInsets.symmetric(horizontal: 24),
+            child: HomeNewInHeader()),
         SizedBox(height: 16),
-        HomeTopSellingListView()
+        Padding(padding: EdgeInsets.only(left: 24), child: HomeNewInListView())
       ],
     );
   }
 }
+

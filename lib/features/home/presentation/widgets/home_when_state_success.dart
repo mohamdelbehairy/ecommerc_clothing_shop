@@ -13,23 +13,21 @@ class HomeWhenStateSuccess extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24),
-        child: Column(
-          children: [
-            const SizedBox(height: 63),
-            HomeHeaderSection(userData: userData),
-            const SizedBox(height: 24),
-            const HomeSearchWidget(),
-            const SizedBox(height: 28),
-            const HomeCategoiresSection(),
-            const SizedBox(height: 24),
-            const HomeTopSellingSection(),
-            const SizedBox(height: 24),
-            const HomeNewInSection(),
-            const SizedBox(height: 24),
-          ],
-        ),
+      physics: const BouncingScrollPhysics(),
+      child: Column(
+        children: [
+          const SizedBox(height: 63),
+          HomeHeaderSection(userData: userData),
+          const SizedBox(height: 24),
+          const HomeSearchWidget(),
+          const SizedBox(height: 28),
+          const HomeCategoiresSection(),
+          const SizedBox(height: 24),
+          const HomeTopSellingSection(),
+          const SizedBox(height: 24),
+          const HomeNewInSection(),
+          const SizedBox(height: 24),
+        ],
       ),
     );
   }

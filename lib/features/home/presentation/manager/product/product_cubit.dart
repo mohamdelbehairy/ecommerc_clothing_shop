@@ -16,6 +16,8 @@ class ProductCubit extends Cubit<ProductState> {
   List<ProductModel> shoes = [];
   List<ProductModel> shorts = [];
   List<ProductModel> accessories = [];
+  List<ProductModel> topSelling = [];
+  List<ProductModel> newIn = [];
   void getProduct() {
     emit(ProductLoading());
     try {
@@ -25,6 +27,8 @@ class ProductCubit extends Cubit<ProductState> {
         bags = [];
         shoes = [];
         accessories = [];
+        topSelling = [];
+        newIn = [];
         for (var element in snapshot.docs) {
           var product = ProductModel.fromJson(element.data());
           if (product.category.contains(Constants.hoodies)) {
@@ -46,7 +50,23 @@ class ProductCubit extends Cubit<ProductState> {
           if (product.category.contains(Constants.accessories)) {
             accessories.add(product);
           }
+
+          if (product.createdTime
+              .isAfter(DateTime.now().subtract(const Duration(days: 7)))) {
+            newIn.add(product);
+          }
         }
+        newIn.sort((a, b) => b.createdTime.compareTo(a.createdTime));
+        
+        topSelling = snapshot.docs
+            .map((element) => ProductModel.fromJson(element.data()))
+            .toList()
+          ..sort((a, b) => b.sellingCount.compareTo(a.sellingCount));
+
+        if (topSelling.length > 10) {
+          topSelling = topSelling.sublist(0, 10);
+        }
+
         emit(ProductSuccess());
       });
     } catch (e) {

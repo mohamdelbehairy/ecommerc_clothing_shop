@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class ProductModel {
   final String id, name, price, image, category;
   final DateTime createdTime;
+  final int sellingCount;
 
   ProductModel(
       {required this.id,
@@ -10,7 +11,8 @@ class ProductModel {
       required this.price,
       required this.image,
       required this.category,
-      required this.createdTime});
+      required this.createdTime,
+      required this.sellingCount});
 
   factory ProductModel.fromJson(json) {
     return ProductModel(
@@ -20,6 +22,7 @@ class ProductModel {
       image: json['image'],
       category: json['category'],
       createdTime: (json['createdTime'] as Timestamp).toDate(),
+      sellingCount: json['sellingCount'],
     );
   }
 }

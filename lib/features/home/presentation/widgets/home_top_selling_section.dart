@@ -10,11 +10,13 @@ class HomeTopSellingSection extends StatelessWidget {
     return const Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        HomeTopSellingHeader(),
+        Padding(
+            padding: EdgeInsets.symmetric(horizontal: 24),
+            child: HomeTopSellingHeader()),
         SizedBox(height: 16),
-        HomeTopSellingListView()
+        Padding(
+            padding: EdgeInsets.only(left: 24), child: HomeTopSellingListView())
       ],
     );
   }
 }
-
