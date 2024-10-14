@@ -16,11 +16,12 @@ class BottomNavigationBarView extends StatelessWidget {
         data: ThemeData(
             highlightColor: Colors.transparent,
             splashColor: Colors.transparent),
-        child: SizedBox(
-          height: 85,
+        child: Padding(
+          padding: const EdgeInsets.only(top: 6),
           child: BottomNavigationBar(
             currentIndex: bottomNavigationBar.activeIndex,
             type: BottomNavigationBarType.fixed,
+            backgroundColor: Colors.white,
             onTap: (index) {
               bottomNavigationBar.changeIndex(index);
             },

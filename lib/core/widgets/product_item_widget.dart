@@ -16,9 +16,9 @@ class ProductItemWidget extends StatelessWidget {
       children: [
         ProductItem(customProductModel: customProductModel),
         Positioned(
-            right: 4,
-            top: 4,
-            child: CustomSvg(svgModel: SvgModel(image: Assets.imagesFavIcon)))
+            right: 6,
+            top: 6,
+            child: CustomSvg(svgModel: SvgModel(image: Assets.imagesFav,height: 25,width: 25)))
       ],
     );
   }

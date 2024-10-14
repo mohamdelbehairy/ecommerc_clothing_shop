@@ -26,9 +26,9 @@ class Assets {
   /// assets/images/facebook.svg
   static const String imagesFacebook = "assets/images/facebook.svg";
 
-  /// Assets for imagesFavIcon
-  /// assets/images/fav-icon.svg
-  static const String imagesFavIcon = "assets/images/fav-icon.svg";
+  /// Assets for imagesFav
+  /// assets/images/fav.svg
+  static const String imagesFav = "assets/images/fav.svg";
 
   /// Assets for imagesGoogle
   /// assets/images/google.svg
@@ -105,5 +105,9 @@ class Assets {
   /// Assets for imagesTwo
   /// assets/images/two.png
   static const String imagesTwo = "assets/images/two.png";
+
+  /// Assets for imagesUnfav
+  /// assets/images/unfav.svg
+  static const String imagesUnfav = "assets/images/unfav.svg";
 }
 
