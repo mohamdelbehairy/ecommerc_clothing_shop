@@ -8,9 +8,6 @@ class ProductRepoImpl extends ProductRepo {
   void getAllProducts(Function(QuerySnapshot<Map<String, dynamic>>)? onData) {
     FirebaseFirestore.instance
         .collection(Constants.productsCollection)
-        // .where('createdTime',
-        //     isGreaterThanOrEqualTo:
-        //         DateTime.now().subtract(const Duration(days: 1)))
         .snapshots()
         .listen(onData);
   }

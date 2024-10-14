@@ -4,6 +4,7 @@ import 'package:e_clot_shop/features/shared_pref/data/repo/shared_pref_repo_impl
 import 'package:e_clot_shop/features/shared_pref/presentation/manager/shared_pref/shared_pref_cubit.dart';
 import 'package:e_clot_shop/features/user_data/data/repo/user_data_repo_impl.dart';
 import 'package:e_clot_shop/features/user_data/presentation/manager/get_user_data/get_user_data_cubit.dart';
+import 'package:e_clot_shop/features/wishlist/presentation/manager/wishlist/wishlist_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -13,6 +14,7 @@ import '../../features/home/data/repo/product_repo_impl.dart';
 import '../../features/home/presentation/manager/build_home/build_home_cubit.dart';
 import '../../features/home/presentation/manager/product/product_cubit.dart';
 import '../../features/login/presentation/manager/build_login/build_login_cubit.dart';
+import '../../features/wishlist/data/repo/wishlist_repo_impl.dart';
 
 class EClotShop extends StatelessWidget {
   const EClotShop({super.key});
@@ -34,7 +36,8 @@ class EClotShop extends StatelessWidget {
             create: (context) =>
                 GetUserDataCubit(getIt.get<UserDataRepoImpl>())..getUserData()),
         BlocProvider(create: (context) => BuildHomeCubit()),
-        BlocProvider(create: (context) => ProductCubit(ProductRepoImpl()))
+        BlocProvider(create: (context) => ProductCubit(ProductRepoImpl())),
+        BlocProvider(create: (context) => WishlistCubit(WishlistRepoImpl()))
       ],
       child: MaterialApp.router(
         theme: ThemeData(scaffoldBackgroundColor: Colors.white),

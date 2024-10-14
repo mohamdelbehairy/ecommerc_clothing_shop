@@ -1,3 +1,4 @@
+import 'package:e_clot_shop/features/wishlist/presentation/manager/wishlist/wishlist_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../manager/product/product_cubit.dart';
@@ -14,6 +15,7 @@ class _HomeViewState extends State<HomeView> {
   @override
   void initState() {
     context.read<ProductCubit>().getProduct();
+    context.read<WishlistCubit>().getWishlist();
     super.initState();
   }
   @override

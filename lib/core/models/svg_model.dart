@@ -5,11 +5,13 @@ class SvgModel {
   final double? height, width;
   final BoxFit fit;
   final ColorFilter? colorFilter;
+  final Function()? onTap;
 
   SvgModel(
       {required this.image,
       this.height,
       this.width,
       this.fit = BoxFit.contain,
-      this.colorFilter});
+      this.colorFilter,
+      this.onTap});
 }

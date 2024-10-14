@@ -61,7 +61,7 @@ class ProductCubit extends Cubit<ProductState> {
         topSelling = snapshot.docs
             .map((element) => ProductModel.fromJson(element.data()))
             .toList()
-          ..sort((a, b) => b.sellingCount.compareTo(a.sellingCount));
+          ..sort((a, b) => b.sellingCount!.compareTo(a.sellingCount!));
 
         if (topSelling.length > 10) {
           topSelling = topSelling.sublist(0, 10);

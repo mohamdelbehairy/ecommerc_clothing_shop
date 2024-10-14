@@ -4,6 +4,7 @@ class Constants {
 
   static const usersCollection = 'users';
   static const productsCollection = 'products';
+  static const wishlistCollection = 'wishlist';
 
   static const firstLogin = 'first_login';
   static const userId = 'user_id';

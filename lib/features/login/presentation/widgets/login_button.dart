@@ -28,7 +28,8 @@ class LoginButton extends StatelessWidget {
         }
         if (state is EmailLoginFailure) {
           emailLogin.isLoading = false;
-          customSnackbarWidget(context, message: state.errorMessage);
+          customSnackbarWidget(context,
+              margin: const EdgeInsets.all(50), message: state.errorMessage);
         }
       },
       builder: (context, state) {
