@@ -13,6 +13,7 @@ import '../../features/login/presentation/views/forget_password_view.dart';
 import '../../features/login/presentation/views/login_password_view.dart';
 import '../../features/splash/presentation/views/onboarding/presentation/views/on_boardring_view.dart';
 import '../../features/splash/presentation/views/splash_view.dart';
+import '../../features/wishlist/presentation/views/wishlist_view.dart';
 
 class AppRouter {
   static const onBoardring = '/onBoardingView';
@@ -27,6 +28,7 @@ class AppRouter {
   static const categoryProducts = '/categoryProductsView';
   static const topSelling = '/topSellingView';
   static const newIn = '/newInView';
+  static const wishlist = '/wishlistView';
 
   static final router = GoRouter(
     routes: [
@@ -60,8 +62,9 @@ class AppRouter {
       GoRoute(
           path: topSelling,
           builder: (context, state) => const TopSellingView()),
+      GoRoute(path: newIn, builder: (context, state) => const NewInView()),
       GoRoute(
-          path: newIn, builder: (context, state) => const NewInView()),
+          path: wishlist, builder: (context, state) => const WishlistView()),
     ],
   );
 }

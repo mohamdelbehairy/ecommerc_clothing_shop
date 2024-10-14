@@ -4,13 +4,14 @@ class CustomButtonModel {
   final Function()? onTap;
   final String buttonName;
   final bool isLoading;
-  final double? width;
+  final double? height, width;
   final Color? buttonColor;
 
   CustomButtonModel(
       {this.onTap,
       required this.buttonName,
       this.isLoading = false,
+      this.height,
       this.width,
       this.buttonColor});
 }

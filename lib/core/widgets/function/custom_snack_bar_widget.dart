@@ -10,7 +10,7 @@ void customSnackbarWidget(BuildContext context,
       backgroundColor: color ?? Colors.red,
       shape: const StadiumBorder(),
       behavior: SnackBarBehavior.floating,
-      duration: const Duration(seconds: 2),
+      duration: const Duration(seconds: 1),
       width: width,
       margin: margin);
   ScaffoldMessenger.of(context).showSnackBar(snackBar);

@@ -29,6 +29,7 @@ class BottomNavigationBarCubit extends Cubit<BottomNavigationBarState> {
   ];
 
   void changeIndex(int index) {
+    if (activeIndex == index) return;
     activeIndex = index;
     emit(BottomNavigationBarChanged());
   }

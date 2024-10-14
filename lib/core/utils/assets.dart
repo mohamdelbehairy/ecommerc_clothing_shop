@@ -22,6 +22,10 @@ class Assets {
   /// assets/images/check_email.png
   static const String imagesCheckEmail = "assets/images/check_email.png";
 
+  /// Assets for imagesEmptyCard
+  /// assets/images/empty_card.svg
+  static const String imagesEmptyCard = "assets/images/empty_card.svg";
+
   /// Assets for imagesFacebook
   /// assets/images/facebook.svg
   static const String imagesFacebook = "assets/images/facebook.svg";

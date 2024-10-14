@@ -40,7 +40,9 @@ class EClotShop extends StatelessWidget {
         BlocProvider(create: (context) => WishlistCubit(WishlistRepoImpl()))
       ],
       child: MaterialApp.router(
-        theme: ThemeData(scaffoldBackgroundColor: Colors.white),
+        theme: ThemeData(
+            appBarTheme: const AppBarTheme(backgroundColor: Colors.white),
+            scaffoldBackgroundColor: Colors.white),
         debugShowCheckedModeBanner: false,
         routerConfig: AppRouter.router,
       ),

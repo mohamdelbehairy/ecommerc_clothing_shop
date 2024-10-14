@@ -29,13 +29,11 @@ class ProductItemWidget extends StatelessWidget {
                 child: CustomSvg(
                     svgModel: SvgModel(
                         onTap: () async {
-                          if (isWishlisted) {
-                            await wishlistCubit.removeFromWishlist(
-                                customProductModel.productModel.id);
-                          } else {
-                            await wishlistCubit.addToWishlist(
-                                product: customProductModel.productModel);
-                          }
+                          isWishlisted
+                              ? await wishlistCubit.removeFromWishlist(
+                                  customProductModel.productModel.id)
+                              : await wishlistCubit.addToWishlist(
+                                  product: customProductModel.productModel);
                         },
                         image: isWishlisted
                             ? Assets.imagesUnfav

@@ -1,11 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../home/presentation/manager/product/product_cubit.dart';
+import '../../../wishlist/presentation/manager/wishlist/wishlist_cubit.dart';
 import '../manager/bottom_navigation_bar/bottom_navigation_bar_cubit.dart';
 import '../widgets/custom_bottom_navigation_bar_item.dart';
 
-class BottomNavigationBarView extends StatelessWidget {
+class BottomNavigationBarView extends StatefulWidget {
   const BottomNavigationBarView({super.key});
+
+  @override
+  State<BottomNavigationBarView> createState() =>
+      _BottomNavigationBarViewState();
+}
+
+class _BottomNavigationBarViewState extends State<BottomNavigationBarView> {
+  @override
+  void initState() {
+    context.read<ProductCubit>().getProduct();
+    context.read<WishlistCubit>().getWishlist();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
