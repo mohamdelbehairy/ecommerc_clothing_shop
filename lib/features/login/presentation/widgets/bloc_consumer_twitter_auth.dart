@@ -16,20 +16,20 @@ class BlocConsumerTwitterAuth extends StatelessWidget {
     return BlocConsumer<SocialAuthCubit, SocialAuthState>(
       listener: (context, state) {
         if (state is TwitterAuthLoading) {
-          twitterAuth.isLoading = state.isLoading;
+          twitterAuth.isLoadingTwitter = state.isLoading;
         }
         if (state is TwitterAuthSuccess) {
-          twitterAuth.isLoading = false;
+          twitterAuth.isLoadingTwitter = false;
           showAlertSignInSuccessful(context);
         }
         if (state is SocialAuthFailure) {
-          twitterAuth.isLoading = false;
+          twitterAuth.isLoadingTwitter = false;
         }
       },
       builder: (context, state) {
         return ProviderAuthItem(
             authItemModel: AuthItemModel(
-                isLoading: twitterAuth.isLoading,
+                isLoading: twitterAuth.isLoadingTwitter,
                 icon: Assets.imagesTwitter,
                 text: 'Continue With Twitter',
                 onTap: () async {

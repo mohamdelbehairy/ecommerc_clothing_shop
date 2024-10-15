@@ -1,8 +1,8 @@
-import 'package:e_clot_shop/features/user_data/presentation/manager/get_user_data/get_user_data_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../home/presentation/manager/product/product_cubit.dart';
+import '../../../user_data/presentation/manager/get_user_data/get_user_data_cubit.dart';
 import '../../../wishlist/presentation/manager/wishlist/wishlist_cubit.dart';
 import '../manager/bottom_navigation_bar/bottom_navigation_bar_cubit.dart';
 import '../widgets/custom_bottom_navigation_bar_item.dart';
@@ -36,6 +36,7 @@ class _BottomNavigationBarViewState extends State<BottomNavigationBarView> {
         child: Padding(
           padding: const EdgeInsets.only(top: 6),
           child: BottomNavigationBar(
+            elevation: 0.0,
             currentIndex: bottomNavigationBar.activeIndex,
             type: BottomNavigationBarType.fixed,
             backgroundColor: Colors.white,

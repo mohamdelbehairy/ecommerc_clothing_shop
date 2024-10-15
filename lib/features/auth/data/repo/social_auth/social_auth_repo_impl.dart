@@ -177,7 +177,6 @@ class SocialAuthRepoImpl extends SocialAuthRepo {
       if (e is FirebaseAuthException) {
         return Left(FirebaseFailure.fromCode(e.code));
       }
-      
       return Left(Failure(message: e.toString()));
     }
   }
