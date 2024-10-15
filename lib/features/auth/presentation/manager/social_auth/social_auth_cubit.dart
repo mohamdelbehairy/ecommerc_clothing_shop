@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:e_clot_shop/features/auth/data/repo/social_auth/social_auth_repo.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'social_auth_state.dart';
@@ -11,6 +12,7 @@ class SocialAuthCubit extends Cubit<SocialAuthState> {
 
   bool isLoadingTwitter = false;
   bool isLoadingGoogle = false;
+  bool isLoadingGithub = false;
   bool isLoadingFacebook = false;
   Future<void> signInWithTwitter() async {
     emit(TwitterAuthLoading(isLoading: true));
@@ -36,6 +38,22 @@ class SocialAuthCubit extends Cubit<SocialAuthState> {
       (userCredential) {
         if (userCredential.user != null) {
           emit(GoogleAuthSuccess());
+        }
+      },
+    );
+  }
+
+  Future<void> signInWithGithub(BuildContext context) async {
+    emit(GithubAuthLoading(isLoading: true));
+    final result = await _socialAuthRepo.signInWithGithub(context);
+    result.fold(
+      (failure) {
+        emit(SocialAuthFailure(errorMessage: failure.message));
+        log('error from github auth: ${failure.message}');
+      },
+      (userCredential) {
+        if (userCredential.user != null) {
+          emit(GithubAuthSuccess());
         }
       },
     );

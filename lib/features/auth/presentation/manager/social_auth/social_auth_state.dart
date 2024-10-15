@@ -16,6 +16,12 @@ final class GoogleAuthLoading extends SocialAuthState {
   GoogleAuthLoading({required this.isLoading});
 }
 
+final class GithubAuthLoading extends SocialAuthState {
+  final bool isLoading;
+
+  GithubAuthLoading({required this.isLoading});
+}
+
 final class FacebookAuthLoading extends SocialAuthState {
   final bool isLoading;
 
@@ -25,6 +31,8 @@ final class FacebookAuthLoading extends SocialAuthState {
 final class TwitterAuthSuccess extends SocialAuthState {}
 
 final class GoogleAuthSuccess extends SocialAuthState {}
+
+final class GithubAuthSuccess extends SocialAuthState {}
 
 final class FacebookAuthSuccess extends SocialAuthState {}
 

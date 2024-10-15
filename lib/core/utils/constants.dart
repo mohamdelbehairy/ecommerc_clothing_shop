@@ -13,6 +13,7 @@ class Constants {
   static const google = 'google';
   static const facebook = 'facebook';
   static const twitter = 'twitter';
+  static const github = 'github';
 
   static const hoodies = 'Hoodies';
   static const shorts = 'Shorts';

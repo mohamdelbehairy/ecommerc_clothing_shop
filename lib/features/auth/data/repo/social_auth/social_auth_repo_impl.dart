@@ -7,6 +7,8 @@ import 'package:e_clot_shop/core/utils/remove_user_id.dart';
 import 'package:e_clot_shop/features/user_data/data/models/user_data_model.dart';
 import 'package:e_clot_shop/features/user_data/data/repo/user_data_repo.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:github_sign_in/github_sign_in.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:twitter_login/twitter_login.dart';
 
@@ -116,6 +118,46 @@ class SocialAuthRepoImpl extends SocialAuthRepo {
           await cachedUserIdAndFirstLogin(userCredential);
         }
       }
+      return Right(userCredential!);
+    } catch (e) {
+      if (e is FirebaseAuthException) {
+        return Left(FirebaseFailure.fromCode(e.code));
+      }
+
+      return Left(Failure(message: e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, UserCredential>> signInWithGithub(
+      BuildContext context) async {
+    try {
+      UserCredential? userCredential;
+      final GitHubSignIn gitHubSignIn = GitHubSignIn(
+          clientId: SecretKey.githubClientId,
+          clientSecret: SecretKey.githubClientSecret,
+          redirectUrl: SecretKey.githubRedirectURI);
+
+      final authResult = await gitHubSignIn.signIn(context);
+
+      if (authResult.status == GitHubSignInResultStatus.ok) {
+        final githubAuthCredential =
+            GithubAuthProvider.credential(authResult.token!);
+
+        userCredential = await FirebaseAuth.instance
+            .signInWithCredential(githubAuthCredential);
+        if (userCredential.user != null) {
+          if (!await isUserDataSaved(userCredential.user!.uid)) {
+            await _userDataRepo.saveUserData(UserDataModel(
+                userName: userCredential.user!.displayName!,
+                email: userCredential.user!.email!,
+                userId: userCredential.user!.uid,
+                authType: Constants.github));
+          }
+          await cachedUserIdAndFirstLogin(userCredential);
+        }
+      }
+
       return Right(userCredential!);
     } catch (e) {
       if (e is FirebaseAuthException) {

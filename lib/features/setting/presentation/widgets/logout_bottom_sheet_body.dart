@@ -35,7 +35,8 @@ class LogoutBottomSheetBody extends StatelessWidget {
                   onTap: () async {
                     if (userData.authType == Constants.email) {
                       await logout.emailLogout();
-                    } else if (userData.authType == Constants.twitter) {
+                    } else if (userData.authType == Constants.twitter ||
+                        userData.authType == Constants.github) {
                       await logout.twitterLogout();
                     } else if (userData.authType == Constants.google) {
                       await logout.googleLogout();
