@@ -34,7 +34,7 @@ class BlocConsumerFacebookAuth extends StatelessWidget {
                 icon: Assets.imagesFacebook,
                 text: 'Continue With Facebook',
                 onTap: () async {
-                  await facebookAuth.signInWIthFacebook();
+                  // await facebookAuth.signInWIthFacebook();
                 }));
       },
     );

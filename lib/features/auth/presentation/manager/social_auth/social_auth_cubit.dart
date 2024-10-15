@@ -41,19 +41,19 @@ class SocialAuthCubit extends Cubit<SocialAuthState> {
     );
   }
 
-  Future<void> signInWIthFacebook() async {
-    emit(FacebookAuthLoading(isLoading: true));
-    final result = await _socialAuthRepo.signInWithFacebook();
-    result.fold(
-      (failure) {
-        emit(SocialAuthFailure(errorMessage: failure.message));
-        log('error from facebook auth: ${failure.message}');
-      },
-      (userCredential) {
-        if (userCredential.user != null) {
-          emit(FacebookAuthSuccess());
-        }
-      },
-    );
-  }
+  // Future<void> signInWIthFacebook() async {
+  //   emit(FacebookAuthLoading(isLoading: true));
+  //   final result = await _socialAuthRepo.signInWithFacebook();
+  //   result.fold(
+  //     (failure) {
+  //       emit(SocialAuthFailure(errorMessage: failure.message));
+  //       log('error from facebook auth: ${failure.message}');
+  //     },
+  //     (userCredential) {
+  //       if (userCredential.user != null) {
+  //         emit(FacebookAuthSuccess());
+  //       }
+  //     },
+  //   );
+  // }
 }

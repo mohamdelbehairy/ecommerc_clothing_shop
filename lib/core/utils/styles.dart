@@ -53,20 +53,38 @@ class Styles {
       color: const Color(0xff272727),
       fontSize: 24);
 
-  static TextStyle styleBold24 = GoogleFonts.gabarito(
-      fontWeight: FontWeight.bold,
-      color: const Color(0xff272727),
-      fontSize: 24);
+  // static TextStyle styleBold24 = GoogleFonts.gabarito(
+  //     fontWeight: FontWeight.bold,
+  //     color: const Color(0xff272727),
+  //     fontSize: 24);
 
-  static TextStyle styleBoldGarabito12 = GoogleFonts.gabarito(
-      fontWeight: FontWeight.bold,
-      color: const Color(0xff272727),
-      fontSize: 12);
+  // static TextStyle styleBoldGarabito12 = GoogleFonts.gabarito(
+  //     fontWeight: FontWeight.bold,
+  //     color: const Color(0xff272727),
+  //     fontSize: 12);
 
-  static TextStyle styleBold16 = GoogleFonts.gabarito(
+  // static TextStyle styleBold16 = GoogleFonts.gabarito(
+  //     fontWeight: FontWeight.bold,
+  //     color: const Color(0xff272727),
+  //     fontSize: 16);
+
+  static TextStyle styleBold24 = const TextStyle(
       fontWeight: FontWeight.bold,
-      color: const Color(0xff272727),
-      fontSize: 16);
+      color: Color(0xff272727),
+      fontSize: 24,
+      fontFamily: 'Gabarito');
+
+  static TextStyle styleBoldGarabito12 = const TextStyle(
+      fontWeight: FontWeight.bold,
+      color: Color(0xff272727),
+      fontSize: 12,
+      fontFamily: 'Gabarito');
+
+  static TextStyle styleBold16 = const TextStyle(
+      fontWeight: FontWeight.bold,
+      color: Color(0xff272727),
+      fontSize: 16,
+      fontFamily: 'Gabarito');
 
   static TextStyle styleSmeiBoldPoppins20 = GoogleFonts.poppins(
       fontSize: 20,

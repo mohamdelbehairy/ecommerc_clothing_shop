@@ -40,7 +40,7 @@ class LogoutBottomSheetBody extends StatelessWidget {
                     } else if (userData.authType == Constants.google) {
                       await logout.googleLogout();
                     } else {
-                      await logout.facebookLogout();
+                      // await logout.facebookLogout();
                     }
                   })),
           const SizedBox(height: 4),

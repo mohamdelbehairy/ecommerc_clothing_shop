@@ -7,7 +7,6 @@ import 'package:e_clot_shop/core/utils/remove_user_id.dart';
 import 'package:e_clot_shop/features/user_data/data/models/user_data_model.dart';
 import 'package:e_clot_shop/features/user_data/data/repo/user_data_repo.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:twitter_login/twitter_login.dart';
 
@@ -54,40 +53,40 @@ class SocialAuthRepoImpl extends SocialAuthRepo {
     }
   }
 
-  @override
-  Future<Either<Failure, UserCredential>> signInWithFacebook() async {
-    try {
-      UserCredential? userCredential;
-      final LoginResult loginResult = await FacebookAuth.instance.login();
-      if (loginResult.accessToken != null) {
-        final OAuthCredential facebookAuthCredential =
-            FacebookAuthProvider.credential(
-                loginResult.accessToken!.tokenString);
+  // @override
+  // Future<Either<Failure, UserCredential>> signInWithFacebook() async {
+  //   try {
+  //     UserCredential? userCredential;
+  //     final LoginResult loginResult = await FacebookAuth.instance.login();
+  //     if (loginResult.accessToken != null) {
+  //       final OAuthCredential facebookAuthCredential =
+  //           FacebookAuthProvider.credential(
+  //               loginResult.accessToken!.tokenString);
 
-        userCredential = await FirebaseAuth.instance
-            .signInWithCredential(facebookAuthCredential);
+  //       userCredential = await FirebaseAuth.instance
+  //           .signInWithCredential(facebookAuthCredential);
 
-        if (userCredential.user != null) {
-          if (!await isUserDataSaved(userCredential.user!.uid)) {
-            await _userDataRepo.saveUserData(UserDataModel(
-                userName: userCredential.user!.displayName!,
-                email: userCredential.user!.email!,
-                userId: userCredential.user!.uid,
-                authType: Constants.facebook));
-          }
-          await cachedUserIdAndFirstLogin(userCredential);
-        }
-      }
+  //       if (userCredential.user != null) {
+  //         if (!await isUserDataSaved(userCredential.user!.uid)) {
+  //           await _userDataRepo.saveUserData(UserDataModel(
+  //               userName: userCredential.user!.displayName!,
+  //               email: userCredential.user!.email!,
+  //               userId: userCredential.user!.uid,
+  //               authType: Constants.facebook));
+  //         }
+  //         await cachedUserIdAndFirstLogin(userCredential);
+  //       }
+  //     }
 
-      return Right(userCredential!);
-    } catch (e) {
-      if (e is FirebaseAuthException) {
-        return Left(FirebaseFailure.fromCode(e.code));
-      }
+  //     return Right(userCredential!);
+  //   } catch (e) {
+  //     if (e is FirebaseAuthException) {
+  //       return Left(FirebaseFailure.fromCode(e.code));
+  //     }
 
-      return Left(Failure(message: e.toString()));
-    }
-  }
+  //     return Left(Failure(message: e.toString()));
+  //   }
+  // }
 
   @override
   Future<Either<Failure, UserCredential>> signInWithTwitter() async {
@@ -152,20 +151,20 @@ class SocialAuthRepoImpl extends SocialAuthRepo {
     }
   }
 
-  @override
-  Future<Either<Failure, void>> facebookLogout() async {
-    try {
-      await removeUserId();
-      await FacebookAuth.instance.logOut();
-      return const Right(null);
-    } catch (e) {
-      if (e is FirebaseAuthException) {
-        return Left(FirebaseFailure.fromCode(e.code));
-      }
+  // @override
+  // Future<Either<Failure, void>> facebookLogout() async {
+  //   try {
+  //     await removeUserId();
+  //     await FacebookAuth.instance.logOut();
+  //     return const Right(null);
+  //   } catch (e) {
+  //     if (e is FirebaseAuthException) {
+  //       return Left(FirebaseFailure.fromCode(e.code));
+  //     }
 
-      return Left(Failure(message: e.toString()));
-    }
-  }
+  //     return Left(Failure(message: e.toString()));
+  //   }
+  // }
 
   @override
   Future<Either<Failure, void>> twitterLogout() async {

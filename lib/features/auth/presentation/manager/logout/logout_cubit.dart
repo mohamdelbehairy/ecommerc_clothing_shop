@@ -41,19 +41,19 @@ class LogoutCubit extends Cubit<LogoutState> {
     );
   }
 
-  Future<void> facebookLogout() async {
-    emit(LogoutLoading());
-    final result = await _socialAuthRepo.facebookLogout();
-    result.fold(
-      (failure) {
-        emit(LogoutFailure(errorMessage: failure.message));
-        log('error from facebook logout: ${failure.message}');
-      },
-      (success) {
-        emit(FacebookLogoutSuccess());
-      },
-    );
-  }
+  // Future<void> facebookLogout() async {
+  //   emit(LogoutLoading());
+  //   final result = await _socialAuthRepo.facebookLogout();
+  //   result.fold(
+  //     (failure) {
+  //       emit(LogoutFailure(errorMessage: failure.message));
+  //       log('error from facebook logout: ${failure.message}');
+  //     },
+  //     (success) {
+  //       emit(FacebookLogoutSuccess());
+  //     },
+  //   );
+  // }
 
   Future<void> twitterLogout() async {
     emit(LogoutLoading());
