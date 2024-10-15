@@ -34,7 +34,7 @@ class EClotShop extends StatelessWidget {
         BlocProvider(create: (context) => BottomNavigationBarCubit()),
         BlocProvider(
             create: (context) =>
-                GetUserDataCubit(getIt.get<UserDataRepoImpl>())..getUserData()),
+                GetUserDataCubit(getIt.get<UserDataRepoImpl>())),
         BlocProvider(create: (context) => BuildHomeCubit()),
         BlocProvider(create: (context) => ProductCubit(ProductRepoImpl())),
         BlocProvider(create: (context) => WishlistCubit(WishlistRepoImpl()))

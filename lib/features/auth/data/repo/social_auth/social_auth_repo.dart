@@ -5,7 +5,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 abstract class SocialAuthRepo {
   Future<Either<Failure, UserCredential>> signInWithGoogle();
   Future<Either<Failure, UserCredential>> signInWithFacebook();
+  Future<Either<Failure,UserCredential>> signInWithTwitter();
   Future<bool> isUserDataSaved(String userId);
   Future<Either<Failure, void>> googleLogout();
   Future<Either<Failure, void>> facebookLogout();
+  Future<Either<Failure, void>> twitterLogout();
 }

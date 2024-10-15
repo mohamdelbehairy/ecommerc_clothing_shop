@@ -12,6 +12,8 @@ final class GoogleLogoutSuccess extends LogoutState {}
 
 final class FacebookLogoutSuccess extends LogoutState {}
 
+final class TwitterLogoutSuccess extends LogoutState {}
+
 final class LogoutFailure extends LogoutState {
   final String errorMessage;
 

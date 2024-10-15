@@ -106,6 +106,10 @@ class Assets {
   /// assets/images/three.png
   static const String imagesThree = "assets/images/three.png";
 
+  /// Assets for imagesTwitter
+  /// assets/images/twitter.svg
+  static const String imagesTwitter = "assets/images/twitter.svg";
+
   /// Assets for imagesTwo
   /// assets/images/two.png
   static const String imagesTwo = "assets/images/two.png";

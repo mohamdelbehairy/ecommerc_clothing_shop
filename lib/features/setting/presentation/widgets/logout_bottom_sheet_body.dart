@@ -33,9 +33,10 @@ class LogoutBottomSheetBody extends StatelessWidget {
               customButtonModel: CustomButtonModel(
                   buttonName: 'Log out',
                   onTap: () async {
-                    // await logout.googleLogout();
                     if (userData.authType == Constants.email) {
                       await logout.emailLogout();
+                    } else if (userData.authType == Constants.twitter) {
+                      await logout.twitterLogout();
                     } else if (userData.authType == Constants.google) {
                       await logout.googleLogout();
                     } else {

@@ -1,3 +1,4 @@
+import 'package:e_clot_shop/features/user_data/presentation/manager/get_user_data/get_user_data_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -17,6 +18,7 @@ class BottomNavigationBarView extends StatefulWidget {
 class _BottomNavigationBarViewState extends State<BottomNavigationBarView> {
   @override
   void initState() {
+    context.read<GetUserDataCubit>().getUserData();
     context.read<ProductCubit>().getProduct();
     context.read<WishlistCubit>().getWishlist();
     super.initState();

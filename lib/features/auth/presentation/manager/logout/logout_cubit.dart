@@ -54,4 +54,18 @@ class LogoutCubit extends Cubit<LogoutState> {
       },
     );
   }
+
+  Future<void> twitterLogout() async {
+    emit(LogoutLoading());
+    final result = await _socialAuthRepo.twitterLogout();
+    result.fold(
+      (failure) {
+        emit(LogoutFailure(errorMessage: failure.message));
+        log('error from twitter logout: ${failure.message}');
+      },
+      (success) {
+        emit(TwitterLogoutSuccess());
+      },
+    );
+  }
 }

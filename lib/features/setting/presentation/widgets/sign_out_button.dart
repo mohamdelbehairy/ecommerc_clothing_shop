@@ -28,6 +28,7 @@ class SignOutButton extends StatelessWidget {
               child: BlocConsumer<LogoutCubit, LogoutState>(
                 listener: (context, state) async {
                   if (state is EmailLogoutSuccess ||
+                      state is TwitterLogoutSuccess ||
                       state is GoogleLogoutSuccess ||
                       state is FacebookLogoutSuccess) {
                     showAlertLogoutSuccessful(context);
