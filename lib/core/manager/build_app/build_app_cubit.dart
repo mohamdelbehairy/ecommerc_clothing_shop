@@ -88,6 +88,7 @@ class BuildAppCubit extends Cubit<BuildAppState> {
   int categoryActiveIndex = -1;
 
   void activeIndexChange(int index) {
+    if (categoryActiveIndex == index) return;
     categoryActiveIndex = index;
     emit(CategoryChanged());
   }

@@ -8,4 +8,5 @@ abstract class WishlistRepo {
   Future<Either<Failure, void>> addToWishlist(ProductModel product);
   Future<Either<Failure, void>> removeFromWishlist(String productID);
   void getWishlist(Function(QuerySnapshot<Map<String, dynamic>>)? onData);
+  Future<Either<Failure,void>> removeAllFromWishlist();
 }

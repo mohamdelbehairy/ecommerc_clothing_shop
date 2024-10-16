@@ -18,7 +18,7 @@ class WishlistFoundedBody extends StatelessWidget {
         children: [
           const SizedBox(height: 63),
           const WishlistFoundedHeader(),
-          const SizedBox(height: 16),
+          const SizedBox(height: 24),
           CustomProductsGridView(products: wishlist.wishlist)
         ],
       ),

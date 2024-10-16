@@ -56,4 +56,25 @@ class WishlistRepoImpl extends WishlistRepo {
         .snapshots()
         .listen(onData);
   }
+
+  @override
+  Future<Either<Failure, void>> removeAllFromWishlist() async {
+    try {
+      var documents = await FirebaseFirestore.instance
+          .collection(Constants.wishlistCollection)
+          .doc(FirebaseAuth.instance.currentUser!.uid)
+          .collection(Constants.wishlistCollection)
+          .get();
+
+      for (var doc in documents.docs) {
+        await doc.reference.delete();
+      }
+      return right(null);
+    } catch (e) {
+      if (e is FirebaseException) {
+        return left(Failure(message: e.code));
+      }
+      return left(Failure(message: e.toString()));
+    }
+  }
 }

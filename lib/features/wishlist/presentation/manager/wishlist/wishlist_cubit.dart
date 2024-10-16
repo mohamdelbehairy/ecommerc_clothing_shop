@@ -13,6 +13,8 @@ class WishlistCubit extends Cubit<WishlistState> {
 
   List<ProductModel> wishlist = [];
 
+  bool iwishListClear = false;
+
   Future<void> addToWishlist({required ProductModel product}) async {
     emit(WishlistLoading());
 
@@ -45,5 +47,18 @@ class WishlistCubit extends Cubit<WishlistState> {
   bool isWishlisted(String productID) {
     bool exists = wishlist.any((product) => product.id == productID);
     return exists;
+  }
+
+  Future<void> removeAllFromWishlist() async {
+    iwishListClear = true;
+    emit(RemovedAllFromWishlistLoading());
+    final result = await _wishlistRepo.removeAllFromWishlist();
+    result.fold((e) {
+      emit(WishlistFailure(errorMessage: e.message));
+      log('error from remove all from wishlist: $e');
+    }, (e) {
+      emit(RemovedAllFromWishlistSuccess());
+      iwishListClear = false;
+    });
   }
 }

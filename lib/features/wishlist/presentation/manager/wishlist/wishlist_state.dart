@@ -12,6 +12,10 @@ final class RemovedFromWishlistSuccess extends WishlistState {}
 
 final class GetWishlistSuccess extends WishlistState {}
 
+final class RemovedAllFromWishlistLoading extends WishlistState {}
+
+final class RemovedAllFromWishlistSuccess extends WishlistState {}
+
 final class WishlistFailure extends WishlistState {
   final String errorMessage;
 
