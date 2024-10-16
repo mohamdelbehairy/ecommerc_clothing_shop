@@ -6,14 +6,14 @@ import '../../../../core/widgets/custom_button.dart';
 import '../../../../core/widgets/function/custom_snack_bar_widget.dart';
 import '../../../../core/widgets/function/show_alert_sign_in_successful.dart';
 import '../../../auth/presentation/manager/email_login/email_login_cubit.dart';
-import '../manager/build_login/build_login_cubit.dart';
+import '../../../../core/manager/build_app/build_app_cubit.dart';
 
 class LoginButton extends StatelessWidget {
   const LoginButton({super.key});
 
   @override
   Widget build(BuildContext context) {
-    var buildLogin = context.watch<BuildLoginCubit>();
+    var buildLogin = context.watch<BuildAppCubit>();
     var emailLogin = context.read<EmailLoginCubit>();
     return BlocConsumer<EmailLoginCubit, EmailLoginState>(
       listener: (context, state) {

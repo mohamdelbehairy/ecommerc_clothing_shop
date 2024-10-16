@@ -3,13 +3,13 @@ import 'package:e_clot_shop/core/utils/styles.dart';
 import 'package:e_clot_shop/core/widgets/function/custom_bottom_sheet.dart';
 import 'package:e_clot_shop/features/auth/data/repo/social_auth/social_auth_repo_impl.dart';
 import 'package:e_clot_shop/features/auth/presentation/manager/logout/logout_cubit.dart';
+import 'package:e_clot_shop/core/manager/build_app/build_app_cubit.dart';
 import 'package:e_clot_shop/features/user_data/data/models/user_data_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/widgets/function/show_alert_log_out_successful.dart';
 import '../../../auth/data/repo/email_auth/email_auth_repo_impl.dart';
-import '../../../bottom_navigation_bar/presentation/manager/bottom_navigation_bar/bottom_navigation_bar_cubit.dart';
 import 'logout_bottom_sheet_body.dart';
 
 class SignOutButton extends StatelessWidget {
@@ -32,7 +32,7 @@ class SignOutButton extends StatelessWidget {
                       state is GoogleLogoutSuccess ||
                       state is FacebookLogoutSuccess) {
                     showAlertLogoutSuccessful(context);
-                    context.read<BottomNavigationBarCubit>().activeIndex = 0;
+                    context.read<BuildAppCubit>().bottomActiveIndex = 0;
                   }
                 },
                 builder: (context, state) {

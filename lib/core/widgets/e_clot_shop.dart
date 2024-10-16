@@ -9,11 +9,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../features/bottom_navigation_bar/presentation/manager/bottom_navigation_bar/bottom_navigation_bar_cubit.dart';
 import '../../features/home/data/repo/product_repo_impl.dart';
-import '../../features/home/presentation/manager/build_home/build_home_cubit.dart';
 import '../../features/home/presentation/manager/product/product_cubit.dart';
-import '../../features/login/presentation/manager/build_login/build_login_cubit.dart';
+import '../manager/build_app/build_app_cubit.dart';
 import '../../features/wishlist/data/repo/wishlist_repo_impl.dart';
 
 class EClotShop extends StatelessWidget {
@@ -28,14 +26,12 @@ class EClotShop extends StatelessWidget {
     );
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => BuildLoginCubit()),
+        BlocProvider(create: (context) => BuildAppCubit()),
         BlocProvider(
             create: (context) => SharedPrefCubit(SharedPrefRepoImpl())),
-        BlocProvider(create: (context) => BottomNavigationBarCubit()),
         BlocProvider(
             create: (context) =>
                 GetUserDataCubit(getIt.get<UserDataRepoImpl>())),
-        BlocProvider(create: (context) => BuildHomeCubit()),
         BlocProvider(create: (context) => ProductCubit(ProductRepoImpl())),
         BlocProvider(create: (context) => WishlistCubit(WishlistRepoImpl()))
       ],

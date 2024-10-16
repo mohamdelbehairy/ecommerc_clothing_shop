@@ -9,7 +9,7 @@ import '../../../../core/widgets/custom_button.dart';
 import '../../../../core/widgets/function/custom_snack_bar_widget.dart';
 import '../../../user_data/data/models/user_data_model.dart';
 import '../../../user_data/presentation/manager/save_user_data/save_user_data_cubit.dart';
-import '../manager/build_login/build_login_cubit.dart';
+import '../../../../core/manager/build_app/build_app_cubit.dart';
 import '../manager/tell_us/tell_us_cubit.dart';
 
 class TellAboutFinshButton extends StatelessWidget {
@@ -18,7 +18,7 @@ class TellAboutFinshButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var tellAbout = context.read<TellUsCubit>();
-    var buildLogin = context.read<BuildLoginCubit>();
+    var buildLogin = context.read<BuildAppCubit>();
     var saveUserData = context.read<SaveUserDataCubit>();
     return BlocConsumer<SaveUserDataCubit, SaveUserDataState>(
       listener: (context, state) {

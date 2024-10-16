@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../home/presentation/manager/product/product_cubit.dart';
+import '../../../../core/manager/build_app/build_app_cubit.dart';
 import '../../../user_data/presentation/manager/get_user_data/get_user_data_cubit.dart';
 import '../../../wishlist/presentation/manager/wishlist/wishlist_cubit.dart';
-import '../manager/bottom_navigation_bar/bottom_navigation_bar_cubit.dart';
 import '../widgets/custom_bottom_navigation_bar_item.dart';
 
 class BottomNavigationBarView extends StatefulWidget {
@@ -26,9 +26,9 @@ class _BottomNavigationBarViewState extends State<BottomNavigationBarView> {
 
   @override
   Widget build(BuildContext context) {
-    var bottomNavigationBar = context.watch<BottomNavigationBarCubit>();
+    var bottomNavigationBar = context.watch<BuildAppCubit>();
     return Scaffold(
-      body: bottomNavigationBar.views[bottomNavigationBar.activeIndex],
+      body: bottomNavigationBar.views[bottomNavigationBar.bottomActiveIndex],
       bottomNavigationBar: Theme(
         data: ThemeData(
             highlightColor: Colors.transparent,
@@ -37,17 +37,17 @@ class _BottomNavigationBarViewState extends State<BottomNavigationBarView> {
           padding: const EdgeInsets.only(top: 6),
           child: BottomNavigationBar(
             elevation: 0.0,
-            currentIndex: bottomNavigationBar.activeIndex,
+            currentIndex: bottomNavigationBar.bottomActiveIndex,
             type: BottomNavigationBarType.fixed,
             backgroundColor: Colors.white,
             onTap: (index) {
-              bottomNavigationBar.changeIndex(index);
+              bottomNavigationBar.bottomChangeIndex(index);
             },
             items: List.generate(
-                bottomNavigationBar.items.length,
+                bottomNavigationBar.bottomItems.length,
                 (index) => customBottomNavigationBarItem(
-                    bottomNavigationBar.items[index],
-                    bottomNavigationBar.activeIndex == index)),
+                    bottomNavigationBar.bottomItems[index],
+                    bottomNavigationBar.bottomActiveIndex == index)),
           ),
         ),
       ),

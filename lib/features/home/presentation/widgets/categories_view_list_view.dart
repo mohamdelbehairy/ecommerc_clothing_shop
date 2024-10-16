@@ -1,8 +1,8 @@
 import 'package:e_clot_shop/core/utils/app_router.dart';
+import 'package:e_clot_shop/core/manager/build_app/build_app_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import '../manager/build_home/build_home_cubit.dart';
 import 'categories_view_list_tile.dart';
 
 class CategoriesViewListView extends StatelessWidget {
@@ -10,12 +10,12 @@ class CategoriesViewListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var buildHome = context.read<BuildHomeCubit>();
-    return BlocBuilder<BuildHomeCubit, BuildHomeState>(
+    var buildHome = context.read<BuildAppCubit>();
+    return BlocBuilder<BuildAppCubit, BuildAppState>(
       builder: (context, state) {
         return Column(
           children: List.generate(
-              buildHome.items.length,
+              buildHome.categories.length,
               (index) => GestureDetector(
                     onTap: () {
                       buildHome.activeIndexChange(index);
@@ -24,7 +24,7 @@ class CategoriesViewListView extends StatelessWidget {
                     child: Padding(
                         padding: const EdgeInsets.only(bottom: 12),
                         child: CategoriesViewListTile(
-                            categoryItem: buildHome.items[index])),
+                            categoryItem: buildHome.categories[index])),
                   )),
         );
       },
