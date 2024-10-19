@@ -26,7 +26,6 @@ class ProductItem extends StatelessWidget {
                   cachedImage: CachedNetworkImageModel(
                       height: 220,
                       width: double.infinity,
-                      // fit: BoxFit.cover,
                       imageUrl: customProductModel.productModel.image,
                       placeholder: const CustomPlaceholderWidget(height: 220))),
               const SizedBox(height: 6),

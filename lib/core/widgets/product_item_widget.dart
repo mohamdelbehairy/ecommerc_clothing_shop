@@ -1,4 +1,5 @@
 import 'package:e_clot_shop/core/utils/assets.dart';
+import 'package:e_clot_shop/features/product/presentation/views/product_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -20,27 +21,32 @@ class ProductItemWidget extends StatelessWidget {
       builder: (context, state) {
         bool isWishlisted =
             wishlistCubit.isWishlisted(customProductModel.productModel.id);
-        return Stack(
-          children: [
-            ProductItem(customProductModel: customProductModel),
-            Positioned(
-                right: 6,
-                top: 6,
-                child: CustomSvg(
-                    svgModel: SvgModel(
-                        onTap: () async {
-                          isWishlisted
-                              ? await wishlistCubit.removeFromWishlist(
-                                  customProductModel.productModel.id)
-                              : await wishlistCubit.addToWishlist(
-                                  product: customProductModel.productModel);
-                        },
-                        image: isWishlisted
-                            ? Assets.imagesUnfav
-                            : Assets.imagesFav,
-                        height: 25,
-                        width: 25)))
-          ],
+        return GestureDetector(
+          onTap: () => Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) =>
+                  ProductView(productData: customProductModel.productModel))),
+          child: Stack(
+            children: [
+              ProductItem(customProductModel: customProductModel),
+              Positioned(
+                  right: 6,
+                  top: 6,
+                  child: CustomSvg(
+                      svgModel: SvgModel(
+                          onTap: () async {
+                            isWishlisted
+                                ? await wishlistCubit.removeFromWishlist(
+                                    customProductModel.productModel.id)
+                                : await wishlistCubit.addToWishlist(
+                                    product: customProductModel.productModel);
+                          },
+                          image: isWishlisted
+                              ? Assets.imagesUnfav
+                              : Assets.imagesFav,
+                          height: 25,
+                          width: 25)))
+            ],
+          ),
         );
       },
     );
