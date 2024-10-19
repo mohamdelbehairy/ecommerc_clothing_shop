@@ -6,6 +6,7 @@ class CustomButtonModel {
   final bool isLoading;
   final double? height, width;
   final Color? buttonColor;
+  final Widget? widget;
 
   CustomButtonModel(
       {this.onTap,
@@ -13,5 +14,6 @@ class CustomButtonModel {
       this.isLoading = false,
       this.height,
       this.width,
-      this.buttonColor});
+      this.buttonColor,
+      this.widget});
 }

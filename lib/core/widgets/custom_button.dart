@@ -18,13 +18,14 @@ class CustomButton extends StatelessWidget {
         decoration: BoxDecoration(
             color: customButtonModel.buttonColor ?? AppColors.primaryColor,
             borderRadius: BorderRadius.circular(100)),
-        child: Center(
-            child: customButtonModel.isLoading
-                ? loadingAnimationWidget(color: Colors.white)
-                : Text(customButtonModel.buttonName,
-                    style: customButtonModel.buttonColor != null
-                        ? Styles.styleMedium16
-                        : Styles.styleMediumWhite16)),
+        child: customButtonModel.widget ??
+            Center(
+                child: customButtonModel.isLoading
+                    ? loadingAnimationWidget(color: Colors.white)
+                    : Text(customButtonModel.buttonName,
+                        style: customButtonModel.buttonColor != null
+                            ? Styles.styleMedium16
+                            : Styles.styleMediumWhite16)),
       ),
     );
   }

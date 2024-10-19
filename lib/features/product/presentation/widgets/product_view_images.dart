@@ -16,7 +16,7 @@ class ProductViewImages extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 24),
       child: SizedBox(
-        height: 220,
+        height: 248,
         child: ListView.builder(
             scrollDirection: Axis.horizontal,
             physics: const BouncingScrollPhysics(),
@@ -26,7 +26,6 @@ class ProductViewImages extends StatelessWidget {
                 padding: EdgeInsets.only(left: index != 0 ? 8 : 0.0),
                 child: CustomBakgroundContainer(
                     backgroundModel: BackgroundModel(
-                        height: 220,
                         width: 161,
                         padding: 0.0,
                         child: CustomCachedNetworkImage(
