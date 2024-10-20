@@ -7,6 +7,11 @@ class Styles {
       color: const Color(0xff272727),
       fontSize: 32);
 
+  static TextStyle styleBoldNunito24 = GoogleFonts.nunito(
+      fontWeight: FontWeight.bold,
+      color: const Color(0xff272727),
+      fontSize: 24);
+
   static TextStyle styleBold20 = GoogleFonts.nunito(
       fontWeight: FontWeight.bold,
       color: const Color(0xff272727),
@@ -68,7 +73,7 @@ class Styles {
   //     color: const Color(0xff272727),
   //     fontSize: 16);
 
-  static TextStyle styleBold24 = const TextStyle(
+  static TextStyle styleBoldGarabito24 = const TextStyle(
       fontWeight: FontWeight.bold,
       color: Color(0xff272727),
       fontSize: 24,

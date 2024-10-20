@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class ProductSelectDetailsModel {
   final String title;
-  final Widget? widget;
+  final Color? color;
 
-  ProductSelectDetailsModel({required this.title, this.widget});
+  ProductSelectDetailsModel({required this.title, this.color});
 }

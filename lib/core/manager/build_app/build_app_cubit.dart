@@ -1,4 +1,3 @@
-import 'package:e_clot_shop/core/utils/styles.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -96,12 +95,8 @@ class BuildAppCubit extends Cubit<BuildAppState> {
   }
 
   List selectDetailsList = [
-    ProductSelectDetailsModel(
-        title: 'Size', widget: Text('S', style: Styles.styleBold16)),
-    ProductSelectDetailsModel(
-        title: 'Color',
-        widget:
-            const CircleAvatar(radius: 8, backgroundColor: Color(0xffB3B68B))),
+    ProductSelectDetailsModel(title: 'Size'),
+    ProductSelectDetailsModel(title: 'Color'),
     ProductSelectDetailsModel(title: 'Quantity'),
   ];
 
@@ -111,5 +106,36 @@ class BuildAppCubit extends Cubit<BuildAppState> {
     if (value == -1 && quantity == 1) return;
     quantity += value;
     emit(QuantityChanged());
+  }
+
+  int sizeIndex = 0;
+  int colorIndex = 0;
+
+  List<ProductSelectDetailsModel> sizeList = [
+    ProductSelectDetailsModel(title: 'S'),
+    ProductSelectDetailsModel(title: 'M'),
+    ProductSelectDetailsModel(title: 'L'),
+    ProductSelectDetailsModel(title: 'XL'),
+    ProductSelectDetailsModel(title: '2XL'),
+  ];
+
+  List<ProductSelectDetailsModel> colorList = [
+    ProductSelectDetailsModel(title: 'Orange', color: Colors.orange),
+    ProductSelectDetailsModel(title: 'Black', color: Colors.black),
+    ProductSelectDetailsModel(title: 'Red', color: Colors.red),
+    ProductSelectDetailsModel(title: 'Yellow', color: Colors.yellow),
+    ProductSelectDetailsModel(title: 'Blue', color: Colors.blue),
+  ];
+
+  void changeSizeBottomSheet(int index) {
+    if (sizeIndex == index) return;
+    sizeIndex = index;
+    emit(BottomSheetChanged());
+  }
+
+  void changeColorBottomSheet(int index) {
+    if (colorIndex == index) return;
+    colorIndex = index;
+    emit(BottomSheetChanged());
   }
 }

@@ -13,6 +13,7 @@ class ProductViewHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var buildApp = context.read<BuildAppCubit>();
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24),
       child: Row(
@@ -20,7 +21,9 @@ class ProductViewHeader extends StatelessWidget {
         children: [
           CustomBackWidget(onTap: () {
             GoRouter.of(context).pop();
-            context.read<BuildAppCubit>().quantity = 1;
+            buildApp.quantity = 1;
+            buildApp.sizeIndex = 0;
+            buildApp.colorIndex = 0;
           }),
           ProductHeaderFavAndnoFavWidget(productData: productData)
         ],

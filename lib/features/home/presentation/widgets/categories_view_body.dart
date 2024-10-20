@@ -17,7 +17,7 @@ class CategoriesViewBody extends StatelessWidget {
           const SizedBox(height: 63),
           const CustomBackWidget(),
           const SizedBox(height: 16),
-          Text('Shop by Categories', style: Styles.styleBold24),
+          Text('Shop by Categories', style: Styles.styleBoldGarabito24),
           const SizedBox(height: 16),
           const CategoriesViewListView(),
         ],
@@ -25,5 +25,3 @@ class CategoriesViewBody extends StatelessWidget {
     );
   }
 }
-
-

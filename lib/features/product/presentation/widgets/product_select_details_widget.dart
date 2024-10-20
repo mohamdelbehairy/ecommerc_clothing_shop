@@ -9,8 +9,13 @@ import 'size_and_color_section.dart';
 
 class ProductSelectDetailsWidget extends StatelessWidget {
   const ProductSelectDetailsWidget(
-      {super.key, required this.productSelectDetailsModel});
-  final ProductSelectDetailsModel productSelectDetailsModel;
+      {super.key,
+      required this.productSelectDetails,
+      required this.onTap,
+      required this.index});
+  final ProductSelectDetailsModel productSelectDetails;
+  final Function() onTap;
+  final int index;
 
   @override
   Widget build(BuildContext context) {
@@ -21,16 +26,16 @@ class ProductSelectDetailsWidget extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(productSelectDetailsModel.title, style: Styles.styleMedium16),
-            if (productSelectDetailsModel.widget != null)
+            Text(productSelectDetails.title, style: Styles.styleMedium16),
+            if (index != 2)
               SizeAndColorSection(
-                  productSelectDetailsModel: productSelectDetailsModel),
-            if (productSelectDetailsModel.widget == null)
-              const AddOrMinusSection()
+                  index: index,
+                  onTap: onTap,
+                  productSelectDetailsModel: productSelectDetails),
+            if (index == 2) const AddOrMinusSection()
           ],
         ),
       ),
     );
   }
 }
-
