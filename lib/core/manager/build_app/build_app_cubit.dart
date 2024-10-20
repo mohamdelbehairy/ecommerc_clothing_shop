@@ -1,7 +1,9 @@
+import 'package:e_clot_shop/core/utils/styles.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../features/product/data/models/product_select_details_model.dart';
 import '../../models/category_item_model.dart';
 import '../../models/text_field_model.dart';
 import '../../utils/assets.dart';
@@ -91,5 +93,23 @@ class BuildAppCubit extends Cubit<BuildAppState> {
     if (categoryActiveIndex == index) return;
     categoryActiveIndex = index;
     emit(CategoryChanged());
+  }
+
+  List selectDetailsList = [
+    ProductSelectDetailsModel(
+        title: 'Size', widget: Text('S', style: Styles.styleBold16)),
+    ProductSelectDetailsModel(
+        title: 'Color',
+        widget:
+            const CircleAvatar(radius: 8, backgroundColor: Color(0xffB3B68B))),
+    ProductSelectDetailsModel(title: 'Quantity'),
+  ];
+
+  num quantity = 1;
+
+  void changeQuantity(int value) {
+    if (value == -1 && quantity == 1) return;
+    quantity += value;
+    emit(QuantityChanged());
   }
 }

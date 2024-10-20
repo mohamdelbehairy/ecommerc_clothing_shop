@@ -1,12 +1,11 @@
-import 'package:e_clot_shop/core/models/svg_model.dart';
-import 'package:e_clot_shop/core/utils/assets.dart';
 import 'package:e_clot_shop/core/utils/styles.dart';
-import 'package:e_clot_shop/core/widgets/custom_svg.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/models/background_model.dart';
 import '../../../../core/widgets/custom_background_container.dart';
 import '../../data/models/product_select_details_model.dart';
+import 'add_or_minus_section.dart';
+import 'size_and_color_section.dart';
 
 class ProductSelectDetailsWidget extends StatelessWidget {
   const ProductSelectDetailsWidget(
@@ -23,21 +22,15 @@ class ProductSelectDetailsWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(productSelectDetailsModel.title, style: Styles.styleMedium16),
-            Row(
-              children: [
-                Text('S', style: Styles.styleBold16),
-                const SizedBox(width: 32),
-                Transform.rotate(
-                    angle: -90 * 3.1415927 / 180,
-                    child: CustomSvg(
-                        svgModel:
-                            SvgModel(height: 18, image: Assets.imagesBack))),
-                const SizedBox(width: 12),
-              ],
-            ),
+            if (productSelectDetailsModel.widget != null)
+              SizeAndColorSection(
+                  productSelectDetailsModel: productSelectDetailsModel),
+            if (productSelectDetailsModel.widget == null)
+              const AddOrMinusSection()
           ],
         ),
       ),
     );
   }
 }
+

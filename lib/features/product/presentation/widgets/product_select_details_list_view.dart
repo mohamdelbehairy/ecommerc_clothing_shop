@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../data/models/product_select_details_model.dart';
+import '../../../../core/manager/build_app/build_app_cubit.dart';
 import 'product_select_details_widget.dart';
 
 class ProductSelectDetailsListView extends StatelessWidget {
@@ -8,23 +9,18 @@ class ProductSelectDetailsListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var selectDetailsList = context.read<BuildAppCubit>();
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24),
       child: Column(
-        children: [
-          ProductSelectDetailsWidget(
-              productSelectDetailsModel:
-                  ProductSelectDetailsModel(title: 'Size')),
-          const SizedBox(height: 12),
-          ProductSelectDetailsWidget(
-              productSelectDetailsModel:
-                  ProductSelectDetailsModel(title: 'Color')),
-          const SizedBox(height: 12),
-          ProductSelectDetailsWidget(
-              productSelectDetailsModel:
-                  ProductSelectDetailsModel(title: 'Quantity')),
-        ],
-      ),
+          children: List.generate(
+              3,
+              (index) => Padding(
+                    padding: const EdgeInsets.only(bottom: 12),
+                    child: ProductSelectDetailsWidget(
+                        productSelectDetailsModel:
+                            selectDetailsList.selectDetailsList[index]),
+                  ))),
     );
   }
 }

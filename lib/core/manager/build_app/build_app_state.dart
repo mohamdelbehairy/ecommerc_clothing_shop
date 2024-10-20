@@ -7,3 +7,5 @@ final class BuildAppInitial extends BuildAppState {}
 final class BottomNavigationBarChanged extends BuildAppState {}
 
 final class CategoryChanged extends BuildAppState {}
+
+final class QuantityChanged extends BuildAppState {}
