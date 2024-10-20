@@ -101,6 +101,7 @@ class BuildAppCubit extends Cubit<BuildAppState> {
   ];
 
   num quantity = 1;
+  num shippingCost = 8.0;
 
   void changeQuantity(int value) {
     if (value == -1 && quantity == 1) return;

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../home/data/models/product_model.dart';
+import 'cart_product_price_and_buttons_section.dart';
 import 'cart_product_widget.dart';
 import 'cart_view_header.dart';
 
@@ -17,10 +18,12 @@ class CartViewBody extends StatelessWidget {
           const SizedBox(height: 63),
           const CartViewHeader(),
           const SizedBox(height: 24),
-          CartProductWidget(productData: productData)
+          CartProductWidget(productData: productData),
+          const Spacer(),
+          CartProductPriceAndButtonsSection(productData: productData),
+          const SizedBox(height: 30),
         ],
       ),
     );
   }
 }
-
