@@ -11,3 +11,7 @@ final class CategoryChanged extends BuildAppState {}
 final class QuantityChanged extends BuildAppState {}
 
 final class BottomSheetChanged extends BuildAppState {}
+
+final class ProductButtonTrue extends BuildAppState {}
+
+final class ProductButtonFalse extends BuildAppState {}

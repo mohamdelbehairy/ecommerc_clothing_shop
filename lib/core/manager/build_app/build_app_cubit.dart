@@ -110,6 +110,8 @@ class BuildAppCubit extends Cubit<BuildAppState> {
 
   int sizeIndex = 0;
   int colorIndex = 0;
+  String size = 'S';
+  String color = 'Orange';
 
   List<ProductSelectDetailsModel> sizeList = [
     ProductSelectDetailsModel(title: 'S'),
@@ -130,12 +132,24 @@ class BuildAppCubit extends Cubit<BuildAppState> {
   void changeSizeBottomSheet(int index) {
     if (sizeIndex == index) return;
     sizeIndex = index;
+    size = sizeList[index].title;
     emit(BottomSheetChanged());
   }
 
   void changeColorBottomSheet(int index) {
     if (colorIndex == index) return;
     colorIndex = index;
+    color = colorList[index].title;
     emit(BottomSheetChanged());
+  }
+
+  bool productButton = false;
+
+  void productButtonChange() async {
+    productButton = true;
+    emit(ProductButtonTrue());
+    await Future.delayed(const Duration(seconds: 1));
+    productButton = false;
+    emit(ProductButtonFalse());
   }
 }
