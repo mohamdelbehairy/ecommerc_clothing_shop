@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../../core/widgets/custom_back_widget.dart';
 import 'cart_empty_widget.dart';
 
-class NoWishlistFounded extends StatelessWidget {
-  const NoWishlistFounded({super.key});
+class NoFavouriteFounded extends StatelessWidget {
+  const NoFavouriteFounded({super.key});
 
   @override
   Widget build(BuildContext context) {

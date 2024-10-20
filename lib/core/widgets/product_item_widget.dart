@@ -29,8 +29,8 @@ class ProductItemWidget extends StatelessWidget {
             children: [
               ProductItem(customProductModel: customProductModel),
               Positioned(
-                  right: 6,
-                  top: 6,
+                  right: 8,
+                  top: 8,
                   child: CustomSvg(
                       svgModel: SvgModel(
                           onTap: () async {
@@ -41,10 +41,10 @@ class ProductItemWidget extends StatelessWidget {
                                     product: customProductModel.productModel);
                           },
                           image: isWishlisted
-                              ? Assets.imagesUnfav
-                              : Assets.imagesFav,
-                          height: 25,
-                          width: 25)))
+                              ? Assets.imagesFav
+                              : Assets.imagesUnfav,
+                          height: 20,
+                          width: 20)))
             ],
           ),
         );

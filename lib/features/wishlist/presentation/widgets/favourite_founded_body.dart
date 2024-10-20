@@ -3,10 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/widgets/custom_products_grid_view.dart';
 import '../manager/wishlist/wishlist_cubit.dart';
-import 'wishlist_founded_header.dart';
+import 'favourite_founded_header.dart';
 
-class WishlistFoundedBody extends StatelessWidget {
-  const WishlistFoundedBody({super.key});
+class FavouriteFoundedBody extends StatelessWidget {
+  const FavouriteFoundedBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class WishlistFoundedBody extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const SizedBox(height: 63),
-          const WishlistFoundedHeader(),
+          const FavouriteFoundedHeader(),
           const SizedBox(height: 24),
           CustomProductsGridView(products: wishlist.wishlist)
         ],

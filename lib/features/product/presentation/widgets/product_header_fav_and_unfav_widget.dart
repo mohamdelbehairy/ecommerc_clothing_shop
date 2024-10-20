@@ -24,7 +24,7 @@ class ProductHeaderFavAndnoFavWidget extends StatelessWidget {
                   ? await wishListCubit.removeFromWishlist(productData.id)
                   : await wishListCubit.addToWishlist(product: productData);
             },
-            image: isWishlisted ? Assets.imagesUnfav : Assets.imagesFav);
+            image: isWishlisted ? Assets.imagesFav : Assets.imagesUnfav);
       },
     );
   }

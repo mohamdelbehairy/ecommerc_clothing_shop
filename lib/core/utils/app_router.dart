@@ -13,7 +13,7 @@ import '../../features/login/presentation/views/forget_password_view.dart';
 import '../../features/login/presentation/views/login_password_view.dart';
 import '../../features/splash/presentation/views/onboarding/presentation/views/on_boardring_view.dart';
 import '../../features/splash/presentation/views/splash_view.dart';
-import '../../features/wishlist/presentation/views/wishlist_view.dart';
+import '../../features/wishlist/presentation/views/myfavourite_view.dart';
 
 class AppRouter {
   static const onBoardring = '/onBoardingView';
@@ -64,7 +64,7 @@ class AppRouter {
           builder: (context, state) => const TopSellingView()),
       GoRoute(path: newIn, builder: (context, state) => const NewInView()),
       GoRoute(
-          path: wishlist, builder: (context, state) => const WishlistView()),
+          path: wishlist, builder: (context, state) => const MyFavouriteView()),
     ],
   );
 }
