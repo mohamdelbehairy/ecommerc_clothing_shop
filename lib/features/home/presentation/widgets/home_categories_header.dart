@@ -9,13 +9,16 @@ class HomeCategoriesHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text('Categories', style: Styles.styleBold16),
-        SeeAllWidget(
-            onTap: () => GoRouter.of(context).push(AppRouter.categories)),
-      ],
+    return Padding(
+       padding: const EdgeInsets.symmetric(horizontal: 24),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text('Categories', style: Styles.styleBold16),
+          SeeAllWidget(
+              onTap: () => GoRouter.of(context).push(AppRouter.categories)),
+        ],
+      ),
     );
   }
 }

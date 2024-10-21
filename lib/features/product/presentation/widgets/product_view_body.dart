@@ -29,7 +29,7 @@ class ProductViewBody extends StatelessWidget {
         const ProductDescription(),
         const Spacer(),
         ProductButtonAddToBag(productData: productData),
-        const SizedBox(height: 32)
+        const SizedBox(height: 24)
       ],
     );
   }

@@ -29,7 +29,7 @@ class ProductItemWidget extends StatelessWidget {
             children: [
               ProductItem(customProductModel: customProductModel),
               Positioned(
-                  right: 8,
+                  right: MediaQuery.sizeOf(context).width == 480 ? 40 : 8,
                   top: 8,
                   child: CustomSvg(
                       svgModel: SvgModel(

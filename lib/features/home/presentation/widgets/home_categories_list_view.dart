@@ -10,18 +10,24 @@ class HomeCategoriesListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var buildHome = context.read<BuildAppCubit>();
+
     return BlocBuilder<BuildAppCubit, BuildAppState>(
       builder: (context, state) {
         return SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           physics: const BouncingScrollPhysics(),
-          child: Row(
-            children: List.generate(
-                buildHome.categories.length,
-                (index) => Padding(
-                    padding: const EdgeInsets.only(right: 16),
-                    child: HomeCategoryItem(
-                        categoryItem: buildHome.categories[index]))),
+          child: Padding(
+            padding: EdgeInsets.only(
+                left: 24,
+                right: MediaQuery.sizeOf(context).width <= 360 ? 0.0 : 24),
+            child: Row(
+              children: List.generate(
+                  buildHome.categories.length,
+                  (index) => Padding(
+                      padding: const EdgeInsets.only(right: 16),
+                      child: HomeCategoryItem(
+                          categoryItem: buildHome.categories[index]))),
+            ),
           ),
         );
       },

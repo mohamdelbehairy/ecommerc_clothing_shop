@@ -8,16 +8,13 @@ class HomeCategoiresSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 24),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          HomeCategoriesHeader(),
-          SizedBox(height: 16),
-          HomeCategoriesListView(),
-        ],
-      ),
+    return const Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        HomeCategoriesHeader(),
+        SizedBox(height: 16),
+        HomeCategoriesListView(),
+      ],
     );
   }
 }

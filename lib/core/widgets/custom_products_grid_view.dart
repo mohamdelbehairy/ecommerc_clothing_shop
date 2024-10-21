@@ -16,11 +16,17 @@ class CustomProductsGridView extends StatelessWidget {
           physics: const BouncingScrollPhysics(),
           itemCount: products.length,
           padding: EdgeInsets.zero,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
               crossAxisSpacing: 18,
               mainAxisSpacing: 0.0,
-              childAspectRatio: 161 / 281),
+              childAspectRatio: MediaQuery.sizeOf(context).width == 390
+                  ? 150 / 281
+                  : MediaQuery.sizeOf(context).width == 375
+                      ? 145 / 281
+                      : MediaQuery.sizeOf(context).width <= 360
+                          ? 140 / 281
+                          : 165 / 281),
           itemBuilder: (context, index) {
             return ProductItemWidget(
               customProductModel:

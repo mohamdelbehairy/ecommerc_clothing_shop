@@ -17,9 +17,7 @@ class HomeTopSellingSection extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 24),
             child: HomeTopSellingHeader()),
         const SizedBox(height: 16),
-        Padding(
-            padding: const EdgeInsets.only(left: 24),
-            child: CustomProductsListView(products: topSelling.topSelling))
+        CustomProductsListView(products: topSelling.topSelling)
       ],
     );
   }

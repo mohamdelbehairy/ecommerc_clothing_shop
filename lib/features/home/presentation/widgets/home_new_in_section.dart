@@ -16,9 +16,7 @@ class HomeNewInSection extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 24),
             child: HomeNewInHeader()),
         const SizedBox(height: 16),
-        Padding(
-            padding: const EdgeInsets.only(left: 24),
-            child: CustomProductsListView(products: newIn.newIn))
+        CustomProductsListView(products: newIn.newIn)
       ],
     );
   }

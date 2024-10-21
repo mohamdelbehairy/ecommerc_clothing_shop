@@ -19,7 +19,7 @@ class CustomProductsListView extends StatelessWidget {
           physics: const BouncingScrollPhysics(),
           itemBuilder: (context, index) {
             return Padding(
-                padding: const EdgeInsets.only(right: 12),
+                padding: EdgeInsets.only(right: 12, left: index == 0 ? 24 : 0),
                 child: ProductItemWidget(
                   customProductModel: CustomProductModel(
                       width: 165, productModel: products[index]),
