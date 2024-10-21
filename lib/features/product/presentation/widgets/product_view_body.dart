@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 
 import '../../../home/data/models/product_model.dart';
@@ -16,7 +14,6 @@ class ProductViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    log(MediaQuery.sizeOf(context).width.toString());
     return CustomScrollView(
       slivers: [
         SliverFillRemaining(
@@ -34,10 +31,9 @@ class ProductViewBody extends StatelessWidget {
               const ProductSelectDetailsListView(),
               const SizedBox(height: 12),
               const ProductDescription(),
-              if(MediaQuery.sizeOf(context).width > 375)
-              const Spacer(),
-              if(MediaQuery.sizeOf(context).width <= 375)
-              const SizedBox(height: 24),
+              if (MediaQuery.sizeOf(context).width > 375) const Spacer(),
+              if (MediaQuery.sizeOf(context).width <= 375)
+                const SizedBox(height: 24),
               ProductButtonAddToBag(productData: productData),
               const SizedBox(height: 24)
             ],

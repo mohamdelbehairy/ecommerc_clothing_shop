@@ -6,7 +6,7 @@ import 'core/widgets/e_clot_shop.dart';
 void main() async {
   await initMain();
   runApp(DevicePreview(
-    enabled: true,
+    enabled: false,
     builder: (context) => const EClotShop(),
   ));
 }
