@@ -216,4 +216,49 @@ class BuildAppCubit extends Cubit<BuildAppState> {
           }),
     ];
   }
+
+  String shippingAddress = '';
+
+  void updateShippingAddress() {
+    if (shippingAddress ==
+        '${streetAddress.text}, ${city.text}, ${stateTextEditing.text} ${zipCode.text}') {
+      return;
+    }
+    shippingAddress =
+        '${streetAddress.text}, ${city.text}, ${stateTextEditing.text} ${zipCode.text}';
+    emit(ShippingAddressChanged());
+  }
+
+  List<ProductSelectDetailsModel> paymentList = [
+    ProductSelectDetailsModel(title: 'Pay using card'),
+    ProductSelectDetailsModel(title: 'Pay using paymob'),
+    ProductSelectDetailsModel(title: 'Pay using paypal'),
+  ];
+
+  int paymentIndex = -1;
+
+  void changePaymentBottomSheet(int index) {
+    if (paymentIndex == index) return;
+    paymentIndex = index;
+    emit(PaymentBottomSheetChanged());
+  }
+
+  String paymentMethod = '';
+
+  void updatePaymentMethod() {
+    if (paymentMethod == paymentList[paymentIndex].title) return;
+    paymentMethod = paymentList[paymentIndex].title;
+    emit(PaymentMethodChanged());
+  }
+
+  String isEmptyDetails() {
+    if (shippingAddress.isEmpty && paymentMethod.isEmpty) {
+      return 'Add Shipping Address and Payment Method';
+    } else if (shippingAddress.isEmpty) {
+      return 'Add Shipping Address';
+    } else if (paymentMethod.isEmpty) {
+      return 'Add Payment Method';
+    }
+    return '';
+  }
 }

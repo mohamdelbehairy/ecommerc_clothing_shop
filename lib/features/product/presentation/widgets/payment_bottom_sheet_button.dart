@@ -6,8 +6,8 @@ import '../../../../core/manager/build_app/build_app_cubit.dart';
 import '../../../../core/models/custom_button_model.dart';
 import '../../../../core/widgets/custom_button.dart';
 
-class AddAddressButton extends StatelessWidget {
-  const AddAddressButton({super.key});
+class PaymentBottomSheetButton extends StatelessWidget {
+  const PaymentBottomSheetButton({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +18,8 @@ class AddAddressButton extends StatelessWidget {
         customButtonModel: CustomButtonModel(
           buttonName: 'Save',
           onTap: () {
-            if (buildAppCubit.addAddressFormKey.currentState!.validate()) {
-              buildAppCubit.addAddressFormKey.currentState!.save();
-              buildAppCubit.updateShippingAddress();
+            if (buildAppCubit.paymentIndex > -1) {
+              buildAppCubit.updatePaymentMethod();
               GoRouter.of(context).pop();
             }
           },

@@ -15,3 +15,9 @@ final class BottomSheetChanged extends BuildAppState {}
 final class ProductButtonTrue extends BuildAppState {}
 
 final class ProductButtonFalse extends BuildAppState {}
+
+final class ShippingAddressChanged extends BuildAppState {}
+
+final class PaymentBottomSheetChanged extends BuildAppState {}
+
+final class PaymentMethodChanged extends BuildAppState {}

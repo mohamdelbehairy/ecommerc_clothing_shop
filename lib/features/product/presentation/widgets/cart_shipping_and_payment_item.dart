@@ -27,13 +27,16 @@ class CartShippingAndPaymentItem extends StatelessWidget {
                 child: Text(shippingAndPaymentModel.title,
                     style: Styles.styleMediumWithOpacity12)),
             subtitle: Text(shippingAndPaymentModel.subtitle,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
                 style: Styles.styleMedium16),
             trailing: Transform.rotate(
               angle: 90 * 3.1415927 / 90,
               child: CustomSvg(
                   svgModel: SvgModel(
-                    onTap: shippingAndPaymentModel.onTap,
-                    height: 18, image: Assets.imagesBack)),
+                      onTap: shippingAndPaymentModel.onTap,
+                      height: 18,
+                      image: Assets.imagesBack)),
             ),
           ),
         ),
