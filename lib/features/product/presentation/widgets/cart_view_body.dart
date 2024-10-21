@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../home/data/models/product_model.dart';
 import 'cart_product_price_and_buttons_section.dart';
 import 'cart_product_widget.dart';
+import 'cart_shipping_and_payment_section.dart';
 import 'cart_view_header.dart';
 
 class CartViewBody extends StatelessWidget {
@@ -19,6 +20,8 @@ class CartViewBody extends StatelessWidget {
           const CartViewHeader(),
           const SizedBox(height: 24),
           CartProductWidget(productData: productData),
+          const SizedBox(height: 16),
+          const CartShippingAndPaymentSection(),
           const Spacer(),
           CartProductPriceAndButtonsSection(productData: productData),
           const SizedBox(height: 30),
@@ -27,3 +30,5 @@ class CartViewBody extends StatelessWidget {
     );
   }
 }
+
+

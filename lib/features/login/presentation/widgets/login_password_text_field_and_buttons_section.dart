@@ -18,7 +18,7 @@ class LoginPasswordTextFieldAndButtonSetcion extends StatelessWidget {
           key: buildLogin.formKeyTwo,
           child: Column(
             children: [
-              CustomTextField(textFieldModel: buildLogin.textFields[1]),
+              CustomTextField(textFieldModel: buildLogin.loginTextFields[1]),
               const SizedBox(height: 20),
               const LoginButton(),
               const SizedBox(height: 20),

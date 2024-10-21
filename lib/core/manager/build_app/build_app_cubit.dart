@@ -15,7 +15,8 @@ part 'build_app_state.dart';
 
 class BuildAppCubit extends Cubit<BuildAppState> {
   BuildAppCubit() : super(BuildAppInitial()) {
-    _initializeItems();
+    _initializeLogin();
+    _initializeAddAddress();
   }
 
   TextEditingController email = TextEditingController();
@@ -24,12 +25,12 @@ class BuildAppCubit extends Cubit<BuildAppState> {
   GlobalKey<FormState> formKeyOne = GlobalKey<FormState>();
   GlobalKey<FormState> formKeyTwo = GlobalKey<FormState>();
 
-  List<TextFieldModel> textFields = [];
+  List<TextFieldModel> loginTextFields = [];
 
   String userName = '';
 
-  void _initializeItems() {
-    textFields = [
+  void _initializeLogin() {
+    loginTextFields = [
       TextFieldModel(
           hintText: 'Email Address',
           keyboardType: TextInputType.emailAddress,
@@ -152,5 +153,67 @@ class BuildAppCubit extends Cubit<BuildAppState> {
     await Future.delayed(const Duration(seconds: 1));
     productButton = false;
     emit(ProductButtonFalse());
+  }
+
+  TextEditingController streetAddress = TextEditingController();
+  TextEditingController city = TextEditingController();
+  TextEditingController stateTextEditing = TextEditingController();
+  TextEditingController zipCode = TextEditingController();
+
+  GlobalKey<FormState> addAddressFormKey = GlobalKey<FormState>();
+
+  List<TextFieldModel> addAddressColumn = [];
+  List<TextFieldModel> addAddressRow = [];
+
+  void _initializeAddAddress() {
+    addAddressColumn = [
+      TextFieldModel(
+          hintText: 'Street Address',
+          controller: streetAddress,
+          borderRadius: 8,
+          validator: (value) {
+            if (value!.isEmpty) {
+              return 'please enter a street address';
+            }
+            return null;
+          }),
+      TextFieldModel(
+          hintText: 'City',
+          controller: city,
+          borderRadius: 8,
+          validator: (value) {
+            if (value!.isEmpty) {
+              return 'please enter a city';
+            }
+            return null;
+          }),
+    ];
+
+    addAddressRow = [
+      TextFieldModel(
+          hintText: 'State',
+          controller: stateTextEditing,
+          borderRadius: 8,
+          validator: (value) {
+            if (value!.isEmpty) {
+              return 'please enter a state';
+            }
+            return null;
+          }),
+      TextFieldModel(
+          hintText: 'Zip Code',
+          controller: zipCode,
+          keyboardType: TextInputType.number,
+          borderRadius: 8,
+          validator: (value) {
+            if (value!.isEmpty) {
+              return 'please enter a zip code';
+            }
+            if (RegExp(r'^[0-9]+$').hasMatch(value) == false) {
+              return 'numbers only';
+            }
+            return null;
+          }),
+    ];
   }
 }

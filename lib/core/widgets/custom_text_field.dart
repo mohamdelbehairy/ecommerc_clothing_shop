@@ -10,7 +10,7 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(4),
+      borderRadius: BorderRadius.circular(textFieldModel.borderRadius),
       child: TextFormField(
         cursorColor: AppColors.primaryColor,
         keyboardType: textFieldModel.keyboardType,
