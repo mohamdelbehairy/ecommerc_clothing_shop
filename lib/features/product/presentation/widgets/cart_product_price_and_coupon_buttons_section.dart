@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
 import '../../../home/data/models/product_model.dart';
-import 'cart_product_buttons.dart';
+import 'cart_coupon_code_widget.dart';
+import 'cart_product_button.dart';
 import 'cart_product_price_list_view.dart';
 
-class CartProductPriceAndButtonsSection extends StatelessWidget {
-  const CartProductPriceAndButtonsSection(
+class CartProductPriceAndCouponButtonsSection extends StatelessWidget {
+  const CartProductPriceAndCouponButtonsSection(
       {super.key, required this.productData});
   final ProductModel productData;
 
@@ -17,10 +18,10 @@ class CartProductPriceAndButtonsSection extends StatelessWidget {
       children: [
         CartProductPriceListView(productData: productData),
         const SizedBox(height: 24),
-        const CartProductButtons(),
+        const CartCouponCodeWidget(),
+        const SizedBox(height: 64),
+        const CartProductButton(),
       ],
     );
   }
 }
-
-
