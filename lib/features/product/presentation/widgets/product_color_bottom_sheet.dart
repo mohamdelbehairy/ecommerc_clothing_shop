@@ -8,14 +8,16 @@ class ProductColorBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        ProductBottomSheetheader(text: 'Color'),
-        SizedBox(height: 8),
-        ProductColorBottomSheetListView(),
-        SizedBox(height: 8),
-      ],
+    return const SingleChildScrollView(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          ProductBottomSheetheader(text: 'Color'),
+          SizedBox(height: 8),
+          ProductColorBottomSheetListView(),
+          SizedBox(height: 8),
+        ],
+      ),
     );
   }
 }

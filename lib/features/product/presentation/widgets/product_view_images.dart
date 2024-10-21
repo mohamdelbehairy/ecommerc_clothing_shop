@@ -13,28 +13,25 @@ class ProductViewImages extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 24),
-      child: SizedBox(
-        height: 248,
-        child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            physics: const BouncingScrollPhysics(),
-            itemCount: 5,
-            itemBuilder: (context, index) {
-              return Padding(
-                padding: EdgeInsets.only(left: index != 0 ? 8 : 0.0),
-                child: CustomBakgroundContainer(
-                    backgroundModel: BackgroundModel(
-                        width: 161,
-                        padding: 0.0,
-                        child: CustomCachedNetworkImage(
-                            cachedImage: CachedNetworkImageModel(
-                                fit: BoxFit.cover,
-                                imageUrl: productData.image)))),
-              );
-            }),
-      ),
+    return SizedBox(
+      height: MediaQuery.sizeOf(context).width <= 360 ? 200 : 248,
+      child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          physics: const BouncingScrollPhysics(),
+          itemCount: 5,
+          itemBuilder: (context, index) {
+            return Padding(
+              padding: EdgeInsets.only(left: index != 0 ? 8 : 24),
+              child: CustomBakgroundContainer(
+                  backgroundModel: BackgroundModel(
+                      width: 161,
+                      padding: 0.0,
+                      child: CustomCachedNetworkImage(
+                          cachedImage: CachedNetworkImageModel(
+                              fit: BoxFit.cover,
+                              imageUrl: productData.image)))),
+            );
+          }),
     );
   }
 }

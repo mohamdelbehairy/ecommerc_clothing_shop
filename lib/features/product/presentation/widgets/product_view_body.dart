@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
 import '../../../home/data/models/product_model.dart';
@@ -14,22 +16,33 @@ class ProductViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const SizedBox(height: 63),
-        ProductViewHeader(productData: productData),
-        const SizedBox(height: 20),
-        ProductViewImages(productData: productData),
-        const SizedBox(height: 20),
-        ProductNameAndPriceWidget(productData: productData),
-        const SizedBox(height: 28),
-        const ProductSelectDetailsListView(),
-        const SizedBox(height: 12),
-        const ProductDescription(),
-        const Spacer(),
-        ProductButtonAddToBag(productData: productData),
-        const SizedBox(height: 24)
+    log(MediaQuery.sizeOf(context).width.toString());
+    return CustomScrollView(
+      slivers: [
+        SliverFillRemaining(
+          hasScrollBody: false,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(height: 63),
+              ProductViewHeader(productData: productData),
+              const SizedBox(height: 20),
+              ProductViewImages(productData: productData),
+              const SizedBox(height: 20),
+              ProductNameAndPriceWidget(productData: productData),
+              const SizedBox(height: 28),
+              const ProductSelectDetailsListView(),
+              const SizedBox(height: 12),
+              const ProductDescription(),
+              if(MediaQuery.sizeOf(context).width > 375)
+              const Spacer(),
+              if(MediaQuery.sizeOf(context).width <= 375)
+              const SizedBox(height: 24),
+              ProductButtonAddToBag(productData: productData),
+              const SizedBox(height: 24)
+            ],
+          ),
+        )
       ],
     );
   }

@@ -8,14 +8,16 @@ class ProductSizeBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        ProductBottomSheetheader(text: 'Size'),
-        SizedBox(height: 8),
-        ProductSizeBottomSheetListView(),
-        SizedBox(height: 8),
-      ],
+    return const SingleChildScrollView(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          ProductBottomSheetheader(text: 'Size'),
+          SizedBox(height: 8),
+          ProductSizeBottomSheetListView(),
+          SizedBox(height: 8),
+        ],
+      ),
     );
   }
 }
