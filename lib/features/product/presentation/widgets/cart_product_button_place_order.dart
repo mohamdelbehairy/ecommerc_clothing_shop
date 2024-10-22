@@ -7,8 +7,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/manager/build_app/build_app_cubit.dart';
 import '../../../../core/models/custom_button_model.dart';
 
-class CartProductButton extends StatelessWidget {
-  const CartProductButton({super.key});
+class CartProductButtonPlaceOrder extends StatelessWidget {
+  const CartProductButtonPlaceOrder({super.key});
 
   @override
   Widget build(BuildContext context) {
