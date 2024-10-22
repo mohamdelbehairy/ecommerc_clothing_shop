@@ -13,19 +13,18 @@ class CartProductButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var buildAppCubit = context.read<BuildAppCubit>();
+
     return CustomButton(
         customButtonModel: CustomButtonModel(
             onTap: () {
               if (buildAppCubit.isEmptyDetails().isNotEmpty) {
                 customSnackbarWidget(context,
                     margin: const EdgeInsets.symmetric(
-                        vertical: 70, horizontal: 32),
+                        vertical: 70, horizontal: 60),
                     color: AppColors.primaryColor,
                     message: buildAppCubit.isEmptyDetails());
-              } else {
-                
-              }
+              } else {}
             },
-            buttonName: 'Checkout'));
+            buttonName: 'Place Order'));
   }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../home/data/models/product_model.dart';
-import 'product_button_add_to_bag.dart';
+import 'product_button_checkout.dart';
 import 'product_description.dart';
 import 'product_name_and_price_widget.dart';
 import 'product_select_details_list_view.dart';
@@ -34,7 +34,7 @@ class ProductViewBody extends StatelessWidget {
               if (MediaQuery.sizeOf(context).width > 375) const Spacer(),
               if (MediaQuery.sizeOf(context).width <= 375)
                 const SizedBox(height: 24),
-              ProductButtonAddToBag(productData: productData),
+              ProductButtonCheckout(productData: productData),
               const SizedBox(height: 24)
             ],
           ),

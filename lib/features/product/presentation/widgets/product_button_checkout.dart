@@ -9,8 +9,8 @@ import '../../../../core/widgets/custom_button.dart';
 import '../../../../core/widgets/function/loading_animation_widget.dart';
 import '../../../home/data/models/product_model.dart';
 
-class ProductButtonAddToBag extends StatelessWidget {
-  const ProductButtonAddToBag({super.key, required this.productData});
+class ProductButtonCheckout extends StatelessWidget {
+  const ProductButtonCheckout({super.key, required this.productData});
   final ProductModel productData;
 
   @override
@@ -46,7 +46,7 @@ class ProductButtonAddToBag extends StatelessWidget {
                               Text('\$${price * buildApp.quantity}',
                                   style: Styles.styleBold16
                                       .copyWith(color: Colors.white)),
-                              Text('Add to Bag',
+                              Text('Checkout',
                                   style: Styles.styleMedium16
                                       .copyWith(color: Colors.white))
                             ],

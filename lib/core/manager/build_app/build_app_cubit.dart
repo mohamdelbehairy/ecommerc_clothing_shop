@@ -253,11 +253,11 @@ class BuildAppCubit extends Cubit<BuildAppState> {
 
   String isEmptyDetails() {
     if (shippingAddress.isEmpty && paymentMethod.isEmpty) {
-      return 'Add Shipping Address and Payment Method';
+      return 'Shipping and Payment Missing';
     } else if (shippingAddress.isEmpty) {
-      return 'Add Shipping Address';
+      return 'Shipping Address Missing';
     } else if (paymentMethod.isEmpty) {
-      return 'Add Payment Method';
+      return 'Payment Method Missing';
     }
     return '';
   }
