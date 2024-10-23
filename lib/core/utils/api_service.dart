@@ -6,14 +6,18 @@ class ApiService {
 
   ApiService(this._dio);
 
-  Future<Response> post({required String url, required data}) async {
+  Future<Response> post(
+      {required String url,
+      required data,
+      Map<String, dynamic>? headers}) async {
     final response = await _dio.post(url,
         data: data,
         options: Options(
           contentType: Headers.formUrlEncodedContentType,
-          headers: {
-            'Authorization': 'Bearer ${SecretKey.stripeSecretKey}',
-          },
+          headers: headers ??
+              {
+                'Authorization': 'Bearer ${SecretKey.stripeSecretKey}',
+              },
         ));
     return response;
   }
