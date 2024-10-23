@@ -1,8 +1,6 @@
-import 'dart:developer';
-
-import 'package:e_clot_shop/features/user_data/presentation/manager/get_user_data/get_user_data_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../user_data/presentation/manager/get_user_data/get_user_data_cubit.dart';
 import 'setting_list_view.dart';
 import 'setting_user_image_and_info_section.dart';
 import 'sign_out_button.dart';
@@ -12,7 +10,6 @@ class SettingViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    log(MediaQuery.sizeOf(context).width.toString());
     return BlocBuilder<GetUserDataCubit, GetUserDataState>(
       builder: (context, state) {
         if (state is GetUserDataSuccess) {

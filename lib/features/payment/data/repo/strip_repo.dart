@@ -5,4 +5,6 @@ abstract class StripRepo {
   Future<void> initPaymentSheet({required String clientSecret});
   Future<void> displayPaymentSheet();
   Future<void> makePayment(StripInputModel stripInputModel);
+
+  Future<void> createCustomer({required String id, required String name});
 }

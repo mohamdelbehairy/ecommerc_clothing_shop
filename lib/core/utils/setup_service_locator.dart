@@ -1,3 +1,5 @@
+import 'package:dio/dio.dart';
+import 'package:e_clot_shop/core/utils/api_service.dart';
 import 'package:e_clot_shop/features/user_data/data/repo/user_data_repo_impl.dart';
 import 'package:get_it/get_it.dart';
 
@@ -10,4 +12,6 @@ void setupServiceLocator() {
   getIt.registerSingleton<SocialAuthRepoImpl>(SocialAuthRepoImpl());
   getIt.registerSingleton<EmailAuthRepoImpl>(EmailAuthRepoImpl());
   getIt.registerSingleton<UserDataRepoImpl>(UserDataRepoImpl());
+
+  getIt.registerSingleton<ApiService>(ApiService(Dio()));
 }

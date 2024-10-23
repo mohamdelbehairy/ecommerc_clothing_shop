@@ -41,4 +41,16 @@ class StripRepoImpl extends StripRepo {
     await initPaymentSheet(clientSecret: clientSecret);
     await displayPaymentSheet();
   }
+
+  @override
+  Future<void> createCustomer(
+      {required String id, required String name}) async {
+    await _apiService.post(
+      url: 'https://api.stripe.com/v1/customers',
+      data: {
+        'id': id,
+        'name': name,
+      },
+    );
+  }
 }
