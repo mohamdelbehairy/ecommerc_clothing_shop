@@ -1,4 +1,5 @@
 import 'package:e_clot_shop/core/widgets/custom_button.dart';
+import 'package:e_clot_shop/features/home/data/models/product_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -8,7 +9,8 @@ import '../../../payment/presentation/manager/strip/strip_payment_cubit.dart';
 import 'function/place_order_button_on_tap.dart';
 
 class CartProductButtonPlaceOrder extends StatelessWidget {
-  const CartProductButtonPlaceOrder({super.key});
+  const CartProductButtonPlaceOrder({super.key, required this.productData});
+  final ProductModel productData;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +28,8 @@ class CartProductButtonPlaceOrder extends StatelessWidget {
             customButtonModel: CustomButtonModel(
                 isLoading: state is StripPaymentLoading,
                 onTap: () async {
-                  await placeOrderButtonOnTap(context);
+                  await placeOrderButtonOnTap(context,
+                      productData: productData);
                 },
                 buttonName: 'Place Order'));
       },

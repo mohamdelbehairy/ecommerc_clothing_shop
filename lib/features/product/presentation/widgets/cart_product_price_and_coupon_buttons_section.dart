@@ -12,15 +12,13 @@ class CartProductPriceAndCouponButtonsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // var price = num.parse(productData.price);
-    // var buildApp = context.watch<BuildAppCubit>();
     return Column(
       children: [
         CartProductPriceListView(productData: productData),
         const SizedBox(height: 24),
         const CartCouponCodeWidget(),
         const SizedBox(height: 64),
-        const CartProductButtonPlaceOrder(),
+        CartProductButtonPlaceOrder(productData: productData),
       ],
     );
   }
