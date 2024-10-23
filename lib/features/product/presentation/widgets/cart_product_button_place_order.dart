@@ -1,30 +1,35 @@
-import 'package:e_clot_shop/core/utils/colors.dart';
 import 'package:e_clot_shop/core/widgets/custom_button.dart';
-import 'package:e_clot_shop/core/widgets/function/custom_snack_bar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/manager/build_app/build_app_cubit.dart';
 import '../../../../core/models/custom_button_model.dart';
+import '../../../../core/widgets/function/custom_snack_bar_widget.dart';
+import '../../../payment/presentation/manager/strip/strip_payment_cubit.dart';
+import 'function/place_order_button_on_tap.dart';
 
 class CartProductButtonPlaceOrder extends StatelessWidget {
   const CartProductButtonPlaceOrder({super.key});
 
   @override
   Widget build(BuildContext context) {
-    var buildAppCubit = context.read<BuildAppCubit>();
-
-    return CustomButton(
-        customButtonModel: CustomButtonModel(
-            onTap: () {
-              if (buildAppCubit.isEmptyDetails().isNotEmpty) {
-                customSnackbarWidget(context,
-                    margin: const EdgeInsets.symmetric(
-                        vertical: 70, horizontal: 60),
-                    color: AppColors.primaryColor,
-                    message: buildAppCubit.isEmptyDetails());
-              } else {}
-            },
-            buttonName: 'Place Order'));
+    return BlocConsumer<StripPaymentCubit, StripPaymentState>(
+      listener: (context, state) {
+        if (state is StripPaymentSuccess) {}
+        if (state is StripPaymentFailure) {
+          customSnackbarWidget(context,
+              margin: const EdgeInsets.symmetric(vertical: 70, horizontal: 100),
+              message: 'Payment has been cancelled');
+        }
+      },
+      builder: (context, state) {
+        return CustomButton(
+            customButtonModel: CustomButtonModel(
+                isLoading: state is StripPaymentLoading,
+                onTap: () async {
+                  await placeOrderButtonOnTap(context);
+                },
+                buttonName: 'Place Order'));
+      },
+    );
   }
 }

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/models/svg_model.dart';
 import '../../../../core/widgets/function/loading_animation_widget.dart';
-import '../../data/auth_item_model.dart';
+import '../../data/models/auth_item_model.dart';
 
 class ProviderAuthItem extends StatelessWidget {
   const ProviderAuthItem({super.key, required this.authItemModel});

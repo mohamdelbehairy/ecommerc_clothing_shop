@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/widgets/function/show_alert_sign_in_successful.dart';
 import '../../../auth/presentation/manager/social_auth/social_auth_cubit.dart';
-import '../../data/auth_item_model.dart';
+import '../../data/models/auth_item_model.dart';
 import 'provider_auth_item.dart';
 
 class BlocConsumerFacebookAuth extends StatelessWidget {
