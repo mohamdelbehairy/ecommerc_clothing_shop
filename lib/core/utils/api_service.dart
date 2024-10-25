@@ -21,4 +21,8 @@ class ApiService {
         ));
     return response;
   }
+
+  Future<Response> get({required String url}) async {
+    return await _dio.get(url);
+  }
 }

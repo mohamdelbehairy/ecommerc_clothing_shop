@@ -16,5 +16,3 @@ Future<void> placeOrderButtonOnTap(BuildContext context,
     await paymentMethods(context, productData: productData);
   }
 }
-
-
