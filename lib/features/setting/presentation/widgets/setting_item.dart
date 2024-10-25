@@ -21,7 +21,7 @@ class SettingItem extends StatelessWidget {
       child: CustomBakgroundContainer(
         backgroundModel: BackgroundModel(
             height: 56,
-            borderRadius: 8,
+            borderRadiusDouble: 8,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

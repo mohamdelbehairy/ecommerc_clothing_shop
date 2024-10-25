@@ -26,7 +26,7 @@ class SettingUserImageAndSection extends StatelessWidget {
         const SizedBox(height: 24),
         CustomBakgroundContainer(
           backgroundModel: BackgroundModel(
-              borderRadius: 8,
+              borderRadiusDouble: 8,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [

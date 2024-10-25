@@ -16,7 +16,7 @@ class CartCouponCodeWidget extends StatelessWidget {
     return CustomBakgroundContainer(
       backgroundModel: BackgroundModel(
         height: 56,
-        borderRadius: 8,
+        borderRadiusDouble: 8,
         child: Row(
           children: [
             CustomSvg(svgModel: SvgModel(image: Assets.imagesCoupon)),

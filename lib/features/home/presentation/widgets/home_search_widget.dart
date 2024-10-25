@@ -17,7 +17,7 @@ class HomeSearchWidget extends StatelessWidget {
       child: CustomBakgroundContainer(
         backgroundModel: BackgroundModel(
             height: 44,
-            borderRadius: 100,
+            borderRadiusDouble: 100,
             padding: 20,
             child: Row(
               children: [

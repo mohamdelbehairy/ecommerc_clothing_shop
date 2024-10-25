@@ -18,7 +18,7 @@ class CartShippingAndPaymentItem extends StatelessWidget {
     return CustomBakgroundContainer(
       backgroundModel: BackgroundModel(
         height: 80,
-        borderRadius: 8,
+        borderRadiusDouble: 8,
         child: Center(
           child: ListTile(
             contentPadding: EdgeInsets.zero,

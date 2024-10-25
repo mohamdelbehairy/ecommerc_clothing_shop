@@ -20,7 +20,7 @@ Future<void> paymentMethods(BuildContext context,
     await payWithCard(context, totalPrice: totalPrice);
   } else if (buildAppCubit.paymentIndex == 1) {
     // ignore: use_build_context_synchronously
-    payWithPaymob(context, totalPrice: totalPrice);
+    payWithPaymob(context, totalPrice: totalPrice, productData: productData);
   } else {
     // ignore: use_build_context_synchronously
     payWithPayPal(context, productData: productData);

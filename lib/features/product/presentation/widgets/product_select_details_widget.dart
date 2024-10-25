@@ -22,7 +22,7 @@ class ProductSelectDetailsWidget extends StatelessWidget {
     return CustomBakgroundContainer(
       backgroundModel: BackgroundModel(
         height: 56,
-        borderRadius: 100,
+        borderRadiusDouble: 100,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

@@ -96,6 +96,12 @@ class Styles {
       fontSize: 16,
       fontFamily: 'Gabarito');
 
+  static TextStyle styleBoldGarabito32 = const TextStyle(
+      fontWeight: FontWeight.bold,
+      color: Color(0xff272727),
+      fontSize: 32,
+      fontFamily: 'Gabarito');
+
   static TextStyle styleSmeiBoldPoppins20 = GoogleFonts.poppins(
       fontSize: 20,
       fontWeight: FontWeight.w600,

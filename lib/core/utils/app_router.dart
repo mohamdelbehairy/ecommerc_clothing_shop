@@ -11,6 +11,7 @@ import '../../features/home/presentation/views/top_selling_view.dart';
 import '../../features/login/presentation/views/check_email_view.dart';
 import '../../features/login/presentation/views/forget_password_view.dart';
 import '../../features/login/presentation/views/login_password_view.dart';
+import '../../features/order/presentation/views/order_placed_success_view.dart';
 import '../../features/splash/presentation/views/onboarding/presentation/views/on_boardring_view.dart';
 import '../../features/splash/presentation/views/splash_view.dart';
 import '../../features/wishlist/presentation/views/myfavourite_view.dart';
@@ -29,6 +30,7 @@ class AppRouter {
   static const topSelling = '/topSellingView';
   static const newIn = '/newInView';
   static const wishlist = '/wishlistView';
+  static const orderPlacedSuccess = '/orderPlacedSuccessView';
 
   static final router = GoRouter(
     routes: [
@@ -65,6 +67,9 @@ class AppRouter {
       GoRoute(path: newIn, builder: (context, state) => const NewInView()),
       GoRoute(
           path: wishlist, builder: (context, state) => const MyFavouriteView()),
+      GoRoute(
+          path: orderPlacedSuccess,
+          builder: (context, state) => const OrderPlacedSuccessView())
     ],
   );
 }

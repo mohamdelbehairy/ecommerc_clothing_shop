@@ -15,7 +15,7 @@ class CartProductWidget extends StatelessWidget {
     return CustomBakgroundContainer(
       backgroundModel: BackgroundModel(
         height: 80,
-        borderRadius: 8,
+        borderRadiusDouble: 8,
         child: Center(child: CartProductListTile(productData: productData)),
       ),
     );

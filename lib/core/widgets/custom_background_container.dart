@@ -13,10 +13,10 @@ class CustomBakgroundContainer extends StatelessWidget {
       width: backgroundModel.width ?? double.infinity,
       decoration: BoxDecoration(
           color: AppColors.secondaryColor,
-          borderRadius: BorderRadius.circular(backgroundModel.borderRadius)),
+          borderRadius: backgroundModel.borderRadius ??
+              BorderRadius.circular(backgroundModel.borderRadiusDouble)),
       child: Padding(
-          padding:
-              EdgeInsets.symmetric(horizontal: backgroundModel.padding),
+          padding: EdgeInsets.symmetric(horizontal: backgroundModel.padding),
           child: backgroundModel.child),
     );
   }

@@ -2,6 +2,7 @@ import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../features/home/data/models/product_model.dart';
 import '../../../features/product/data/models/product_select_details_model.dart';
 import '../../models/category_item_model.dart';
 import '../../models/text_field_model.dart';
@@ -261,4 +262,6 @@ class BuildAppCubit extends Cubit<BuildAppState> {
     }
     return '';
   }
+
+  ProductModel? productData;
 }
