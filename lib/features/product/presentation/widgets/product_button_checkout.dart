@@ -43,7 +43,8 @@ class ProductButtonCheckout extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text('\$${price * buildApp.quantity}',
+                              Text(
+                                  '\$${(price * buildApp.quantity).toStringAsFixed(2)}',
                                   style: Styles.styleBold16
                                       .copyWith(color: Colors.white)),
                               Text('Checkout',

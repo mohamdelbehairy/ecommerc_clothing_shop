@@ -21,3 +21,5 @@ final class ShippingAddressChanged extends BuildAppState {}
 final class PaymentBottomSheetChanged extends BuildAppState {}
 
 final class PaymentMethodChanged extends BuildAppState {}
+
+final class ResetOrder extends BuildAppState {}

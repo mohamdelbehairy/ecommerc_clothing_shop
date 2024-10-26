@@ -31,7 +31,7 @@ void payWithPayPal(BuildContext context, {required ProductModel productData}) {
       onSuccess: (Map params) async {
         log("onSuccess: $params");
         context.read<BuildAppCubit>().productData = productData;
-        GoRouter.of(context).push(AppRouter.orderPlacedSuccess);
+        GoRouter.of(context).go(AppRouter.orderPlacedSuccess);
       },
       onError: (error) {
         log("onError: $error");

@@ -30,7 +30,7 @@ void payWithPaymob(BuildContext context,
           totalPrice: paymobPrice,
           successResult: (data) {
             context.read<BuildAppCubit>().productData = productData;
-            GoRouter.of(context).push(AppRouter.orderPlacedSuccess);
+            GoRouter.of(context).go(AppRouter.orderPlacedSuccess);
             log('successResult: $data');
           },
           errorResult: (error) {

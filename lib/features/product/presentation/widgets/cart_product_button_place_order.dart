@@ -21,7 +21,7 @@ class CartProductButtonPlaceOrder extends StatelessWidget {
       listener: (context, state) {
         if (state is StripPaymentSuccess) {
           context.read<BuildAppCubit>().productData = productData;
-          GoRouter.of(context).push(AppRouter.orderPlacedSuccess);
+          GoRouter.of(context).go(AppRouter.orderPlacedSuccess);
         }
         if (state is StripPaymentFailure) {
           customSnackbarWidget(context,

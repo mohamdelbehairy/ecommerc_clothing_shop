@@ -17,17 +17,20 @@ class CartProductPriceListView extends StatelessWidget {
     var buildApp = context.watch<BuildAppCubit>();
     return Column(
       children: [
-        CartPriceItem(title: 'Subtotal', value: '${buildApp.quantity * price}'),
+        CartPriceItem(
+            title: 'Subtotal',
+            value: '\$${(buildApp.quantity * price).toStringAsFixed(2)}'),
         const SizedBox(height: 16),
         CartPriceItem(
-            title: 'Shipping Cost', value: '${buildApp.shippingCost}0'),
+            title: 'Shipping Cost', value: '\$${buildApp.shippingCost}0'),
         const SizedBox(height: 16),
-        const CartPriceItem(title: 'Tax', value: '0.00'),
+        CartPriceItem(title: 'Quantity', value: '${buildApp.quantity}'),
         const SizedBox(height: 16),
         CartPriceItem(
             title: 'Total',
             style: Styles.styleBold16,
-            value: '${(buildApp.quantity * price) + buildApp.shippingCost}'),
+            value:
+                '\$${((buildApp.quantity * price) + buildApp.shippingCost).toStringAsFixed(2)}'),
       ],
     );
   }

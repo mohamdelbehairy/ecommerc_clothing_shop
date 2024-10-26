@@ -1,7 +1,9 @@
 import 'package:e_clot_shop/core/models/custom_button_model.dart';
+import 'package:e_clot_shop/core/utils/app_router.dart';
 import 'package:e_clot_shop/core/utils/styles.dart';
 import 'package:e_clot_shop/core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class OrderPlacedTextsAndButtonSection extends StatelessWidget {
   const OrderPlacedTextsAndButtonSection({super.key});
@@ -19,8 +21,10 @@ class OrderPlacedTextsAndButtonSection extends StatelessWidget {
             style: Styles.styleMedium16WithOpacity),
         const Spacer(),
         CustomButton(
-            customButtonModel:
-                CustomButtonModel(buttonName: 'See Order details')),
+            customButtonModel: CustomButtonModel(
+                onTap: () =>
+                    GoRouter.of(context).push(AppRouter.orderPlacedDetails),
+                buttonName: 'See Order details')),
         const Spacer(),
       ],
     );

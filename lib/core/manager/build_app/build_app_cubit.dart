@@ -264,4 +264,19 @@ class BuildAppCubit extends Cubit<BuildAppState> {
   }
 
   ProductModel? productData;
+
+  void resetOrder() {
+    quantity = 1;
+    sizeIndex = 0;
+    colorIndex = 0;
+    streetAddress.clear();
+    city.clear();
+    stateTextEditing.clear();
+    zipCode.clear();
+    paymentIndex = -1;
+    paymentMethod = '';
+    shippingAddress = '';
+    productData = null;
+    emit(ResetOrder());
+  }
 }
