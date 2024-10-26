@@ -6,8 +6,11 @@ import '../../../../core/utils/styles.dart';
 import 'custom_add_or_minus_widget.dart';
 
 class CartListTileSubTitle extends StatelessWidget {
-  const CartListTileSubTitle({super.key, this.isOrder = false});
-  final bool isOrder;
+  const CartListTileSubTitle(
+      {super.key, this.isOrder = false, this.isProduct = false, required this.size, required this.color});
+  final String size, color;
+
+  final bool isOrder, isProduct;
 
   @override
   Widget build(BuildContext context) {
@@ -20,23 +23,23 @@ class CartListTileSubTitle extends StatelessWidget {
             Text('Size - ',
                 style: Styles.styleMedium12
                     .copyWith(color: const Color(0xff272727).withOpacity(.5))),
-            Text(buildApp.size, style: Styles.styleBoldGarabito12),
+            Text(size, style: Styles.styleBoldGarabito12),
             const SizedBox(width: 24),
             Text('Color - ',
                 style: Styles.styleMedium12
                     .copyWith(color: const Color(0xff272727).withOpacity(.5))),
-            Text(buildApp.color, style: Styles.styleBoldGarabito12),
-            if (isOrder) const SizedBox(width: 24),
-            if (isOrder)
+            Text(color, style: Styles.styleBoldGarabito12),
+            if (isOrder && !isProduct) const SizedBox(width: 24),
+            if (isOrder && !isProduct)
               Text('Quantity - ',
                   style: Styles.styleMedium12.copyWith(
                       color: const Color(0xff272727).withOpacity(.5))),
-            if (isOrder)
+            if (isOrder && !isProduct)
               Text(buildApp.quantity.toString(),
                   style: Styles.styleBoldGarabito12),
           ],
         ),
-        if (!isOrder)
+        if (!isOrder && !isProduct)
           Row(
             children: [
               CustomAddOrMinusWidget(

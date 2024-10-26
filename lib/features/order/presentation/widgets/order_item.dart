@@ -8,6 +8,7 @@ import '../../../../core/utils/styles.dart';
 import '../../../../core/widgets/back_right_widget.dart';
 import '../../../../core/widgets/custom_background_container.dart';
 import '../../../../core/widgets/custom_svg.dart';
+import '../views/order_details_view.dart';
 
 class OrderItem extends StatelessWidget {
   const OrderItem({super.key, required this.orderData});
@@ -34,7 +35,10 @@ class OrderItem extends StatelessWidget {
               Text('Order  #${orderData.orderID}', style: Styles.styleMedium16),
           subtitle: Text(number > 1 ? '$number items' : '$number item',
               style: Styles.styleMediumWithOpacity12),
-          trailing: BackRightWidget(onTap: () {}),
+          trailing: BackRightWidget(
+            onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => OrderDetailsView(orderData: orderData))),
+          ),
         ),
       ),
     ));

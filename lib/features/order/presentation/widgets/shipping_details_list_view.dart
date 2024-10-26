@@ -1,17 +1,15 @@
 import 'package:e_clot_shop/core/utils/styles.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../../core/manager/build_app/build_app_cubit.dart';
 import '../../../../core/models/background_model.dart';
 import '../../../../core/widgets/custom_background_container.dart';
 
 class ShippingDetailsListTile extends StatelessWidget {
-  const ShippingDetailsListTile({super.key});
+  const ShippingDetailsListTile({super.key, required this.shippingAddress});
+  final String shippingAddress;
 
   @override
   Widget build(BuildContext context) {
-    var buildApp = context.read<BuildAppCubit>();
+    
     return CustomBakgroundContainer(
       backgroundModel: BackgroundModel(
         height: 64,
@@ -19,7 +17,7 @@ class ShippingDetailsListTile extends StatelessWidget {
         width: double.infinity,
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           const Spacer(),
-          Text(buildApp.shippingAddress, 
+          Text(shippingAddress, 
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
           style: Styles.styleMedium14),

@@ -7,10 +7,14 @@ import '../../features/product/presentation/widgets/cart_product_list_tile.dart'
 
 class CartProductWidget extends StatelessWidget {
   const CartProductWidget(
-      {super.key, required this.productData, this.isOrder = false});
+      {super.key,
+      required this.productData,
+      this.isOrder = false,
+      this.isProduct = false, required this.size, required this.color});
 
   final ProductModel productData;
-  final bool isOrder;
+  final String size, color;
+  final bool isOrder, isProduct;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +24,11 @@ class CartProductWidget extends StatelessWidget {
         borderRadiusDouble: 8,
         child: Center(
             child: CartProductListTile(
-                isOrder: isOrder, productData: productData)),
+                size: size,
+                color: color,
+                isOrder: isOrder,
+                isProduct: isProduct,
+                productData: productData)),
       ),
     );
   }

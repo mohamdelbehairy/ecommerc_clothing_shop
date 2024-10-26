@@ -6,6 +6,7 @@ import '../../../../core/widgets/no_notification_and_orders_widget.dart';
 import '../../data/models/order_model.dart';
 import '../manager/build_order/build_order_cubit.dart';
 import '../manager/order/order_cubit.dart';
+import 'no_proccessing_or_shipping_or_deliverd_widget.dart';
 import 'order_header_list_view.dart';
 import 'order_list_view.dart';
 
@@ -34,8 +35,23 @@ class OrderViewBodyDetails extends StatelessWidget {
             child: Column(
               children: [
                 const OrderHeaderListView(),
-                const SizedBox(height: 24),
                 OrderListView(orders: orders),
+                if (buildOrder.orderActiveIndex == 0 &&
+                    order.processing.isEmpty)
+                  const NoProccessingorShippedOrDeliverdWidget(
+                      text: 'Processing'),
+                if (buildOrder.orderActiveIndex == 1 && order.shipped.isEmpty)
+                  const NoProccessingorShippedOrDeliverdWidget(text: 'Shipped'),
+                if (buildOrder.orderActiveIndex == 2 && order.delivered.isEmpty)
+                  const NoProccessingorShippedOrDeliverdWidget(
+                      text: 'Delivered'),
+                if ((buildOrder.orderActiveIndex == 0 &&
+                        order.processing.isEmpty) ||
+                    (buildOrder.orderActiveIndex == 1 &&
+                        order.shipped.isEmpty) ||
+                    (buildOrder.orderActiveIndex == 2 &&
+                        order.delivered.isEmpty))
+                  const Spacer(),
               ],
             ),
           );

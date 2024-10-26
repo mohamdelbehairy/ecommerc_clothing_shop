@@ -8,10 +8,16 @@ import 'cart_list_tile_title.dart';
 
 class CartProductListTile extends StatelessWidget {
   const CartProductListTile(
-      {super.key, required this.productData, this.isOrder = false});
+      {super.key,
+      required this.productData,
+      this.isOrder = false,
+      this.isProduct = false,
+      required this.size,
+      required this.color});
 
   final ProductModel productData;
-  final bool isOrder;
+  final String size, color;
+  final bool isOrder, isProduct;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +27,8 @@ class CartProductListTile extends StatelessWidget {
           cachedImage: CachedNetworkImageModel(
               fit: BoxFit.cover, imageUrl: productData.image)),
       title: CartListTileTitle(productData: productData),
-      subtitle: CartListTileSubTitle(isOrder: isOrder),
+      subtitle: CartListTileSubTitle(
+          size: size, color: color, isOrder: isOrder, isProduct: isProduct),
     );
   }
 }
