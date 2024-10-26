@@ -1,3 +1,4 @@
+import 'package:e_clot_shop/features/order/presentation/manager/order/order_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -21,6 +22,7 @@ class _BottomNavigationBarViewState extends State<BottomNavigationBarView> {
     context.read<GetUserDataCubit>().getUserData();
     context.read<ProductCubit>().getProduct();
     context.read<WishlistCubit>().getWishlist();
+    context.read<OrderCubit>().getOrders();
     super.initState();
   }
 

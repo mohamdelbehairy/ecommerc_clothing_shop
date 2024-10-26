@@ -23,4 +23,14 @@ class OrderRepoImpl extends OrderRepo {
       return left(Failure(message: e.toString()));
     }
   }
+
+  @override
+  void getOrders(void Function(QuerySnapshot<Map<String, dynamic>>)? onData) {
+    FirebaseFirestore.instance
+        .collection(Constants.ordersCollection)
+        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .collection(Constants.ordersCollection)
+        .snapshots()
+        .listen(onData);
+  }
 }

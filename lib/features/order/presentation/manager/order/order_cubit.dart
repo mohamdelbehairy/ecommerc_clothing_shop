@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:e_clot_shop/core/utils/constants.dart';
 import 'package:e_clot_shop/features/order/data/repos/order_repo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -12,6 +13,10 @@ class OrderCubit extends Cubit<OrderState> {
 
   final OrderRepo _orderRepo;
 
+  List<OrderModel> processing = [];
+  List<OrderModel> shipped = [];
+  List<OrderModel> delivered = [];
+
   Future<void> saveOrder({required OrderModel orderModel}) async {
     emit(OrderLoading());
 
@@ -21,5 +26,34 @@ class OrderCubit extends Cubit<OrderState> {
       emit(OrderFailure(errorMessage: e.message));
       log('error from save order: ${e.message}');
     }, (e) => emit(SaveOrderSuccess()));
+  }
+
+  void getOrders() {
+    try {
+      _orderRepo.getOrders((snapshot) {
+        processing = [];
+        shipped = [];
+        delivered = [];
+
+        for (var element in snapshot.docs) {
+          var order = OrderModel.fromJson(element.data());
+          if (order.orderType.contains(Constants.orderProcessing)) {
+            processing.add(order);
+          }
+
+          if (order.orderType.contains(Constants.orderShipped)) {
+            shipped.add(order);
+          }
+
+          if (order.orderType.contains(Constants.orderDelivered)) {
+            delivered.add(order);
+          }
+        }
+        emit(GetOrderSuccess());
+      });
+    } catch (e) {
+      log('error from get orders: $e');
+      emit(OrderFailure(errorMessage: e.toString()));
+    }
   }
 }
