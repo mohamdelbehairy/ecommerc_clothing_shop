@@ -5,6 +5,7 @@ class BackgroundModel {
   final double? height, width;
   final double borderRadiusDouble, padding;
   final BorderRadiusGeometry? borderRadius;
+  final Color? color;
 
   BackgroundModel(
       {required this.child,
@@ -12,5 +13,6 @@ class BackgroundModel {
       this.width,
       this.borderRadiusDouble = 8,
       this.padding = 16,
-      this.borderRadius});
+      this.borderRadius,
+      this.color});
 }

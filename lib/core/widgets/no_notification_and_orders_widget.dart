@@ -1,11 +1,11 @@
 import 'package:e_clot_shop/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/utils/assets.dart';
-import '../../../../core/widgets/explore_categories_button.dart';
+import 'explore_categories_button.dart';
 
-class NoNotificationYetWidget extends StatelessWidget {
-  const NoNotificationYetWidget({super.key});
+class NoNotificationAndOrdersWidget extends StatelessWidget {
+  const NoNotificationAndOrdersWidget({super.key, required this.text, required this.image});
+  final String text, image;
 
   @override
   Widget build(BuildContext context) {
@@ -13,9 +13,9 @@ class NoNotificationYetWidget extends StatelessWidget {
       child: Column(
         children: [
           const Spacer(),
-          Image.asset(Assets.imagesNotify),
+          Image.asset(image),
           const SizedBox(height: 24),
-          Text('No Notification yet', style: Styles.styleMedium24),
+          Text(text, style: Styles.styleMedium24),
           const SizedBox(height: 24),
           const ExploreCategoriesButton(),
           const Spacer(),
