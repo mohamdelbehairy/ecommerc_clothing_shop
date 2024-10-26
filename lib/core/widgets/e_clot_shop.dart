@@ -1,5 +1,7 @@
 import 'package:e_clot_shop/core/utils/app_router.dart';
 import 'package:e_clot_shop/core/utils/setup_service_locator.dart';
+import 'package:e_clot_shop/features/order/data/repos/order_repo_impl.dart';
+import 'package:e_clot_shop/features/order/presentation/manager/order/order_cubit.dart';
 import 'package:e_clot_shop/features/shared_pref/data/repo/shared_pref_repo_impl.dart';
 import 'package:e_clot_shop/features/shared_pref/presentation/manager/shared_pref/shared_pref_cubit.dart';
 import 'package:e_clot_shop/features/user_data/data/repo/user_data_repo_impl.dart';
@@ -33,7 +35,8 @@ class EClotShop extends StatelessWidget {
             create: (context) =>
                 GetUserDataCubit(getIt.get<UserDataRepoImpl>())),
         BlocProvider(create: (context) => ProductCubit(ProductRepoImpl())),
-        BlocProvider(create: (context) => WishlistCubit(WishlistRepoImpl()))
+        BlocProvider(create: (context) => WishlistCubit(WishlistRepoImpl())),
+        BlocProvider(create: (context) => OrderCubit(OrderRepoImpl()))
       ],
       child: MaterialApp.router(
         theme: ThemeData(

@@ -16,6 +16,7 @@ class ShippingDetailsListTile extends StatelessWidget {
       backgroundModel: BackgroundModel(
         height: 64,
         borderRadiusDouble: 8,
+        width: double.infinity,
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           const Spacer(),
           Text(buildApp.shippingAddress, style: Styles.styleMedium14),

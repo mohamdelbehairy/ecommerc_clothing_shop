@@ -5,6 +5,7 @@ class Constants {
   static const usersCollection = 'users';
   static const productsCollection = 'products';
   static const wishlistCollection = 'wishlist';
+  static const ordersCollection = 'orders';
 
   static const firstLogin = 'first_login';
   static const userId = 'user_id';
@@ -20,4 +21,8 @@ class Constants {
   static const shoes = 'Shoes';
   static const bags = 'Bags';
   static const accessories = 'Accessories';
+
+  static const orderProcessing = 'Processing';
+  static const orderShipped = 'Shipped';
+  static const orderDelivered = 'Delivered';
 }

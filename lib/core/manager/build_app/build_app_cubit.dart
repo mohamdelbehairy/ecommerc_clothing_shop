@@ -277,6 +277,8 @@ class BuildAppCubit extends Cubit<BuildAppState> {
     paymentIndex = -1;
     paymentMethod = '';
     shippingAddress = '';
+    size = 'S';
+    color = 'Orange';
     productData = null;
     emit(ResetOrder());
   }
