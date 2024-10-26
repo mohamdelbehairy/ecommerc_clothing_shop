@@ -15,7 +15,12 @@ class CartListTileTitle extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(productData.name, style: Styles.styleMedium12),
+          Flexible(
+              child: Text(productData.name,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: Styles.styleMedium12)),
+          const SizedBox(width: 6),
           Text('\$${productData.price}', style: Styles.styleBoldGarabito12),
         ],
       ),

@@ -1,10 +1,11 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:e_clot_shop/core/utils/constants.dart';
 
 import '../../../home/data/models/product_model.dart';
 
 class OrderModel {
   final String orderID, quantity, color, size, shippingAddress, orderType;
-
+  final DateTime orderTime;
   final ProductModel productModel;
 
   OrderModel(
@@ -14,6 +15,7 @@ class OrderModel {
       required this.size,
       required this.shippingAddress,
       this.orderType = Constants.orderProcessing,
+      required this.orderTime,
       required this.productModel});
 
   factory OrderModel.fromJson(json) {
@@ -24,6 +26,7 @@ class OrderModel {
       size: json['size'],
       shippingAddress: json['shippingAddress'],
       orderType: json['orderType'],
+      orderTime: (json['orderTime'] as Timestamp).toDate(),
       productModel: ProductModel.fromJson(json['productModel']),
     );
   }
@@ -36,6 +39,7 @@ class OrderModel {
       'size': size,
       'shippingAddress': shippingAddress,
       'orderType': orderType,
+      'orderTime': orderTime,
       'productModel': productModel.toJson(),
     };
   }

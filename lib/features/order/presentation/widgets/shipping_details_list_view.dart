@@ -19,7 +19,10 @@ class ShippingDetailsListTile extends StatelessWidget {
         width: double.infinity,
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           const Spacer(),
-          Text(buildApp.shippingAddress, style: Styles.styleMedium14),
+          Text(buildApp.shippingAddress, 
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+          style: Styles.styleMedium14),
           const SizedBox(height: 4),
           Text('121-224-7890', style: Styles.styleMedium14),
           const Spacer(),

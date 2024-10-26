@@ -14,8 +14,9 @@ class OrderListView extends StatelessWidget {
           itemCount: orders.length,
           padding: EdgeInsets.zero,
           itemBuilder: (context, index) {
-            return const Padding(
-                padding: EdgeInsets.only(bottom: 12), child: OrderItem());
+            return Padding(
+                padding: const EdgeInsets.only(bottom: 12),
+                child: OrderItem(orderData: orders[index]));
           }),
     );
   }

@@ -19,13 +19,13 @@ class OrderCubit extends Cubit<OrderState> {
 
   Future<void> saveOrder({required OrderModel orderModel}) async {
     emit(OrderLoading());
-
-    final result = await _orderRepo.saveOrder(orderModel);
-
-    result.fold((e) {
-      emit(OrderFailure(errorMessage: e.message));
-      log('error from save order: ${e.message}');
-    }, (e) => emit(SaveOrderSuccess()));
+    try {
+      await _orderRepo.saveOrder(orderModel);
+      emit(SaveOrderSuccess());
+    } catch (e) {
+      emit(OrderFailure(errorMessage: e.toString()));
+      log('error from save order: $e');
+    }
   }
 
   void getOrders() {

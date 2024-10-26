@@ -1,3 +1,4 @@
+import 'package:e_clot_shop/features/order/data/models/order_model.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/models/background_model.dart';
@@ -9,10 +10,13 @@ import '../../../../core/widgets/custom_background_container.dart';
 import '../../../../core/widgets/custom_svg.dart';
 
 class OrderItem extends StatelessWidget {
-  const OrderItem({super.key});
+  const OrderItem({super.key, required this.orderData});
+
+  final OrderModel orderData;
 
   @override
   Widget build(BuildContext context) {
+    var number = int.parse(orderData.quantity);
     return CustomBakgroundContainer(
         backgroundModel: BackgroundModel(
       height: 72,
@@ -26,8 +30,10 @@ class OrderItem extends StatelessWidget {
                   colorFilter:
                       const ColorFilter.mode(Colors.black, BlendMode.srcIn),
                   image: Assets.imagesOrders)),
-          title: Text('Order  #456765', style: Styles.styleMedium16),
-          subtitle: Text('4 items', style: Styles.styleMediumWithOpacity12),
+          title:
+              Text('Order  #${orderData.orderID}', style: Styles.styleMedium16),
+          subtitle: Text(number > 1 ? '$number items' : '$number item',
+              style: Styles.styleMediumWithOpacity12),
           trailing: BackRightWidget(onTap: () {}),
         ),
       ),
