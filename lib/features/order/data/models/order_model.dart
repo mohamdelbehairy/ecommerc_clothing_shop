@@ -4,7 +4,8 @@ import 'package:e_clot_shop/core/utils/constants.dart';
 import '../../../home/data/models/product_model.dart';
 
 class OrderModel {
-  final String orderID,
+  final String id,
+      orderID,
       quantity,
       color,
       size,
@@ -15,7 +16,8 @@ class OrderModel {
   final ProductModel productModel;
 
   OrderModel(
-      {required this.orderID,
+      {required this.id,
+      required this.orderID,
       required this.quantity,
       required this.color,
       required this.size,
@@ -27,6 +29,7 @@ class OrderModel {
 
   factory OrderModel.fromJson(json) {
     return OrderModel(
+      id: json['id'],
       orderID: json['orderID'],
       quantity: json['quantity'],
       color: json['color'],
@@ -41,6 +44,7 @@ class OrderModel {
 
   Map<String, dynamic> toJson() {
     return {
+      'id': id,
       'orderID': orderID,
       'quantity': quantity,
       'color': color,

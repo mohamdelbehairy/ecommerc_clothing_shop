@@ -2,7 +2,7 @@ import 'package:e_clot_shop/core/models/cart_product_model.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/widgets/back_and_text_header.dart';
-import '../../../../core/widgets/cart_product_widget.dart';
+import '../../../../core/widgets/cart_product/cart_product_widget.dart';
 import '../../data/models/order_model.dart';
 import 'order_details_text.dart';
 import 'shipping_details_list_view.dart';
@@ -28,7 +28,9 @@ class OrderDetailsViewBody extends StatelessWidget {
                   size: orderData.size,
                   color: orderData.color,
                   isProduct: true,
+                  isShipped: true,
                   quantity: orderData.quantity,
+                  orderID: orderData.id,
                   productData: orderData.productModel)),
           const SizedBox(height: 24),
           const OrderDetailsText(text: 'Shipping details'),

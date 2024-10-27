@@ -2,8 +2,8 @@ import '../../features/home/data/models/product_model.dart';
 
 class CartProductModel {
   final ProductModel? productData;
-  final String? size, color, quantity;
-  final bool isOrder, isProduct;
+  final String? size, color, quantity, orderID;
+  final bool isOrder, isProduct, isShipped;
 
   CartProductModel(
       {this.productData,
@@ -11,5 +11,7 @@ class CartProductModel {
       this.color,
       this.isOrder = false,
       this.isProduct = false,
-      this.quantity});
+      this.isShipped = false,
+      this.quantity,
+      this.orderID});
 }

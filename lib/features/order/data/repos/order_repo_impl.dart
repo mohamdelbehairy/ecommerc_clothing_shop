@@ -12,7 +12,7 @@ class OrderRepoImpl extends OrderRepo {
         .collection(Constants.ordersCollection)
         .doc(FirebaseAuth.instance.currentUser!.uid)
         .collection(Constants.ordersCollection)
-        .doc()
+        .doc(orderModel.id)
         .set(orderModel.toJson());
   }
 

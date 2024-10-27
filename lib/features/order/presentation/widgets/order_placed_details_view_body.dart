@@ -2,7 +2,7 @@ import 'package:e_clot_shop/core/manager/build_app/build_app_cubit.dart';
 import 'package:e_clot_shop/core/models/cart_product_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../core/widgets/cart_product_widget.dart';
+import '../../../../core/widgets/cart_product/cart_product_widget.dart';
 import 'order_details_text.dart';
 import 'order_placed_details_button.dart';
 import 'shipping_details_list_view.dart';

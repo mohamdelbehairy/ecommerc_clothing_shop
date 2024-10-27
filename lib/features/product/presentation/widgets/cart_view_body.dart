@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/manager/build_app/build_app_cubit.dart';
 import '../../../home/data/models/product_model.dart';
 import 'cart_product_price_and_coupon_buttons_section.dart';
-import '../../../../core/widgets/cart_product_widget.dart';
+import '../../../../core/widgets/cart_product/cart_product_widget.dart';
 import 'cart_shipping_and_payment_section.dart';
 import '../../../../core/widgets/back_and_text_header.dart';
 
