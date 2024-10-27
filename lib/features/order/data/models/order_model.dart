@@ -4,7 +4,13 @@ import 'package:e_clot_shop/core/utils/constants.dart';
 import '../../../home/data/models/product_model.dart';
 
 class OrderModel {
-  final String orderID, quantity, color, size, shippingAddress, orderType;
+  final String orderID,
+      quantity,
+      color,
+      size,
+      shippingAddress,
+      orderType,
+      shippingCost;
   final DateTime orderTime;
   final ProductModel productModel;
 
@@ -15,6 +21,7 @@ class OrderModel {
       required this.size,
       required this.shippingAddress,
       this.orderType = Constants.orderProcessing,
+      required this.shippingCost,
       required this.orderTime,
       required this.productModel});
 
@@ -25,6 +32,7 @@ class OrderModel {
       color: json['color'],
       size: json['size'],
       shippingAddress: json['shippingAddress'],
+      shippingCost: json['shippingCost'],
       orderType: json['orderType'],
       orderTime: (json['orderTime'] as Timestamp).toDate(),
       productModel: ProductModel.fromJson(json['productModel']),
@@ -38,6 +46,7 @@ class OrderModel {
       'color': color,
       'size': size,
       'shippingAddress': shippingAddress,
+      'shippingCost': shippingCost,
       'orderType': orderType,
       'orderTime': orderTime,
       'productModel': productModel.toJson(),

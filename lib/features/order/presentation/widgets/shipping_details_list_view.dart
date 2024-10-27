@@ -4,12 +4,12 @@ import '../../../../core/models/background_model.dart';
 import '../../../../core/widgets/custom_background_container.dart';
 
 class ShippingDetailsListTile extends StatelessWidget {
-  const ShippingDetailsListTile({super.key, required this.shippingAddress});
-  final String shippingAddress;
+  const ShippingDetailsListTile(
+      {super.key, required this.shippingAddress, required this.shippingCost});
+  final String shippingAddress, shippingCost;
 
   @override
   Widget build(BuildContext context) {
-    
     return CustomBakgroundContainer(
       backgroundModel: BackgroundModel(
         height: 64,
@@ -17,12 +17,12 @@ class ShippingDetailsListTile extends StatelessWidget {
         width: double.infinity,
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           const Spacer(),
-          Text(shippingAddress, 
-          maxLines: 1,
-          overflow: TextOverflow.ellipsis,
-          style: Styles.styleMedium14),
+          Text(shippingAddress,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: Styles.styleMedium14),
           const SizedBox(height: 4),
-          Text('121-224-7890', style: Styles.styleMedium14),
+          Text('\$$shippingCost', style: Styles.styleMedium14),
           const Spacer(),
         ]),
       ),

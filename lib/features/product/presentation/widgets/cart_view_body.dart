@@ -1,3 +1,4 @@
+import 'package:e_clot_shop/core/models/cart_product_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -23,9 +24,10 @@ class CartViewBody extends StatelessWidget {
           const BackAndTextHeader(text: 'Cart'),
           const SizedBox(height: 24),
           CartProductWidget(
-              size: buildApp.size,
-              color: buildApp.color,
-              productData: productData),
+              cartProduct: CartProductModel(
+                  size: buildApp.size,
+                  color: buildApp.color,
+                  productData: productData)),
           const SizedBox(height: 16),
           const CartShippingAndPaymentSection(),
           const Spacer(),

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/models/cart_product_model.dart';
 import '../../../../core/utils/styles.dart';
-import '../../../home/data/models/product_model.dart';
 
 class CartListTileTitle extends StatelessWidget {
-  const CartListTileTitle({super.key, required this.productData});
+  const CartListTileTitle({super.key, required this.cartProduct});
 
-  final ProductModel productData;
+  final CartProductModel cartProduct;
 
   @override
   Widget build(BuildContext context) {
@@ -16,12 +16,16 @@ class CartListTileTitle extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Flexible(
-              child: Text(productData.name,
+              child: Text(cartProduct.productData!.name,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: Styles.styleMedium12)),
           const SizedBox(width: 6),
-          Text('\$${productData.price}', style: Styles.styleBoldGarabito12),
+          Text(
+              cartProduct.isProduct 
+                  ? '\$${num.parse(cartProduct.productData!.price) * num.parse(cartProduct.quantity!)}'
+                  : '\$${cartProduct.productData!.price}',
+              style: Styles.styleBoldGarabito12),
         ],
       ),
     );

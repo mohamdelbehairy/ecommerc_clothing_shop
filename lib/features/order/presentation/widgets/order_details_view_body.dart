@@ -1,3 +1,4 @@
+import 'package:e_clot_shop/core/models/cart_product_model.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/widgets/back_and_text_header.dart';
@@ -23,14 +24,18 @@ class OrderDetailsViewBody extends StatelessWidget {
           const OrderDetailsText(text: 'Order Items'),
           const SizedBox(height: 12),
           CartProductWidget(
-              size: orderData.size,
-              color: orderData.color,
-              isProduct: true,
-              productData: orderData.productModel),
+              cartProduct: CartProductModel(
+                  size: orderData.size,
+                  color: orderData.color,
+                  isProduct: true,
+                  quantity: orderData.quantity,
+                  productData: orderData.productModel)),
           const SizedBox(height: 24),
           const OrderDetailsText(text: 'Shipping details'),
           const SizedBox(height: 12),
-          ShippingDetailsListTile(shippingAddress: orderData.shippingAddress),
+          ShippingDetailsListTile(
+              shippingAddress: orderData.shippingAddress,
+              shippingCost: orderData.shippingCost),
         ],
       ),
     );

@@ -15,6 +15,7 @@ Future<void> saveOrderMethod(BuildContext context) async {
           color: buildAppCubit.color,
           size: buildAppCubit.size,
           shippingAddress: buildAppCubit.shippingAddress,
+          shippingCost: buildAppCubit.shippingCost.toString(),
           orderTime: DateTime.now(),
           productModel: buildAppCubit.productData!));
 }
