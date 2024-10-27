@@ -10,15 +10,18 @@ class OrderListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: ListView.builder(
-          itemCount: orders.length,
-          padding: EdgeInsets.zero,
-          itemBuilder: (context, index) {
-            return Padding(
-                padding:
-                    EdgeInsets.only(top: index == 0 ? 24 : 0.0, bottom: 12),
-                child: OrderItem(orderData: orders[index]));
-          }),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 24),
+        child: ListView.builder(
+            itemCount: orders.length,
+            padding: EdgeInsets.zero,
+            itemBuilder: (context, index) {
+              return Padding(
+                  padding:
+                      EdgeInsets.only(top: index == 0 ? 24 : 0.0, bottom: 12),
+                  child: OrderItem(orderData: orders[index]));
+            }),
+      ),
     );
   }
 }

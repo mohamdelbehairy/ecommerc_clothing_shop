@@ -25,12 +25,15 @@ class OrderViewBodyDetails extends StatelessWidget {
           orders = order.processing;
         } else if (buildOrder.orderActiveIndex == 1) {
           orders = order.shipped;
-        } else {
+        } else if (buildOrder.orderActiveIndex == 2) {
           orders = order.delivered;
+        } else {
+          orders = order.notDelivered;
         }
         if (order.processing.isNotEmpty ||
             order.shipped.isNotEmpty ||
-            order.delivered.isNotEmpty) {
+            order.delivered.isNotEmpty ||
+            order.notDelivered.isNotEmpty) {
           return Flexible(
             child: Column(
               children: [
@@ -45,12 +48,18 @@ class OrderViewBodyDetails extends StatelessWidget {
                 if (buildOrder.orderActiveIndex == 2 && order.delivered.isEmpty)
                   const NoProccessingorShippedOrDeliverdWidget(
                       text: 'Delivered'),
+                if (buildOrder.orderActiveIndex == 3 &&
+                    order.notDelivered.isEmpty)
+                  const NoProccessingorShippedOrDeliverdWidget(
+                      text: 'Not Delivered'),
                 if ((buildOrder.orderActiveIndex == 0 &&
                         order.processing.isEmpty) ||
                     (buildOrder.orderActiveIndex == 1 &&
                         order.shipped.isEmpty) ||
                     (buildOrder.orderActiveIndex == 2 &&
-                        order.delivered.isEmpty))
+                        order.delivered.isEmpty) ||
+                    (buildOrder.orderActiveIndex == 3 &&
+                        order.notDelivered.isEmpty))
                   const Spacer(),
               ],
             ),

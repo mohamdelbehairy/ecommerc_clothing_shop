@@ -10,6 +10,7 @@ class BuildOrderCubit extends Cubit<BuildOrderState> {
     'Processing',
     'Shipped',
     'Delivered',
+    'Not Delivered',
   ];
 
   void orderChange(int index) {

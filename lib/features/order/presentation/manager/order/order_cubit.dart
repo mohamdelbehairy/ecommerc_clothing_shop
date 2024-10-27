@@ -16,6 +16,7 @@ class OrderCubit extends Cubit<OrderState> {
   List<OrderModel> processing = [];
   List<OrderModel> shipped = [];
   List<OrderModel> delivered = [];
+  List<OrderModel> notDelivered = [];
 
   Future<void> saveOrder({required OrderModel orderModel}) async {
     emit(OrderLoading());
@@ -34,19 +35,25 @@ class OrderCubit extends Cubit<OrderState> {
         processing = [];
         shipped = [];
         delivered = [];
+        notDelivered = [];
 
         for (var element in snapshot.docs) {
           var order = OrderModel.fromJson(element.data());
-          if (order.orderType.contains(Constants.orderProcessing)) {
+
+          if (order.orderType == Constants.orderProcessing) {
             processing.add(order);
           }
 
-          if (order.orderType.contains(Constants.orderShipped)) {
+          if (order.orderType == Constants.orderShipped) {
             shipped.add(order);
           }
 
-          if (order.orderType.contains(Constants.orderDelivered)) {
+          if (order.orderType == Constants.orderDelivered) {
             delivered.add(order);
+          }
+
+          if (order.orderType == Constants.orderNotDelivered) {
+            notDelivered.add(order);
           }
         }
         emit(GetOrderSuccess());
@@ -55,5 +62,15 @@ class OrderCubit extends Cubit<OrderState> {
       log('error from get orders: $e');
       emit(OrderFailure(errorMessage: e.toString()));
     }
+  }
+
+  Future<void> updateOrder(
+      {required String orderID, required String value}) async {
+    final result = await _orderRepo.updateOrder(orderID, value);
+
+    result.fold((failure) {
+      emit(OrderFailure(errorMessage: failure.message));
+      log('error from update order: ${failure.message}');
+    }, (success) => emit(UpdateOrderSuccess()));
   }
 }

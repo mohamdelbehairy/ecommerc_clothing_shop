@@ -1,6 +1,7 @@
 import 'package:e_clot_shop/core/models/cart_product_model.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../core/utils/constants.dart';
 import '../../../../core/widgets/back_and_text_header.dart';
 import '../../../../core/widgets/cart_product/cart_product_widget.dart';
 import '../../data/models/order_model.dart';
@@ -28,7 +29,9 @@ class OrderDetailsViewBody extends StatelessWidget {
                   size: orderData.size,
                   color: orderData.color,
                   isProduct: true,
-                  isShipped: true,
+                  isShipped: orderData.orderType == Constants.orderShipped
+                      ? true
+                      : false,
                   quantity: orderData.quantity,
                   orderID: orderData.id,
                   productData: orderData.productModel)),

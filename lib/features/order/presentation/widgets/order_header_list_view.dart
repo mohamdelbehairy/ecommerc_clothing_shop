@@ -10,17 +10,23 @@ class OrderHeaderListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var buildOrder = context.watch<BuildOrderCubit>();
-    return Row(
-      children: List.generate(
-        3,
-        (index) => GestureDetector(
-          onTap: () => buildOrder.orderChange(index),
-          child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: index == 1 ? 12 : 0.0),
-              child: OrderHeaderItem(
-                text: buildOrder.ordersHeader[index],
-                isActive: index == buildOrder.orderActiveIndex,
-              )),
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Padding(
+        padding: const EdgeInsets.only(left: 24),
+        child: Row(
+          children: List.generate(
+            4,
+            (index) => GestureDetector(
+              onTap: () => buildOrder.orderChange(index),
+              child: Padding(
+                  padding: const EdgeInsets.only(right: 12),
+                  child: OrderHeaderItem(
+                    text: buildOrder.ordersHeader[index],
+                    isActive: index == buildOrder.orderActiveIndex,
+                  )),
+            ),
+          ),
         ),
       ),
     );

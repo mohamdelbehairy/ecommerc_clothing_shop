@@ -25,4 +25,5 @@ class Constants {
   static const orderProcessing = 'Processing';
   static const orderShipped = 'Shipped';
   static const orderDelivered = 'Delivered';
+  static const orderNotDelivered = 'Not Delivered';
 }

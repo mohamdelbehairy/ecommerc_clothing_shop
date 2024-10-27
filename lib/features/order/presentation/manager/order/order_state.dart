@@ -10,6 +10,8 @@ final class SaveOrderSuccess extends OrderState {}
 
 final class GetOrderSuccess extends OrderState {}
 
+final class UpdateOrderSuccess extends OrderState {}
+
 final class OrderFailure extends OrderState {
   final String errorMessage;
   OrderFailure({required this.errorMessage});
