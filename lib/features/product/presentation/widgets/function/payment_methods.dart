@@ -9,18 +9,24 @@ import '../../../../payment/presentation/widgets/function/pay_with_paypal.dart';
 
 Future<void> paymentMethods(BuildContext context,
     {required ProductModel productData}) async {
-  var buildAppCubit = context.read<BuildAppCubit>();
+  var buildApp = context.read<BuildAppCubit>();
 
   var price = num.parse(productData.price);
-  var totalPrice =
-      (price * buildAppCubit.quantity) + buildAppCubit.shippingCost;
+  var totalPrice = (price * buildApp.quantity) + buildApp.shippingCost;
 
-  if (buildAppCubit.paymentIndex == 0) {
+  var discount = totalPrice * buildApp.discountPercent / 100;
+
+  if (buildApp.paymentIndex == 0) {
     // ignore: use_build_context_synchronously
-    await payWithCard(context, totalPrice: totalPrice);
-  } else if (buildAppCubit.paymentIndex == 1) {
+    await payWithCard(context,
+        totalPrice:
+            buildApp.isCouponApplied ? (totalPrice - discount) : totalPrice);
+  } else if (buildApp.paymentIndex == 1) {
     // ignore: use_build_context_synchronously
-    payWithPaymob(context, totalPrice: totalPrice, productData: productData);
+    payWithPaymob(context,
+        totalPrice:
+            buildApp.isCouponApplied ? (totalPrice - discount) : totalPrice,
+        productData: productData);
   } else {
     // ignore: use_build_context_synchronously
     payWithPayPal(context, productData: productData);

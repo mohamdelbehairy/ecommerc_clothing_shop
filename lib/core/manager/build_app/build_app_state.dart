@@ -23,3 +23,5 @@ final class PaymentBottomSheetChanged extends BuildAppState {}
 final class PaymentMethodChanged extends BuildAppState {}
 
 final class ResetOrder extends BuildAppState {}
+
+final class CouponSussess extends BuildAppState {}

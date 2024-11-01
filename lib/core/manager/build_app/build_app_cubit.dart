@@ -266,6 +266,23 @@ class BuildAppCubit extends Cubit<BuildAppState> {
 
   ProductModel? productData;
 
+  TextEditingController couponController = TextEditingController();
+  GlobalKey<FormState> couponFormKey = GlobalKey<FormState>();
+
+  String discountNumber = "564321";
+  int discountPercent = 35;
+  bool isCouponLoading = false;
+  bool isCouponApplied = false;
+
+  void couponState() async {
+    isCouponLoading = true;
+    emit(CouponSussess());
+    await Future.delayed(const Duration(seconds: 2));
+    isCouponLoading = false;
+    isCouponApplied = true;
+    emit(CouponSussess());
+  }
+
   void resetOrder() {
     quantity = 1;
     sizeIndex = 0;
@@ -280,6 +297,9 @@ class BuildAppCubit extends Cubit<BuildAppState> {
     size = 'S';
     color = 'Orange';
     productData = null;
+    isCouponApplied = false;
+    couponController.clear();
+
     emit(ResetOrder());
   }
 }

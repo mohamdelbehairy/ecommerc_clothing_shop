@@ -12,20 +12,22 @@ class CustomTextField extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(textFieldModel.borderRadius),
       child: TextFormField(
-        cursorColor: AppColors.primaryColor,
-        keyboardType: textFieldModel.keyboardType,
-        validator: textFieldModel.validator,
-        controller: textFieldModel.controller,
-        obscureText: textFieldModel.obscureText,
-        decoration: InputDecoration(
-            contentPadding:
-                const EdgeInsets.symmetric(vertical: 16, horizontal: 12),
-            hintText: textFieldModel.hintText,
-            hintStyle: Styles.styleTextField16,
-            border: InputBorder.none,
-            filled: true,
-            fillColor: AppColors.secondaryColor),
-      ),
+          cursorColor: AppColors.primaryColor,
+          keyboardType: textFieldModel.keyboardType,
+          validator: textFieldModel.validator,
+          controller: textFieldModel.controller,
+          obscureText: textFieldModel.obscureText,
+          enabled: textFieldModel.enabled,
+          decoration: InputDecoration(
+              contentPadding:
+                  const EdgeInsets.symmetric(vertical: 16, horizontal: 12),
+              hintText: textFieldModel.hintText,
+              prefixIcon: textFieldModel.prefixIcon,
+              suffixIcon: textFieldModel.suffixIcon,
+              hintStyle: textFieldModel.hintStyle ?? Styles.styleTextField16,
+              border: InputBorder.none,
+              filled: true,
+              fillColor: AppColors.secondaryColor)),
     );
   }
 }

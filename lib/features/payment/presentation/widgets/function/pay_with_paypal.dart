@@ -47,24 +47,29 @@ void payWithPayPal(BuildContext context, {required ProductModel productData}) {
 ({AmountModel amountModel, ItemListModel itemListModel}) getTransactionData(
     BuildContext context,
     {required ProductModel productData}) {
-  var buildAppCubit = context.read<BuildAppCubit>();
+  var buildApp = context.read<BuildAppCubit>();
 
   var price = num.parse(productData.price);
 
-  var subtotal = (price * buildAppCubit.quantity);
+  var subtotal = (price * buildApp.quantity);
 
-  var total = subtotal + buildAppCubit.shippingCost;
+  var total = subtotal + buildApp.shippingCost;
+
+  var discount = total * buildApp.discountPercent / 100;
 
   AmountModel amountModel = AmountModel(
-      total: total.toStringAsFixed(2),
+      total: buildApp.isCouponApplied
+          ? (total - discount.toInt()).toStringAsFixed(2)
+          : total.toStringAsFixed(2),
       details: Details(
+          shippingDiscount: buildApp.isCouponApplied ? discount.toInt() : 0,
           subtotal: subtotal.toStringAsFixed(2),
-          shipping: "${buildAppCubit.shippingCost}"));
+          shipping: "${buildApp.shippingCost}"));
 
   ItemListModel itemListModel = ItemListModel(items: [
     Items(
         name: productData.name,
-        quantity: buildAppCubit.quantity.toInt(),
+        quantity: buildApp.quantity.toInt(),
         price: productData.price),
   ]);
 

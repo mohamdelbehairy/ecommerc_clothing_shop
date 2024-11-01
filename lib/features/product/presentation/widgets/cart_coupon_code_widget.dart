@@ -1,44 +1,44 @@
+import 'package:e_clot_shop/core/manager/build_app/build_app_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/models/background_model.dart';
-import '../../../../core/models/svg_model.dart';
-import '../../../../core/utils/assets.dart';
-import '../../../../core/utils/colors.dart';
+import '../../../../core/models/text_field_model.dart';
 import '../../../../core/utils/styles.dart';
-import '../../../../core/widgets/custom_background_container.dart';
-import '../../../../core/widgets/custom_svg.dart';
+import '../../../../core/widgets/custom_text_field.dart';
+import 'cart_coupon_prefix_icon.dart';
+import 'cart_coupon_suffix_icon.dart';
 
 class CartCouponCodeWidget extends StatelessWidget {
   const CartCouponCodeWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return CustomBakgroundContainer(
-      backgroundModel: BackgroundModel(
-        height: 56,
-        borderRadiusDouble: 8,
-        child: Row(
-          children: [
-            CustomSvg(svgModel: SvgModel(image: Assets.imagesCoupon)),
-            const SizedBox(width: 16),
-            Text('Enter Coupon Code', style: Styles.styleMediumWithOpacity12),
-            const Spacer(),
-            CircleAvatar(
-              radius: 20,
-              backgroundColor: AppColors.primaryColor,
-              child: Transform.rotate(
-                angle: 90 * 3.1415927 / 90,
-                child: CustomSvg(
-                    svgModel: SvgModel(
-                        image: Assets.imagesBack,
-                        height: 16,
-                        colorFilter: const ColorFilter.mode(
-                            Colors.white, BlendMode.srcIn))),
-              ),
-            )
-          ],
-        ),
-      ),
+    var buildApp = context.watch<BuildAppCubit>();
+    return Form(
+      key: buildApp.couponFormKey,
+      child: CustomTextField(
+          textFieldModel: TextFieldModel(
+        enabled: !buildApp.isCouponApplied,
+        borderRadius: 8,
+        keyboardType: TextInputType.number,
+        hintText: 'Enter Coupon Code',
+        hintStyle: Styles.styleMediumWithOpacity12,
+        prefixIcon: const CartCouponPrefixIcon(),
+        suffixIcon: const CartCouponSuffixIcon(),
+        controller: buildApp.couponController,
+        validator: (value) {
+          if (value!.isEmpty) {
+            return 'Please Enter Coupon Code';
+          }
+          if (value.length != 6) {
+            return 'Coupon Code should be 6 digits';
+          }
+          if (value.length == 6 && value != buildApp.discountNumber) {
+            return 'Invalid Coupon Code';
+          }
+          return null;
+        },
+      )),
     );
   }
 }

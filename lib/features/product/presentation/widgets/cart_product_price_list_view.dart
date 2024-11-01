@@ -15,6 +15,9 @@ class CartProductPriceListView extends StatelessWidget {
   Widget build(BuildContext context) {
     var price = num.parse(productData.price);
     var buildApp = context.watch<BuildAppCubit>();
+    var total = (buildApp.quantity * price) + buildApp.shippingCost;
+    var discount = total * buildApp.discountPercent / 100;
+
     return Column(
       children: [
         CartPriceItem(
@@ -25,12 +28,16 @@ class CartProductPriceListView extends StatelessWidget {
             title: 'Shipping Cost', value: '\$${buildApp.shippingCost}0'),
         const SizedBox(height: 16),
         CartPriceItem(title: 'Quantity', value: '${buildApp.quantity}'),
+        if (buildApp.isCouponApplied) const SizedBox(height: 16),
+        if (buildApp.isCouponApplied)
+          CartPriceItem(
+              title: 'Discount', value: '-\$${discount.toStringAsFixed(2)}'),
         const SizedBox(height: 16),
         CartPriceItem(
             title: 'Total',
             style: Styles.styleBold16,
             value:
-                '\$${((buildApp.quantity * price) + buildApp.shippingCost).toStringAsFixed(2)}'),
+                '\$${buildApp.isCouponApplied ? (total - discount).toStringAsFixed(2) : total.toStringAsFixed(2)}'),
       ],
     );
   }
