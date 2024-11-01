@@ -3,6 +3,7 @@ import 'package:e_clot_shop/core/utils/constants.dart';
 class UserDataModel {
   final String userName, email, userId, userImage, authType;
   final int? type, age;
+  final int paymentMethod;
 
   UserDataModel(
       {required this.userName,
@@ -11,7 +12,8 @@ class UserDataModel {
       this.userImage = Constants.defaultUserImageUrl,
       this.authType = Constants.email,
       this.type = 0,
-      this.age});
+      this.age,
+      this.paymentMethod = -1});
 
   factory UserDataModel.fromJson(Map<String, dynamic> jsonData) {
     return UserDataModel(
@@ -21,7 +23,8 @@ class UserDataModel {
         userImage: jsonData['userImage'],
         authType: jsonData['authType'],
         type: jsonData['type'],
-        age: jsonData['age']);
+        age: jsonData['age'],
+        paymentMethod: jsonData['paymentMethod']);
   }
 
   toJson() {
@@ -32,7 +35,8 @@ class UserDataModel {
       'userImage': userImage,
       'authType': authType,
       'type': type,
-      'age': age
+      'age': age,
+      'paymentMethod': paymentMethod
     };
   }
 }

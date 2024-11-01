@@ -6,10 +6,11 @@ import 'product_bottom_sheet_header.dart';
 
 class SelectPaymentBottomSheet extends StatelessWidget {
   const SelectPaymentBottomSheet({super.key});
+  
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return  const Column(
       mainAxisSize: MainAxisSize.min,
       children: [
         ProductBottomSheetheader(text: 'Payment Method'),

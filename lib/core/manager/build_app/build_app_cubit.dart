@@ -238,10 +238,17 @@ class BuildAppCubit extends Cubit<BuildAppState> {
   ];
 
   int paymentIndex = -1;
+  int settingPaymentIndex = -1;
 
   void changePaymentBottomSheet(int index) {
     if (paymentIndex == index) return;
     paymentIndex = index;
+    emit(PaymentBottomSheetChanged());
+  }
+
+  void changeSettingPaymentBottomSheet(int index) {
+    if (settingPaymentIndex == index) return;
+    settingPaymentIndex = index;
     emit(PaymentBottomSheetChanged());
   }
 

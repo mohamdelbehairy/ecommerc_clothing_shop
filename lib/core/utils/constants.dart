@@ -7,6 +7,8 @@ class Constants {
   static const wishlistCollection = 'wishlist';
   static const ordersCollection = 'orders';
 
+  static const paymentMethod = 'paymentMethod';
+
   static const firstLogin = 'first_login';
   static const userId = 'user_id';
 

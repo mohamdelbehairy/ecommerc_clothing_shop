@@ -9,7 +9,7 @@ class BuildSettingCubit extends Cubit<BuildSettingState> {
   List items = [
     SettingItemModel(name: 'Address', onTap: () {}),
     SettingItemModel(name: 'Wishlist', onTap: () {}),
-    SettingItemModel(name: 'Payment', onTap: () {}),
+    SettingItemModel(name: 'Payment'),
     SettingItemModel(name: 'Help', onTap: () {}),
     SettingItemModel(name: 'Support', onTap: () {}),
   ];
