@@ -18,10 +18,14 @@ class OrderCubit extends Cubit<OrderState> {
   List<OrderModel> delivered = [];
   List<OrderModel> notDelivered = [];
 
+  bool isLoading = false;
+
   Future<void> saveOrder({required OrderModel orderModel}) async {
+    isLoading = true;
     emit(OrderLoading());
     try {
       await _orderRepo.saveOrder(orderModel);
+      isLoading = false;
       emit(SaveOrderSuccess());
     } catch (e) {
       emit(OrderFailure(errorMessage: e.toString()));

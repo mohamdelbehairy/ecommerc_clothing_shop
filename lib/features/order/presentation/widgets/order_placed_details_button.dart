@@ -24,7 +24,7 @@ class OrderPlacedDetailsButton extends StatelessWidget {
       builder: (context, state) {
         return CustomButton(
             customButtonModel: CustomButtonModel(
-                isLoading: state is OrderLoading,
+                isLoading: context.read<OrderCubit>().isLoading,
                 onTap: () async {
                   await saveOrderMethod(context);
                 },
