@@ -25,3 +25,5 @@ final class PaymentMethodChanged extends BuildAppState {}
 final class ResetOrder extends BuildAppState {}
 
 final class CouponSussess extends BuildAppState {}
+
+final class ChangeThemeIndex extends BuildAppState {}

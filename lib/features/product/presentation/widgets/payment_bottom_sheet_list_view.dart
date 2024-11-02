@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/manager/build_app/build_app_cubit.dart';
-import 'product_bottom_sheet_list_view_item.dart';
+import '../../../../core/widgets/bottom_sheet_list_view_item.dart';
 
 class PaymentBottomSheetListView extends StatelessWidget {
   const PaymentBottomSheetListView({super.key});
@@ -19,7 +19,7 @@ class PaymentBottomSheetListView extends StatelessWidget {
                   onTap: () {
                     buildApp.changePaymentBottomSheet(index);
                   },
-                  child: ProductBottomSheetListViewItem(
+                  child: BottomSheetListViewItem(
                       isActive: buildApp.paymentIndex == index,
                       productSelectDetails: buildApp.paymentList[index]),
                 )),

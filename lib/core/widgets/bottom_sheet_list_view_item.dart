@@ -2,12 +2,12 @@ import 'package:e_clot_shop/core/utils/colors.dart';
 import 'package:e_clot_shop/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/models/custom_button_model.dart';
-import '../../../../core/widgets/custom_button.dart';
-import '../../data/models/product_select_details_model.dart';
+import '../models/custom_button_model.dart';
+import 'custom_button.dart';
+import '../../features/product/data/models/product_select_details_model.dart';
 
-class ProductBottomSheetListViewItem extends StatelessWidget {
-  const ProductBottomSheetListViewItem(
+class BottomSheetListViewItem extends StatelessWidget {
+  const BottomSheetListViewItem(
       {super.key, required this.productSelectDetails, required this.isActive});
   final ProductSelectDetailsModel productSelectDetails;
   final bool isActive;

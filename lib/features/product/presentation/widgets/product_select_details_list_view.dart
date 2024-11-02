@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/manager/build_app/build_app_cubit.dart';
-import 'function/custom_product_bottom_sheet.dart';
+import '../../../../core/widgets/function/custom_bottom_sheet.dart';
 import 'product_size_bottom_sheet.dart';
 import 'product_select_details_widget.dart';
 
@@ -22,7 +22,7 @@ class ProductSelectDetailsListView extends StatelessWidget {
                     padding: const EdgeInsets.only(bottom: 12),
                     child: ProductSelectDetailsWidget(
                         index: index,
-                        onTap: () => customProductBottomSheet(context,
+                        onTap: () => customBottomSheet(context,
                             child: index == 0
                                 ? const ProductSizeBottomSheet()
                                 : const ProductColorBottomSheet()),

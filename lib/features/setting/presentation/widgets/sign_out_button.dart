@@ -1,6 +1,6 @@
 import 'package:e_clot_shop/core/utils/setup_service_locator.dart';
 import 'package:e_clot_shop/core/utils/styles.dart';
-import 'package:e_clot_shop/core/widgets/function/custom_bottom_sheet.dart';
+import 'package:e_clot_shop/features/setting/presentation/widgets/function/signout_bottom_sheet.dart';
 import 'package:e_clot_shop/features/auth/data/repo/social_auth/social_auth_repo_impl.dart';
 import 'package:e_clot_shop/features/auth/presentation/manager/logout/logout_cubit.dart';
 import 'package:e_clot_shop/core/manager/build_app/build_app_cubit.dart';
@@ -20,7 +20,7 @@ class SignOutButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        customBottomSheet(
+        signOutBottomSheet(
             context: context,
             child: BlocProvider(
               create: (context) => LogoutCubit(getIt.get<EmailAuthRepoImpl>(),

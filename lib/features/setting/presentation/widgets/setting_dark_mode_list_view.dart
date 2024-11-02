@@ -4,8 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/manager/build_app/build_app_cubit.dart';
 import '../../../../core/widgets/bottom_sheet_list_view_item.dart';
 
-class ProductSizeBottomSheetListView extends StatelessWidget {
-  const ProductSizeBottomSheetListView({super.key});
+class SettingDarkModeListView extends StatelessWidget {
+  const SettingDarkModeListView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,14 +14,14 @@ class ProductSizeBottomSheetListView extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 24),
       child: Column(
         children: List.generate(
-            buildApp.sizeList.length,
+            2,
             (index) => GestureDetector(
                   onTap: () {
-                    buildApp.changeSizeBottomSheet(index);
+                    buildApp.changeThemeIndex(index);
                   },
                   child: BottomSheetListViewItem(
-                      isActive: buildApp.sizeIndex == index,
-                      productSelectDetails: buildApp.sizeList[index]),
+                      isActive: buildApp.themeIndex == index,
+                      productSelectDetails: buildApp.themeList[index]),
                 )),
       ),
     );

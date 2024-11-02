@@ -10,6 +10,7 @@ class BuildSettingCubit extends Cubit<BuildSettingState> {
     SettingItemModel(name: 'Address', onTap: () {}),
     SettingItemModel(name: 'Wishlist', onTap: () {}),
     SettingItemModel(name: 'Payment'),
+    SettingItemModel(name: 'Dark Mode'),
     SettingItemModel(name: 'Help', onTap: () {}),
     SettingItemModel(name: 'Support', onTap: () {}),
   ];

@@ -5,7 +5,7 @@ import '../../../../core/manager/build_app/build_app_cubit.dart';
 import '../../data/models/shipping_and_payment_model.dart';
 import 'add_address_bottom_sheet_widget.dart';
 import 'cart_shipping_and_payment_item.dart';
-import 'function/custom_product_bottom_sheet.dart';
+import '../../../../core/widgets/function/custom_bottom_sheet.dart';
 import 'select_payment_bottom_sheet.dart';
 
 class CartShippingAndPaymentSection extends StatelessWidget {
@@ -22,7 +22,7 @@ class CartShippingAndPaymentSection extends StatelessWidget {
           subtitle: buildApp.shippingAddress.isNotEmpty
               ? buildApp.shippingAddress
               : 'Add Shipping Address',
-          onTap: () => customProductBottomSheet(context,
+          onTap: () => customBottomSheet(context,
               child: const AddAddressBottomSheetWidget()),
         )),
         const SizedBox(height: 16),
@@ -32,7 +32,7 @@ class CartShippingAndPaymentSection extends StatelessWidget {
             subtitle: buildApp.paymentMethod.isNotEmpty
                 ? buildApp.paymentMethod
                 : 'Select Payment Method',
-            onTap: () => customProductBottomSheet(context,
+            onTap: () => customBottomSheet(context,
                 child: const SelectPaymentBottomSheet()),
           ),
         ),

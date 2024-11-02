@@ -2,8 +2,8 @@ import 'package:e_clot_shop/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class ProductBottomSheetheader extends StatelessWidget {
-  const ProductBottomSheetheader({super.key, required this.text});
+class CustomBottomSheetheader extends StatelessWidget {
+  const CustomBottomSheetheader({super.key, required this.text});
   final String text;
 
   @override

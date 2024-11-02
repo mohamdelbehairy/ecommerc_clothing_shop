@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'product_bottom_sheet_header.dart';
+import '../../../../core/widgets/custom_bottom_sheet_header.dart';
 import 'product_size_bottom_sheet_list_view.dart';
 
 class ProductSizeBottomSheet extends StatelessWidget {
@@ -12,7 +12,7 @@ class ProductSizeBottomSheet extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          ProductBottomSheetheader(text: 'Size'),
+          CustomBottomSheetheader(text: 'Size'),
           SizedBox(height: 8),
           ProductSizeBottomSheetListView(),
           SizedBox(height: 8),

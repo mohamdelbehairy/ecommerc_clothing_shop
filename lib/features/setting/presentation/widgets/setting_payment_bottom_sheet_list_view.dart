@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/manager/build_app/build_app_cubit.dart';
-import '../../../product/presentation/widgets/product_bottom_sheet_list_view_item.dart';
+import '../../../../core/widgets/bottom_sheet_list_view_item.dart';
 
 class SettingPaymentBottomSheetListView extends StatelessWidget {
   const SettingPaymentBottomSheetListView({super.key});
@@ -28,7 +28,7 @@ class SettingPaymentBottomSheetListView extends StatelessWidget {
                               .read<UpdateDataCubit>()
                               .updateUserData(value: index);
                         },
-                        child: ProductBottomSheetListViewItem(
+                        child: BottomSheetListViewItem(
                             isActive: buildApp.settingPaymentIndex != -1
                                 ? buildApp.settingPaymentIndex == index
                                 : state.user.paymentMethod == index,

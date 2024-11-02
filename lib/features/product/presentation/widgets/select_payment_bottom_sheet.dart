@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'payment_bottom_sheet_button.dart';
 import 'payment_bottom_sheet_list_view.dart';
-import 'product_bottom_sheet_header.dart';
+import '../../../../core/widgets/custom_bottom_sheet_header.dart';
 
 class SelectPaymentBottomSheet extends StatelessWidget {
   const SelectPaymentBottomSheet({super.key});
@@ -13,7 +13,7 @@ class SelectPaymentBottomSheet extends StatelessWidget {
     return  const Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        ProductBottomSheetheader(text: 'Payment Method'),
+        CustomBottomSheetheader(text: 'Payment Method'),
         SizedBox(height: 8),
         PaymentBottomSheetListView(),
         SizedBox(height: 8),

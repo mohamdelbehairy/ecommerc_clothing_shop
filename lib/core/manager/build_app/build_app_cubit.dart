@@ -309,4 +309,17 @@ class BuildAppCubit extends Cubit<BuildAppState> {
 
     emit(ResetOrder());
   }
+
+  int themeIndex = 0;
+
+  List<ProductSelectDetailsModel> themeList = [
+    ProductSelectDetailsModel(title: 'Light Mode'),
+    ProductSelectDetailsModel(title: 'Dark Mode'),
+  ];
+
+  void changeThemeIndex(int index) {
+    if (themeIndex == index) return;
+    themeIndex = index;
+    emit(ChangeThemeIndex());
+  }
 }
