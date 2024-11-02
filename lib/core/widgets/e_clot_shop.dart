@@ -4,6 +4,8 @@ import 'package:e_clot_shop/features/order/data/repos/order_repo_impl.dart';
 import 'package:e_clot_shop/features/order/presentation/manager/order/order_cubit.dart';
 import 'package:e_clot_shop/features/shared_pref/data/repo/shared_pref_repo_impl.dart';
 import 'package:e_clot_shop/features/shared_pref/presentation/manager/shared_pref/shared_pref_cubit.dart';
+import 'package:e_clot_shop/features/theme/data/repo/change_theme_repo_impl.dart';
+import 'package:e_clot_shop/features/theme/presentation/manager/change_theme/change_theme_cubit.dart';
 import 'package:e_clot_shop/features/update/data/repo/update_data_repo_impl.dart';
 import 'package:e_clot_shop/features/user_data/data/repo/user_data_repo_impl.dart';
 import 'package:e_clot_shop/features/user_data/presentation/manager/get_user_data/get_user_data_cubit.dart';
@@ -39,7 +41,10 @@ class EClotShop extends StatelessWidget {
         BlocProvider(create: (context) => ProductCubit(ProductRepoImpl())),
         BlocProvider(create: (context) => WishlistCubit(WishlistRepoImpl())),
         BlocProvider(create: (context) => OrderCubit(OrderRepoImpl())),
-        BlocProvider(create: (context) => UpdateDataCubit(UpdateDataRepoImpl()))
+        BlocProvider(
+            create: (context) => UpdateDataCubit(UpdateDataRepoImpl())),
+        BlocProvider(
+            create: (context) => ChangeThemeCubit(ChangeThemeRepoImpl()))
       ],
       child: MaterialApp.router(
         theme: ThemeData(

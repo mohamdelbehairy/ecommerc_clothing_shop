@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/widgets/custom_bottom_sheet_header.dart';
 import 'setting_dark_mode_list_view.dart';
-import 'setting_dart_mode_button.dart';
 
 class SettingDarkModeBottomSheet extends StatelessWidget {
   const SettingDarkModeBottomSheet({super.key});
@@ -15,11 +14,8 @@ class SettingDarkModeBottomSheet extends StatelessWidget {
         CustomBottomSheetheader(text: 'Change Theme'),
         SizedBox(height: 8),
         SettingDarkModeListView(),
-        SizedBox(height: 8),
-        SettingDarkModeButton(),
-        SizedBox(height: 24),
+        SizedBox(height: 32),
       ],
     );
   }
 }
-
