@@ -14,18 +14,18 @@ Future<void> paymentMethods(BuildContext context,
   var price = num.parse(productData.price);
   var totalPrice = (price * buildApp.quantity) + buildApp.shippingCost;
 
-  var discount = totalPrice * buildApp.discountPercent / 100;
+  var discount = (totalPrice * buildApp.discountPercent / 100).toStringAsFixed(2);
 
   if (buildApp.paymentIndex == 0) {
     // ignore: use_build_context_synchronously
     await payWithCard(context,
         totalPrice:
-            buildApp.isCouponApplied ? (totalPrice - discount) : totalPrice);
+            buildApp.isCouponApplied ? (totalPrice - num.parse(discount)) : totalPrice);
   } else if (buildApp.paymentIndex == 1) {
     // ignore: use_build_context_synchronously
     payWithPaymob(context,
         totalPrice:
-            buildApp.isCouponApplied ? (totalPrice - discount) : totalPrice,
+            buildApp.isCouponApplied ? (totalPrice - num.parse(discount)) : totalPrice,
         productData: productData);
   } else {
     // ignore: use_build_context_synchronously

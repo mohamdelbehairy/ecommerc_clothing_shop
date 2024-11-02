@@ -9,6 +9,7 @@ import 'package:go_router/go_router.dart';
 import '../../../../core/models/custom_button_model.dart';
 import '../../../../core/widgets/function/custom_snack_bar_widget.dart';
 import '../../../payment/presentation/manager/strip/strip_payment_cubit.dart';
+import '../../../update/presentation/manager/update_data/update_data_cubit.dart';
 import 'function/place_order_button_on_tap.dart';
 
 class CartProductButtonPlaceOrder extends StatelessWidget {
@@ -18,12 +19,17 @@ class CartProductButtonPlaceOrder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<StripPaymentCubit, StripPaymentState>(
-      listener: (context, state) {
+      listener: (context, state) async {
         if (state is StripPaymentSuccess) {
           context.read<BuildAppCubit>().productData = productData;
           GoRouter.of(context).go(AppRouter.orderPlacedSuccess);
+          await context.read<UpdateDataCubit>().updateProductData(
+              productID: productData.id,
+              value: (productData.sellingCount! +
+                  context.read<BuildAppCubit>().quantity));
         }
         if (state is StripPaymentFailure) {
+          // ignore: use_build_context_synchronously
           customSnackbarWidget(context,
               margin: const EdgeInsets.symmetric(vertical: 70, horizontal: 100),
               message: 'Payment has been cancelled');

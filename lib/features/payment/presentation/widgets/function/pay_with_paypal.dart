@@ -10,6 +10,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../../core/manager/build_app/build_app_cubit.dart';
 import '../../../../home/data/models/product_model.dart';
+import '../../../../update/presentation/manager/update_data/update_data_cubit.dart';
 import '../../../data/models/paypal/amount_model.dart';
 
 void payWithPayPal(BuildContext context, {required ProductModel productData}) {
@@ -29,9 +30,13 @@ void payWithPayPal(BuildContext context, {required ProductModel productData}) {
       ],
       note: "Contact us for any questions on your order.",
       onSuccess: (Map params) async {
-        log("onSuccess: $params");
         context.read<BuildAppCubit>().productData = productData;
         GoRouter.of(context).go(AppRouter.orderPlacedSuccess);
+        await context.read<UpdateDataCubit>().updateProductData(
+            productID: productData.id,
+            value: (productData.sellingCount! +
+                context.read<BuildAppCubit>().quantity));
+        log("onSuccess: $params");
       },
       onError: (error) {
         log("onError: $error");

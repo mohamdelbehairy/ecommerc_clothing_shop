@@ -1,5 +1,5 @@
 import 'package:e_clot_shop/features/user_data/presentation/manager/get_user_data/get_user_data_cubit.dart';
-import 'package:e_clot_shop/features/user_data/presentation/manager/update_user_data/update_user_data_cubit.dart';
+import 'package:e_clot_shop/features/update/presentation/manager/update_data/update_data_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -25,7 +25,7 @@ class SettingPaymentBottomSheetListView extends StatelessWidget {
                         onTap: () async {
                           buildApp.changeSettingPaymentBottomSheet(index);
                           await context
-                              .read<UpdateUserDataCubit>()
+                              .read<UpdateDataCubit>()
                               .updateUserData(value: index);
                         },
                         child: ProductBottomSheetListViewItem(

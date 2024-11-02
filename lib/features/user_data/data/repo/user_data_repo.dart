@@ -7,6 +7,4 @@ import '../models/user_data_model.dart';
 abstract class UserDataRepo {
   Future<Either<Failure, void>> saveUserData(UserDataModel userDataModel);
   void getUserData(Function(QuerySnapshot<Map<String, dynamic>>)? onData);
-
-  Future<Either<Failure, void>> updateUserData(String key, var value);
 }

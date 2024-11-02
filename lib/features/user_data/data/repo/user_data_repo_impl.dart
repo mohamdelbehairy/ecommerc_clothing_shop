@@ -3,7 +3,6 @@ import 'package:dartz/dartz.dart';
 
 import 'package:e_clot_shop/core/error/failure.dart';
 import 'package:e_clot_shop/core/utils/constants.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import '../models/user_data_model.dart';
 import 'user_data_repo.dart';
 
@@ -35,16 +34,4 @@ class UserDataRepoImpl extends UserDataRepo {
         .listen(onData);
   }
 
-  @override
-  Future<Either<Failure, void>> updateUserData(String key, var value) async {
-    try {
-      await FirebaseFirestore.instance
-          .collection(Constants.usersCollection)
-          .doc(FirebaseAuth.instance.currentUser!.uid)
-          .update({key: value});
-      return const Right(null);
-    } catch (e) {
-      return Left(Failure(message: e.toString()));
-    }
-  }
 }
