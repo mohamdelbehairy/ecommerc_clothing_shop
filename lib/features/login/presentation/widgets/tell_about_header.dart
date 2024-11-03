@@ -8,7 +8,7 @@ class TellAboutHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24),
-        child:
-            Text('Tell us About yourself', style: Styles.styleBoldGarabito24));
+        child: Text('Tell us About yourself',
+            style: Styles.styleBoldGarabito24(context)));
   }
 }

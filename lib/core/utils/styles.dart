@@ -90,19 +90,21 @@ class Styles {
   //     fontWeight: FontWeight.bold,
   //     color: const Color(0xff272727),
   //     fontSize: 16);
-
-  static TextStyle styleBoldGarabito24 = const TextStyle(
-      fontWeight: FontWeight.bold,
-      color: Color(0xff272727),
-      fontSize: 24,
-      fontFamily: 'Gabarito');
+  static TextStyle styleBoldGarabito24(BuildContext context) {
+    return TextStyle(
+        fontWeight: FontWeight.bold,
+        color: _isDarkMode(context) ? Colors.white : const Color(0xff272727),
+        fontSize: 24,
+        fontFamily: 'Gabarito');
+  }
 
   static TextStyle styleBoldGarabito12 = const TextStyle(
       fontWeight: FontWeight.bold,
       color: Color(0xff272727),
       fontSize: 12,
       fontFamily: 'Gabarito');
-
+  
+  
   static TextStyle styleBold16 = const TextStyle(
       fontWeight: FontWeight.bold,
       color: Color(0xff272727),
@@ -139,7 +141,7 @@ class Styles {
         fontWeight: FontWeight.w500,
         color: _isDarkMode(context)
             ? Colors.white
-            : const Color(0xff272727).withOpacity(.5),
+            : const Color(0xff272727),
         fontSize: 18);
   }
 

@@ -1,11 +1,14 @@
 import 'package:e_clot_shop/core/models/svg_model.dart';
-import 'package:e_clot_shop/core/utils/app_router.dart';
 import 'package:e_clot_shop/core/utils/assets.dart';
 import 'package:e_clot_shop/core/utils/colors.dart';
 import 'package:e_clot_shop/core/utils/styles.dart';
 import 'package:e_clot_shop/core/widgets/custom_svg.dart';
+import 'package:e_clot_shop/features/theme/presentation/manager/change_theme/change_theme_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+
+import '../../utils/app_router.dart';
 
 Future<Object?> showAlertSignInSuccessful(BuildContext context) {
   showGeneralDialog(
@@ -17,7 +20,9 @@ Future<Object?> showAlertSignInSuccessful(BuildContext context) {
                 height: 480,
                 width: MediaQuery.sizeOf(context).width - 20,
                 decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: context.read<ChangeThemeCubit>().isDarkMode
+                        ? AppColors.darkModeBackground
+                        : Colors.white,
                     borderRadius: BorderRadius.circular(60)),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
@@ -33,14 +38,20 @@ Future<Object?> showAlertSignInSuccessful(BuildContext context) {
                     Text(
                         'Please wait...\n You will be directed to the homepage soon.',
                         textAlign: TextAlign.center,
-                        style: Styles.styleMediumUrbainst16),
+                        style: Styles.styleMediumUrbainst16.copyWith(
+                            color: context.read<ChangeThemeCubit>().isDarkMode
+                                ? Colors.white
+                                : null)),
                     const SizedBox(height: 32),
-                    const SizedBox(
+                    SizedBox(
                       height: 40,
                       width: 40,
                       child: CircularProgressIndicator(
                           color: AppColors.primaryColor,
-                          backgroundColor: AppColors.secondaryColor,
+                          backgroundColor:
+                              context.read<ChangeThemeCubit>().isDarkMode
+                                  ? const Color(0xff1D182A)
+                                  : AppColors.secondaryColor,
                           strokeWidth: 5),
                     )
                   ],

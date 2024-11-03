@@ -1,6 +1,7 @@
 import 'package:bottom_picker/bottom_picker.dart';
 import 'package:e_clot_shop/core/utils/colors.dart';
 import 'package:e_clot_shop/core/utils/styles.dart';
+import 'package:e_clot_shop/features/theme/presentation/manager/change_theme/change_theme_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -12,6 +13,7 @@ class SelectAgeSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var isDarkMode = context.watch<ChangeThemeCubit>().isDarkMode;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24),
       child: Column(
@@ -21,12 +23,18 @@ class SelectAgeSection extends StatelessWidget {
           const SizedBox(height: 16),
           AgeRangeWidget(onTap: () {
             BottomPicker.date(
+              closeIconColor: isDarkMode ? Colors.white : Colors.black,
               initialDateTime: DateTime(2000),
               maxDateTime: DateTime(DateTime.now().year - 2),
-              backgroundColor: AppColors.secondaryColor,
+              backgroundColor: isDarkMode
+                  ? AppColors.darkModeBackground
+                  : AppColors.secondaryColor,
               pickerTitle: Text('Select a Date',
-                  style: Styles.styleBold16.copyWith(color: Colors.blue)),
-              pickerTextStyle: Styles.styleBold16.copyWith(color: Colors.blue),
+                  style: Styles.styleBold16.copyWith(
+                      color:
+                          isDarkMode ? Colors.white : const Color(0xff272727))),
+              pickerTextStyle: Styles.styleBold16.copyWith(
+                  color: isDarkMode ? Colors.white : const Color(0xff272727)),
               onSubmit: (index) {
                 context.read<TellUsCubit>().pickYear(index.year);
               },

@@ -1,3 +1,4 @@
+import 'package:e_clot_shop/features/theme/presentation/manager/change_theme/change_theme_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -33,7 +34,9 @@ class TellAboutFinshButton extends StatelessWidget {
         return Container(
           height: 100,
           width: MediaQuery.sizeOf(context).width,
-          color: AppColors.secondaryColor,
+          color: context.read<ChangeThemeCubit>().isDarkMode
+              ? AppColors.darkModeBackground
+              : AppColors.secondaryColor,
           padding: const EdgeInsets.symmetric(horizontal: 24),
           child: Center(
               child: CustomButton(
@@ -47,6 +50,4 @@ class TellAboutFinshButton extends StatelessWidget {
       },
     );
   }
-
-  
 }
