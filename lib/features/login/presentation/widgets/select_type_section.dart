@@ -13,7 +13,7 @@ class SelectTypeSection extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Who do you shop for ?', style: Styles.styleMedium16),
+          Text('Who do you shop for ?', style: Styles.styleMedium16(context)),
           const SizedBox(height: 24),
           const SelectTypeToShopButtons(),
         ],

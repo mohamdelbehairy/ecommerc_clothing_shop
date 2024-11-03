@@ -14,7 +14,7 @@ class CartPriceItem extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(title, style: Styles.styleMedium16WithOpacity),
-        Text(value, style: style ?? Styles.styleMedium16)
+        Text(value, style: style ?? Styles.styleMedium16(context))
       ],
     );
   }

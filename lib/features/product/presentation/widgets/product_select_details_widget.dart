@@ -26,7 +26,7 @@ class ProductSelectDetailsWidget extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(productSelectDetails.title, style: Styles.styleMedium16),
+            Text(productSelectDetails.title, style: Styles.styleMedium16(context)),
             if (index != 2)
               SizeAndColorSection(
                   index: index,

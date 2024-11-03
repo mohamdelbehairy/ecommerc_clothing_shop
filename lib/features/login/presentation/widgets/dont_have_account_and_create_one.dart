@@ -10,12 +10,12 @@ class DontHaveAccountAndCreateOne extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Text('Dont have an Account ? ', style: Styles.styleMedium12),
+        Text('Dont have an Account ? ', style: Styles.styleMedium12(context)),
         InkWell(
             onTap: () => GoRouter.of(context).push(AppRouter.register),
             child: Text('Create One',
                 style:
-                    Styles.styleMedium12.copyWith(fontWeight: FontWeight.bold)))
+                    Styles.styleMedium12(context).copyWith(fontWeight: FontWeight.bold)))
       ],
     );
   }

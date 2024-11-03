@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../data/repo/change_theme_repo.dart';
@@ -46,5 +47,13 @@ class ChangeThemeCubit extends Cubit<ChangeThemeState> {
     themeIndex = index;
 
     emit(ChangeThemeIndex());
+  }
+
+  ThemeData lightMode() {
+  return  _changeThemeRepo.lightMode();
+  }
+
+  ThemeData darkMode() {
+   return _changeThemeRepo.darkMode();
   }
 }

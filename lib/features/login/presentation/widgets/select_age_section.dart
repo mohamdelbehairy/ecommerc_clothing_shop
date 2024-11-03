@@ -17,7 +17,7 @@ class SelectAgeSection extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('How Old are you ?', style: Styles.styleMedium16),
+          Text('How Old are you ?', style: Styles.styleMedium16(context)),
           const SizedBox(height: 16),
           AgeRangeWidget(onTap: () {
             BottomPicker.date(

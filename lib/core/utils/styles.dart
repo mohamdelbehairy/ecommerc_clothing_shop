@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../features/theme/presentation/manager/change_theme/change_theme_cubit.dart';
+
 class Styles {
-  static TextStyle styleBold32 = GoogleFonts.nunito(
-      fontWeight: FontWeight.bold,
-      color: const Color(0xff272727),
-      fontSize: 32);
+  static TextStyle styleBold32(BuildContext context) {
+    return GoogleFonts.nunito(
+        fontWeight: FontWeight.bold,
+        color: _isDarkMode(context) ? Colors.white : const Color(0xff272727),
+        fontSize: 32);
+  }
 
   static TextStyle styleBoldNunito24 = GoogleFonts.nunito(
       fontWeight: FontWeight.bold,
@@ -16,11 +21,12 @@ class Styles {
       fontWeight: FontWeight.bold,
       color: const Color(0xff272727),
       fontSize: 20);
-
-  static TextStyle styleMedium16 = GoogleFonts.nunito(
-      fontWeight: FontWeight.w500,
-      color: const Color(0xff272727),
-      fontSize: 16);
+  static TextStyle styleMedium16(BuildContext context) {
+    return GoogleFonts.nunito(
+        fontWeight: FontWeight.w500,
+        color: _isDarkMode(context) ? Colors.white : const Color(0xff272727),
+        fontSize: 16);
+  }
 
   static TextStyle styleMedium16WithOpacity = GoogleFonts.nunito(
       fontWeight: FontWeight.w500,
@@ -38,10 +44,17 @@ class Styles {
       color: const Color(0xff272727),
       fontSize: 12);
 
-  static TextStyle styleMedium12 = GoogleFonts.nunito(
-      fontWeight: FontWeight.w500,
-      color: const Color(0xff272727),
-      fontSize: 12);
+  static TextStyle styleMedium12(BuildContext context) {
+    return GoogleFonts.nunito(
+        fontWeight: FontWeight.w500,
+        color: _isDarkMode(context) ? Colors.white : const Color(0xff272727),
+        fontSize: 12);
+  }
+
+  // static TextStyle styleMedium12 = GoogleFonts.nunito(
+  //     fontWeight: FontWeight.w500,
+  //     color: const Color(0xff272727),
+  //     fontSize: 12);
 
   static TextStyle styleMediumWithOpacity12 = GoogleFonts.nunito(
       fontWeight: FontWeight.w500,
@@ -112,10 +125,23 @@ class Styles {
       fontWeight: FontWeight.w600,
       color: const Color(0xff25213C).withOpacity(.8));
 
-  static TextStyle styleTextField16 = GoogleFonts.nunito(
-      fontWeight: FontWeight.w500,
-      color: const Color(0xff272727).withOpacity(.5),
-      fontSize: 16);
+  static TextStyle styleHintTextField16(BuildContext context) {
+    return GoogleFonts.nunito(
+        fontWeight: FontWeight.w500,
+        color: _isDarkMode(context)
+            ? Colors.white.withOpacity(.5)
+            : const Color(0xff272727).withOpacity(.5),
+        fontSize: 16);
+  }
+
+  static TextStyle styleTextField18(BuildContext context) {
+    return GoogleFonts.nunito(
+        fontWeight: FontWeight.w500,
+        color: _isDarkMode(context)
+            ? Colors.white
+            : const Color(0xff272727).withOpacity(.5),
+        fontSize: 18);
+  }
 
   static TextStyle styleBoldUrbainst24 = GoogleFonts.urbanist(
       fontWeight: FontWeight.bold,
@@ -126,4 +152,8 @@ class Styles {
       fontWeight: FontWeight.w500,
       color: const Color(0xff59606E),
       fontSize: 16);
+}
+
+bool _isDarkMode(BuildContext context) {
+  return context.watch<ChangeThemeCubit>().isDarkMode;
 }

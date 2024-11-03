@@ -17,7 +17,7 @@ class AddOrMinusSection extends StatelessWidget {
           quantity.changeQuantity(1);
         }),
         const SizedBox(width: 24),
-        Text('${quantity.quantity}', style: Styles.styleMedium16),
+        Text('${quantity.quantity}', style: Styles.styleMedium16(context)),
         const SizedBox(width: 24),
         CustomAddOrMinusWidget(icon: Icons.remove, onTap: () {
           quantity.changeQuantity(-1);

@@ -27,7 +27,7 @@ class CartShippingAndPaymentItem extends StatelessWidget {
             subtitle: Text(shippingAndPaymentModel.subtitle,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
-                style: Styles.styleMedium16),
+                style: Styles.styleMedium16(context)),
             trailing: BackRightWidget(onTap: shippingAndPaymentModel.onTap),
           ),
         ),

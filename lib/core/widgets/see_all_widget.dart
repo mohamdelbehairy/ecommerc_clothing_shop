@@ -8,6 +8,6 @@ class SeeAllWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-        onTap: onTap, child: Text('See All', style: Styles.styleMedium16));
+        onTap: onTap, child: Text('See All', style: Styles.styleMedium16(context)));
   }
 }

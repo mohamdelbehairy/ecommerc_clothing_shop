@@ -8,20 +8,19 @@ class LoginViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        SizedBox(height: 120),
-        Padding(
-            padding: EdgeInsets.symmetric(horizontal: 27),
-            child: CustomHeaderText(text: 'Sign in')),
-        SizedBox(height: 30),
-        Padding(
-            padding: EdgeInsets.symmetric(horizontal: 24),
-            child: LoginTextFieldAndButtonsSection()),
-        SizedBox(height: 80),
-        Padding(padding: EdgeInsets.symmetric(horizontal: 23), child: LoginProviderAuth())
-      ],
+    return const Padding(
+      padding: EdgeInsets.symmetric(horizontal: 24),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(height: 120),
+          CustomHeaderText(text: 'Sign in'),
+          SizedBox(height: 30),
+          LoginTextFieldAndButtonsSection(),
+          SizedBox(height: 80),
+          LoginProviderAuth()
+        ],
+      ),
     );
   }
 }

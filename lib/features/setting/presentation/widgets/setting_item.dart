@@ -25,7 +25,7 @@ class SettingItem extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(settingItemModel.name, style: Styles.styleMedium16),
+                Text(settingItemModel.name, style: Styles.styleMedium16(context)),
                 Transform.rotate(
                     angle: 180 * 3.1415927 / 180,
                     child: CustomSvg(

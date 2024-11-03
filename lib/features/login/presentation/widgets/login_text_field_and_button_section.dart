@@ -14,7 +14,7 @@ class LoginTextFieldAndButtonsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var buildLogin = context.watch<BuildAppCubit>();
+    var buildLogin = context.read<BuildAppCubit>();
     return BlocBuilder<BuildAppCubit, BuildAppState>(
       builder: (context, state) {
         return Form(

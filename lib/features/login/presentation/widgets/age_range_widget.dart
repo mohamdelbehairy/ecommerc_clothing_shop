@@ -23,7 +23,7 @@ class AgeRangeWidget extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text('Age Range', style: Styles.styleMedium16),
+            Text('Age Range', style: Styles.styleMedium16(context)),
             GestureDetector(
               onTap: onTap,
               child: Transform.rotate(

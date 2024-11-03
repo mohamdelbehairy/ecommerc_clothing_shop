@@ -24,7 +24,7 @@ class HomeSearchWidget extends StatelessWidget {
                 CustomSvg(
                     svgModel: SvgModel(height: 18, image: Assets.imagesSearch)),
                 const SizedBox(width: 12),
-                Text('Search', style: Styles.styleMedium16)
+                Text('Search', style: Styles.styleMedium16(context))
               ],
             )),
       ),

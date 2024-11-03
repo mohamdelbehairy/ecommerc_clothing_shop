@@ -24,7 +24,7 @@ class CustomButton extends StatelessWidget {
                     ? loadingAnimationWidget(color: Colors.white)
                     : Text(customButtonModel.buttonName,
                         style: customButtonModel.buttonColor != null
-                            ? Styles.styleMedium16
+                            ? Styles.styleMedium16(context)
                             : Styles.styleMediumWhite16)),
       ),
     );

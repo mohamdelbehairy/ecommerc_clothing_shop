@@ -10,12 +10,12 @@ class ForgetPasswordAndReset extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Text('Forgot Password ? ', style: Styles.styleMedium12),
+        Text('Forgot Password ? ', style: Styles.styleMedium12(context)),
         InkWell(
             onTap: () => GoRouter.of(context).push(AppRouter.forgetPassword),
             child: Text('Reset',
                 style:
-                    Styles.styleMedium12.copyWith(fontWeight: FontWeight.bold)))
+                    Styles.styleMedium12(context).copyWith(fontWeight: FontWeight.bold)))
       ],
     );
   }

@@ -2,9 +2,11 @@ import 'package:e_clot_shop/core/utils/colors.dart';
 import 'package:e_clot_shop/core/utils/styles.dart';
 import 'package:e_clot_shop/core/widgets/custom_svg.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/models/svg_model.dart';
 import '../../../../core/widgets/function/loading_animation_widget.dart';
+import '../../../theme/presentation/manager/change_theme/change_theme_cubit.dart';
 import '../../data/models/auth_item_model.dart';
 
 class ProviderAuthItem extends StatelessWidget {
@@ -20,7 +22,9 @@ class ProviderAuthItem extends StatelessWidget {
         width: MediaQuery.sizeOf(context).width,
         padding: const EdgeInsets.only(left: 20),
         decoration: BoxDecoration(
-            color: AppColors.secondaryColor,
+            color: context.read<ChangeThemeCubit>().isDarkMode
+                ? AppColors.darkModeBackground
+                : AppColors.secondaryColor,
             borderRadius: BorderRadius.circular(100)),
         child: Stack(
           children: [
@@ -32,8 +36,12 @@ class ProviderAuthItem extends StatelessWidget {
             Align(
                 alignment: Alignment.center,
                 child: authItemModel.isLoading
-                    ? loadingAnimationWidget()
-                    : Text(authItemModel.text, style: Styles.styleMedium16))
+                    ? loadingAnimationWidget(
+                        color: context.read<ChangeThemeCubit>().isDarkMode
+                            ? Colors.white
+                            : null)
+                    : Text(authItemModel.text,
+                        style: Styles.styleMedium16(context)))
           ],
         ),
       ),

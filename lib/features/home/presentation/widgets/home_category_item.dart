@@ -13,7 +13,7 @@ class HomeCategoryItem extends StatelessWidget {
       children: [
         Image.asset(categoryItem.image,height: 56,width: 56),
         const SizedBox(height: 4),
-        Text(categoryItem.title, style: Styles.styleMedium12),
+        Text(categoryItem.title, style: Styles.styleMedium12(context)),
       ],
     );
   }

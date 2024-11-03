@@ -1,5 +1,6 @@
 import 'package:e_clot_shop/core/utils/constants.dart';
 import 'package:e_clot_shop/features/shared_pref/data/repo/shared_pref_repo.dart';
+import 'package:flutter/material.dart';
 
 import '../../../shared_pref/data/models/shared_pref_model.dart';
 import '../../../shared_pref/data/repo/shared_pref_repo_impl.dart';
@@ -16,5 +17,17 @@ class ChangeThemeRepoImpl extends ChangeThemeRepo {
   @override
   Future<bool> getDarkMode() async {
     return await _sharedPrefRepo.getBool(Constants.isDarkMode);
+  }
+
+  @override
+  ThemeData lightMode() {
+    return ThemeData(scaffoldBackgroundColor: Colors.white);
+  }
+
+  @override
+  ThemeData darkMode() {
+    return ThemeData(
+      scaffoldBackgroundColor: const Color(0xff1D182A),
+    );
   }
 }

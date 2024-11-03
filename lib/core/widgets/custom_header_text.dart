@@ -8,6 +8,6 @@ class CustomHeaderText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(text, style: Styles.styleBold32);
+    return Text(text, style: Styles.styleBold32(context));
   }
 }

@@ -34,7 +34,7 @@ class ProductItem extends StatelessWidget {
                   child: Text(customProductModel.productModel.name,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
-                      style: Styles.styleMedium12)),
+                      style: Styles.styleMedium12(context))),
               const SizedBox(height: 8),
               Padding(
                 padding: const EdgeInsets.only(left: 4),

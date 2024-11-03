@@ -28,8 +28,8 @@ class BottomSheetListViewItem extends StatelessWidget {
                   children: [
                     Text(productSelectDetails.title,
                         style: isActive
-                            ? Styles.styleMedium16.copyWith(color: Colors.white)
-                            : Styles.styleMedium16),
+                            ? Styles.styleMedium16(context).copyWith(color: Colors.white)
+                            : Styles.styleMedium16(context)),
                     Row(
                       children: [
                         if (productSelectDetails.color != null)

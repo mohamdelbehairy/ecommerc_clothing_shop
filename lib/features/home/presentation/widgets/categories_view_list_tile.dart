@@ -18,7 +18,7 @@ class CategoriesViewListTile extends StatelessWidget {
         child: Center(
           child: ListTile(
             leading: Image.asset(categoryItem.image, height: 40),
-            title: Text(categoryItem.title, style: Styles.styleMedium16),
+            title: Text(categoryItem.title, style: Styles.styleMedium16(context)),
           ),
         ),
       ),

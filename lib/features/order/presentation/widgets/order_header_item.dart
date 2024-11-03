@@ -21,8 +21,8 @@ class OrderHeaderItem extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 8),
             child: Text(text,
                 style: isActive
-                    ? Styles.styleMedium12.copyWith(color: Colors.white)
-                    : Styles.styleMedium12),
+                    ? Styles.styleMedium12(context).copyWith(color: Colors.white)
+                    : Styles.styleMedium12(context)),
           )),
     );
   }

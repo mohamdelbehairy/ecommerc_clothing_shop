@@ -48,7 +48,7 @@ class ProductButtonCheckout extends StatelessWidget {
                                   style: Styles.styleBold16
                                       .copyWith(color: Colors.white)),
                               Text('Checkout',
-                                  style: Styles.styleMedium16
+                                  style: Styles.styleMedium16(context)
                                       .copyWith(color: Colors.white))
                             ],
                           ),

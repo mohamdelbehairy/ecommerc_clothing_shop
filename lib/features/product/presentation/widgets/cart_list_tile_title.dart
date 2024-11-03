@@ -19,7 +19,7 @@ class CartListTileTitle extends StatelessWidget {
               child: Text(cartProduct.productData!.name,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                  style: Styles.styleMedium12)),
+                  style: Styles.styleMedium12(context))),
           const SizedBox(width: 6),
           Text(
               cartProduct.isProduct 

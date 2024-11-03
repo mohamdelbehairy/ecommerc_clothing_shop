@@ -32,7 +32,7 @@ class OrderItem extends StatelessWidget {
                       const ColorFilter.mode(Colors.black, BlendMode.srcIn),
                   image: Assets.imagesOrders)),
           title:
-              Text('Order  #${orderData.orderID}', style: Styles.styleMedium16),
+              Text('Order  #${orderData.orderID}', style: Styles.styleMedium16(context)),
           subtitle: Text(number > 1 ? '$number items' : '$number item',
               style: Styles.styleMediumWithOpacity12),
           trailing: BackRightWidget(
