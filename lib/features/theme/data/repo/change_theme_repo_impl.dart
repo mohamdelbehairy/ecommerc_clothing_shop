@@ -1,3 +1,4 @@
+import 'package:e_clot_shop/core/utils/colors.dart';
 import 'package:e_clot_shop/core/utils/constants.dart';
 import 'package:e_clot_shop/features/shared_pref/data/repo/shared_pref_repo.dart';
 import 'package:flutter/material.dart';
@@ -27,7 +28,7 @@ class ChangeThemeRepoImpl extends ChangeThemeRepo {
   @override
   ThemeData darkMode() {
     return ThemeData(
-      scaffoldBackgroundColor: const Color(0xff1D182A),
+      scaffoldBackgroundColor: AppColors.darkModeColor,
     );
   }
 }

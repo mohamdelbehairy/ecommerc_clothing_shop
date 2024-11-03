@@ -23,11 +23,11 @@ class LogoutBottomSheetBody extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text('Are you sure that you want to logout?',
-              style: Styles.styleBold20),
+              style: Styles.styleBold20(context)),
           const SizedBox(height: 8),
           Text(
               'You have to login again with your username and password if you confirm to logout.',
-              style: Styles.styleRegular15),
+              style: Styles.styleRegular15(context)),
           const SizedBox(height: 16),
           CustomButton(
               customButtonModel: CustomButtonModel(

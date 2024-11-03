@@ -1,4 +1,6 @@
+import 'package:e_clot_shop/core/utils/colors.dart';
 import 'package:e_clot_shop/features/order/presentation/manager/order/order_cubit.dart';
+import 'package:e_clot_shop/features/theme/presentation/manager/change_theme/change_theme_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -41,7 +43,9 @@ class _BottomNavigationBarViewState extends State<BottomNavigationBarView> {
             elevation: 0.0,
             currentIndex: bottomNavigationBar.bottomActiveIndex,
             type: BottomNavigationBarType.fixed,
-            backgroundColor: Colors.white,
+            backgroundColor: context.watch<ChangeThemeCubit>().isDarkMode
+                ? AppColors.darkModeColor
+                : Colors.white,
             onTap: (index) {
               bottomNavigationBar.bottomChangeIndex(index);
             },
@@ -49,7 +53,8 @@ class _BottomNavigationBarViewState extends State<BottomNavigationBarView> {
                 bottomNavigationBar.bottomItems.length,
                 (index) => customBottomNavigationBarItem(
                     bottomNavigationBar.bottomItems[index],
-                    bottomNavigationBar.bottomActiveIndex == index)),
+                    bottomNavigationBar.bottomActiveIndex == index,
+                    context)),
           ),
         ),
       ),

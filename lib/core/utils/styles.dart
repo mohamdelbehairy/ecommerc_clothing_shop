@@ -12,15 +12,20 @@ class Styles {
         fontSize: 32);
   }
 
-  static TextStyle styleBoldNunito24 = GoogleFonts.nunito(
-      fontWeight: FontWeight.bold,
-      color: const Color(0xff272727),
-      fontSize: 24);
+  static TextStyle styleBoldNunito24(BuildContext context) {
+    return GoogleFonts.nunito(
+        fontWeight: FontWeight.bold,
+        color: _isDarkMode(context) ? Colors.white : const Color(0xff272727),
+        fontSize: 24);
+  }
 
-  static TextStyle styleBold20 = GoogleFonts.nunito(
-      fontWeight: FontWeight.bold,
-      color: const Color(0xff272727),
-      fontSize: 20);
+  static TextStyle styleBold20(BuildContext context) {
+    return GoogleFonts.nunito(
+        fontWeight: FontWeight.bold,
+        color: _isDarkMode(context) ? Colors.white : const Color(0xff272727),
+        fontSize: 20);
+  }
+
   static TextStyle styleMedium16(BuildContext context) {
     return GoogleFonts.nunito(
         fontWeight: FontWeight.w500,
@@ -28,10 +33,14 @@ class Styles {
         fontSize: 16);
   }
 
-  static TextStyle styleMedium16WithOpacity = GoogleFonts.nunito(
-      fontWeight: FontWeight.w500,
-      color: const Color(0xff272727).withOpacity(.5),
-      fontSize: 16);
+  static TextStyle styleMedium16WithOpacity(BuildContext context) {
+    return GoogleFonts.nunito(
+        fontWeight: FontWeight.w500,
+        color: _isDarkMode(context)
+            ? Colors.white.withOpacity(.5)
+            : const Color(0xff272727).withOpacity(.5),
+        fontSize: 16);
+  }
 
   static TextStyle styleMediumWhite16 = GoogleFonts.nunito(
       fontWeight: FontWeight.w500, color: Colors.white, fontSize: 16);
@@ -66,10 +75,12 @@ class Styles {
       color: const Color(0xff272727),
       fontSize: 14);
 
-  static TextStyle styleRegular15 = GoogleFonts.nunito(
-      fontWeight: FontWeight.w400,
-      color: const Color(0xff272727),
-      fontSize: 15);
+  static TextStyle styleRegular15(BuildContext context) {
+    return GoogleFonts.nunito(
+        fontWeight: FontWeight.w400,
+        color: _isDarkMode(context) ? Colors.white : const Color(0xff272727),
+        fontSize: 15);
+  }
 
   static TextStyle styleMedium24 = GoogleFonts.nunito(
       fontWeight: FontWeight.w500,
@@ -103,8 +114,7 @@ class Styles {
       color: Color(0xff272727),
       fontSize: 12,
       fontFamily: 'Gabarito');
-  
-  
+
   static TextStyle styleBold16 = const TextStyle(
       fontWeight: FontWeight.bold,
       color: Color(0xff272727),
@@ -139,9 +149,7 @@ class Styles {
   static TextStyle styleTextField18(BuildContext context) {
     return GoogleFonts.nunito(
         fontWeight: FontWeight.w500,
-        color: _isDarkMode(context)
-            ? Colors.white
-            : const Color(0xff272727),
+        color: _isDarkMode(context) ? Colors.white : const Color(0xff272727),
         fontSize: 18);
   }
 

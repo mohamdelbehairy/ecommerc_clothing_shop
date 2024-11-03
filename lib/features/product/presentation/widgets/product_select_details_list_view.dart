@@ -13,6 +13,7 @@ class ProductSelectDetailsListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var selectList = context.read<BuildAppCubit>();
+    
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24),
       child: Column(

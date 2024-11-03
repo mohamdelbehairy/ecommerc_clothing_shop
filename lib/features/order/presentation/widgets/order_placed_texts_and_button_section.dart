@@ -18,7 +18,7 @@ class OrderPlacedTextsAndButtonSection extends StatelessWidget {
         const SizedBox(height: 32),
         Text('Your order has been placed\n successfully',
             textAlign: TextAlign.center,
-            style: Styles.styleMedium16WithOpacity),
+            style: Styles.styleMedium16WithOpacity(context)),
         const Spacer(),
         CustomButton(
             customButtonModel: CustomButtonModel(

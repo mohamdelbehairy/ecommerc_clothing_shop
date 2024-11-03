@@ -13,7 +13,7 @@ class CartPriceItem extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(title, style: Styles.styleMedium16WithOpacity),
+        Text(title, style: Styles.styleMedium16WithOpacity(context)),
         Text(value, style: style ?? Styles.styleMedium16(context))
       ],
     );

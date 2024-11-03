@@ -1,6 +1,8 @@
 import 'package:e_clot_shop/core/utils/colors.dart';
 import 'package:e_clot_shop/core/utils/styles.dart';
+import 'package:e_clot_shop/features/theme/presentation/manager/change_theme/change_theme_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../models/custom_button_model.dart';
 import 'custom_button.dart';
@@ -14,13 +16,17 @@ class BottomSheetListViewItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var isDarkMode = context.watch<ChangeThemeCubit>().isDarkMode;
     return Padding(
       padding: const EdgeInsets.only(bottom: 16),
       child: CustomButton(
           customButtonModel: CustomButtonModel(
               height: 58,
-              buttonColor:
-                  isActive ? AppColors.primaryColor : AppColors.secondaryColor,
+              buttonColor: isActive
+                  ? AppColors.primaryColor
+                  : isDarkMode
+                      ? AppColors.darkModeBackground
+                      : AppColors.secondaryColor,
               widget: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24),
                 child: Row(
@@ -28,7 +34,10 @@ class BottomSheetListViewItem extends StatelessWidget {
                   children: [
                     Text(productSelectDetails.title,
                         style: isActive
-                            ? Styles.styleMedium16(context).copyWith(color: Colors.white)
+                            ? Styles.styleMedium16(context).copyWith(
+                                color: isDarkMode
+                                    ? const Color(0xff272727)
+                                    : Colors.white)
                             : Styles.styleMedium16(context)),
                     Row(
                       children: [
@@ -42,7 +51,11 @@ class BottomSheetListViewItem extends StatelessWidget {
                                   backgroundColor: productSelectDetails.color)),
                         const SizedBox(width: 20),
                         Icon(Icons.done,
-                            color: isActive ? Colors.white : Colors.transparent,
+                            color: isActive
+                                ? isDarkMode
+                                    ? const Color(0xff272727)
+                                    : Colors.white
+                                : Colors.transparent,
                             size: 24)
                       ],
                     )
