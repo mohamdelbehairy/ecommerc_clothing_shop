@@ -19,6 +19,7 @@ class BackRightWidget extends StatelessWidget {
         child: CustomSvg(
           svgModel: SvgModel(
               height: 18,
+              onTap: onTap,
               image: Assets.imagesBack,
               colorFilter: ColorFilter.mode(
                   isDarkMode ? Colors.white : Colors.black, BlendMode.srcIn)),

@@ -30,7 +30,7 @@ class StripRepoImpl extends StripRepo {
       paymentIntentClientSecret: clientSecret,
       customerId: customer,
       customerEphemeralKeySecret: ephemeralKey,
-      style: ThemeMode.light,
+      style:  ThemeMode.dark ,
     ));
   }
 
