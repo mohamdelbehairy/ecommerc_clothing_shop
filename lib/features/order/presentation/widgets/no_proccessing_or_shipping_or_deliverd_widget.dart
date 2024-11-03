@@ -12,7 +12,7 @@ class NoProccessingorShippedOrDeliverdWidget extends StatelessWidget {
       children: [
         Image.asset(Assets.imagesNoOrders),
         const SizedBox(height: 24),
-        Text('No $text Yet', style: Styles.styleMedium24),
+        Text('No $text Yet', style: Styles.styleMedium24(context)),
       ],
     );
   }

@@ -15,7 +15,7 @@ class NoNotificationAndOrdersWidget extends StatelessWidget {
           const Spacer(),
           Image.asset(image),
           const SizedBox(height: 24),
-          Text(text, style: Styles.styleMedium24),
+          Text(text, style: Styles.styleMedium24(context)),
           const SizedBox(height: 24),
           const ExploreCategoriesButton(),
           const Spacer(),

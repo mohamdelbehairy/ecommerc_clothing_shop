@@ -22,7 +22,7 @@ class CartCouponCodeWidget extends StatelessWidget {
         borderRadius: 8,
         keyboardType: TextInputType.number,
         hintText: 'Enter Coupon Code',
-        hintStyle: Styles.styleMediumWithOpacity12,
+        hintStyle: Styles.styleMediumWithOpacity12(context),
         prefixIcon: const CartCouponPrefixIcon(),
         suffixIcon: const CartCouponSuffixIcon(),
         controller: buildApp.couponController,

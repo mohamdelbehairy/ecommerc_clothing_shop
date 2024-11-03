@@ -21,7 +21,7 @@ class CheckEmailViewBody extends StatelessWidget {
             Image.asset(Assets.imagesCheckEmail, height: 100, width: 100),
             const SizedBox(height: 24),
             Text('We Sent you an Email to reset your password.',
-                textAlign: TextAlign.center, style: Styles.styleMedium24),
+                textAlign: TextAlign.center, style: Styles.styleMedium24(context)),
             const SizedBox(height: 24),
             CustomButton(
                 customButtonModel: CustomButtonModel(

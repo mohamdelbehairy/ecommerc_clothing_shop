@@ -23,7 +23,7 @@ class CartShippingAndPaymentItem extends StatelessWidget {
             title: Padding(
                 padding: const EdgeInsets.only(bottom: 8),
                 child: Text(shippingAndPaymentModel.title,
-                    style: Styles.styleMediumWithOpacity12)),
+                    style: Styles.styleMediumWithOpacity12(context))),
             subtitle: Text(shippingAndPaymentModel.subtitle,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,

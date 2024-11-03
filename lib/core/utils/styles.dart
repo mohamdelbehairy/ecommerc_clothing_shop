@@ -60,15 +60,14 @@ class Styles {
         fontSize: 12);
   }
 
-  // static TextStyle styleMedium12 = GoogleFonts.nunito(
-  //     fontWeight: FontWeight.w500,
-  //     color: const Color(0xff272727),
-  //     fontSize: 12);
-
-  static TextStyle styleMediumWithOpacity12 = GoogleFonts.nunito(
-      fontWeight: FontWeight.w500,
-      color: const Color(0xff272727).withOpacity(.5),
-      fontSize: 12);
+  static TextStyle styleMediumWithOpacity12(BuildContext context) {
+    return GoogleFonts.nunito(
+        fontWeight: FontWeight.w500,
+        color: _isDarkMode(context)
+            ? Colors.white.withOpacity(.5)
+            : const Color(0xff272727).withOpacity(.5),
+        fontSize: 12);
+  }
 
   static TextStyle styleMedium14 = GoogleFonts.nunito(
       fontWeight: FontWeight.w500,
@@ -82,10 +81,12 @@ class Styles {
         fontSize: 15);
   }
 
-  static TextStyle styleMedium24 = GoogleFonts.nunito(
-      fontWeight: FontWeight.w500,
-      color: const Color(0xff272727),
-      fontSize: 24);
+  static TextStyle styleMedium24(BuildContext context) {
+    return GoogleFonts.nunito(
+        fontWeight: FontWeight.w500,
+        color: _isDarkMode(context) ? Colors.white : const Color(0xff272727),
+        fontSize: 24);
+  }
 
   // static TextStyle styleBold24 = GoogleFonts.gabarito(
   //     fontWeight: FontWeight.bold,

@@ -19,7 +19,7 @@ class CartEmptyWidget extends StatelessWidget {
             const Spacer(),
             CustomSvg(svgModel: SvgModel(image: Assets.imagesEmptyCard)),
             const SizedBox(height: 24),
-            Text('Your Cart is Empty', style: Styles.styleMedium24),
+            Text('Your Cart is Empty', style: Styles.styleMedium24(context)),
             const SizedBox(height: 24),
             const ExploreCategoriesButton(),
             const Spacer(),
