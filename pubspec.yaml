@@ -52,6 +52,7 @@ dependencies:
   google_sign_in: ^6.2.1
   loading_animation_widget: ^1.2.1
   shared_preferences: ^2.3.2
+  skeletonizer: ^1.4.2
   smooth_page_indicator: ^1.2.0+3
   twitter_login: ^4.4.0
   uuid: ^4.5.1

@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../user_data/presentation/manager/get_user_data/get_user_data_cubit.dart';
 import 'home_when_state_success.dart';
+import 'skeletonizer/home_when_state_loading.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -14,10 +15,8 @@ class HomeViewBody extends StatelessWidget {
         if (state is GetUserDataSuccess) {
           return HomeWhenStateSuccess(userData: state.user);
         }
-        return const SizedBox();
+        return const HomeWhenStateLoading();
       },
     );
   }
 }
-
-
