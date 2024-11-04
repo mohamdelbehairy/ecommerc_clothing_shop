@@ -23,7 +23,7 @@ class ProviderAuthItem extends StatelessWidget {
         padding: const EdgeInsets.only(left: 20),
         decoration: BoxDecoration(
             color: context.read<ChangeThemeCubit>().isDarkMode
-                ? AppColors.darkModeBackground
+                ? AppColors.darkModeSecondryColor
                 : AppColors.secondaryColor,
             borderRadius: BorderRadius.circular(100)),
         child: Stack(

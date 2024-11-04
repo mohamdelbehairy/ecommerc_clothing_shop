@@ -27,7 +27,7 @@ class OrderItem extends StatelessWidget {
         backgroundModel: BackgroundModel(
       height: 72,
       borderRadiusDouble: 8,
-      color: isDarkMode ? AppColors.darkModeBackground : null,
+      color: isDarkMode ? AppColors.darkModeSecondryColor : null,
       child: Center(
         child: ListTile(
           contentPadding: EdgeInsets.zero,

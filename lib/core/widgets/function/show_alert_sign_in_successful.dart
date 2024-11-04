@@ -21,7 +21,7 @@ Future<Object?> showAlertSignInSuccessful(BuildContext context) {
                 width: MediaQuery.sizeOf(context).width - 20,
                 decoration: BoxDecoration(
                     color: context.read<ChangeThemeCubit>().isDarkMode
-                        ? AppColors.darkModeBackground
+                        ? AppColors.darkModeSecondryColor
                         : Colors.white,
                     borderRadius: BorderRadius.circular(60)),
                 child: Column(

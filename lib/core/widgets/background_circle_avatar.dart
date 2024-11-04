@@ -19,8 +19,9 @@ class BackgroundCircleAvatar extends StatelessWidget {
     var isDarkMode = context.watch<ChangeThemeCubit>().isDarkMode;
     return CircleAvatar(
       radius: 20,
-      backgroundColor:
-          isDarkMode ? AppColors.darkModeBackground : AppColors.secondaryColor,
+      backgroundColor: isDarkMode
+          ? AppColors.darkModeSecondryColor
+          : AppColors.secondaryColor,
       child: CustomSvg(
           svgModel: SvgModel(
         onTap: onTap,

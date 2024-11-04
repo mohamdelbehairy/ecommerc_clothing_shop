@@ -16,7 +16,6 @@ class BottomSheetListViewItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var isDarkMode = context.watch<ChangeThemeCubit>().isDarkMode;
     return Padding(
       padding: const EdgeInsets.only(bottom: 16),
       child: CustomButton(
@@ -24,8 +23,8 @@ class BottomSheetListViewItem extends StatelessWidget {
               height: 58,
               buttonColor: isActive
                   ? AppColors.primaryColor
-                  : isDarkMode
-                      ? AppColors.darkModeBackground
+                  : context.watch<ChangeThemeCubit>().isDarkMode
+                      ? AppColors.darkModeSecondryColor
                       : AppColors.secondaryColor,
               widget: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -34,10 +33,8 @@ class BottomSheetListViewItem extends StatelessWidget {
                   children: [
                     Text(productSelectDetails.title,
                         style: isActive
-                            ? Styles.styleMedium16(context).copyWith(
-                                color: isDarkMode
-                                    ? const Color(0xff272727)
-                                    : Colors.white)
+                            ? Styles.styleMedium16(context)
+                                .copyWith(color: Colors.white)
                             : Styles.styleMedium16(context)),
                     Row(
                       children: [
@@ -51,11 +48,7 @@ class BottomSheetListViewItem extends StatelessWidget {
                                   backgroundColor: productSelectDetails.color)),
                         const SizedBox(width: 20),
                         Icon(Icons.done,
-                            color: isActive
-                                ? isDarkMode
-                                    ? const Color(0xff272727)
-                                    : Colors.white
-                                : Colors.transparent,
+                            color: isActive ? Colors.white : Colors.transparent,
                             size: 24)
                       ],
                     )

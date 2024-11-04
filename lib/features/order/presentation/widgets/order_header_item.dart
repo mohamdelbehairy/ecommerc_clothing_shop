@@ -21,7 +21,7 @@ class OrderHeaderItem extends StatelessWidget {
           color: isActive
               ? AppColors.primaryColor
               : isDarkMode
-                  ? AppColors.darkModeBackground
+                  ? AppColors.darkModeSecondryColor
                   : null,
           borderRadiusDouble: 100,
           child: Padding(

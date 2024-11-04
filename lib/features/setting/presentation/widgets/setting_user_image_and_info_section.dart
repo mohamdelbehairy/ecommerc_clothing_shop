@@ -29,7 +29,7 @@ class SettingUserImageAndSection extends StatelessWidget {
         CustomBakgroundContainer(
           backgroundModel: BackgroundModel(
               color: context.watch<ChangeThemeCubit>().isDarkMode
-                  ? AppColors.darkModeBackground
+                  ? AppColors.darkModeSecondryColor
                   : null,
               borderRadiusDouble: 8,
               child: Row(

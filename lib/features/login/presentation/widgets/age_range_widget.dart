@@ -21,7 +21,7 @@ class AgeRangeWidget extends StatelessWidget {
       padding: const EdgeInsets.only(left: 20, right: 26),
       decoration: BoxDecoration(
           color: isDarkMode
-              ? AppColors.darkModeBackground
+              ? AppColors.darkModeSecondryColor
               : AppColors.secondaryColor,
           borderRadius: BorderRadius.circular(100)),
       child: Center(

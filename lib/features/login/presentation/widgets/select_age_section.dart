@@ -27,7 +27,7 @@ class SelectAgeSection extends StatelessWidget {
               initialDateTime: DateTime(2000),
               maxDateTime: DateTime(DateTime.now().year - 2),
               backgroundColor: isDarkMode
-                  ? AppColors.darkModeBackground
+                  ? AppColors.darkModeSecondryColor
                   : AppColors.secondaryColor,
               pickerTitle: Text('Select a Date',
                   style: Styles.styleBold16.copyWith(

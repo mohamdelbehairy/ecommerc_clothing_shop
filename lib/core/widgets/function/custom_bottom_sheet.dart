@@ -11,7 +11,7 @@ Future<dynamic> customBottomSheet(BuildContext context,
       builder: (context) => Container(
           decoration: BoxDecoration(
               color: context.watch<ChangeThemeCubit>().isDarkMode
-                  ? AppColors.darkModeColor
+                  ? AppColors.darkModePrimaryColor
                   : Colors.white,
               borderRadius: const BorderRadius.only(
                   topRight: Radius.circular(16), topLeft: Radius.circular(16))),

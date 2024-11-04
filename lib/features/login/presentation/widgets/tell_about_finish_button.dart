@@ -35,7 +35,7 @@ class TellAboutFinshButton extends StatelessWidget {
           height: 100,
           width: MediaQuery.sizeOf(context).width,
           color: context.read<ChangeThemeCubit>().isDarkMode
-              ? AppColors.darkModeBackground
+              ? AppColors.darkModeSecondryColor
               : AppColors.secondaryColor,
           padding: const EdgeInsets.symmetric(horizontal: 24),
           child: Center(

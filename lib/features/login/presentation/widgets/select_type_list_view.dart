@@ -25,7 +25,7 @@ class SelectTypeListView extends StatelessWidget {
                   buttonColor: selectType.activeIndex == 0
                       ? null
                       : isDarkMode
-                          ? AppColors.darkModeBackground
+                          ? AppColors.darkModeSecondryColor
                           : AppColors.secondaryColor,
                   width: 161,
                   buttonName: 'Men'))),
@@ -39,7 +39,7 @@ class SelectTypeListView extends StatelessWidget {
                   buttonColor: selectType.activeIndex == 1
                       ? null
                       : isDarkMode
-                          ? AppColors.darkModeBackground
+                          ? AppColors.darkModeSecondryColor
                           : AppColors.secondaryColor,
                   width: 161,
                   buttonName: 'Women')))

@@ -24,7 +24,7 @@ class SettingItem extends StatelessWidget {
         backgroundModel: BackgroundModel(
             height: 56,
             borderRadiusDouble: 8,
-            color: isDarkMode ? AppColors.darkModeBackground : null,
+            color: isDarkMode ? AppColors.darkModeSecondryColor : null,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

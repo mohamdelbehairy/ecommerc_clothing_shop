@@ -44,7 +44,7 @@ class _BottomNavigationBarViewState extends State<BottomNavigationBarView> {
             currentIndex: bottomNavigationBar.bottomActiveIndex,
             type: BottomNavigationBarType.fixed,
             backgroundColor: context.watch<ChangeThemeCubit>().isDarkMode
-                ? AppColors.darkModeColor
+                ? AppColors.darkModePrimaryColor
                 : Colors.white,
             onTap: (index) {
               bottomNavigationBar.bottomChangeIndex(index);

@@ -12,7 +12,7 @@ Future<dynamic> signOutBottomSheet(
               borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(24), topRight: Radius.circular(24)),
               color: context.read<ChangeThemeCubit>().isDarkMode
-                  ? AppColors.darkModeColor
+                  ? AppColors.darkModePrimaryColor
                   : Colors.white),
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
           width: double.infinity,

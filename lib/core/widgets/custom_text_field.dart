@@ -32,7 +32,7 @@ class CustomTextField extends StatelessWidget {
               border: InputBorder.none,
               filled: true,
               fillColor: context.read<ChangeThemeCubit>().isDarkMode
-                  ? AppColors.darkModeBackground
+                  ? AppColors.darkModeSecondryColor
                   : AppColors.secondaryColor)),
     );
   }

@@ -17,7 +17,7 @@ class NotificationItem extends StatelessWidget {
         backgroundModel: BackgroundModel(
             height: 80,
             color: context.read<ChangeThemeCubit>().isDarkMode
-                ? AppColors.darkModeBackground
+                ? AppColors.darkModeSecondryColor
                 : null,
             child: Center(
               child: ListTile(
