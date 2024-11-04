@@ -92,6 +92,20 @@ class Styles {
         fontSize: 24);
   }
 
+  // static TextStyle styleBold24 = GoogleFonts.gabarito(
+  //     fontWeight: FontWeight.bold,
+  //     color: const Color(0xff272727),
+  //     fontSize: 24);
+
+  // static TextStyle styleBoldGarabito12 = GoogleFonts.gabarito(
+  //     fontWeight: FontWeight.bold,
+  //     color: const Color(0xff272727),
+  //     fontSize: 12);
+
+  // static TextStyle styleBold16 = GoogleFonts.gabarito(
+  //     fontWeight: FontWeight.bold,
+  //     color: const Color(0xff272727),
+  //     fontSize: 16);
   static TextStyle styleBoldGarabito24(BuildContext context) {
     return TextStyle(
         fontWeight: FontWeight.bold,

@@ -1,5 +1,7 @@
 import 'package:e_clot_shop/core/utils/assets.dart';
+import 'package:e_clot_shop/core/utils/colors.dart';
 import 'package:e_clot_shop/features/product/presentation/views/product_view.dart';
+import 'package:e_clot_shop/features/theme/presentation/manager/change_theme/change_theme_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -33,18 +35,23 @@ class ProductItemWidget extends StatelessWidget {
                   top: 8,
                   child: CustomSvg(
                       svgModel: SvgModel(
-                          onTap: () async {
-                            isWishlisted
-                                ? await wishlistCubit.removeFromWishlist(
-                                    customProductModel.productModel.id)
-                                : await wishlistCubit.addToWishlist(
-                                    product: customProductModel.productModel);
-                          },
-                          image: isWishlisted
-                              ? Assets.imagesFav
-                              : Assets.imagesUnfav,
-                          height: 20,
-                          width: 20)))
+                    onTap: () async {
+                      isWishlisted
+                          ? await wishlistCubit.removeFromWishlist(
+                              customProductModel.productModel.id)
+                          : await wishlistCubit.addToWishlist(
+                              product: customProductModel.productModel);
+                    },
+                    image: isWishlisted ? Assets.imagesFav : Assets.imagesUnfav,
+                    height: 20,
+                    width: 20,
+                    colorFilter: ColorFilter.mode(
+                        isWishlisted  ? Colors.red:
+                                context.read<ChangeThemeCubit>().isDarkMode
+                            ? AppColors.whiteColor
+                            : AppColors.blackColor,
+                        BlendMode.srcIn),
+                  )))
             ],
           ),
         );

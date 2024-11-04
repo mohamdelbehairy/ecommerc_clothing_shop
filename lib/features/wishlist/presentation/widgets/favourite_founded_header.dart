@@ -1,3 +1,5 @@
+import 'package:e_clot_shop/core/utils/colors.dart';
+import 'package:e_clot_shop/features/theme/presentation/manager/change_theme/change_theme_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -16,14 +18,12 @@ class FavouriteFoundedHeader extends StatelessWidget {
         const CustomBackWidget(),
         const Spacer(),
         Text('My Favourites (${wishList.wishlist.length})',
-            style: Styles.styleBold16),
+            style: Styles.styleBold16.copyWith(
+                color: context.read<ChangeThemeCubit>().isDarkMode
+                    ? AppColors.whiteColor
+                    : null)),
         const Spacer(),
         const SizedBox(width: 24)
-        // GestureDetector(
-        //     onTap: () async {
-        //       await wishList.removeAllFromWishlist();
-        //     },
-        //     child: Text('Remove All', style: Styles.styleMedium16))
       ],
     );
   }
