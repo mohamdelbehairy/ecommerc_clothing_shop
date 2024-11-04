@@ -16,7 +16,7 @@ class OrderHeaderItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var isDarkMode = context.read<ChangeThemeCubit>().isDarkMode;
-    return CustomBakgroundContainer(
+    return CustomBakgroundAnimatedContainer(
       backgroundModel: BackgroundModel(
           color: isActive
               ? AppColors.primaryColor

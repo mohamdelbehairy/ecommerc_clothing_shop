@@ -21,3 +21,24 @@ class CustomBakgroundContainer extends StatelessWidget {
     );
   }
 }
+
+class CustomBakgroundAnimatedContainer extends StatelessWidget {
+  const CustomBakgroundAnimatedContainer({super.key, required this.backgroundModel});
+  final BackgroundModel backgroundModel;
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 300),
+      height: backgroundModel.height,
+      width: backgroundModel.width,
+      decoration: BoxDecoration(
+          color: backgroundModel.color ?? AppColors.secondaryColor,
+          borderRadius: backgroundModel.borderRadius ??
+              BorderRadius.circular(backgroundModel.borderRadiusDouble)),
+      child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: backgroundModel.padding),
+          child: backgroundModel.child),
+    );
+  }
+}
