@@ -1,3 +1,4 @@
+import 'package:e_clot_shop/core/models/back_widget_model.dart';
 import 'package:e_clot_shop/core/utils/colors.dart';
 import 'package:e_clot_shop/features/order/data/models/order_model.dart';
 import 'package:e_clot_shop/features/theme/presentation/manager/change_theme/change_theme_cubit.dart';
@@ -8,7 +9,7 @@ import '../../../../core/models/background_model.dart';
 import '../../../../core/models/svg_model.dart';
 import '../../../../core/utils/assets.dart';
 import '../../../../core/utils/styles.dart';
-import '../../../../core/widgets/back_right_widget.dart';
+import '../../../../core/widgets/back_widget.dart';
 import '../../../../core/widgets/custom_background_container.dart';
 import '../../../../core/widgets/custom_svg.dart';
 import '../views/order_details_view.dart';
@@ -42,9 +43,11 @@ class OrderItem extends StatelessWidget {
               style: Styles.styleMedium16(context)),
           subtitle: Text(number > 1 ? '$number items' : '$number item',
               style: Styles.styleMediumWithOpacity12(context)),
-          trailing: BackRightWidget(
-            onTap: () => Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => OrderDetailsView(orderData: orderData))),
+          trailing: BackWidget(
+            backWidgetModel: BackWidgetModel(
+                onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) =>
+                        OrderDetailsView(orderData: orderData)))),
           ),
         ),
       ),

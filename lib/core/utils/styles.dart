@@ -1,3 +1,4 @@
+import 'package:e_clot_shop/core/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -8,28 +9,32 @@ class Styles {
   static TextStyle styleBold32(BuildContext context) {
     return GoogleFonts.nunito(
         fontWeight: FontWeight.bold,
-        color: _isDarkMode(context) ? Colors.white : const Color(0xff272727),
+        color:
+            _isDarkMode(context) ? AppColors.whiteColor : AppColors.blackColor,
         fontSize: 32);
   }
 
   static TextStyle styleBoldNunito24(BuildContext context) {
     return GoogleFonts.nunito(
         fontWeight: FontWeight.bold,
-        color: _isDarkMode(context) ? Colors.white : const Color(0xff272727),
+        color:
+            _isDarkMode(context) ? AppColors.whiteColor : AppColors.blackColor,
         fontSize: 24);
   }
 
   static TextStyle styleBold20(BuildContext context) {
     return GoogleFonts.nunito(
         fontWeight: FontWeight.bold,
-        color: _isDarkMode(context) ? Colors.white : const Color(0xff272727),
+        color:
+            _isDarkMode(context) ? AppColors.whiteColor : AppColors.blackColor,
         fontSize: 20);
   }
 
   static TextStyle styleMedium16(BuildContext context) {
     return GoogleFonts.nunito(
         fontWeight: FontWeight.w500,
-        color: _isDarkMode(context) ? Colors.white : const Color(0xff272727),
+        color:
+            _isDarkMode(context) ? AppColors.whiteColor : AppColors.blackColor,
         fontSize: 16);
   }
 
@@ -37,26 +42,25 @@ class Styles {
     return GoogleFonts.nunito(
         fontWeight: FontWeight.w500,
         color: _isDarkMode(context)
-            ? Colors.white.withOpacity(.5)
-            : const Color(0xff272727).withOpacity(.5),
+            ? AppColors.whiteColor.withOpacity(.5)
+            : AppColors.blackColor.withOpacity(.5),
         fontSize: 16);
   }
 
   static TextStyle styleMediumWhite16 = GoogleFonts.nunito(
-      fontWeight: FontWeight.w500, color: Colors.white, fontSize: 16);
+      fontWeight: FontWeight.w500, color: AppColors.whiteColor, fontSize: 16);
 
   static TextStyle styleSemiBoldWhite20 = GoogleFonts.poppins(
-      fontWeight: FontWeight.w600, color: Colors.white, fontSize: 20);
+      fontWeight: FontWeight.w600, color: AppColors.whiteColor, fontSize: 20);
 
   static TextStyle styleBoldNunito12 = GoogleFonts.nunito(
-      fontWeight: FontWeight.bold,
-      color: const Color(0xff272727),
-      fontSize: 12);
+      fontWeight: FontWeight.bold, color: AppColors.blackColor, fontSize: 12);
 
   static TextStyle styleMedium12(BuildContext context) {
     return GoogleFonts.nunito(
         fontWeight: FontWeight.w500,
-        color: _isDarkMode(context) ? Colors.white : const Color(0xff272727),
+        color:
+            _isDarkMode(context) ? AppColors.whiteColor : AppColors.blackColor,
         fontSize: 12);
   }
 
@@ -64,67 +68,57 @@ class Styles {
     return GoogleFonts.nunito(
         fontWeight: FontWeight.w500,
         color: _isDarkMode(context)
-            ? Colors.white.withOpacity(.5)
-            : const Color(0xff272727).withOpacity(.5),
+            ? AppColors.whiteColor.withOpacity(.5)
+            : AppColors.blackColor.withOpacity(.5),
         fontSize: 12);
   }
 
   static TextStyle styleMedium14 = GoogleFonts.nunito(
-      fontWeight: FontWeight.w500,
-      color: const Color(0xff272727),
-      fontSize: 14);
+      fontWeight: FontWeight.w500, color: AppColors.blackColor, fontSize: 14);
 
   static TextStyle styleRegular15(BuildContext context) {
     return GoogleFonts.nunito(
         fontWeight: FontWeight.w400,
-        color: _isDarkMode(context) ? Colors.white : const Color(0xff272727),
+        color:
+            _isDarkMode(context) ? AppColors.whiteColor : AppColors.blackColor,
         fontSize: 15);
   }
 
   static TextStyle styleMedium24(BuildContext context) {
     return GoogleFonts.nunito(
         fontWeight: FontWeight.w500,
-        color: _isDarkMode(context) ? Colors.white : const Color(0xff272727),
+        color:
+            _isDarkMode(context) ? AppColors.whiteColor : AppColors.blackColor,
         fontSize: 24);
   }
 
-  // static TextStyle styleBold24 = GoogleFonts.gabarito(
-  //     fontWeight: FontWeight.bold,
-  //     color: const Color(0xff272727),
-  //     fontSize: 24);
-
-  // static TextStyle styleBoldGarabito12 = GoogleFonts.gabarito(
-  //     fontWeight: FontWeight.bold,
-  //     color: const Color(0xff272727),
-  //     fontSize: 12);
-
-  // static TextStyle styleBold16 = GoogleFonts.gabarito(
-  //     fontWeight: FontWeight.bold,
-  //     color: const Color(0xff272727),
-  //     fontSize: 16);
   static TextStyle styleBoldGarabito24(BuildContext context) {
     return TextStyle(
         fontWeight: FontWeight.bold,
-        color: _isDarkMode(context) ? Colors.white : const Color(0xff272727),
+        color:
+            _isDarkMode(context) ? AppColors.whiteColor : AppColors.blackColor,
         fontSize: 24,
         fontFamily: 'Gabarito');
   }
 
-  static TextStyle styleBoldGarabito12 = const TextStyle(
-      fontWeight: FontWeight.bold,
-      color: Color(0xff272727),
-      fontSize: 12,
-      fontFamily: 'Gabarito');
+  static TextStyle styleBoldGarabito12(BuildContext context) {
+    return TextStyle(
+        fontWeight: FontWeight.bold,
+        color:
+            _isDarkMode(context) ? AppColors.whiteColor : AppColors.blackColor,
+        fontSize: 12,
+        fontFamily: 'Gabarito');
+  }
 
   static TextStyle styleBold16 = const TextStyle(
       fontWeight: FontWeight.bold,
-      color: Color(0xff272727),
+      color: AppColors.blackColor,
       fontSize: 16,
       fontFamily: 'Gabarito');
 
   static TextStyle styleBoldGarabito32 = const TextStyle(
       fontWeight: FontWeight.bold,
-      color: Color(0xff272727),
+      color: AppColors.blackColor,
       fontSize: 32,
       fontFamily: 'Gabarito');
 
@@ -142,8 +136,8 @@ class Styles {
     return GoogleFonts.nunito(
         fontWeight: FontWeight.w500,
         color: _isDarkMode(context)
-            ? Colors.white.withOpacity(.5)
-            : const Color(0xff272727).withOpacity(.5),
+            ? AppColors.whiteColor.withOpacity(.5)
+            : AppColors.blackColor.withOpacity(.5),
         fontSize: 16);
   }
 

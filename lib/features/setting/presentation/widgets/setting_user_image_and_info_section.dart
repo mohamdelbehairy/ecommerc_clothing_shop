@@ -37,7 +37,7 @@ class SettingUserImageAndSection extends StatelessWidget {
                 children: [
                   SettingUserInfoWidget(userData: userData),
                   Text('Edit',
-                      style: Styles.styleBoldGarabito12
+                      style: Styles.styleBoldGarabito12(context)
                           .copyWith(color: AppColors.primaryColor))
                 ],
               )),

@@ -1,3 +1,4 @@
+import 'package:e_clot_shop/core/models/back_widget_model.dart';
 import 'package:e_clot_shop/core/models/svg_model.dart';
 import 'package:e_clot_shop/core/utils/assets.dart';
 import 'package:e_clot_shop/core/utils/colors.dart';
@@ -7,23 +8,24 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'custom_svg.dart';
 
-class BackRightWidget extends StatelessWidget {
-  const BackRightWidget({super.key, this.onTap});
+class BackWidget extends StatelessWidget {
+  const BackWidget({super.key, required this.backWidgetModel});
 
-  final Function()? onTap;
+  final BackWidgetModel backWidgetModel;
 
   @override
   Widget build(BuildContext context) {
     var isDarkMode = context.watch<ChangeThemeCubit>().isDarkMode;
     return Transform.rotate(
-        angle: 180 * 3.1415927 / 180,
+        angle: backWidgetModel.angle,
         child: CustomSvg(
           svgModel: SvgModel(
-              height: 16,
-              onTap: onTap,
+              height: backWidgetModel.hight,
+              onTap: backWidgetModel.onTap,
               image: Assets.imagesBack,
               colorFilter: ColorFilter.mode(
-                  isDarkMode ? Colors.white : AppColors.blcakColor, BlendMode.srcIn)),
+                  isDarkMode ? Colors.white : AppColors.blackColor,
+                  BlendMode.srcIn)),
         ));
   }
 }

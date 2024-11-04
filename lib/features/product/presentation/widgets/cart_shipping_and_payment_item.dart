@@ -1,8 +1,9 @@
+import 'package:e_clot_shop/core/models/back_widget_model.dart';
 import 'package:e_clot_shop/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/models/background_model.dart';
-import '../../../../core/widgets/back_right_widget.dart';
+import '../../../../core/widgets/back_widget.dart';
 import '../../../../core/widgets/custom_background_container.dart';
 import '../../data/models/shipping_and_payment_model.dart';
 
@@ -28,12 +29,12 @@ class CartShippingAndPaymentItem extends StatelessWidget {
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: Styles.styleMedium16(context)),
-            trailing: BackRightWidget(onTap: shippingAndPaymentModel.onTap),
+            trailing: BackWidget(
+                backWidgetModel:
+                    BackWidgetModel(onTap: shippingAndPaymentModel.onTap)),
           ),
         ),
       ),
     );
   }
 }
-
-

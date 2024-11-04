@@ -25,7 +25,7 @@ class CartListTileTitle extends StatelessWidget {
               cartProduct.isProduct 
                   ? '\$${num.parse(cartProduct.productData!.price) * num.parse(cartProduct.quantity!)}'
                   : '\$${cartProduct.productData!.price}',
-              style: Styles.styleBoldGarabito12),
+              style: Styles.styleBoldGarabito12(context)),
         ],
       ),
     );

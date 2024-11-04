@@ -17,12 +17,12 @@ class SubTitleSizeAndColorWidget extends StatelessWidget {
         Text('Size - ',
             style: Styles.styleMedium12(context)
                 .copyWith(color: const Color(0xff272727).withOpacity(.5))),
-        Text(cartProduct.size!, style: Styles.styleBoldGarabito12),
+        Text(cartProduct.size!, style: Styles.styleBoldGarabito12(context)),
         const SizedBox(width: 24),
         Text('Color - ',
             style: Styles.styleMedium12(context)
                 .copyWith(color: const Color(0xff272727).withOpacity(.5))),
-        Text(cartProduct.color!, style: Styles.styleBoldGarabito12),
+        Text(cartProduct.color!, style: Styles.styleBoldGarabito12(context)),
         if (cartProduct.isOrder && !cartProduct.isProduct)
           const SizedBox(width: 24),
         if (cartProduct.isOrder && !cartProduct.isProduct)
@@ -30,7 +30,7 @@ class SubTitleSizeAndColorWidget extends StatelessWidget {
               style: Styles.styleMedium12(context)
                   .copyWith(color: const Color(0xff272727).withOpacity(.5))),
         if (cartProduct.isOrder && !cartProduct.isProduct)
-          Text(quantity, style: Styles.styleBoldGarabito12),
+          Text(quantity, style: Styles.styleBoldGarabito12(context)),
       ],
     );
   }

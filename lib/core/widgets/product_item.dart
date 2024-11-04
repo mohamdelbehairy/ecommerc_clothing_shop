@@ -39,7 +39,7 @@ class ProductItem extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 4),
                 child: Text('\$${customProductModel.productModel.price}',
-                    style: Styles.styleBoldGarabito12),
+                    style: Styles.styleBoldGarabito12(context)),
               )
             ],
           )),
