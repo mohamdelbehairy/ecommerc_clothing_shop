@@ -1,8 +1,11 @@
+import 'package:e_clot_shop/core/utils/colors.dart';
 import 'package:e_clot_shop/core/utils/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/models/background_model.dart';
 import '../../../../core/widgets/custom_background_container.dart';
+import '../../../theme/presentation/manager/change_theme/change_theme_cubit.dart';
 import '../../data/models/product_select_details_model.dart';
 import 'add_or_minus_section.dart';
 import 'size_and_color_section.dart';
@@ -23,10 +26,14 @@ class ProductSelectDetailsWidget extends StatelessWidget {
       backgroundModel: BackgroundModel(
         height: 56,
         borderRadiusDouble: 100,
+        color: context.read<ChangeThemeCubit>().isDarkMode
+            ? AppColors.darkModeSecondryColor
+            : null,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(productSelectDetails.title, style: Styles.styleMedium16(context)),
+            Text(productSelectDetails.title,
+                style: Styles.styleMedium16(context)),
             if (index != 2)
               SizeAndColorSection(
                   index: index,
