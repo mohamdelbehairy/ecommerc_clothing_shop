@@ -73,8 +73,13 @@ class Styles {
         fontSize: 12);
   }
 
-  static TextStyle styleMedium14 = GoogleFonts.nunito(
-      fontWeight: FontWeight.w500, color: AppColors.blackColor, fontSize: 14);
+  static TextStyle styleMedium14(BuildContext context) {
+    return GoogleFonts.nunito(
+        fontWeight: FontWeight.w500,
+        color:
+            _isDarkMode(context) ? AppColors.whiteColor : AppColors.blackColor,
+        fontSize: 14);
+  }
 
   static TextStyle styleRegular15(BuildContext context) {
     return GoogleFonts.nunito(
@@ -139,11 +144,14 @@ class Styles {
       fontSize: 16,
       fontFamily: 'Gabarito');
 
-  static TextStyle styleBoldGarabito32 = const TextStyle(
-      fontWeight: FontWeight.bold,
-      color: AppColors.blackColor,
-      fontSize: 32,
-      fontFamily: 'Gabarito');
+  static TextStyle styleBoldGarabito32(BuildContext context) {
+    return TextStyle(
+        fontWeight: FontWeight.bold,
+        color:
+            _isDarkMode(context) ? AppColors.whiteColor : AppColors.blackColor,
+        fontSize: 32,
+        fontFamily: 'Gabarito');
+  }
 
   static TextStyle styleSmeiBoldPoppins20 = GoogleFonts.poppins(
       fontSize: 20,

@@ -14,7 +14,8 @@ class OrderPlacedTextsAndButtonSection extends StatelessWidget {
       children: [
         const SizedBox(height: 24),
         Text('Order Placed\n Successfully',
-            textAlign: TextAlign.center, style: Styles.styleBoldGarabito32),
+            textAlign: TextAlign.center,
+            style: Styles.styleBoldGarabito32(context)),
         const SizedBox(height: 32),
         Text('Your order has been placed\n successfully',
             textAlign: TextAlign.center,
