@@ -9,6 +9,6 @@ class OrderDetailsText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(text, style: Styles.styleBold16);
+    return Text(text, style: Styles.styleBold16(context));
   }
 }

@@ -42,7 +42,7 @@ class SignOutButton extends StatelessWidget {
             ));
       },
       child: Text('Sign Out',
-          style: Styles.styleBold16.copyWith(color: const Color(0xffFA3636))),
+          style: Styles.styleBold16(context).copyWith(color: const Color(0xffFA3636))),
     );
   }
 }

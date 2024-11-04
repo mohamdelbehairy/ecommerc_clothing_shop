@@ -15,7 +15,7 @@ class ShowProductsSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text('${productsData.header} (${productsData.products.length})',
-            style: Styles.styleBold16),
+            style: Styles.styleBold16(context)),
         const SizedBox(height: 16),
         CustomProductsGridView(products: productsData.products),
       ],

@@ -1,4 +1,5 @@
 import 'package:e_clot_shop/core/manager/build_app/build_app_cubit.dart';
+import 'package:e_clot_shop/core/utils/colors.dart';
 import 'package:e_clot_shop/core/utils/styles.dart';
 import 'package:e_clot_shop/features/product/presentation/views/cart_view.dart';
 import 'package:flutter/material.dart';
@@ -45,8 +46,8 @@ class ProductButtonCheckout extends StatelessWidget {
                             children: [
                               Text(
                                   '\$${(price * buildApp.quantity).toStringAsFixed(2)}',
-                                  style: Styles.styleBold16
-                                      .copyWith(color: Colors.white)),
+                                  style: Styles.styleBold16(context)
+                                      .copyWith(color: AppColors.whiteColor)),
                               Text('Checkout',
                                   style: Styles.styleMedium16(context)
                                       .copyWith(color: Colors.white))

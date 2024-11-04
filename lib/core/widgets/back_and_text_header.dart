@@ -13,7 +13,7 @@ class BackAndTextHeader extends StatelessWidget {
       children: [
         const CustomBackWidget(),
         const Spacer(flex: 3),
-        Text(text, style: Styles.styleBold16),
+        Text(text, style: Styles.styleBold16(context)),
         const Spacer(flex: 4),
       ],
     );

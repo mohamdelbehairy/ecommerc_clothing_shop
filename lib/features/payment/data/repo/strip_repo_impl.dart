@@ -23,14 +23,15 @@ class StripRepoImpl extends StripRepo {
   Future<void> _initPaymentSheet(
       {required String clientSecret,
       required String customer,
-      required String ephemeralKey}) async {
+      required String ephemeralKey,
+      bool isDark = false}) async {
     await Stripe.instance.initPaymentSheet(
         paymentSheetParameters: SetupPaymentSheetParameters(
       merchantDisplayName: 'E-Clot Shop',
       paymentIntentClientSecret: clientSecret,
       customerId: customer,
       customerEphemeralKeySecret: ephemeralKey,
-      style:  ThemeMode.dark ,
+      style: isDark ? ThemeMode.dark : ThemeMode.light,
     ));
   }
 
@@ -58,6 +59,7 @@ class StripRepoImpl extends StripRepo {
     var clientSecret = await _createPaymentIntent(stripInputModel);
     var ephemeralKey = await _createEphemeralKey(stripInputModel.customer);
     await _initPaymentSheet(
+        isDark: stripInputModel.isDark,
         clientSecret: clientSecret,
         customer: stripInputModel.customer,
         ephemeralKey: ephemeralKey);

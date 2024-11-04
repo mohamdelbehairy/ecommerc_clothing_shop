@@ -35,7 +35,7 @@ class CartProductPriceListView extends StatelessWidget {
         const SizedBox(height: 16),
         CartPriceItem(
             title: 'Total',
-            style: Styles.styleBold16,
+            style: Styles.styleBold16(context),
             value:
                 '\$${buildApp.isCouponApplied ? (total - discount).toStringAsFixed(2) : total.toStringAsFixed(2)}'),
       ],

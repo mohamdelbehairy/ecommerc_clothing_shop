@@ -1,6 +1,4 @@
-import 'package:e_clot_shop/core/utils/colors.dart';
 import 'package:e_clot_shop/core/utils/styles.dart';
-import 'package:e_clot_shop/features/theme/presentation/manager/change_theme/change_theme_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -27,10 +25,7 @@ class SizeAndColorSection extends StatelessWidget {
       children: [
         if (index == 0)
           Text(buildApp.sizeList[buildApp.sizeIndex].title,
-              style: Styles.styleBold16.copyWith(
-                  color: context.read<ChangeThemeCubit>().isDarkMode
-                      ? AppColors.whiteColor
-                      : null)),
+              style: Styles.styleBold16(context)),
         if (index == 1)
           CircleAvatar(
               radius: 8,

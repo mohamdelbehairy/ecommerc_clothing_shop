@@ -124,7 +124,16 @@ class Styles {
         fontFamily: 'Gabarito');
   }
 
-  static TextStyle styleBold16 = const TextStyle(
+  static TextStyle styleBold16(BuildContext context) {
+    return TextStyle(
+        fontWeight: FontWeight.bold,
+        color:
+            _isDarkMode(context) ? AppColors.whiteColor : AppColors.blackColor,
+        fontSize: 16,
+        fontFamily: 'Gabarito');
+  }
+
+  static TextStyle styleBottomSheetAgeBold16 = const TextStyle(
       fontWeight: FontWeight.bold,
       color: AppColors.blackColor,
       fontSize: 16,

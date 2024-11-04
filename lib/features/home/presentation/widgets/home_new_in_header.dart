@@ -15,7 +15,7 @@ class HomeNewInHeader extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text('New In',
-            style: Styles.styleBold16.copyWith(color: AppColors.primaryColor)),
+            style: Styles.styleBold16(context).copyWith(color: AppColors.primaryColor)),
         SeeAllWidget(onTap: () =>GoRouter.of(context).push(AppRouter.newIn)),
       ],
     );
