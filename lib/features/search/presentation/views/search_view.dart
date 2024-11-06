@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../manager/build_search/build_search_cubit.dart';
 import '../widgets/search_view_body.dart';
 
 class SearchView extends StatelessWidget {
@@ -7,10 +9,11 @@ class SearchView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: SearchViewBody(),
+    return BlocProvider(
+      create: (context) => BuildSearchCubit(),
+      child: const Scaffold(
+        body: SearchViewBody(),
+      ),
     );
   }
 }
-
-

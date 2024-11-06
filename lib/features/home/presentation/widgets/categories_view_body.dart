@@ -1,27 +1,26 @@
-import 'package:e_clot_shop/core/utils/styles.dart';
 import 'package:e_clot_shop/core/widgets/custom_back_widget.dart';
 import 'package:flutter/material.dart';
 
-import 'categories_view_list_view.dart';
+import '../../../../core/widgets/categories_header_and_list_view_section.dart';
 
 class CategoriesViewBody extends StatelessWidget {
   const CategoriesViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 24),
+    return const Padding(
+      padding: EdgeInsets.symmetric(horizontal: 24),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(height: 63),
-          const CustomBackWidget(),
-          const SizedBox(height: 16),
-          Text('Shop by Categories', style: Styles.styleBoldGarabito24(context)),
-          const SizedBox(height: 16),
-          const CategoriesViewListView(),
+          SizedBox(height: 63),
+          CustomBackWidget(),
+          SizedBox(height: 16),
+          CategoriesHeaderAndListViewSection(),
         ],
       ),
     );
   }
 }
+
+

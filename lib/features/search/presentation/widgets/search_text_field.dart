@@ -1,4 +1,6 @@
+import 'package:e_clot_shop/features/search/presentation/manager/build_search/build_search_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/models/text_field_model.dart';
 import '../../../../core/utils/styles.dart';
@@ -11,6 +13,8 @@ class SearchTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var isSearch = context.watch<BuildSearchCubit>().isSearch;
+
     return CustomTextField(
         textFieldModel: TextFieldModel(
             hight: 44,
@@ -18,7 +22,7 @@ class SearchTextField extends StatelessWidget {
             hintText: 'Search',
             hintStyle: Styles.styleMedium14(context),
             prefixIcon: const SearchIcon(),
-            suffixIcon: const SearchCloseIcon(),
-            controller: TextEditingController()));
+            suffixIcon: isSearch ? const SearchCloseIcon() : null,
+            controller: context.read<BuildSearchCubit>().searchController));
   }
 }

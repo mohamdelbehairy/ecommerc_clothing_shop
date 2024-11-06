@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../theme/presentation/manager/change_theme/change_theme_cubit.dart';
+import '../manager/build_search/build_search_cubit.dart';
 
 class SearchCloseIcon extends StatelessWidget {
   const SearchCloseIcon({super.key});
@@ -11,8 +12,11 @@ class SearchCloseIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     var isDarkMode = context.read<ChangeThemeCubit>().isDarkMode;
 
-    return Icon(Icons.close,
-        size: 16,
-        color: isDarkMode ? AppColors.whiteColor : AppColors.blackColor);
+    return GestureDetector(
+      onTap: () => context.read<BuildSearchCubit>().clearSearch(),
+      child: Icon(Icons.close,
+          size: 16,
+          color: isDarkMode ? AppColors.whiteColor : AppColors.blackColor),
+    );
   }
 }

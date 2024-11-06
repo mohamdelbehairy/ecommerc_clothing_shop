@@ -62,6 +62,10 @@ class Assets {
   /// assets/images/no_orders.png
   static const String imagesNoOrders = "assets/images/no_orders.png";
 
+  /// Assets for imagesNoSearch
+  /// assets/images/no-search.png
+  static const String imagesNoSearch = "assets/images/no-search.png";
+
   /// Assets for imagesNotificationbing
   /// assets/images/notificationbing.svg
   static const String imagesNotificationbing = "assets/images/notificationbing.svg";
