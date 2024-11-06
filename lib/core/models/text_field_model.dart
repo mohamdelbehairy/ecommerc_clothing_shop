@@ -4,9 +4,10 @@ class TextFieldModel {
   final String hintText;
   final TextEditingController controller;
   final String? Function(String?)? validator;
-  final bool obscureText,enabled;
+  final bool obscureText, enabled;
   final TextInputType? keyboardType;
-  final double borderRadius;
+  final double borderRadius, vertical, horizontal;
+  final double? hight;
   final TextStyle? hintStyle;
   final Widget? prefixIcon, suffixIcon;
 
@@ -15,9 +16,12 @@ class TextFieldModel {
       required this.controller,
       this.validator,
       this.obscureText = false,
-      this.enabled = true, 
+      this.enabled = true,
       this.keyboardType,
       this.borderRadius = 4,
+      this.vertical = 16,
+      this.horizontal = 12,
+      this.hight,
       this.hintStyle,
       this.prefixIcon,
       this.suffixIcon});

@@ -11,29 +11,33 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(textFieldModel.borderRadius),
-      child: TextFormField(
-          style: Styles.styleTextField18(context),
-          cursorColor: AppColors.primaryColor,
-          keyboardType: textFieldModel.keyboardType,
-          validator: textFieldModel.validator,
-          controller: textFieldModel.controller,
-          obscureText: textFieldModel.obscureText,
-          enabled: textFieldModel.enabled,
-          decoration: InputDecoration(
-              contentPadding:
-                  const EdgeInsets.symmetric(vertical: 16, horizontal: 12),
-              hintText: textFieldModel.hintText,
-              prefixIcon: textFieldModel.prefixIcon,
-              suffixIcon: textFieldModel.suffixIcon,
-              hintStyle: textFieldModel.hintStyle ??
-                  Styles.styleHintTextField16(context),
-              border: InputBorder.none,
-              filled: true,
-              fillColor: context.read<ChangeThemeCubit>().isDarkMode
-                  ? AppColors.darkModeSecondryColor
-                  : AppColors.secondaryColor)),
+    return SizedBox(
+      height: textFieldModel.hight,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(textFieldModel.borderRadius),
+        child: TextFormField(
+            style: Styles.styleTextField18(context),
+            cursorColor: AppColors.primaryColor,
+            keyboardType: textFieldModel.keyboardType,
+            validator: textFieldModel.validator,
+            controller: textFieldModel.controller,
+            obscureText: textFieldModel.obscureText,
+            enabled: textFieldModel.enabled,
+            decoration: InputDecoration(
+                contentPadding: EdgeInsets.symmetric(
+                    vertical: textFieldModel.vertical,
+                    horizontal: textFieldModel.horizontal),
+                hintText: textFieldModel.hintText,
+                prefixIcon: textFieldModel.prefixIcon,
+                suffixIcon: textFieldModel.suffixIcon,
+                hintStyle: textFieldModel.hintStyle ??
+                    Styles.styleHintTextField16(context),
+                border: InputBorder.none,
+                filled: true,
+                fillColor: context.read<ChangeThemeCubit>().isDarkMode
+                    ? AppColors.darkModeSecondryColor
+                    : AppColors.secondaryColor)),
+      ),
     );
   }
 }

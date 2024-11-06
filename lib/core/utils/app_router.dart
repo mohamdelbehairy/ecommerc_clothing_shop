@@ -2,6 +2,7 @@ import 'package:e_clot_shop/features/bottom_navigation_bar/presentation/views/bo
 import 'package:e_clot_shop/features/login/presentation/views/login_view.dart';
 import 'package:e_clot_shop/features/login/presentation/views/tell_about_view.dart';
 import 'package:e_clot_shop/features/register/presentation/views/register_view.dart';
+import 'package:e_clot_shop/features/search/presentation/views/search_view.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/home/presentation/views/categories_view.dart';
@@ -33,6 +34,7 @@ class AppRouter {
   static const wishlist = '/wishlistView';
   static const orderPlacedSuccess = '/orderPlacedSuccessView';
   static const orderPlacedDetails = '/orderPlacedDetailsView';
+  static const search = '/searchView';
 
   static final router = GoRouter(
     routes: [
@@ -75,6 +77,7 @@ class AppRouter {
       GoRoute(
           path: orderPlacedDetails,
           builder: (context, state) => const OrderPlacedDetailsView()),
+      GoRoute(path: search, builder: (context, state) => const SearchView()),
     ],
   );
 }
