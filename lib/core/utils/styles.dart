@@ -73,6 +73,15 @@ class Styles {
         fontSize: 12);
   }
 
+  static TextStyle styleMediumWithOpacity16(BuildContext context) {
+    return GoogleFonts.nunito(
+        fontWeight: FontWeight.w500,
+        color: _isDarkMode(context)
+            ? AppColors.whiteColor.withOpacity(.5)
+            : AppColors.blackColor.withOpacity(.5),
+        fontSize: 16);
+  }
+
   static TextStyle styleMedium14(BuildContext context) {
     return GoogleFonts.nunito(
         fontWeight: FontWeight.w500,

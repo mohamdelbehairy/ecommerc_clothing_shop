@@ -5,18 +5,29 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class CustomBottomSheetheader extends StatelessWidget {
-  const CustomBottomSheetheader({super.key, required this.text});
+  const CustomBottomSheetheader(
+      {super.key, required this.text, this.clear, this.onTap});
   final String text;
+  final String? clear;
+  final Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(12),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const Spacer(flex: 4),
-          Text(text, style: Styles.styleBoldNunito24(context)),
-          const Spacer(flex: 3),
+          if (clear != null)
+            GestureDetector(
+                onTap: onTap,
+                child: Text(clear!, style: Styles.styleMedium16(context))),
+          if (clear == null) const Spacer(flex: 4),
+          Text(text,
+              style: clear != null
+                  ? Styles.styleBoldGarabito24(context)
+                  : Styles.styleBoldNunito24(context)),
+          if (clear == null) const Spacer(flex: 3),
           IconButton(
               onPressed: () => GoRouter.of(context).pop(),
               icon: Icon(Icons.close,

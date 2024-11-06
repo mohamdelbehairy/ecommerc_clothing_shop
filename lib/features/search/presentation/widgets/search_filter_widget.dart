@@ -33,6 +33,7 @@ class SearchFilterWidget extends StatelessWidget {
                   backWidgetModel: BackWidgetModel(
                       angle: -90 * 3.14 / 180,
                       hight: 14,
+                      onTap: searchFilterModel.onTap,
                       colorFilter: searchFilterModel.isBool
                           ? const ColorFilter.mode(
                               AppColors.whiteColor, BlendMode.srcIn)

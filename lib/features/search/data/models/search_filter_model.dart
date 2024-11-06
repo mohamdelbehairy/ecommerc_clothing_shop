@@ -5,9 +5,11 @@ class SearchFilterModel {
   final String text;
   final Color background;
   final bool isBool;
+  final Function() onTap;
 
   SearchFilterModel(
       {required this.text,
       this.background = AppColors.primaryColor,
-      this.isBool = true});
+      this.isBool = true,
+      required this.onTap});
 }

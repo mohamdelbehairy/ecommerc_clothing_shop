@@ -309,4 +309,21 @@ class BuildAppCubit extends Cubit<BuildAppState> {
 
     emit(ResetOrder());
   }
+
+  int priceIndex = -1;
+  List priceList = [
+    'Min',
+    'Max',
+  ];
+
+  void changePriceIndex(int index) {
+    if (priceIndex == index) return;
+    priceIndex = index;
+    emit(ChangePriceIndex());
+  }
+
+  void clearPriceBottomSheet() {
+    priceIndex = -1;
+    emit(ClearPriceBottomSheet());
+  }
 }

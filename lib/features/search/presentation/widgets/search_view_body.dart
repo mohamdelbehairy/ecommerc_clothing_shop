@@ -21,7 +21,7 @@ class SearchViewBody extends StatelessWidget {
               SizedBox(height: 63),
               SearchViewHeader(),
               SizedBox(height: 24),
-              SearchFilterlistView(),
+              SearchFilterListView(),
               // if (!isSearch.isSearch) const SizedBox(height: 32),
               // if (!isSearch.isSearch) const CategoriesHeaderAndListViewSection()
               // Flexible(child: NoSearchResultWidget()),

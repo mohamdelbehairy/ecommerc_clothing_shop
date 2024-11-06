@@ -26,4 +26,6 @@ final class ResetOrder extends BuildAppState {}
 
 final class CouponSussess extends BuildAppState {}
 
-final class ChangeThemeIndex extends BuildAppState {}
+final class ChangePriceIndex extends BuildAppState {}
+
+final class ClearPriceBottomSheet extends BuildAppState {}
