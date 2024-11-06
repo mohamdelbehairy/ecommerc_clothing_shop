@@ -23,9 +23,10 @@ class BackWidget extends StatelessWidget {
               height: backWidgetModel.hight,
               onTap: backWidgetModel.onTap,
               image: Assets.imagesBack,
-              colorFilter: ColorFilter.mode(
-                  isDarkMode ? Colors.white : AppColors.blackColor,
-                  BlendMode.srcIn)),
+              colorFilter: backWidgetModel.colorFilter ??
+                  ColorFilter.mode(
+                      isDarkMode ? Colors.white : AppColors.blackColor,
+                      BlendMode.srcIn)),
         ));
   }
 }
