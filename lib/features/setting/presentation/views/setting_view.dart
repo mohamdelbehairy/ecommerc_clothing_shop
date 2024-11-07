@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/widgets/function/custom_snack_bar_widget.dart';
+import '../../data/repo/launch_url_repo_impl.dart';
 import '../manager/build_setting/build_setting_cubit.dart';
 import '../widgets/setting_view_body.dart';
 
@@ -13,7 +14,7 @@ class SettingView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => BuildSettingCubit(context),
+      create: (context) => BuildSettingCubit(context, LaunchUrlRepoImpl()),
       child: Scaffold(
         body: BlocListener<WishlistCubit, WishlistState>(
           listener: (context, state) {

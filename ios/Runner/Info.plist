@@ -79,5 +79,13 @@
 				</array>
 			</dict>
 		</array>
+		
+         <!-- url launcher configuration -->
+		<key>LSApplicationQueriesSchemes</key>
+		<array>
+		<string>sms</string>
+		<string>tel</string>
+		<string>whatsapp</string>
+		</array>
 	</dict>
 </plist>
