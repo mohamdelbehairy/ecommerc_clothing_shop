@@ -16,7 +16,7 @@ class HomeWishlistWidget extends StatelessWidget {
       backgroundColor: AppColors.primaryColor,
       child: CustomSvg(
           svgModel: SvgModel(
-              onTap: () => GoRouter.of(context).push(AppRouter.wishlist),
+              onTap: () => GoRouter.of(context).push(AppRouter.myFavourite),
               height: 20,
               image: Assets.imagesBag2)),
     );

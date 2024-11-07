@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../user_data/data/models/user_data_model.dart';
 import 'home_select_type_widget.dart';
 import 'home_user_image.dart';
-import 'home_wishlist_widgetd.dart';
+import 'home_wishlist_widget.dart';
 
 class HomeHeaderSection extends StatelessWidget {
   const HomeHeaderSection({super.key, required this.userData});

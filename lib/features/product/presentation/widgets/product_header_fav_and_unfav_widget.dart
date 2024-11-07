@@ -19,6 +19,7 @@ class ProductHeaderFavAndnoFavWidget extends StatelessWidget {
         bool isWishlisted = wishListCubit.isWishlisted(productData.id);
         return BackgroundCircleAvatar(
             height: 22,
+            isWishlisted: isWishlisted,
             onTap: () async {
               isWishlisted
                   ? await wishListCubit.removeFromWishlist(productData.id)

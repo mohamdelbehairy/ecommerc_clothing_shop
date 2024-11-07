@@ -17,6 +17,7 @@ class OrderCubit extends Cubit<OrderState> {
   List<OrderModel> shipped = [];
   List<OrderModel> delivered = [];
   List<OrderModel> notDelivered = [];
+  List<OrderModel> orders = [];
 
   bool isLoading = false;
 
@@ -40,9 +41,11 @@ class OrderCubit extends Cubit<OrderState> {
         shipped = [];
         delivered = [];
         notDelivered = [];
+        orders = [];
 
         for (var element in snapshot.docs) {
           var order = OrderModel.fromJson(element.data());
+          orders.add(order);
 
           if (order.orderType == Constants.orderProcessing) {
             processing.add(order);

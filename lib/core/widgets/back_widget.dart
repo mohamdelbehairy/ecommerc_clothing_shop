@@ -25,7 +25,7 @@ class BackWidget extends StatelessWidget {
               image: Assets.imagesBack,
               colorFilter: backWidgetModel.colorFilter ??
                   ColorFilter.mode(
-                      isDarkMode ? Colors.white : AppColors.blackColor,
+                      isDarkMode ? Colors.white : AppColors.blackColor.withOpacity(.8),
                       BlendMode.srcIn)),
         ));
   }

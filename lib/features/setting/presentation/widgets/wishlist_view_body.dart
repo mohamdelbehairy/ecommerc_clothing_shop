@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/widgets/back_and_text_header.dart';
-import '../../../../core/widgets/background_list_tiled.dart';
+import 'wishlist_view_list_view.dart';
 
 class WishListViewBody extends StatelessWidget {
   const WishListViewBody({super.key});
@@ -15,7 +15,7 @@ class WishListViewBody extends StatelessWidget {
           SizedBox(height: 63),
           BackAndTextHeader(text: 'Wishlist'),
           SizedBox(height: 32),
-          BackgroundListTile(child: SizedBox())
+          WishlistViewListView(),
         ],
       ),
     );

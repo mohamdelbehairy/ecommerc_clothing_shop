@@ -7,8 +7,8 @@ import '../models/background_model.dart';
 import 'custom_background_container.dart';
 
 class BackgroundListTile extends StatelessWidget {
-  const BackgroundListTile({super.key, this.height, required this.child});
-  final double? height;
+  const BackgroundListTile({super.key, this.height, required this.child, this.padding});
+  final double? height, padding;
   final Widget child;
 
   @override
@@ -18,6 +18,7 @@ class BackgroundListTile extends StatelessWidget {
     return CustomBakgroundContainer(
         backgroundModel: BackgroundModel(
             height: height ?? 72,
+            padding: padding ?? 16,
             width: double.infinity,
             color: isDarkMode ? AppColors.darkModeSecondryColor : null,
             child: child));

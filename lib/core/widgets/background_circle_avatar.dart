@@ -9,10 +9,15 @@ import 'custom_svg.dart';
 
 class BackgroundCircleAvatar extends StatelessWidget {
   const BackgroundCircleAvatar(
-      {super.key, this.image, this.height, this.onTap});
+      {super.key,
+      this.image,
+      this.height,
+      this.onTap,
+      this.isWishlisted = false});
   final String? image;
   final double? height;
   final Function()? onTap;
+  final bool isWishlisted;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +33,12 @@ class BackgroundCircleAvatar extends StatelessWidget {
         height: height ?? 14,
         image: image ?? Assets.imagesBack,
         colorFilter: ColorFilter.mode(
-            isDarkMode ? Colors.white : Colors.black, BlendMode.srcIn),
+            isWishlisted
+                ? Colors.red
+                : context.read<ChangeThemeCubit>().isDarkMode
+                    ? AppColors.whiteColor
+                    : AppColors.blackColor.withOpacity(.8),
+            BlendMode.srcIn),
       )),
     );
   }
