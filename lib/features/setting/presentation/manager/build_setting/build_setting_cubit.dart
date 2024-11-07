@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:e_clot_shop/core/utils/app_router.dart';
 import 'package:e_clot_shop/features/setting/data/models/setting_item_model.dart';
+import 'package:e_clot_shop/features/setting/presentation/widgets/setting_address_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -25,7 +26,10 @@ class BuildSettingCubit extends Cubit<BuildSettingState> {
 
   _initItems() {
     items = [
-      SettingItemModel(name: 'Address', onTap: () {}),
+      SettingItemModel(
+          name: 'Address',
+          onTap: () => customBottomSheet(_context,
+              child: const SettingAddressBottomSheet())),
       SettingItemModel(
           name: 'Wishlist',
           onTap: () => GoRouter.of(_context).push(AppRouter.wishlist)),

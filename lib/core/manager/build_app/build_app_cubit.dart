@@ -18,7 +18,8 @@ part 'build_app_state.dart';
 class BuildAppCubit extends Cubit<BuildAppState> {
   BuildAppCubit() : super(BuildAppInitial()) {
     _initializeLogin();
-    _initializeAddAddress();
+    _initializeAddAddressTextFields();
+    _initializeUserTextFields();
   }
 
   TextEditingController email = TextEditingController();
@@ -157,21 +158,29 @@ class BuildAppCubit extends Cubit<BuildAppState> {
     emit(ProductButtonFalse());
   }
 
-  TextEditingController streetAddress = TextEditingController();
-  TextEditingController city = TextEditingController();
-  TextEditingController stateTextEditing = TextEditingController();
-  TextEditingController zipCode = TextEditingController();
+  TextEditingController productStreetAddress = TextEditingController();
+  TextEditingController productCity = TextEditingController();
+  TextEditingController productStateTextEditing = TextEditingController();
+  TextEditingController productZipCode = TextEditingController();
 
-  GlobalKey<FormState> addAddressFormKey = GlobalKey<FormState>();
+  GlobalKey<FormState> productAddAddressFormKey = GlobalKey<FormState>();
+  List<TextFieldModel> productAddAddressColumn = [];
+  List<TextFieldModel> productAddAddressRow = [];
 
-  List<TextFieldModel> addAddressColumn = [];
-  List<TextFieldModel> addAddressRow = [];
+  TextEditingController userStreetAddress = TextEditingController();
+  TextEditingController userCity = TextEditingController();
+  TextEditingController userStateTextEditing = TextEditingController();
+  TextEditingController userZipCode = TextEditingController();
 
-  void _initializeAddAddress() {
-    addAddressColumn = [
+  GlobalKey<FormState> userAddAddressFormKey = GlobalKey<FormState>();
+  List<TextFieldModel> userAddAddressColumn = [];
+  List<TextFieldModel> userAddAddressRow = [];
+
+  void _initializeAddAddressTextFields() {
+    productAddAddressColumn = [
       TextFieldModel(
           hintText: 'Street Address',
-          controller: streetAddress,
+          controller: productStreetAddress,
           borderRadius: 8,
           validator: (value) {
             if (value!.isEmpty) {
@@ -181,7 +190,7 @@ class BuildAppCubit extends Cubit<BuildAppState> {
           }),
       TextFieldModel(
           hintText: 'City',
-          controller: city,
+          controller: productCity,
           borderRadius: 8,
           validator: (value) {
             if (value!.isEmpty) {
@@ -191,10 +200,10 @@ class BuildAppCubit extends Cubit<BuildAppState> {
           }),
     ];
 
-    addAddressRow = [
+    productAddAddressRow = [
       TextFieldModel(
           hintText: 'State',
-          controller: stateTextEditing,
+          controller: productStateTextEditing,
           borderRadius: 8,
           validator: (value) {
             if (value!.isEmpty) {
@@ -204,7 +213,59 @@ class BuildAppCubit extends Cubit<BuildAppState> {
           }),
       TextFieldModel(
           hintText: 'Zip Code',
-          controller: zipCode,
+          controller: productZipCode,
+          keyboardType: TextInputType.number,
+          borderRadius: 8,
+          validator: (value) {
+            if (value!.isEmpty) {
+              return 'please enter a zip code';
+            }
+            if (RegExp(r'^[0-9]+$').hasMatch(value) == false) {
+              return 'numbers only';
+            }
+            return null;
+          }),
+    ];
+  }
+
+  void _initializeUserTextFields() {
+    userAddAddressColumn = [
+      TextFieldModel(
+          hintText: 'Street Address',
+          controller: userStreetAddress,
+          borderRadius: 8,
+          validator: (value) {
+            if (value!.isEmpty) {
+              return 'please enter a street address';
+            }
+            return null;
+          }),
+      TextFieldModel(
+          hintText: 'City',
+          controller: userCity,
+          borderRadius: 8,
+          validator: (value) {
+            if (value!.isEmpty) {
+              return 'please enter a city';
+            }
+            return null;
+          }),
+    ];
+
+    userAddAddressRow = [
+      TextFieldModel(
+          hintText: 'State',
+          controller: userStateTextEditing,
+          borderRadius: 8,
+          validator: (value) {
+            if (value!.isEmpty) {
+              return 'please enter a state';
+            }
+            return null;
+          }),
+      TextFieldModel(
+          hintText: 'Zip Code',
+          controller: userZipCode,
           keyboardType: TextInputType.number,
           borderRadius: 8,
           validator: (value) {
@@ -223,11 +284,11 @@ class BuildAppCubit extends Cubit<BuildAppState> {
 
   void updateShippingAddress() {
     if (shippingAddress ==
-        '${streetAddress.text}, ${city.text}, ${stateTextEditing.text} ${zipCode.text}') {
+        '${productStreetAddress.text}, ${productCity.text}, ${productStateTextEditing.text} ${productZipCode.text}') {
       return;
     }
     shippingAddress =
-        '${streetAddress.text}, ${city.text}, ${stateTextEditing.text} ${zipCode.text}';
+        '${productStreetAddress.text}, ${productCity.text}, ${productStateTextEditing.text} ${productZipCode.text}';
     emit(ShippingAddressChanged());
   }
 
@@ -294,10 +355,10 @@ class BuildAppCubit extends Cubit<BuildAppState> {
     quantity = 1;
     sizeIndex = 0;
     colorIndex = 0;
-    streetAddress.clear();
-    city.clear();
-    stateTextEditing.clear();
-    zipCode.clear();
+    productStreetAddress.clear();
+    productCity.clear();
+    productStateTextEditing.clear();
+    productZipCode.clear();
     paymentIndex = -1;
     paymentMethod = '';
     shippingAddress = '';
