@@ -1,11 +1,7 @@
-import 'package:e_clot_shop/core/utils/colors.dart';
 import 'package:e_clot_shop/core/utils/styles.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/models/background_model.dart';
-import '../../../../core/widgets/custom_background_container.dart';
-import '../../../theme/presentation/manager/change_theme/change_theme_cubit.dart';
+import '../../../../core/widgets/background_list_tiled.dart';
 import 'notification_list_tile_leading.dart';
 
 class NotificationItem extends StatelessWidget {
@@ -13,24 +9,20 @@ class NotificationItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomBakgroundContainer(
-        backgroundModel: BackgroundModel(
-            height: 80,
-            color: context.read<ChangeThemeCubit>().isDarkMode
-                ? AppColors.darkModeSecondryColor
-                : null,
-            child: Center(
-              child: ListTile(
-                contentPadding: EdgeInsets.zero,
-                leading: const NotificationListTileLeading(),
-                title: Padding(
-                    padding: const EdgeInsets.only(left: 8),
-                    child: Text(
-                        'Gilbert, you placed and order check your order history for full details.',
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                        style: Styles.styleMedium12(context))),
-              ),
-            )));
+    return BackgroundListTile(
+        height: 80,
+        child: Center(
+          child: ListTile(
+            contentPadding: EdgeInsets.zero,
+            leading: const NotificationListTileLeading(),
+            title: Padding(
+                padding: const EdgeInsets.only(left: 8),
+                child: Text(
+                    'Gilbert, you placed and order check your order history for full details.',
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: Styles.styleMedium12(context))),
+          ),
+        ));
   }
 }

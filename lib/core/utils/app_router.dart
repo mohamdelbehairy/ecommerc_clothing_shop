@@ -3,6 +3,7 @@ import 'package:e_clot_shop/features/login/presentation/views/login_view.dart';
 import 'package:e_clot_shop/features/login/presentation/views/tell_about_view.dart';
 import 'package:e_clot_shop/features/register/presentation/views/register_view.dart';
 import 'package:e_clot_shop/features/search/presentation/views/search_view.dart';
+import 'package:e_clot_shop/features/setting/presentation/views/wishlist_view.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/home/presentation/views/categories_view.dart';
@@ -31,10 +32,11 @@ class AppRouter {
   static const categoryProducts = '/categoryProductsView';
   static const topSelling = '/topSellingView';
   static const newIn = '/newInView';
-  static const wishlist = '/wishlistView';
+  static const myFavourite = '/myFavouriteView';
   static const orderPlacedSuccess = '/orderPlacedSuccessView';
   static const orderPlacedDetails = '/orderPlacedDetailsView';
   static const search = '/searchView';
+  static const wishlist = '/wishlistView';
 
   static final router = GoRouter(
     routes: [
@@ -70,7 +72,8 @@ class AppRouter {
           builder: (context, state) => const TopSellingView()),
       GoRoute(path: newIn, builder: (context, state) => const NewInView()),
       GoRoute(
-          path: wishlist, builder: (context, state) => const MyFavouriteView()),
+          path: myFavourite,
+          builder: (context, state) => const MyFavouriteView()),
       GoRoute(
           path: orderPlacedSuccess,
           builder: (context, state) => const OrderPlacedSuccessView()),
@@ -78,6 +81,8 @@ class AppRouter {
           path: orderPlacedDetails,
           builder: (context, state) => const OrderPlacedDetailsView()),
       GoRoute(path: search, builder: (context, state) => const SearchView()),
+      GoRoute(
+          path: wishlist, builder: (context, state) => const WishListView()),
     ],
   );
 }

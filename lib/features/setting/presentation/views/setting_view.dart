@@ -10,7 +10,7 @@ class SettingView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => BuildSettingCubit(),
+      create: (context) => BuildSettingCubit(context),
       child: const Scaffold(
         body: SettingViewBody(),
       ),

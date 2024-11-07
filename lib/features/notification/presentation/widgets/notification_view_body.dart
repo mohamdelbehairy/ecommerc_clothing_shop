@@ -1,4 +1,4 @@
-import 'package:e_clot_shop/core/utils/styles.dart';
+  import 'package:e_clot_shop/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 import 'notification_item.dart';

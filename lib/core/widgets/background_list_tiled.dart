@@ -1,0 +1,25 @@
+import 'package:e_clot_shop/core/utils/colors.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../features/theme/presentation/manager/change_theme/change_theme_cubit.dart';
+import '../models/background_model.dart';
+import 'custom_background_container.dart';
+
+class BackgroundListTile extends StatelessWidget {
+  const BackgroundListTile({super.key, this.height, required this.child});
+  final double? height;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    var isDarkMode = context.watch<ChangeThemeCubit>().isDarkMode;
+
+    return CustomBakgroundContainer(
+        backgroundModel: BackgroundModel(
+            height: height ?? 72,
+            width: double.infinity,
+            color: isDarkMode ? AppColors.darkModeSecondryColor : null,
+            child: child));
+  }
+}
