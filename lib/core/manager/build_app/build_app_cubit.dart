@@ -280,6 +280,14 @@ class BuildAppCubit extends Cubit<BuildAppState> {
     ];
   }
 
+  void clearUserTextField() {
+    userStreetAddress.clear();
+    userCity.clear();
+    userStateTextEditing.clear();
+    userZipCode.clear();
+    emit(ClearUserTextField());
+  }
+
   String shippingAddress = '';
 
   void updateShippingAddress() {

@@ -31,4 +31,6 @@ class Constants {
   static const orderNotDelivered = 'Not Delivered';
 
   static const isDarkMode = 'isDarkMode';
+
+  static const shippingAddress = 'shippingAddress';
 }

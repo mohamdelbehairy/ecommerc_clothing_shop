@@ -1,11 +1,12 @@
+import 'package:e_clot_shop/features/user_data/presentation/manager/get_user_data/get_user_data_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/manager/build_app/build_app_cubit.dart';
-import '../../../../core/widgets/custom_bottom_sheet_header.dart';
-import '../../../product/presentation/widgets/add_address_button.dart';
 import '../../../product/presentation/widgets/add_address_list_view.dart';
-import 'function/setting_add_adress_button_on_tap.dart';
+import 'function/init_add_address_text_field.dart';
+import 'setting_add_address_bottom_sheet_header.dart';
+import 'setting_add_adress_button_bloc_listener.dart';
 
 class SettingAddressBottomSheet extends StatelessWidget {
   const SettingAddressBottomSheet({super.key});
@@ -14,23 +15,30 @@ class SettingAddressBottomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     var textFields = context.read<BuildAppCubit>();
 
-    return Form(
-      key: textFields.userAddAddressFormKey,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          const CustomBottomSheetheader(text: 'Add Address'),
-          const SizedBox(height: 8),
-          AddAddressListView(
-              columnTextField: textFields.userAddAddressColumn,
-              rowTextField: textFields.userAddAddressRow),
-          const SizedBox(height: 24),
-          AddAddressButton(onTap: () {
-            settingAddAddressButtonOnTap(context);
-          }),
-          const SizedBox(height: 24),
-        ],
-      ),
+    return BlocBuilder<GetUserDataCubit, GetUserDataState>(
+      builder: (context, state) {
+        if (state is GetUserDataSuccess) {
+          initUserAddAdressTextField(context, state.user.shippingAddress);
+
+          return Form(
+            key: textFields.userAddAddressFormKey,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SettingAddAdressBottomSheetHeader(userData: state.user),
+                const SizedBox(height: 8),
+                AddAddressListView(
+                    columnTextField: textFields.userAddAddressColumn,
+                    rowTextField: textFields.userAddAddressRow),
+                const SizedBox(height: 24),
+                SettingAddAddressButtonBlocListener(userData: state.user),
+                const SizedBox(height: 24),
+              ],
+            ),
+          );
+        }
+        return const SizedBox();
+      },
     );
   }
 }

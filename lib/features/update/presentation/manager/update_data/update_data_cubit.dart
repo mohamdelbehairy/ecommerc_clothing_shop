@@ -11,10 +11,10 @@ class UpdateDataCubit extends Cubit<UpdateDataState> {
 
   final UpdateDataRepo _userDataRepo;
 
-  Future<void> updateUserData({required dynamic value}) async {
+  Future<void> updateUserData({String? key, required dynamic value}) async {
     emit(UpdateDataLoading());
-    final result =
-        await _userDataRepo.updateUserData(Constants.paymentMethod, value);
+    final result = await _userDataRepo.updateUserData(
+        key ?? Constants.paymentMethod, value);
 
     result.fold((e) {
       emit(UpdateDataFailure(errorMessage: e.toString()));
