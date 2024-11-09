@@ -7,3 +7,5 @@ final class BuildSearchInitial extends BuildSearchState {}
 final class CheckSearchSuccess extends BuildSearchState {}
 
 final class ClearSearchSuccess extends BuildSearchState {}
+
+final class GetAllproductsSuccess extends BuildSearchState {}

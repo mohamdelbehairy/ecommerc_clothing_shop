@@ -1,3 +1,4 @@
+import 'package:e_clot_shop/core/utils/constants.dart';
 import 'package:e_clot_shop/features/user_data/data/models/user_data_model.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
@@ -83,12 +84,13 @@ class BuildAppCubit extends Cubit<BuildAppState> {
     emit(BottomNavigationBarChanged());
   }
 
-  List categories = [
-    CategoryItemModel(image: Assets.imagesHoodies, title: 'Hoodies'),
-    CategoryItemModel(image: Assets.imagesShorts, title: 'Shorts'),
-    CategoryItemModel(image: Assets.imagesShoes, title: 'Shoes'),
-    CategoryItemModel(image: Assets.imagesBag, title: 'Bags'),
-    CategoryItemModel(image: Assets.imagesAccessories, title: 'Accessories'),
+  List<CategoryItemModel> categories = [
+    CategoryItemModel(image: Assets.imagesHoodies, title: Constants.hoodies),
+    CategoryItemModel(image: Assets.imagesShorts, title: Constants.shorts),
+    CategoryItemModel(image: Assets.imagesShoes, title: Constants.shoes),
+    CategoryItemModel(image: Assets.imagesBag, title: Constants.bags),
+    CategoryItemModel(
+        image: Assets.imagesAccessories, title: Constants.accessories),
   ];
 
   int categoryActiveIndex = -1;
@@ -377,6 +379,7 @@ class BuildAppCubit extends Cubit<BuildAppState> {
   }
 
   int priceIndex = -1;
+  int searchCategoryIndex = -1;
   List priceList = [
     'Min',
     'Max',
@@ -390,6 +393,17 @@ class BuildAppCubit extends Cubit<BuildAppState> {
 
   void clearPriceBottomSheet() {
     priceIndex = -1;
-    emit(ClearPriceBottomSheet());
+    emit(ClearFilterBottomSheet());
+  }
+
+  void searchCategoryActiveIndex(int index) {
+    if (searchCategoryIndex == index) return;
+    searchCategoryIndex = index;
+    emit(CategoryChanged());
+  }
+
+  void clearCategoryBottomSheet() {
+    searchCategoryIndex = -1;
+    emit(ClearFilterBottomSheet());
   }
 }

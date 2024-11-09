@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../core/manager/build_app/build_app_cubit.dart';
 import '../../../../core/widgets/custom_bottom_sheet_header.dart';
-import 'search_price_bottom_sheet_list_view.dart';
+import 'price_filter_bottom_sheet_list_view.dart';
 
-class SearchPriceBottomSheet extends StatelessWidget {
-  const SearchPriceBottomSheet({super.key});
+class PriceFilterBottomSheet extends StatelessWidget {
+  const PriceFilterBottomSheet({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,11 +22,12 @@ class SearchPriceBottomSheet extends StatelessWidget {
               clear: 'Clear',
               onTap: () {
                 if (buildApp.priceIndex != -1) {
+                  GoRouter.of(context).pop();
                   buildApp.clearPriceBottomSheet();
                 }
               }),
           const SizedBox(height: 12),
-          const SearchPriceBottomSheetListView(),
+          const PriceFilterBottomSheetListView(),
           const SizedBox(height: 32),
         ],
       ),

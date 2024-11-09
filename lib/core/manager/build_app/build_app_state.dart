@@ -28,6 +28,6 @@ final class CouponSussess extends BuildAppState {}
 
 final class ChangePriceIndex extends BuildAppState {}
 
-final class ClearPriceBottomSheet extends BuildAppState {}
+final class ClearFilterBottomSheet extends BuildAppState {}
 
 final class ClearUserTextField extends BuildAppState {}

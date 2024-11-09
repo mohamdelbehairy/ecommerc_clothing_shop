@@ -19,14 +19,13 @@ class EClotShop extends StatelessWidget {
         child: BlocBuilder<ChangeThemeCubit, ChangeThemeState>(
       builder: (context, state) {
         return MaterialApp.router(
-          theme: context.read<ChangeThemeCubit>().lightMode(),
-          darkTheme: context.read<ChangeThemeCubit>().darkMode(),
-          themeMode: context.read<ChangeThemeCubit>().isDarkMode
-              ? ThemeMode.dark
-              : ThemeMode.light,
-          debugShowCheckedModeBanner: false,
-          routerConfig: AppRouter.router,
-        );
+            theme: context.read<ChangeThemeCubit>().lightMode(),
+            darkTheme: context.read<ChangeThemeCubit>().darkMode(),
+            themeMode: context.read<ChangeThemeCubit>().isDarkMode
+                ? ThemeMode.dark
+                : ThemeMode.light,
+            debugShowCheckedModeBanner: false,
+            routerConfig: AppRouter.router);
       },
     ));
   }

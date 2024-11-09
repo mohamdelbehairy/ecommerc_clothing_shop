@@ -4,22 +4,31 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/widgets/function/custom_bottom_sheet.dart';
+import '../../../../home/data/repo/product_repo.dart';
 import '../../../../theme/presentation/manager/change_theme/change_theme_cubit.dart';
 import '../../../data/models/search_filter_model.dart';
-import '../../widgets/search_price_bottom_sheet.dart';
+import '../../widgets/category_filter_bottom_sheet.dart';
+import '../../widgets/price_filter_bottom_sheet.dart';
 
 part 'build_search_state.dart';
 
 class BuildSearchCubit extends Cubit<BuildSearchState> {
-  BuildSearchCubit(this._context) : super(BuildSearchInitial()) {
+  BuildSearchCubit(this._context, this._productRepo)
+      : super(BuildSearchInitial()) {
     _checkSearch();
     _initSearchHeader();
+    _getAllProducts();
   }
   final BuildContext _context;
+  final ProductRepo _productRepo;
 
   TextEditingController searchController = TextEditingController();
   List<ProductModel> list = [];
   List<ProductModel> searchList = [];
+
+  List<ProductModel> allProducts = [];
+  List<ProductModel> maxPrice = [];
+  List<ProductModel> minPrice = [];
 
   bool isSearch = false;
   void _checkSearch() {
@@ -48,11 +57,12 @@ class BuildSearchCubit extends Cubit<BuildSearchState> {
               ? AppColors.darkModeSecondryColor
               : AppColors.secondaryColor,
           text: 'Category',
-          onTap: () {}),
+          onTap: () => customBottomSheet(_context,
+              child: const CategoryFilterBottomSheet())),
       SearchFilterModel(
           text: 'Price',
           onTap: () => customBottomSheet(_context,
-              child: const SearchPriceBottomSheet())),
+              child: const PriceFilterBottomSheet())),
       SearchFilterModel(
         isBool: false,
         background: _context.read<ChangeThemeCubit>().isDarkMode
@@ -63,5 +73,26 @@ class BuildSearchCubit extends Cubit<BuildSearchState> {
       ),
       SearchFilterModel(text: 'Men', onTap: () {})
     ];
+  }
+
+  void _getAllProducts() {
+    _productRepo.getAllProducts((snapshot) {
+      allProducts = [];
+      maxPrice = [];
+      minPrice = [];
+      for (var element in snapshot.docs) {
+        var product = ProductModel.fromJson(element.data());
+        allProducts.add(product);
+
+        if (int.parse(product.price) >= 50) {
+          maxPrice.add(product);
+        }
+        if (int.parse(product.price) < 50) {
+          minPrice.add(product);
+        }
+      }
+
+      emit(GetAllproductsSuccess());
+    });
   }
 }
