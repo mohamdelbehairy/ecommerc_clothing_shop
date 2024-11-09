@@ -18,6 +18,8 @@ class ProductCubit extends Cubit<ProductState> {
   List<ProductModel> accessories = [];
   List<ProductModel> topSelling = [];
   List<ProductModel> newIn = [];
+  List<ProductModel> allProducts = [];
+
   void getProduct() {
     emit(ProductLoading());
     try {
@@ -29,8 +31,11 @@ class ProductCubit extends Cubit<ProductState> {
         accessories = [];
         topSelling = [];
         newIn = [];
+        allProducts = [];
         for (var element in snapshot.docs) {
           var product = ProductModel.fromJson(element.data());
+          allProducts.add(product);
+
           if (product.category.contains(Constants.hoodies)) {
             hoddies.add(product);
           }
@@ -57,7 +62,7 @@ class ProductCubit extends Cubit<ProductState> {
           }
         }
         newIn.sort((a, b) => b.createdTime.compareTo(a.createdTime));
-        
+
         topSelling = snapshot.docs
             .map((element) => ProductModel.fromJson(element.data()))
             .toList()

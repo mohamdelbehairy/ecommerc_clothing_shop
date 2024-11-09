@@ -8,12 +8,15 @@ class SearchViewHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
-      children: [
-        CustomBackWidget(),
-        SizedBox(width: 8),
-        Expanded(child: SearchTextField()),
-      ],
+    return const Padding(
+       padding: EdgeInsets.symmetric(horizontal: 24),
+      child: Row(
+        children: [
+          CustomBackWidget(),
+          SizedBox(width: 8),
+          Expanded(child: SearchTextField()),
+        ],
+      ),
     );
   }
 }

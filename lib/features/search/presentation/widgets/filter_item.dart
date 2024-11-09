@@ -13,21 +13,24 @@ class FilterItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomBakgroundContainer(
-      backgroundModel: BackgroundModel(
-          height: 27,
-          borderRadiusDouble: 100,
-          padding: 8,
-          color: AppColors.primaryColor,
-          child: Row(
-            children: [
-              CustomSvg(svgModel: SvgModel(image: Assets.imagesFilter)),
-              const SizedBox(width: 4),
-              Text('3',
-                  style: Styles.styleMedium12(context)
-                      .copyWith(color: AppColors.whiteColor))
-            ],
-          )),
+    return Padding(
+      padding: const EdgeInsets.only(left: 24),
+      child: CustomBakgroundContainer(
+        backgroundModel: BackgroundModel(
+            height: 27,
+            borderRadiusDouble: 100,
+            padding: 8,
+            color: AppColors.primaryColor,
+            child: Row(
+              children: [
+                CustomSvg(svgModel: SvgModel(image: Assets.imagesFilter)),
+                const SizedBox(width: 4),
+                Text('3',
+                    style: Styles.styleMedium12(context)
+                        .copyWith(color: AppColors.whiteColor))
+              ],
+            )),
+      ),
     );
   }
 }

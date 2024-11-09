@@ -10,6 +10,7 @@ class TextFieldModel {
   final double? hight;
   final TextStyle? hintStyle;
   final Widget? prefixIcon, suffixIcon;
+  final Function(String)? onChanged;
 
   TextFieldModel(
       {required this.hintText,
@@ -24,5 +25,6 @@ class TextFieldModel {
       this.hight,
       this.hintStyle,
       this.prefixIcon,
-      this.suffixIcon});
+      this.suffixIcon,
+      this.onChanged});
 }

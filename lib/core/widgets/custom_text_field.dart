@@ -16,6 +16,7 @@ class CustomTextField extends StatelessWidget {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(textFieldModel.borderRadius),
         child: TextFormField(
+          onChanged: textFieldModel.onChanged,
             style: Styles.styleTextField18(context),
             cursorColor: AppColors.primaryColor,
             keyboardType: textFieldModel.keyboardType,

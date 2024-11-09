@@ -10,7 +10,7 @@ class SearchView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => BuildSearchCubit(),
+      create: (context) => BuildSearchCubit(context),
       child: const Scaffold(
         body: SearchViewBody(),
       ),

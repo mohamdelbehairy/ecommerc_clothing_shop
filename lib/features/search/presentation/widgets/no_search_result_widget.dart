@@ -9,17 +9,20 @@ class NoSearchResultWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const Spacer(),
-        Image.asset(Assets.imagesNoSearch),
-        const SizedBox(height: 24),
-        Text('Sorry, we couldn\'t find any matching result for your\n Search.',
-            textAlign: TextAlign.center, style: Styles.styleMedium24(context)),
-        const SizedBox(height: 24),
-        const ExploreCategoriesButton(),
-        const Spacer(),
-      ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 24),
+      child: Column(
+        children: [
+          const Spacer(),
+          Image.asset(Assets.imagesNoSearch),
+          const SizedBox(height: 24),
+          Text('Sorry, we couldn\'t find any matching result for your\n Search.',
+              textAlign: TextAlign.center, style: Styles.styleMedium24(context)),
+          const SizedBox(height: 24),
+          const ExploreCategoriesButton(),
+          const Spacer(),
+        ],
+      ),
     );
   }
 }
