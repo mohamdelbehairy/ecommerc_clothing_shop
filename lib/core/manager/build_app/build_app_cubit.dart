@@ -1,3 +1,4 @@
+import 'package:e_clot_shop/features/user_data/data/models/user_data_model.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -307,17 +308,10 @@ class BuildAppCubit extends Cubit<BuildAppState> {
   ];
 
   int paymentIndex = -1;
-  int settingPaymentIndex = -1;
 
   void changePaymentBottomSheet(int index) {
     if (paymentIndex == index) return;
     paymentIndex = index;
-    emit(PaymentBottomSheetChanged());
-  }
-
-  void changeSettingPaymentBottomSheet(int index) {
-    if (settingPaymentIndex == index) return;
-    settingPaymentIndex = index;
     emit(PaymentBottomSheetChanged());
   }
 
@@ -329,18 +323,20 @@ class BuildAppCubit extends Cubit<BuildAppState> {
     emit(PaymentMethodChanged());
   }
 
-  String isEmptyDetails() {
-    if (shippingAddress.isEmpty && paymentMethod.isEmpty) {
+  String isEmptyDetails(UserDataModel userData) {
+    if ((shippingAddress.isEmpty && paymentMethod.isEmpty) &&
+        (userData.shippingAddress == null && userData.paymentMethod < 0)) {
       return 'Shipping and Payment Missing';
-    } else if (shippingAddress.isEmpty) {
+    } else if (shippingAddress.isEmpty && userData.shippingAddress == null) {
       return 'Shipping Address Missing';
-    } else if (paymentMethod.isEmpty) {
+    } else if (paymentMethod.isEmpty && userData.paymentMethod < 0) {
       return 'Payment Method Missing';
     }
     return '';
   }
 
   ProductModel? productData;
+  UserDataModel? userData;
 
   TextEditingController couponController = TextEditingController();
   GlobalKey<FormState> couponFormKey = GlobalKey<FormState>();
@@ -373,6 +369,7 @@ class BuildAppCubit extends Cubit<BuildAppState> {
     size = 'S';
     color = 'Orange';
     productData = null;
+    userData = null;
     isCouponApplied = false;
     couponController.clear();
 

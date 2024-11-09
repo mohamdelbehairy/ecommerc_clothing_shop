@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:e_clot_shop/core/utils/app_router.dart';
 import 'package:e_clot_shop/core/utils/secret_key.dart';
 import 'package:e_clot_shop/features/payment/data/models/paypal/item_list_model.dart';
+import 'package:e_clot_shop/features/user_data/data/models/user_data_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_paypal_payment2/flutter_paypal_payment.dart';
@@ -13,8 +14,10 @@ import '../../../../home/data/models/product_model.dart';
 import '../../../../update/presentation/manager/update_data/update_data_cubit.dart';
 import '../../../data/models/paypal/amount_model.dart';
 
-void payWithPayPal(BuildContext context, {required ProductModel productData}) {
+void payWithPayPal(BuildContext context,
+    {required UserDataModel userData, required ProductModel productData}) {
   var getData = getTransactionData(context, productData: productData);
+  var buildApp = context.read<BuildAppCubit>();
 
   Navigator.of(context).push(MaterialPageRoute(
     builder: (BuildContext context) => PaypalCheckoutView(
@@ -30,7 +33,10 @@ void payWithPayPal(BuildContext context, {required ProductModel productData}) {
       ],
       note: "Contact us for any questions on your order.",
       onSuccess: (Map params) async {
-        context.read<BuildAppCubit>().productData = productData;
+        buildApp.productData = productData;
+        if (userData.shippingAddress != null) {
+          buildApp.userData = userData;
+        }
         GoRouter.of(context).go(AppRouter.orderPlacedSuccess);
         await context.read<UpdateDataCubit>().updateProductData(
             productID: productData.id,

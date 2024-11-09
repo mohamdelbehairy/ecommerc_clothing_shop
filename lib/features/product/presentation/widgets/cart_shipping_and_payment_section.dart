@@ -1,3 +1,4 @@
+import 'package:e_clot_shop/features/user_data/data/models/user_data_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -9,7 +10,8 @@ import '../../../../core/widgets/function/custom_bottom_sheet.dart';
 import 'select_payment_bottom_sheet.dart';
 
 class CartShippingAndPaymentSection extends StatelessWidget {
-  const CartShippingAndPaymentSection({super.key});
+  const CartShippingAndPaymentSection({super.key, required this.userData});
+  final UserDataModel userData;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +23,9 @@ class CartShippingAndPaymentSection extends StatelessWidget {
           title: 'Shipping Address',
           subtitle: buildApp.shippingAddress.isNotEmpty
               ? buildApp.shippingAddress
-              : 'Add Shipping Address',
+              : userData.shippingAddress != null
+                  ? _convertShippingAddress(userData.shippingAddress!)
+                  : 'Add Shipping Address',
           onTap: () => customBottomSheet(context,
               child: const AddAddressBottomSheetWidget()),
         )),
@@ -31,7 +35,9 @@ class CartShippingAndPaymentSection extends StatelessWidget {
             title: 'Payment Method',
             subtitle: buildApp.paymentMethod.isNotEmpty
                 ? buildApp.paymentMethod
-                : 'Select Payment Method',
+                : userData.paymentMethod > -1
+                    ? buildApp.paymentList[userData.paymentMethod].title
+                    : 'Select Payment Method',
             onTap: () => customBottomSheet(context,
                 child: const SelectPaymentBottomSheet()),
           ),
@@ -39,4 +45,17 @@ class CartShippingAndPaymentSection extends StatelessWidget {
       ],
     );
   }
+}
+
+String _convertShippingAddress(String address) {
+  List<String> list = address.split(', ');
+
+  String result = list.join(', ');
+
+  if (address.contains(', ')) {
+    result =
+        '${result.substring(0, result.lastIndexOf(', '))} ${result.substring(result.lastIndexOf(', ') + 2)}';
+  }
+
+  return result;
 }

@@ -9,6 +9,7 @@ class Constants {
 
   static const sellingCount = 'sellingCount';
   static const paymentMethod = 'paymentMethod';
+  static const shippingAddress = 'shippingAddress';
 
   static const firstLogin = 'first_login';
   static const userId = 'user_id';
@@ -31,6 +32,4 @@ class Constants {
   static const orderNotDelivered = 'Not Delivered';
 
   static const isDarkMode = 'isDarkMode';
-
-  static const shippingAddress = 'shippingAddress';
 }

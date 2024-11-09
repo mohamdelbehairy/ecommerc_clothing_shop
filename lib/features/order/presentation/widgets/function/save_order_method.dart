@@ -11,12 +11,14 @@ Future<void> saveOrderMethod(BuildContext context) async {
   var buildAppCubit = context.read<BuildAppCubit>();
   await context.read<OrderCubit>().saveOrder(
       orderModel: OrderModel(
-        id: const Uuid().v4(),
+          id: const Uuid().v4(),
           orderID: generateOrderID(),
           quantity: buildAppCubit.quantity.toString(),
           color: buildAppCubit.color,
           size: buildAppCubit.size,
-          shippingAddress: buildAppCubit.shippingAddress,
+          shippingAddress: buildAppCubit.shippingAddress.isNotEmpty
+              ? buildAppCubit.shippingAddress
+              : buildAppCubit.userData!.shippingAddress!,
           shippingCost: buildAppCubit.shippingCost.toString(),
           orderTime: DateTime.now(),
           productModel: buildAppCubit.productData!));
