@@ -31,6 +31,10 @@ class BuildSearchCubit extends Cubit<BuildSearchState> {
   List<ProductModel> minPrice = [];
   List<ProductModel> newest = [];
   List<ProductModel> oldest = [];
+  List<ProductModel> oldestMinPrice = [];
+  List<ProductModel> oldestMaxPrice = [];
+  List<ProductModel> newestMinPrice = [];
+  List<ProductModel> newestMaxPrice = [];
 
   bool isSearch = false;
   void _checkSearch() {
@@ -53,14 +57,6 @@ class BuildSearchCubit extends Cubit<BuildSearchState> {
 
   _initSearchHeader() {
     searchHeader = [
-      // SearchFilterModel(
-      //     isBool: false,
-      //     background: _context.read<ChangeThemeCubit>().isDarkMode
-      //         ? AppColors.darkModeSecondryColor
-      //         : AppColors.secondaryColor,
-      //     text: 'Category',
-      //     onTap: () => customBottomSheet(_context,
-      //         child: const CategoryFilterBottomSheet())),
       SearchFilterModel(
           text: 'Price',
           onTap: () => customBottomSheet(_context,
@@ -84,6 +80,11 @@ class BuildSearchCubit extends Cubit<BuildSearchState> {
       minPrice = [];
       newest = [];
       oldest = [];
+      oldestMinPrice = [];
+      oldestMaxPrice = [];
+      newestMinPrice = [];
+      newestMaxPrice = [];
+
       for (var element in snapshot.docs) {
         var product = ProductModel.fromJson(element.data());
         allProducts.add(product);
@@ -102,6 +103,29 @@ class BuildSearchCubit extends Cubit<BuildSearchState> {
         if (product.createdTime
             .isBefore(DateTime.now().subtract(const Duration(days: 7)))) {
           oldest.add(product);
+        }
+        if (int.parse(product.price) < 50 &&
+            product.createdTime
+                .isBefore(DateTime.now().subtract(const Duration(days: 7)))) {
+          oldestMinPrice.add(product);
+        }
+
+        if (int.parse(product.price) >= 50 &&
+            product.createdTime
+                .isBefore(DateTime.now().subtract(const Duration(days: 7)))) {
+          oldestMaxPrice.add(product);
+        }
+
+        if (int.parse(product.price) < 50 &&
+            product.createdTime
+                .isAfter(DateTime.now().subtract(const Duration(days: 7)))) {
+          newestMinPrice.add(product);
+        }
+
+        if (int.parse(product.price) >= 50 &&
+            product.createdTime
+                .isAfter(DateTime.now().subtract(const Duration(days: 7)))) {
+          newestMaxPrice.add(product);
         }
       }
 
