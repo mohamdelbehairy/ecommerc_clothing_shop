@@ -6,27 +6,27 @@ final class BuildAppInitial extends BuildAppState {}
 
 final class BottomNavigationBarChanged extends BuildAppState {}
 
-final class CategoryChanged extends BuildAppState {}
+final class IndexChanged extends BuildAppState {}
 
-final class QuantityChanged extends BuildAppState {}
+// final class QuantityChanged extends BuildAppState {}
 
-final class BottomSheetChanged extends BuildAppState {}
+// final class BottomSheetChanged extends BuildAppState {}
 
 final class ProductButtonTrue extends BuildAppState {}
 
 final class ProductButtonFalse extends BuildAppState {}
 
-final class ShippingAddressChanged extends BuildAppState {}
+// final class ShippingAddressChanged extends BuildAppState {}
 
-final class PaymentBottomSheetChanged extends BuildAppState {}
+// final class PaymentBottomSheetChanged extends BuildAppState {}
 
-final class PaymentMethodChanged extends BuildAppState {}
+// final class PaymentMethodChanged extends BuildAppState {}
 
 final class ResetOrder extends BuildAppState {}
 
 final class CouponSussess extends BuildAppState {}
 
-final class ChangePriceIndex extends BuildAppState {}
+// final class ChangePriceIndex extends BuildAppState {}
 
 final class ClearFilterBottomSheet extends BuildAppState {}
 

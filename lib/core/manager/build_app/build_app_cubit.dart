@@ -98,7 +98,7 @@ class BuildAppCubit extends Cubit<BuildAppState> {
   void activeIndexChange(int index) {
     if (categoryActiveIndex == index) return;
     categoryActiveIndex = index;
-    emit(CategoryChanged());
+    emit(IndexChanged());
   }
 
   List selectDetailsList = [
@@ -113,7 +113,7 @@ class BuildAppCubit extends Cubit<BuildAppState> {
   void changeQuantity(int value) {
     if (value == -1 && quantity == 1) return;
     quantity += value;
-    emit(QuantityChanged());
+    emit(IndexChanged());
   }
 
   int sizeIndex = 0;
@@ -141,14 +141,14 @@ class BuildAppCubit extends Cubit<BuildAppState> {
     if (sizeIndex == index) return;
     sizeIndex = index;
     size = sizeList[index].title;
-    emit(BottomSheetChanged());
+    emit(IndexChanged());
   }
 
   void changeColorBottomSheet(int index) {
     if (colorIndex == index) return;
     colorIndex = index;
     color = colorList[index].title;
-    emit(BottomSheetChanged());
+    emit(IndexChanged());
   }
 
   bool productButton = false;
@@ -300,7 +300,7 @@ class BuildAppCubit extends Cubit<BuildAppState> {
     }
     shippingAddress =
         '${productStreetAddress.text}, ${productCity.text}, ${productStateTextEditing.text} ${productZipCode.text}';
-    emit(ShippingAddressChanged());
+    emit(IndexChanged());
   }
 
   List<ProductSelectDetailsModel> paymentList = [
@@ -314,7 +314,7 @@ class BuildAppCubit extends Cubit<BuildAppState> {
   void changePaymentBottomSheet(int index) {
     if (paymentIndex == index) return;
     paymentIndex = index;
-    emit(PaymentBottomSheetChanged());
+    emit(IndexChanged());
   }
 
   String paymentMethod = '';
@@ -322,7 +322,7 @@ class BuildAppCubit extends Cubit<BuildAppState> {
   void updatePaymentMethod() {
     if (paymentMethod == paymentList[paymentIndex].title) return;
     paymentMethod = paymentList[paymentIndex].title;
-    emit(PaymentMethodChanged());
+    emit(IndexChanged());
   }
 
   String isEmptyDetails(UserDataModel userData) {
@@ -380,15 +380,22 @@ class BuildAppCubit extends Cubit<BuildAppState> {
 
   int priceIndex = -1;
   int searchCategoryIndex = -1;
+  int sortbyIndex = 0;
   List priceList = [
     'Min',
     'Max',
   ];
 
+  List sortbyList = [
+    'Recommended',
+    'Newest',
+    'Oldest',
+  ];
+
   void changePriceIndex(int index) {
     if (priceIndex == index) return;
     priceIndex = index;
-    emit(ChangePriceIndex());
+    emit(IndexChanged());
   }
 
   void clearPriceBottomSheet() {
@@ -399,11 +406,22 @@ class BuildAppCubit extends Cubit<BuildAppState> {
   void searchCategoryActiveIndex(int index) {
     if (searchCategoryIndex == index) return;
     searchCategoryIndex = index;
-    emit(CategoryChanged());
+    emit(IndexChanged());
   }
 
   void clearCategoryBottomSheet() {
     searchCategoryIndex = -1;
+    emit(ClearFilterBottomSheet());
+  }
+
+  void sortbyActiveIndex(int index) {
+    if (sortbyIndex == index) return;
+    sortbyIndex = index;
+    emit(IndexChanged());
+  }
+
+  void clearSortbyBottomSheet() {
+    sortbyIndex = 0;
     emit(ClearFilterBottomSheet());
   }
 }
