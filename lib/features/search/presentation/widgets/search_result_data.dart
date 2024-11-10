@@ -15,10 +15,18 @@ class SearchResultData extends StatelessWidget {
 
     return BlocBuilder<BuildSearchCubit, BuildSearchState>(
       builder: (context, state) {
-        if (buildApp.priceIndex == 0) {
-          search.list = search.minPrice;
-        } else if (buildApp.priceIndex == 1) {
-          search.list = search.maxPrice;
+        // if (buildApp.priceIndex == 0) {
+        //   search.list = search.minPrice;
+        // } else if (buildApp.priceIndex == 1) {
+        //   search.list = search.maxPrice;
+        // } else {
+        //   search.list = search.allProducts;
+        // }
+
+        if (buildApp.sortbyIndex == 1) {
+          search.list = search.newest;
+        } else if (buildApp.sortbyIndex == 2) {
+          search.list = search.oldest;
         } else {
           search.list = search.allProducts;
         }
@@ -41,5 +49,3 @@ class SearchResultData extends StatelessWidget {
     );
   }
 }
-
-

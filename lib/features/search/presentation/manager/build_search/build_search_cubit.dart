@@ -29,6 +29,8 @@ class BuildSearchCubit extends Cubit<BuildSearchState> {
   List<ProductModel> allProducts = [];
   List<ProductModel> maxPrice = [];
   List<ProductModel> minPrice = [];
+  List<ProductModel> newest = [];
+  List<ProductModel> oldest = [];
 
   bool isSearch = false;
   void _checkSearch() {
@@ -80,6 +82,8 @@ class BuildSearchCubit extends Cubit<BuildSearchState> {
       allProducts = [];
       maxPrice = [];
       minPrice = [];
+      newest = [];
+      oldest = [];
       for (var element in snapshot.docs) {
         var product = ProductModel.fromJson(element.data());
         allProducts.add(product);
@@ -89,6 +93,15 @@ class BuildSearchCubit extends Cubit<BuildSearchState> {
         }
         if (int.parse(product.price) < 50) {
           minPrice.add(product);
+        }
+        if (product.createdTime
+            .isAfter(DateTime.now().subtract(const Duration(days: 7)))) {
+          newest.add(product);
+        }
+
+        if (product.createdTime
+            .isBefore(DateTime.now().subtract(const Duration(days: 7)))) {
+          oldest.add(product);
         }
       }
 
