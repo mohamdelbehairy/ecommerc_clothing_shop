@@ -24,7 +24,7 @@ class SearchPriceButton extends StatelessWidget {
                   ? AppColors.primaryColor
                   : context.read<ChangeThemeCubit>().isDarkMode
                       ? AppColors.darkModeSecondryColor
-                      : null,
+                      : AppColors.secondaryColor,
               widget: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 34),
                 child: Row(

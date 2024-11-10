@@ -7,7 +7,6 @@ import '../../../../../core/widgets/function/custom_bottom_sheet.dart';
 import '../../../../home/data/repo/product_repo.dart';
 import '../../../../theme/presentation/manager/change_theme/change_theme_cubit.dart';
 import '../../../data/models/search_filter_model.dart';
-import '../../widgets/category_filter_bottom_sheet.dart';
 import '../../widgets/price_filter_bottom_sheet.dart';
 
 part 'build_search_state.dart';
@@ -51,14 +50,14 @@ class BuildSearchCubit extends Cubit<BuildSearchState> {
 
   _initSearchHeader() {
     searchHeader = [
-      SearchFilterModel(
-          isBool: false,
-          background: _context.read<ChangeThemeCubit>().isDarkMode
-              ? AppColors.darkModeSecondryColor
-              : AppColors.secondaryColor,
-          text: 'Category',
-          onTap: () => customBottomSheet(_context,
-              child: const CategoryFilterBottomSheet())),
+      // SearchFilterModel(
+      //     isBool: false,
+      //     background: _context.read<ChangeThemeCubit>().isDarkMode
+      //         ? AppColors.darkModeSecondryColor
+      //         : AppColors.secondaryColor,
+      //     text: 'Category',
+      //     onTap: () => customBottomSheet(_context,
+      //         child: const CategoryFilterBottomSheet())),
       SearchFilterModel(
           text: 'Price',
           onTap: () => customBottomSheet(_context,
