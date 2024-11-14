@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../features/home/data/models/product_model.dart';
-import '../models/custom_product_model.dart';
-import 'product_item_widget.dart';
+import 'data_product_list_view.dart';
+import 'no_data_product_list_view.dart';
 
 class CustomProductsListView extends StatelessWidget {
   const CustomProductsListView({super.key, required this.products});
@@ -11,20 +11,8 @@ class CustomProductsListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 281,
-      child: ListView.builder(
-          itemCount: products.length,
-          scrollDirection: Axis.horizontal,
-          physics: const BouncingScrollPhysics(),
-          itemBuilder: (context, index) {
-            return Padding(
-                padding: EdgeInsets.only(right: 12, left: index == 0 ? 24 : 0),
-                child: ProductItemWidget(
-                  customProductModel: CustomProductModel(
-                      width: 165, productModel: products[index]),
-                ));
-          }),
-    );
+    return products.isNotEmpty
+        ? DataProductListView(products: products)
+        : const NoDataProudctListView();
   }
 }
