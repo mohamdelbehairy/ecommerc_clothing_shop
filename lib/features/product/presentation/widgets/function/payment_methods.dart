@@ -7,6 +7,7 @@ import '../../../../payment/presentation/widgets/function/pay_with_card.dart';
 import '../../../../payment/presentation/widgets/function/pay_with_paymob.dart';
 import '../../../../payment/presentation/widgets/function/pay_with_paypal.dart';
 import '../../../../user_data/data/models/user_data_model.dart';
+import 'convert_shipping_address.dart';
 
 Future<void> paymentMethods(BuildContext context,
     {required ProductModel productData,
@@ -19,6 +20,10 @@ Future<void> paymentMethods(BuildContext context,
   var discount =
       (totalPrice * buildApp.discountPercent / 100).toStringAsFixed(2);
 
+  if (buildApp.shippingAddress.isEmpty) {
+    buildApp.shippingAddress =
+        convertShippingAddress(userData.shippingAddress!);
+  }
   if (buildApp.paymentIndex == 0 || userData.paymentMethod == 0) {
     // ignore: use_build_context_synchronously
     await payWithCard(context,

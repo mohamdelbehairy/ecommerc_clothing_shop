@@ -1,4 +1,3 @@
-
 import 'package:e_clot_shop/core/models/cart_product_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -22,6 +21,15 @@ class CartViewBody extends StatelessWidget {
     return BlocBuilder<GetUserDataCubit, GetUserDataState>(
         builder: (context, state) {
       if (state is GetUserDataSuccess) {
+        if (productData.discountNumber != null &&
+            productData.discountNumber!.isNotEmpty) {
+          buildApp.discountNumber = productData.discountNumber!;
+        }
+        if (productData.discountPercent != null &&
+            productData.discountPercent! > 0) {
+          buildApp.discountPercent = productData.discountPercent!;
+        }
+
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24),
           child: Column(

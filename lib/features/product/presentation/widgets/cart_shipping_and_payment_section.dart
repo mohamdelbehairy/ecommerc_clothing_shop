@@ -7,6 +7,7 @@ import '../../data/models/shipping_and_payment_model.dart';
 import 'add_address_bottom_sheet_widget.dart';
 import 'cart_shipping_and_payment_item.dart';
 import '../../../../core/widgets/function/custom_bottom_sheet.dart';
+import 'function/convert_shipping_address.dart';
 import 'select_payment_bottom_sheet.dart';
 
 class CartShippingAndPaymentSection extends StatelessWidget {
@@ -24,7 +25,7 @@ class CartShippingAndPaymentSection extends StatelessWidget {
           subtitle: buildApp.shippingAddress.isNotEmpty
               ? buildApp.shippingAddress
               : userData.shippingAddress != null
-                  ? _convertShippingAddress(userData.shippingAddress!)
+                  ? convertShippingAddress(userData.shippingAddress!)
                   : 'Add Shipping Address',
           onTap: () => customBottomSheet(context,
               child: const AddAddressBottomSheetWidget()),
@@ -47,15 +48,4 @@ class CartShippingAndPaymentSection extends StatelessWidget {
   }
 }
 
-String _convertShippingAddress(String address) {
-  List<String> list = address.split(', ');
 
-  String result = list.join(', ');
-
-  if (address.contains(', ')) {
-    result =
-        '${result.substring(0, result.lastIndexOf(', '))} ${result.substring(result.lastIndexOf(', ') + 2)}';
-  }
-
-  return result;
-}

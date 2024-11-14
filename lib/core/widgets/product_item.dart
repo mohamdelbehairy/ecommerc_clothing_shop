@@ -30,7 +30,7 @@ class ProductItem extends StatelessWidget {
                   cachedImage: CachedNetworkImageModel(
                       height: 220,
                       width: double.infinity,
-                      imageUrl: customProductModel.productModel.image,
+                      imageUrl: customProductModel.productModel.images[0],
                       placeholder: const CustomPlaceholderWidget(height: 220))),
               const SizedBox(height: 6),
               Padding(

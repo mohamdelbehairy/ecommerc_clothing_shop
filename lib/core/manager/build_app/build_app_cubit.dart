@@ -343,8 +343,8 @@ class BuildAppCubit extends Cubit<BuildAppState> {
   TextEditingController couponController = TextEditingController();
   GlobalKey<FormState> couponFormKey = GlobalKey<FormState>();
 
-  String discountNumber = "564321";
-  int discountPercent = 35;
+  String discountNumber = "";
+  int discountPercent = 0;
   bool isCouponLoading = false;
   bool isCouponApplied = false;
 
@@ -373,6 +373,8 @@ class BuildAppCubit extends Cubit<BuildAppState> {
     productData = null;
     userData = null;
     isCouponApplied = false;
+    discountNumber = "";
+    discountPercent = 0;
     couponController.clear();
 
     emit(ResetOrder());

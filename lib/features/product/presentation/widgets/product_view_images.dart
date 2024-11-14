@@ -21,7 +21,7 @@ class ProductViewImages extends StatelessWidget {
       child: ListView.builder(
           scrollDirection: Axis.horizontal,
           physics: const BouncingScrollPhysics(),
-          itemCount: 5,
+          itemCount: productData.images.length,
           itemBuilder: (context, index) {
             return Padding(
               padding: EdgeInsets.only(left: index != 0 ? 8 : 24),
@@ -35,7 +35,7 @@ class ProductViewImages extends StatelessWidget {
                       child: CustomCachedNetworkImage(
                           cachedImage: CachedNetworkImageModel(
                               fit: BoxFit.cover,
-                              imageUrl: productData.image)))),
+                              imageUrl: productData.images[index])))),
             );
           }),
     );

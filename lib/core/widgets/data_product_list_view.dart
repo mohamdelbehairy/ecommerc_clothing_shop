@@ -22,7 +22,7 @@ class DataProductListView extends StatelessWidget {
                 padding: EdgeInsets.only(right: 12, left: index == 0 ? 24 : 0),
                 child: ProductItemWidget(
                   customProductModel: CustomProductModel(
-                      width: 165, productModel: products[index]),
+                      width: 170, productModel: products[index]),
                 ));
           }),
     );

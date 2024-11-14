@@ -17,7 +17,7 @@ class CartProductListTile extends StatelessWidget {
       contentPadding: EdgeInsets.zero,
       leading: CustomCachedNetworkImage(
           cachedImage: CachedNetworkImageModel(
-              fit: BoxFit.cover, imageUrl: cartProduct.productData!.image)),
+              fit: BoxFit.cover, imageUrl: cartProduct.productData!.images[0])),
       title: CartListTileTitle(cartProduct: cartProduct),
       subtitle: CartListTileSubTitle(cartProduct: cartProduct),
     );
