@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import 'sortby_filter_bottom_sheet_header.dart';
-import 'sortby_filter_bottom_sheet_list_view.dart';
+import 'gender_filter_bottom_sheet_header.dart';
+import 'gender_filter_bottom_sheet_list_view.dart';
 
-class SortbyFilterBottomSheet extends StatelessWidget {
-  const SortbyFilterBottomSheet({super.key});
+class GenderFilterBottomSheet extends StatelessWidget {
+  const GenderFilterBottomSheet({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,14 +13,16 @@ class SortbyFilterBottomSheet extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          SortbyFilterBottomSheetHeader(),
+          GenderFilterBottomSheetHeader(),
           SizedBox(height: 12),
-          SortbyFilterBottomSheetListView(),
+          GenderFilterBottomSheetListView(),
           SizedBox(height: 32),
         ],
       ),
     );
   }
 }
+
+
 
 

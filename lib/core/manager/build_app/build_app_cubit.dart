@@ -381,6 +381,8 @@ class BuildAppCubit extends Cubit<BuildAppState> {
   int priceIndex = -1;
   int searchCategoryIndex = -1;
   int sortbyIndex = 0;
+  int genderIndex = 0;
+
   List priceList = [
     'Min',
     'Max',
@@ -390,6 +392,11 @@ class BuildAppCubit extends Cubit<BuildAppState> {
     'Recommended',
     'Newest',
     'Oldest',
+  ];
+
+  List gender = [
+    'Men',
+    'Women',
   ];
 
   void changePriceIndex(int index) {
@@ -422,6 +429,17 @@ class BuildAppCubit extends Cubit<BuildAppState> {
 
   void clearSortbyBottomSheet() {
     sortbyIndex = 0;
+    emit(ClearFilterBottomSheet());
+  }
+
+  void genderActiveIndex(int index) {
+    if (genderIndex == index) return;
+    genderIndex = index;
+    emit(IndexChanged());
+  }
+
+  void clearGenderBottomSheet() {
+    genderIndex = 0;
     emit(ClearFilterBottomSheet());
   }
 }
