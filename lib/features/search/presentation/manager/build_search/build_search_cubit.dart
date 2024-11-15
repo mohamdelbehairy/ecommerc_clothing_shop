@@ -1,4 +1,5 @@
 import 'package:e_clot_shop/core/utils/colors.dart';
+import 'package:e_clot_shop/core/utils/constants.dart';
 import 'package:e_clot_shop/features/home/data/models/product_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -28,14 +29,27 @@ class BuildSearchCubit extends Cubit<BuildSearchState> {
   List<ProductModel> searchList = [];
 
   List<ProductModel> allProducts = [];
-  List<ProductModel> maxPrice = [];
-  List<ProductModel> minPrice = [];
-  List<ProductModel> newest = [];
-  List<ProductModel> oldest = [];
-  List<ProductModel> oldestMinPrice = [];
-  List<ProductModel> oldestMaxPrice = [];
-  List<ProductModel> newestMinPrice = [];
-  List<ProductModel> newestMaxPrice = [];
+
+  List<ProductModel> men = [];
+  List<ProductModel> women = [];
+  List<ProductModel> minNewestMen = [];
+  List<ProductModel> minOldestMen = [];
+  List<ProductModel> maxNewestMen = [];
+  List<ProductModel> maxOldestMen = [];
+  List<ProductModel> minNewestWomen = [];
+  List<ProductModel> minOldestWomen = [];
+  List<ProductModel> maxNewestWomen = [];
+  List<ProductModel> maxOldestWomen = [];
+
+  List<ProductModel> minPriceMen = [];
+  List<ProductModel> maxPriceMen = [];
+  List<ProductModel> minPriceWomen = [];
+  List<ProductModel> maxPriceWomen = [];
+
+  List<ProductModel> newestMen = [];
+  List<ProductModel> oldestMen = [];
+  List<ProductModel> newestWomen = [];
+  List<ProductModel> oldestWomen = [];
 
   bool isSearch = false;
   void _checkSearch() {
@@ -79,56 +93,120 @@ class BuildSearchCubit extends Cubit<BuildSearchState> {
   void _getAllProducts() {
     _productRepo.getAllProducts((snapshot) {
       allProducts = [];
-      maxPrice = [];
-      minPrice = [];
-      newest = [];
-      oldest = [];
-      oldestMinPrice = [];
-      oldestMaxPrice = [];
-      newestMinPrice = [];
-      newestMaxPrice = [];
+      men = [];
+      women = [];
+      minNewestMen = [];
+      minOldestMen = [];
+      maxNewestMen = [];
+      maxOldestMen = [];
+      minNewestWomen = [];
+      minOldestWomen = [];
+      maxNewestWomen = [];
+      maxOldestWomen = [];
+      minPriceMen = [];
+      maxPriceMen = [];
+      minPriceWomen = [];
+      maxPriceWomen = [];
+      newestMen = [];
+      oldestMen = [];
+      newestWomen = [];
+      oldestWomen = [];
 
       for (var element in snapshot.docs) {
         var product = ProductModel.fromJson(element.data());
         allProducts.add(product);
 
-        if (int.parse(product.price) >= 50) {
-          maxPrice.add(product);
-        }
-        if (int.parse(product.price) < 50) {
-          minPrice.add(product);
-        }
-        if (product.createdTime
-            .isAfter(DateTime.now().subtract(const Duration(days: 7)))) {
-          newest.add(product);
-        }
-
-        if (product.createdTime
-            .isBefore(DateTime.now().subtract(const Duration(days: 7)))) {
-          oldest.add(product);
-        }
-        if (int.parse(product.price) < 50 &&
+        if (num.parse(product.price) < 40 &&
             product.createdTime
                 .isBefore(DateTime.now().subtract(const Duration(days: 7)))) {
-          oldestMinPrice.add(product);
+          if (product.gender == Constants.men) {
+            minOldestMen.add(product);
+          }
+
+          if (product.gender == Constants.women) {
+            minOldestWomen.add(product);
+          }
         }
 
-        if (int.parse(product.price) >= 50 &&
+        if (num.parse(product.price) >= 40 &&
             product.createdTime
                 .isBefore(DateTime.now().subtract(const Duration(days: 7)))) {
-          oldestMaxPrice.add(product);
+          if (product.gender == Constants.men) {
+            maxOldestMen.add(product);
+          }
+          if (product.gender == Constants.women) {
+            maxOldestWomen.add(product);
+          }
         }
 
-        if (int.parse(product.price) < 50 &&
+        if (num.parse(product.price) < 40 &&
             product.createdTime
                 .isAfter(DateTime.now().subtract(const Duration(days: 7)))) {
-          newestMinPrice.add(product);
+          if (product.gender == Constants.men) {
+            minNewestMen.add(product);
+          }
+          if (product.gender == Constants.women) {
+            minNewestWomen.add(product);
+          }
         }
 
-        if (int.parse(product.price) >= 50 &&
+        if (num.parse(product.price) >= 40 &&
             product.createdTime
                 .isAfter(DateTime.now().subtract(const Duration(days: 7)))) {
-          newestMaxPrice.add(product);
+          if (product.gender == Constants.men) {
+            maxNewestMen.add(product);
+          }
+
+          if (product.gender == Constants.women) {
+            maxNewestWomen.add(product);
+          }
+        }
+
+        if (product.gender == Constants.men) {
+          men.add(product);
+        }
+        if (product.gender == Constants.women) {
+          women.add(product);
+        }
+
+        if (num.parse(product.price) >= 40 && product.gender == Constants.men) {
+          maxPriceMen.add(product);
+        }
+
+        if (num.parse(product.price) < 40 && product.gender == Constants.men) {
+          minPriceMen.add(product);
+        }
+
+        if (num.parse(product.price) >= 40 &&
+            product.gender == Constants.women) {
+          maxPriceWomen.add(product);
+        }
+
+        if (num.parse(product.price) < 40 &&
+            product.gender == Constants.women) {
+          minPriceWomen.add(product);
+        }
+
+        if (product.createdTime
+                .isAfter(DateTime.now().subtract(const Duration(days: 7))) &&
+            product.gender == Constants.men) {
+          newestMen.add(product);
+        }
+        if (product.createdTime
+                .isBefore(DateTime.now().subtract(const Duration(days: 7))) &&
+            product.gender == Constants.men) {
+          oldestMen.add(product);
+        }
+
+        if (product.createdTime
+                .isAfter(DateTime.now().subtract(const Duration(days: 7))) &&
+            product.gender == Constants.women) {
+          newestWomen.add(product);
+        }
+        if (product.createdTime
+                .isBefore(DateTime.now().subtract(const Duration(days: 7))) &&
+            product.gender == Constants.women) {
+          oldestWomen.add(product);
         }
       }
 

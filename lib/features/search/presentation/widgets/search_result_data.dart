@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../core/manager/build_app/build_app_cubit.dart';
 import '../manager/build_search/build_search_cubit.dart';
+import 'function/search_result_get_list_data.dart';
 import 'no_search_result_widget.dart';
 import 'search_when_result_found.dart';
 
@@ -11,30 +11,10 @@ class SearchResultData extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var search = context.read<BuildSearchCubit>();
-    var buildApp = context.watch<BuildAppCubit>();
 
     return BlocBuilder<BuildSearchCubit, BuildSearchState>(
       builder: (context, state) {
-        if (buildApp.priceIndex == 0 && buildApp.sortbyIndex == 1) {
-          search.list = search.newestMinPrice;
-        } else if (buildApp.priceIndex == 1 && buildApp.sortbyIndex == 1) {
-          search.list = search.newestMaxPrice;
-        } else if (buildApp.priceIndex == 0 && buildApp.sortbyIndex == 2) {
-          search.list = search.oldestMinPrice;
-        } else if (buildApp.priceIndex == 1 && buildApp.sortbyIndex == 2) {
-          search.list = search.oldestMaxPrice;
-        } else if (buildApp.priceIndex == 0) {
-          search.list = search.minPrice;
-        } else if (buildApp.priceIndex == 1) {
-          search.list = search.maxPrice;
-        } else if (buildApp.sortbyIndex == 1) {
-          search.list = search.newest;
-        } else if (buildApp.sortbyIndex == 2) {
-          search.list = search.oldest;
-        } else {
-          search.list = search.allProducts;
-        }
-
+        searchResultGetListData(context);
         search.searchList = search.searchController.text.isEmpty
             ? []
             : search.list

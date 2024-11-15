@@ -32,4 +32,7 @@ class Constants {
   static const orderNotDelivered = 'Not Delivered';
 
   static const isDarkMode = 'isDarkMode';
+
+  static const men = 'Men';
+  static const women = 'Women';
 }
