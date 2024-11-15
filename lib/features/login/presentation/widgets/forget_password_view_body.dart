@@ -8,16 +8,18 @@ class ForgetPasswordViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        SizedBox(height: 50),
-        CustomHeaderWidget(text: 'Forgot Password'),
-        SizedBox(height: 30),
-        Padding(
-            padding: EdgeInsets.symmetric(horizontal: 24),
-            child: ForgetPasswordTextFieldAndButtonSection()),
-      ],
+    return const SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(height: 50),
+          CustomHeaderWidget(text: 'Forgot Password'),
+          SizedBox(height: 30),
+          Padding(
+              padding: EdgeInsets.symmetric(horizontal: 24),
+              child: ForgetPasswordTextFieldAndButtonSection()),
+        ],
+      ),
     );
   }
 }

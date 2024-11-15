@@ -14,33 +14,35 @@ class SelectAgeSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var isDarkMode = context.watch<ChangeThemeCubit>().isDarkMode;
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 24),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text('How Old are you ?', style: Styles.styleMedium16(context)),
-          const SizedBox(height: 16),
-          AgeRangeWidget(onTap: () {
-            BottomPicker.date(
-              closeIconColor: isDarkMode ? Colors.white : Colors.black,
-              initialDateTime: DateTime(2000),
-              maxDateTime: DateTime(DateTime.now().year - 2),
-              backgroundColor: isDarkMode
-                  ? AppColors.darkModeSecondryColor
-                  : AppColors.secondaryColor,
-              pickerTitle: Text('Select a Date',
-                  style: Styles.styleBottomSheetAgeBold16.copyWith(
-                      color:
-                          isDarkMode ? Colors.white : const Color(0xff272727))),
-              pickerTextStyle: Styles.styleBottomSheetAgeBold16.copyWith(
-                  color: isDarkMode ? Colors.white : const Color(0xff272727)),
-              onSubmit: (index) {
-                context.read<TellUsCubit>().pickYear(index.year);
-              },
-            ).show(context);
-          }),
-        ],
+    return GestureDetector(
+      onTap: () {
+        BottomPicker.date(
+          closeIconColor: isDarkMode ? Colors.white : Colors.black,
+          initialDateTime: DateTime(2000),
+          maxDateTime: DateTime(DateTime.now().year - 2),
+          backgroundColor: isDarkMode
+              ? AppColors.darkModeSecondryColor
+              : AppColors.secondaryColor,
+          pickerTitle: Text('Select a Date',
+              style: Styles.styleBottomSheetAgeBold16.copyWith(
+                  color: isDarkMode ? Colors.white : const Color(0xff272727))),
+          pickerTextStyle: Styles.styleBottomSheetAgeBold16.copyWith(
+              color: isDarkMode ? Colors.white : const Color(0xff272727)),
+          onSubmit: (index) {
+            context.read<TellUsCubit>().pickYear(index.year);
+          },
+        ).show(context);
+      },
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 24),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('How Old are you ?', style: Styles.styleMedium16(context)),
+            const SizedBox(height: 16),
+            const AgeRangeWidget(),
+          ],
+        ),
       ),
     );
   }

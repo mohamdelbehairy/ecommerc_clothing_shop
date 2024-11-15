@@ -9,8 +9,7 @@ import '../../../../core/widgets/custom_svg.dart';
 import '../../../theme/presentation/manager/change_theme/change_theme_cubit.dart';
 
 class AgeRangeWidget extends StatelessWidget {
-  const AgeRangeWidget({super.key, required this.onTap});
-  final Function() onTap;
+  const AgeRangeWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,19 +28,16 @@ class AgeRangeWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text('Age Range', style: Styles.styleMedium16(context)),
-            GestureDetector(
-              onTap: onTap,
-              child: Transform.rotate(
-                  angle: -3.14 / 2,
-                  child: CustomSvg(
-                      svgModel: SvgModel(
-                    image: Assets.imagesBack,
-                    height: 18,
-                    colorFilter: ColorFilter.mode(
-                        isDarkMode ? Colors.white : Colors.black,
-                        BlendMode.srcIn),
-                  ))),
-            )
+            Transform.rotate(
+                angle: -3.14 / 2,
+                child: CustomSvg(
+                    svgModel: SvgModel(
+                  image: Assets.imagesBack,
+                  height: 18,
+                  colorFilter: ColorFilter.mode(
+                      isDarkMode ? Colors.white : Colors.black,
+                      BlendMode.srcIn),
+                )))
           ],
         ),
       ),

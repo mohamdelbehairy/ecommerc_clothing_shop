@@ -15,16 +15,19 @@ class CartListTileSubTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var buildApp = context.read<BuildAppCubit>();
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        SubTitleSizeAndColorWidget(
-            cartProduct: cartProduct, quantity: buildApp.quantity.toString()),
-        if (!cartProduct.isOrder && !cartProduct.isProduct)
-          const SubTitleAddOrRemoveQuantity(),
-        if (cartProduct.isShipped)
-          SubTitleDeliveredOrNoshipped(orderID: cartProduct.orderID.toString()),
-      ],
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          SubTitleSizeAndColorWidget(
+              cartProduct: cartProduct, quantity: buildApp.quantity.toString()),
+          if (!cartProduct.isOrder && !cartProduct.isProduct)
+            const SubTitleAddOrRemoveQuantity(),
+          if (cartProduct.isShipped)
+            SubTitleDeliveredOrNoshipped(orderID: cartProduct.orderID.toString()),
+        ],
+      ),
     );
   }
 }

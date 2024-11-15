@@ -8,16 +8,18 @@ class LoginPasswordViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        SizedBox(height: 55),
-        CustomHeaderWidget(text: 'Sign in'),
-        SizedBox(height: 30),
-        Padding(
-            padding: EdgeInsets.symmetric(horizontal: 24),
-            child: LoginPasswordTextFieldAndButtonSetcion()),
-      ],
+    return const SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(height: 55),
+          CustomHeaderWidget(text: 'Sign in'),
+          SizedBox(height: 30),
+          Padding(
+              padding: EdgeInsets.symmetric(horizontal: 24),
+              child: LoginPasswordTextFieldAndButtonSetcion()),
+        ],
+      ),
     );
   }
 }

@@ -20,12 +20,12 @@ class SettingWhenStateSuccess extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const SizedBox(height: 24),
+                const SizedBox(height: 32),
                 const Spacer(flex: 3),
                 SettingUserImageAndSection(userData: userData),
-                const SizedBox(height: 24),
+                const SizedBox(height: 16),
                 const SettingListView(),
-                const SizedBox(height: 24),
+                const SizedBox(height: 16),
                 SignOutButton(userData: userData),
                 const Spacer(),
               ],

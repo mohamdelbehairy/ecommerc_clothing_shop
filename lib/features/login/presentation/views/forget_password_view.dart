@@ -14,13 +14,10 @@ class ForgetPasswordView extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
+        BlocProvider(create: (context) => BuildForgetPasswordCubit()),
         BlocProvider(
-          create: (context) => BuildForgetPasswordCubit(),
-        ),
-        BlocProvider(
-          create: (context) =>
-              ForgetPasswordCubit(getIt.get<EmailAuthRepoImpl>()),
-        ),
+            create: (context) =>
+                ForgetPasswordCubit(getIt.get<EmailAuthRepoImpl>())),
       ],
       child: const Scaffold(
         body: ForgetPasswordViewBody(),

@@ -19,7 +19,8 @@ class CartProductPriceAndCouponButtonsSection extends StatelessWidget {
         CartProductPriceListView(productData: productData),
         const SizedBox(height: 24),
         const CartCouponCodeWidget(),
-        const SizedBox(height: 64),
+        if (MediaQuery.sizeOf(context).width >= 375) const SizedBox(height: 64),
+        if (MediaQuery.sizeOf(context).width < 375) const SizedBox(height: 24),
         CartProductButtonPlaceOrder(
             userData: userData, productData: productData),
       ],
