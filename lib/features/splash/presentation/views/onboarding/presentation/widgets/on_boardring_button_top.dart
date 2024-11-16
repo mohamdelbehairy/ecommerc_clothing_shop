@@ -13,7 +13,7 @@ class OnBoardringButtonTop extends StatelessWidget {
     return GestureDetector(
       onTap: onBoardringButtonModel.onTap,
       child:
-          Text(onBoardringButtonModel.text, style: Styles.styleSemiBoldWhite20),
+          Text(onBoardringButtonModel.text, style: Styles.styleSemiBoldWhite20(context)),
     );
   }
 }

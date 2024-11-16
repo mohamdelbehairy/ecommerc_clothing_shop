@@ -18,8 +18,10 @@ class OnBoardringItem extends StatelessWidget {
               alignment: Alignment.center,
               child: Image.asset(onBoardringModel.image, height: 300)),
           const SizedBox(height: 30),
-          Text(onBoardringModel.header, style: Styles.styleSmeiBoldPoppins20),
-          Text(onBoardringModel.body, style: Styles.styleSmeiBoldPoppins16)
+          Text(onBoardringModel.header,
+              style: Styles.styleSmeiBoldPoppins20(context)),
+          Text(onBoardringModel.body,
+              style: Styles.styleSmeiBoldPoppins16(context))
         ],
       ),
     );

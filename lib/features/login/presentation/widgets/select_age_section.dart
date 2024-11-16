@@ -24,9 +24,9 @@ class SelectAgeSection extends StatelessWidget {
               ? AppColors.darkModeSecondryColor
               : AppColors.secondaryColor,
           pickerTitle: Text('Select a Date',
-              style: Styles.styleBottomSheetAgeBold16.copyWith(
+              style: Styles.styleBottomSheetAgeBold16(context).copyWith(
                   color: isDarkMode ? Colors.white : const Color(0xff272727))),
-          pickerTextStyle: Styles.styleBottomSheetAgeBold16.copyWith(
+          pickerTextStyle: Styles.styleBottomSheetAgeBold16(context).copyWith(
               color: isDarkMode ? Colors.white : const Color(0xff272727)),
           onSubmit: (index) {
             context.read<TellUsCubit>().pickYear(index.year);

@@ -33,12 +33,12 @@ Future<Object?> showAlertSignInSuccessful(BuildContext context) {
                     const SizedBox(height: 24),
                     Text('Sign In\n Successful',
                         textAlign: TextAlign.center,
-                        style: Styles.styleBoldUrbainst24),
+                        style: Styles.styleBoldUrbainst24(context)),
                     const SizedBox(height: 16),
                     Text(
                         'Please wait...\n You will be directed to the homepage soon.',
                         textAlign: TextAlign.center,
-                        style: Styles.styleMediumUrbainst16.copyWith(
+                        style: Styles.styleMediumUrbainst16(context).copyWith(
                             color: context.read<ChangeThemeCubit>().isDarkMode
                                 ? Colors.white
                                 : null)),

@@ -25,7 +25,7 @@ class CustomButton extends StatelessWidget {
                     : Text(customButtonModel.buttonName,
                         style: customButtonModel.buttonColor != null
                             ? Styles.styleMedium16(context)
-                            : Styles.styleMediumWhite16)),
+                            : Styles.styleMediumWhite16(context))),
       ),
     );
   }
