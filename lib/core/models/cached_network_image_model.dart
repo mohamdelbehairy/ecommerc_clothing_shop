@@ -16,3 +16,12 @@ class CachedNetworkImageModel {
       this.placeholder,
       this.errorWidget});
 }
+
+class CachedNetworkImageProviderModel {
+  final String imageUrl;
+  final int? height, width;
+  final double raduis;
+
+  CachedNetworkImageProviderModel(
+      {required this.imageUrl, this.height, this.width, this.raduis = 50});
+}

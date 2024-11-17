@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../manager/build_profile/build_profile_cubit.dart';
 import '../widgets/profile_view_body.dart';
 
 class ProfileView extends StatelessWidget {
@@ -7,8 +9,11 @@ class ProfileView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: ProfileViewBody(),
+    return BlocProvider(
+      create: (context) => BuildProfileCubit(),
+      child: const Scaffold(
+        body: ProfileViewBody(),
+      ),
     );
   }
 }

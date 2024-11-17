@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/models/cached_network_image_model.dart';
-import '../../../../core/widgets/user_image_widget.dart';
+import '../../../../core/widgets/custom_cached_network_image.dart';
 import '../../../user_data/data/models/user_data_model.dart';
 
 class HomeUserImage extends StatelessWidget {
@@ -10,11 +10,8 @@ class HomeUserImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return UserImageWidget(
-        imageModel: CachedNetworkImageModel(
-            height: 44,
-            width: 44,
-            borderRadius: 44,
-            imageUrl: userData.userImage));
+    return CustomCachedNetworkImageProvider(
+        cachedImage: CachedNetworkImageProviderModel(
+            raduis: 22, imageUrl: userData.userImage));
   }
 }
