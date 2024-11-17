@@ -12,10 +12,13 @@ class TellAboutViewSelectType extends StatelessWidget {
   Widget build(BuildContext context) {
     var selectType = context.watch<TellUsCubit>();
 
-    return SelectTypeSection(
-        selectTypeModel: SelectTypeModel(
-            onTap1: () => selectType.activeIndexChange(0),
-            onTap2: () => selectType.activeIndexChange(1),
-            activeIndex: selectType.activeIndex));
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 24),
+      child: SelectTypeSection(
+          selectTypeModel: SelectTypeModel(
+              onTap1: () => selectType.activeIndexChange(0),
+              onTap2: () => selectType.activeIndexChange(1),
+              activeIndex: selectType.activeIndex)),
+    );
   }
 }

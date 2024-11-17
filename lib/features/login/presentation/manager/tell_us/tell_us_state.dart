@@ -6,4 +6,4 @@ final class TellUsInitial extends TellUsState {}
 
 final class ChangeIndex extends TellUsState {}
 
-final class PickYearSuccess extends TellUsState {}
+final class PickDateSuccess extends TellUsState {}

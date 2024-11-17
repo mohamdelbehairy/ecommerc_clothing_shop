@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-
-import 'select_age_section.dart';
 import 'tell_about_finish_button.dart';
 import 'tell_about_header.dart';
+import 'tell_about_view_select_age.dart';
 import 'tell_about_view_select_type.dart';
 
 class TellAboutViewBody extends StatelessWidget {
@@ -18,10 +17,11 @@ class TellAboutViewBody extends StatelessWidget {
         SizedBox(height: 30),
         TellAboutViewSelectType(),
         SizedBox(height: 80),
-        SelectAgeSection(),
+        TellAboutViewSelectAge(),
         Spacer(),
         TellAboutFinshButton(),
       ],
     );
   }
 }
+

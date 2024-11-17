@@ -1,15 +1,15 @@
-import 'package:e_clot_shop/core/models/svg_model.dart';
-import 'package:e_clot_shop/core/utils/assets.dart';
+import 'package:e_clot_shop/core/models/back_widget_model.dart';
 import 'package:e_clot_shop/core/utils/colors.dart';
 import 'package:e_clot_shop/core/utils/styles.dart';
+import 'package:e_clot_shop/core/widgets/back_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/widgets/custom_svg.dart';
-import '../../../theme/presentation/manager/change_theme/change_theme_cubit.dart';
+import '../../../features/theme/presentation/manager/change_theme/change_theme_cubit.dart';
 
 class AgeRangeWidget extends StatelessWidget {
-  const AgeRangeWidget({super.key});
+  const AgeRangeWidget({super.key, required this.age});
+  final String age;
 
   @override
   Widget build(BuildContext context) {
@@ -27,17 +27,15 @@ class AgeRangeWidget extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text('Age Range', style: Styles.styleMedium16(context)),
-            Transform.rotate(
-                angle: -3.14 / 2,
-                child: CustomSvg(
-                    svgModel: SvgModel(
-                  image: Assets.imagesBack,
-                  height: 18,
-                  colorFilter: ColorFilter.mode(
-                      isDarkMode ? Colors.white : Colors.black,
-                      BlendMode.srcIn),
-                )))
+            Text(age.isNotEmpty ? age : 'Age Range',
+                style: Styles.styleMedium16(context)),
+            BackWidget(
+                backWidgetModel: BackWidgetModel(
+                    angle: -3.14 / 2,
+                    hight: 18,
+                    colorFilter: ColorFilter.mode(
+                        isDarkMode ? Colors.white : Colors.black,
+                        BlendMode.srcIn)))
           ],
         ),
       ),

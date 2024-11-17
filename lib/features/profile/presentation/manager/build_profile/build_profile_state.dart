@@ -4,3 +4,5 @@ part of 'build_profile_cubit.dart';
 sealed class BuildProfileState {}
 
 final class BuildProfileInitial extends BuildProfileState {}
+
+final class PickDateSuccess extends BuildProfileState {}
