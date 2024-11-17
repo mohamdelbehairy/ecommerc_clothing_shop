@@ -10,11 +10,6 @@ class EClotShop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // SystemChrome.setSystemUIOverlayStyle(
-    //   const SystemUiOverlayStyle(
-    //       statusBarColor: Colors.transparent,
-    //       statusBarIconBrightness: Brightness.dark),
-    // );
     return CustomMultiBlocProvider(
         child: BlocBuilder<ChangeThemeCubit, ChangeThemeState>(
       builder: (context, state) {

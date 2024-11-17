@@ -6,7 +6,7 @@ import 'setting_user_image_and_info_section.dart';
 import 'sign_out_button.dart';
 
 class SettingWhenStateSuccess extends StatelessWidget {
-  const SettingWhenStateSuccess({super.key, required this.userData});
+  const  SettingWhenStateSuccess({super.key, required this.userData});
   final UserDataModel userData;
 
   @override

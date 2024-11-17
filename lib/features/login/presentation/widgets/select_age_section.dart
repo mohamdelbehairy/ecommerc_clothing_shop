@@ -34,7 +34,7 @@ class SelectAgeSection extends StatelessWidget {
         ).show(context);
       },
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24),
+        padding: const EdgeInsets.symmetric(horizontal: 0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
