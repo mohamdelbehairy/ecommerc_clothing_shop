@@ -1,5 +1,8 @@
 import 'package:e_clot_shop/core/utils/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../image/presentation/manager/pick_image/pick_image_cubit.dart';
 
 class ProfileImagePositionedIcon extends StatelessWidget {
   const ProfileImagePositionedIcon({super.key});
@@ -7,7 +10,9 @@ class ProfileImagePositionedIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () async {
+        await context.read<PickImageCubit>().pickImage();
+      },
       child: const CircleAvatar(
         radius: 13,
         backgroundColor: Colors.white,

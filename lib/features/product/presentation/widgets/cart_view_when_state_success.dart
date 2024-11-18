@@ -39,7 +39,9 @@ class CartViewWhenStateSuccess extends StatelessWidget {
                         productData: productData)),
                 const SizedBox(height: 16),
                 CartShippingAndPaymentSection(userData: userData),
-                const SizedBox(height: 16),
+                if (MediaQuery.sizeOf(context).width < 375)
+                  const SizedBox(height: 16),
+                if (MediaQuery.sizeOf(context).width >= 375) const Spacer(),
                 CartProductPriceAndCouponButtonsSection(
                     productData: productData, userData: userData),
                 const SizedBox(height: 30),

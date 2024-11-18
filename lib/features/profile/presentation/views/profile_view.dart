@@ -1,3 +1,5 @@
+import 'package:e_clot_shop/features/image/data/repo/pick_image_repo_impl.dart';
+import 'package:e_clot_shop/features/image/presentation/manager/pick_image/pick_image_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -9,8 +11,11 @@ class ProfileView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => BuildProfileCubit(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => BuildProfileCubit()),
+        BlocProvider(create: (context) => PickImageCubit(PickImageRepoImpl())),
+      ],
       child: const Scaffold(
         body: ProfileViewBody(),
       ),
