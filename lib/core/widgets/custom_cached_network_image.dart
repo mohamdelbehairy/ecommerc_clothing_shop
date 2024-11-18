@@ -38,7 +38,9 @@ class CustomCachedNetworkImageProvider extends StatelessWidget {
         backgroundColor: context.read<ChangeThemeCubit>().isDarkMode
             ? Colors.grey.shade800
             : Colors.grey.shade300,
-        backgroundImage: CachedNetworkImageProvider(cachedImage.imageUrl,
-            maxHeight: cachedImage.height, maxWidth: cachedImage.width));
+        backgroundImage: cachedImage.fileImage != null
+            ? FileImage(cachedImage.fileImage!)
+            : CachedNetworkImageProvider(cachedImage.imageUrl,
+                maxHeight: cachedImage.height, maxWidth: cachedImage.width));
   }
 }

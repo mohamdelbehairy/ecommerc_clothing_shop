@@ -2,9 +2,9 @@ import 'package:dartz/dartz.dart';
 import 'package:e_clot_shop/core/error/failure.dart';
 import 'package:image_picker/image_picker.dart';
 
-import 'pick_image_repo.dart';
+import 'image_repo.dart';
 
-class PickImageRepoImpl extends PickImageRepo {
+class ImageRepoImpl extends ImageRepo {
   @override
   Future<Either<Failure, XFile?>> pickImage() async {
     try {
@@ -16,5 +16,11 @@ class PickImageRepoImpl extends PickImageRepo {
     } catch (e) {
       return Left(Failure(message: e.toString()));
     }
+  }
+
+  @override
+  Future<Either<Failure, String>> uploadImage() async{
+    // TODO: implement uploadImage
+    throw UnimplementedError();
   }
 }

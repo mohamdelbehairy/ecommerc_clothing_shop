@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 class CachedNetworkImageModel {
@@ -21,7 +23,12 @@ class CachedNetworkImageProviderModel {
   final String imageUrl;
   final int? height, width;
   final double raduis;
+  final File? fileImage;
 
   CachedNetworkImageProviderModel(
-      {required this.imageUrl, this.height, this.width, this.raduis = 50});
+      {required this.imageUrl,
+      this.height,
+      this.width,
+      this.raduis = 50,
+      this.fileImage});
 }
