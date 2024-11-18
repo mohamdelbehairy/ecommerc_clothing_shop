@@ -17,11 +17,11 @@
 		</array>
           
 		<!-- strip permssion -->
-		<key>NSCameraUsageDescription</key>
+		<!-- <key>NSCameraUsageDescription</key>
 		<string>Scan your card to add it automatically</string>
 		<key>NSCameraUsageDescription
 		&lt;string&gt;To scan cards&lt;/string&gt;</key>
-		<string>To scan cards</string>
+		<string>To scan cards</string> -->
 
 		<key>CFBundleDevelopmentRegion</key>
 		<string>$(DEVELOPMENT_LANGUAGE)</string>
@@ -49,6 +49,15 @@
 		<string>LaunchScreen</string>
 		<key>UIMainStoryboardFile</key>
 		<string>Main</string>
+
+    	<!-- image picker permission -->
+		<key>NSPhotoLibraryUsageDescription</key>
+		<string>We need access to your photo library so you can select and upload photos to the app.</string>
+		<key>NSCameraUsageDescription</key>
+		<string>We need access to your camera so you can take pictures or record videos within the app.</string>
+		<key>NSMicrophoneUsageDescription</key>
+		<string>We need access to your microphone to record audio for videos or during voice calls in the app.</string>
+
 		<key>UISupportedInterfaceOrientations</key>
 		<array>
 			<string>UIInterfaceOrientationPortrait</string>
