@@ -6,7 +6,11 @@ final class UpdateDataInitial extends UpdateDataState {}
 
 final class UpdateDataLoading extends UpdateDataState {}
 
+final class UpdateAllUserDataLoading extends UpdateDataState {}
+
 final class UpdateUserDataSuccess extends UpdateDataState {}
+
+final class UpdateAllUserDataSuccess extends UpdateDataState {}
 
 final class UpdateProductDataSuccess extends UpdateDataState {}
 

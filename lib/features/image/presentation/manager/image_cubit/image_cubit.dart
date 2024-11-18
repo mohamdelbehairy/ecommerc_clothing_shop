@@ -13,6 +13,7 @@ class ImageCubit extends Cubit<ImageState> {
   final ImageRepo _imageRepo;
 
   File? image;
+  String imageUrl = '';
   Future<void> pickImage() async {
     emit(PickImageLoading());
     final result = await _imageRepo.pickImage();
@@ -28,15 +29,18 @@ class ImageCubit extends Cubit<ImageState> {
     });
   }
 
-  Future<void> uploadImage({required File imageFile}) async {
+  Future<void> uploadImage() async {
     emit(UploadImageLoading());
-    final result = await _imageRepo.uploadImage(imageFile);
+    final result = await _imageRepo.uploadImage(image!);
 
     result.fold((e) {
       emit(ImageFailure(errorMessage: e.toString()));
       log("error from upload image: ${e.message}");
     }, (e) {
-      emit(UploadImageSuccess());
+      if (e.isNotEmpty) {
+        imageUrl = e;
+        emit(UploadImageSuccess());
+      }
     });
   }
 }

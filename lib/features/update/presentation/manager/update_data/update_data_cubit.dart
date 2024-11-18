@@ -4,6 +4,8 @@ import 'package:e_clot_shop/core/utils/constants.dart';
 import 'package:e_clot_shop/features/update/data/repo/update_data_repo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../user_data/data/models/user_data_model.dart';
+
 part 'update_data_state.dart';
 
 class UpdateDataCubit extends Cubit<UpdateDataState> {
@@ -20,6 +22,16 @@ class UpdateDataCubit extends Cubit<UpdateDataState> {
       emit(UpdateDataFailure(errorMessage: e.toString()));
       log('error from update user data: $e');
     }, (e) => emit(UpdateUserDataSuccess()));
+  }
+
+  Future<void> updateAllUserData({required UserDataModel userData}) async {
+    emit(UpdateAllUserDataLoading());
+    final result = await _userDataRepo.updateAllUserData(userData);
+
+    result.fold((e) {
+      emit(UpdateDataFailure(errorMessage: e.toString()));
+      log('error from update all user data: $e');
+    }, (e) => emit(UpdateAllUserDataSuccess()));
   }
 
   Future<void> updateProductData(

@@ -10,14 +10,15 @@ class TellUsCubit extends Cubit<TellUsState> {
   void activeIndexChange(int index) {
     if (activeIndex == index) return;
     activeIndex = index;
-
     emit(ChangeIndex());
   }
 
   DateTime date = DateTime(2000);
+  int year = 0;
   String showdate = '';
 
   void pickDate(DateTime dateTime) {
+    year = DateTime.now().year - dateTime.year;
     date = DateTime(dateTime.year, dateTime.month, dateTime.day);
     showdate = '${(DateTime.now().year - dateTime.year)} years';
     emit(PickDateSuccess());

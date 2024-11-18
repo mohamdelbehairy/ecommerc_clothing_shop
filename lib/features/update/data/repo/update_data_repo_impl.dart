@@ -5,6 +5,7 @@ import 'package:e_clot_shop/features/update/data/repo/update_data_repo.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import '../../../../core/error/failure.dart';
+import '../../../user_data/data/models/user_data_model.dart';
 
 class UpdateDataRepoImpl extends UpdateDataRepo {
   @override
@@ -14,6 +15,26 @@ class UpdateDataRepoImpl extends UpdateDataRepo {
           .collection(Constants.usersCollection)
           .doc(FirebaseAuth.instance.currentUser!.uid)
           .update({key: value});
+      return const Right(null);
+    } catch (e) {
+      return Left(Failure(message: e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, void>> updateAllUserData(
+      UserDataModel userData) async {
+    try {
+      await FirebaseFirestore.instance
+          .collection(Constants.usersCollection)
+          .doc(FirebaseAuth.instance.currentUser!.uid)
+          .update({
+        Constants.userName: userData.userName,
+        Constants.userImage: userData.userImage,
+        Constants.type: userData.type,
+        Constants.age: userData.age,
+        Constants.dateTime: userData.dateTime
+      });
       return const Right(null);
     } catch (e) {
       return Left(Failure(message: e.toString()));

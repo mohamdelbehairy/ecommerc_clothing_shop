@@ -1,20 +1,23 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:e_clot_shop/core/utils/constants.dart';
 
 class UserDataModel {
-  final String userName, email, userId, userImage, authType;
-  final String? shippingAddress;
+  final String userName, userImage, authType;
+  final String? email, userId, shippingAddress;
   final int? type, age;
+  final DateTime dateTime;
   final int paymentMethod;
 
   UserDataModel(
       {required this.userName,
-      required this.email,
-      required this.userId,
+      this.email,
+      this.userId,
       this.userImage = Constants.defaultUserImageUrl,
       this.authType = Constants.email,
       this.shippingAddress,
       this.type = 0,
       this.age,
+      required this.dateTime,
       this.paymentMethod = -1});
 
   factory UserDataModel.fromJson(Map<String, dynamic> jsonData) {
@@ -27,6 +30,7 @@ class UserDataModel {
         shippingAddress: jsonData['shippingAddress'],
         type: jsonData['type'],
         age: jsonData['age'],
+        dateTime: (jsonData['dateTime'] as Timestamp).toDate(),
         paymentMethod: jsonData['paymentMethod']);
   }
 
@@ -40,6 +44,7 @@ class UserDataModel {
       'shippingAddress': shippingAddress,
       'type': type,
       'age': age,
+      'dateTime': dateTime,
       'paymentMethod': paymentMethod
     };
   }

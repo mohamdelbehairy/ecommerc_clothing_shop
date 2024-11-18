@@ -7,6 +7,11 @@ class Constants {
   static const wishlistCollection = 'wishlist';
   static const ordersCollection = 'orders';
 
+  static const userImage = 'userImage';
+  static const userName = 'userName';
+  static const type = 'type';
+  static const age = 'age';
+  static const dateTime = 'dateTime';
   static const sellingCount = 'sellingCount';
   static const paymentMethod = 'paymentMethod';
   static const shippingAddress = 'shippingAddress';

@@ -210,11 +210,11 @@ class SocialAuthRepoImpl extends SocialAuthRepo {
       UserCredential userCredential, String authType) async {
     if (!await isUserDataSaved(userCredential.user!.uid)) {
       await _userDataRepo.saveUserData(UserDataModel(
-        userName: userCredential.user!.displayName!,
-        email: userCredential.user!.email!,
-        userId: userCredential.user!.uid,
-        authType: authType,
-      ));
+          userName: userCredential.user!.displayName!,
+          email: userCredential.user!.email!,
+          userId: userCredential.user!.uid,
+          authType: authType,
+          dateTime: DateTime.now()));
       await StripRepoImpl(getIt.get<ApiService>()).createCustomer(
           id: userCredential.user!.uid,
           name: userCredential.user!.displayName!);

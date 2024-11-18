@@ -27,7 +27,7 @@ class AgeRangeWidget extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(age.isNotEmpty ? age : 'Age Range',
+            Text(age.isNotEmpty ? '$age years' : 'Age Range',
                 style: Styles.styleMedium16(context)),
             BackWidget(
                 backWidgetModel: BackWidgetModel(

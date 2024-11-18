@@ -26,14 +26,12 @@ class ProfileWhenStateSuccess extends StatelessWidget {
           const SizedBox(height: 32),
           const ProfileTextField(),
           const SizedBox(height: 32),
-          const SelectTypeAndAgeSection(),
+          SelectTypeAndAgeSection(userData: userData),
           const Spacer(),
-          const ProfileSaveButton(),
+          ProfileSaveButton(userData: userData),
           const SizedBox(height: 24),
         ],
       ),
     );
   }
 }
-
-

@@ -14,7 +14,7 @@ class SettingUserInfoWidget extends StatelessWidget {
         const SizedBox(height: 13),
         Text(userData.userName, style: Styles.styleBold16(context)),
         const SizedBox(height: 6),
-        Text(userData.email, style: Styles.styleMedium16WithOpacity(context)),
+        Text(userData.email!, style: Styles.styleMedium16WithOpacity(context)),
         const SizedBox(height: 6),
         Text('121-224-7890', style: Styles.styleMedium16WithOpacity(context)),
         const SizedBox(height: 13),
