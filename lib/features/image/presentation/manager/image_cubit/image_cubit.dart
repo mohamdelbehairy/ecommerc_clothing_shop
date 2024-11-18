@@ -8,13 +8,14 @@ import '../../../data/repo/image_repo.dart';
 part 'image_state.dart';
 
 class ImageCubit extends Cubit<ImageState> {
-  ImageCubit(this._pickImage) : super(ImageInitial());
+  ImageCubit(this._imageRepo) : super(ImageInitial());
 
-  final ImageRepo _pickImage;
+  final ImageRepo _imageRepo;
 
   File? image;
   Future<void> pickImage() async {
-    final result = await _pickImage.pickImage();
+    emit(PickImageLoading());
+    final result = await _imageRepo.pickImage();
 
     result.fold((e) {
       emit(ImageFailure(errorMessage: e.toString()));
@@ -24,6 +25,18 @@ class ImageCubit extends Cubit<ImageState> {
         image = File(e.path);
         emit(PickImageSuccess());
       }
+    });
+  }
+
+  Future<void> uploadImage({required File imageFile}) async {
+    emit(UploadImageLoading());
+    final result = await _imageRepo.uploadImage(imageFile);
+
+    result.fold((e) {
+      emit(ImageFailure(errorMessage: e.toString()));
+      log("error from upload image: ${e.message}");
+    }, (e) {
+      emit(UploadImageSuccess());
     });
   }
 }
