@@ -12,7 +12,7 @@ class CachedAndRemoveUserId {
     await _userData(FirebaseAuth.instance.currentUser!.uid);
   }
 
-  static Future<void> cachedRegisterUserID(String userName) async {
+  static Future<void> cachedRegisterUserID(String userName, String type) async {
     await _firstLogin();
     await _sharedPrefRepo
         .setBool(SharedPrefModel(key: Constants.registerDone, value: true));
@@ -22,7 +22,8 @@ class CachedAndRemoveUserId {
           ? FirebaseAuth.instance.currentUser!.email!
           : FirebaseAuth.instance.currentUser!.phoneNumber!,
       userName,
-      FirebaseAuth.instance.currentUser!.photoURL!
+      FirebaseAuth.instance.currentUser!.photoURL!,
+      type
     ]);
   }
 

@@ -7,7 +7,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../../core/widgets/function/show_alert_sign_in_successful.dart';
 
-Future<void> stateSuccessLogin(BuildContext context) async {
+Future<void> stateSuccessLogin(BuildContext context, String type) async {
   if (await isUserDataSaved(FirebaseAuth.instance.currentUser!.uid)) {
     await CachedAndRemoveUserId.cachedLoginUserID();
     // ignore: use_build_context_synchronously
@@ -18,7 +18,8 @@ Future<void> stateSuccessLogin(BuildContext context) async {
             ? FirebaseAuth.instance.currentUser!.displayName!
             : FirebaseAuth.instance.currentUser!.email != null
                 ? FirebaseAuth.instance.currentUser!.email!
-                : FirebaseAuth.instance.currentUser!.phoneNumber!);
+                : FirebaseAuth.instance.currentUser!.phoneNumber!,
+        type);
     // ignore: use_build_context_synchronously
     GoRouter.of(context).go(AppRouter.tellAbout);
   }

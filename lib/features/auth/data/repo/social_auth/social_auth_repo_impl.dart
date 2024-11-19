@@ -1,25 +1,17 @@
 import 'package:dartz/dartz.dart';
 import 'package:e_clot_shop/core/error/failure.dart';
-import 'package:e_clot_shop/core/utils/api_service.dart';
 import 'package:e_clot_shop/core/utils/cached_and_remove_user_id.dart';
-import 'package:e_clot_shop/core/utils/constants.dart';
-import 'package:e_clot_shop/core/utils/setup_service_locator.dart';
-import 'package:e_clot_shop/features/payment/data/repo/strip_repo_impl.dart';
-import 'package:e_clot_shop/features/user_data/data/models/user_data_model.dart';
-import 'package:e_clot_shop/features/user_data/data/repo/user_data_repo.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:github_sign_in/github_sign_in.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:twitter_login/twitter_login.dart';
 
-import '../../../../../core/utils/is_user_data_saved.dart';
 import '../../../../../core/utils/secret_key.dart';
-import '../../../../user_data/data/repo/user_data_repo_impl.dart';
 import 'social_auth_repo.dart';
 
 class SocialAuthRepoImpl extends SocialAuthRepo {
-  final UserDataRepo _userDataRepo = UserDataRepoImpl();
+  // final UserDataRepo _userDataRepo = UserDataRepoImpl();
   @override
   Future<Either<Failure, UserCredential>> signInWithGoogle() async {
     try {
@@ -33,12 +25,6 @@ class SocialAuthRepoImpl extends SocialAuthRepo {
 
         userCredential =
             await FirebaseAuth.instance.signInWithCredential(credential);
-
-        // if (userCredential.user != null) {
-        //   await saveUserDataFunc(userCredential, Constants.google);
-
-        //   await CachedAndRemoveUserId.cachedLoginUserID(userCredential);
-        // }
       }
       return Right(userCredential!);
     } catch (e) {
@@ -102,11 +88,6 @@ class SocialAuthRepoImpl extends SocialAuthRepo {
         );
         userCredential = await FirebaseAuth.instance
             .signInWithCredential(twitterAuthCredential);
-        if (userCredential.user != null) {
-          await saveUserDataFunc(userCredential, Constants.twitter);
-
-          // await CachedAndRemoveUserId.cachedLoginUserID(userCredential);
-        }
       }
       return Right(userCredential!);
     } catch (e) {
@@ -136,11 +117,6 @@ class SocialAuthRepoImpl extends SocialAuthRepo {
 
         userCredential = await FirebaseAuth.instance
             .signInWithCredential(githubAuthCredential);
-        if (userCredential.user != null) {
-          await saveUserDataFunc(userCredential, Constants.github);
-
-          // await CachedAndRemoveUserId.cachedLoginUserID(userCredential);
-        }
       }
 
       return Right(userCredential!);
@@ -195,21 +171,6 @@ class SocialAuthRepoImpl extends SocialAuthRepo {
         return Left(FirebaseFailure.fromCode(e.code));
       }
       return Left(Failure(message: e.toString()));
-    }
-  }
-
-  Future<void> saveUserDataFunc(
-      UserCredential userCredential, String authType) async {
-    if (!await isUserDataSaved(userCredential.user!.uid)) {
-      await _userDataRepo.saveUserData(UserDataModel(
-          userName: userCredential.user!.displayName!,
-          email: userCredential.user!.email!,
-          userId: userCredential.user!.uid,
-          authType: authType,
-          dateTime: DateTime.now()));
-      await StripRepoImpl(getIt.get<ApiService>()).createCustomer(
-          id: userCredential.user!.uid,
-          name: userCredential.user!.displayName!);
     }
   }
 }

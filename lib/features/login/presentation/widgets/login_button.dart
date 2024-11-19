@@ -1,3 +1,4 @@
+import 'package:e_clot_shop/core/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -21,7 +22,7 @@ class LoginButton extends StatelessWidget {
           emailLogin.isLoading = state.isLoading;
         }
         if (state is EmailLoginSuccess) {
-          await stateSuccessLogin(context);
+          await stateSuccessLogin(context,Constants.email);
           buildLogin.email.clear();
           buildLogin.password.clear();
           emailLogin.isLoading = false;

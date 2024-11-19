@@ -9,8 +9,8 @@ import 'package:go_router/go_router.dart';
 
 import '../../../auth/presentation/manager/logout/logout_cubit.dart';
 
-class LogoutBottomSheetBody extends StatelessWidget {
-  const LogoutBottomSheetBody({super.key, required this.userData});
+class SignOutBottomSheetBody extends StatelessWidget {
+  const SignOutBottomSheetBody({super.key, required this.userData});
   final UserDataModel userData;
 
   @override

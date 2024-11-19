@@ -10,7 +10,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/widgets/function/show_alert_log_out_successful.dart';
 import '../../../auth/data/repo/email_auth/email_auth_repo_impl.dart';
-import 'logout_bottom_sheet_body.dart';
+import 'signout_bottom_sheet_body.dart';
 
 class SignOutButton extends StatelessWidget {
   const SignOutButton({super.key, required this.userData});
@@ -36,13 +36,14 @@ class SignOutButton extends StatelessWidget {
                   }
                 },
                 builder: (context, state) {
-                  return LogoutBottomSheetBody(userData: userData);
+                  return SignOutBottomSheetBody(userData: userData);
                 },
               ),
             ));
       },
       child: Text('Sign Out',
-          style: Styles.styleBold16(context).copyWith(color: const Color(0xffFA3636))),
+          style: Styles.styleBold16(context)
+              .copyWith(color: const Color(0xffFA3636))),
     );
   }
 }

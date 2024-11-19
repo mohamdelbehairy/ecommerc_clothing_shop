@@ -1,5 +1,6 @@
 import 'package:e_clot_shop/core/utils/app_router.dart';
 import 'package:e_clot_shop/core/utils/cached_and_remove_user_id.dart';
+import 'package:e_clot_shop/core/utils/constants.dart';
 import 'package:e_clot_shop/core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,7 +21,7 @@ class RegisterButton extends StatelessWidget {
     var buildLogin = context.read<BuildAppCubit>();
     var emailRegister = context.read<EmailRegisterCubit>();
     return BlocConsumer<EmailRegisterCubit, EmailRegisterState>(
-      listener: (context, state) async{
+      listener: (context, state) async {
         if (state is EmailRegisterLoading) {
           emailRegister.isLoading = state.isLoading;
         }
@@ -28,7 +29,8 @@ class RegisterButton extends StatelessWidget {
           emailRegister.isLoading = false;
           buildLogin.userName =
               '${buildRegister.firstName.text} ${buildRegister.lastName.text}';
-         await CachedAndRemoveUserId.cachedRegisterUserID(buildLogin.userName);
+          await CachedAndRemoveUserId.cachedRegisterUserID(
+              buildLogin.userName, Constants.email);
           // ignore: use_build_context_synchronously
           GoRouter.of(context).go(AppRouter.tellAbout);
         }
