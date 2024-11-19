@@ -6,4 +6,6 @@ abstract class SharedPrefRepo {
   Future<bool> getBool(String key);
   Future<String?> getString(String key);
   Future<void> remove(String key);
+  Future<void> setList(List<String> value);
+  Future<List<String>?> getList();
 }

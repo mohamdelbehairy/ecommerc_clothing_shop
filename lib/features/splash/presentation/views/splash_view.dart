@@ -37,7 +37,10 @@ class _SplashViewState extends State<SplashView> {
     var sharedPref = context.read<SharedPrefCubit>();
     Future.delayed(const Duration(seconds: 1), () async {
       if (await sharedPref.getBool(key: Constants.firstLogin)) {
-        if (await sharedPref.getString(key: Constants.userId) != null) {
+        if (await sharedPref.getBool(key: Constants.registerDone)) {
+          // ignore: use_build_context_synchronously
+          GoRouter.of(context).go(AppRouter.tellAbout);
+        } else if (await sharedPref.getString(key: Constants.userId) != null) {
           // ignore: use_build_context_synchronously
           GoRouter.of(context).go(AppRouter.bottomNavigationBar);
         } else {

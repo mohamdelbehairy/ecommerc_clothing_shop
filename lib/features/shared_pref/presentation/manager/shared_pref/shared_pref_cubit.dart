@@ -20,4 +20,11 @@ class SharedPrefCubit extends Cubit<SharedPrefState> {
       return value;
     });
   }
+
+  Future<List<String>?> getListString() async {
+    return await _sharedPrefRepo.getList().then((value) {
+      emit(SharedPrefGetListSuccess());
+      return value;
+    });
+  }
 }

@@ -7,3 +7,5 @@ final class SharedPrefInitial extends SharedPrefState {}
 final class SharedPrefGetBoolSuccess extends SharedPrefState {}
 
 final class SharedPrefGetStringSuccess extends SharedPrefState {}
+
+final class SharedPrefGetListSuccess extends SharedPrefState {}

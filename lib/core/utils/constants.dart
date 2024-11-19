@@ -18,6 +18,8 @@ class Constants {
 
   static const firstLogin = 'first_login';
   static const userId = 'user_id';
+  static const registerDone = 'register_done';
+  static const listUserData = 'listUserData';
 
   static const email = 'email';
   static const google = 'google';

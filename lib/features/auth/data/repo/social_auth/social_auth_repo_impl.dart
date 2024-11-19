@@ -2,9 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:e_clot_shop/core/error/failure.dart';
 import 'package:e_clot_shop/core/utils/api_service.dart';
-import 'package:e_clot_shop/core/utils/cached_user_id_and_first_login.dart';
+import 'package:e_clot_shop/core/utils/cached_and_reomve_user_id.dart';
 import 'package:e_clot_shop/core/utils/constants.dart';
-import 'package:e_clot_shop/core/utils/remove_user_id.dart';
 import 'package:e_clot_shop/core/utils/setup_service_locator.dart';
 import 'package:e_clot_shop/features/payment/data/repo/strip_repo_impl.dart';
 import 'package:e_clot_shop/features/user_data/data/models/user_data_model.dart';
@@ -38,7 +37,7 @@ class SocialAuthRepoImpl extends SocialAuthRepo {
         if (userCredential.user != null) {
           await saveUserDataFunc(userCredential, Constants.google);
 
-          await cachedUserIdAndFirstLogin(userCredential);
+          await CachedAndRemoveUserId.cachedLoginUserID(userCredential);
         }
       }
       return Right(userCredential!);
@@ -105,7 +104,8 @@ class SocialAuthRepoImpl extends SocialAuthRepo {
             .signInWithCredential(twitterAuthCredential);
         if (userCredential.user != null) {
           await saveUserDataFunc(userCredential, Constants.twitter);
-          await cachedUserIdAndFirstLogin(userCredential);
+
+          await CachedAndRemoveUserId.cachedLoginUserID(userCredential);
         }
       }
       return Right(userCredential!);
@@ -138,7 +138,8 @@ class SocialAuthRepoImpl extends SocialAuthRepo {
             .signInWithCredential(githubAuthCredential);
         if (userCredential.user != null) {
           await saveUserDataFunc(userCredential, Constants.github);
-          await cachedUserIdAndFirstLogin(userCredential);
+
+          await CachedAndRemoveUserId.cachedLoginUserID(userCredential);
         }
       }
 
@@ -164,7 +165,7 @@ class SocialAuthRepoImpl extends SocialAuthRepo {
   @override
   Future<Either<Failure, bool>> googleLogout() async {
     try {
-      await removeUserId();
+      await CachedAndRemoveUserId.removeUserID();
       await GoogleSignIn().signOut();
 
       return const Right(true);
@@ -195,7 +196,7 @@ class SocialAuthRepoImpl extends SocialAuthRepo {
   @override
   Future<Either<Failure, void>> twitterLogout() async {
     try {
-      await removeUserId();
+      await CachedAndRemoveUserId.removeUserID();
       await FirebaseAuth.instance.signOut();
       return const Right(null);
     } catch (e) {

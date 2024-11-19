@@ -1,3 +1,4 @@
+import 'package:e_clot_shop/core/utils/constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../models/shared_pref_model.dart';
@@ -27,10 +28,22 @@ class SharedPrefRepoImpl extends SharedPrefRepo {
     final prefs = await SharedPreferences.getInstance();
     return prefs.getString(key);
   }
-  
+
   @override
-  Future<void> remove(String key) async{
+  Future<void> remove(String key) async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.remove(key);
+  }
+
+  @override
+  Future<void> setList(List<String> value) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setStringList(Constants.listUserData, value);
+  }
+
+  @override
+  Future<List<String>?> getList() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getStringList(Constants.listUserData);
   }
 }

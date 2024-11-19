@@ -1,4 +1,5 @@
 import 'package:e_clot_shop/core/utils/app_router.dart';
+import 'package:e_clot_shop/core/utils/cached_and_reomve_user_id.dart';
 import 'package:e_clot_shop/core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -27,7 +28,7 @@ class RegisterButton extends StatelessWidget {
           emailRegister.isLoading = false;
           buildLogin.userName =
               '${buildRegister.firstName.text} ${buildRegister.lastName.text}';
-
+          CachedAndRemoveUserId.cachedRegisterUserID(buildLogin.userName);
           GoRouter.of(context).go(AppRouter.tellAbout);
         }
         if (state is EmailRegisterFailure) {

@@ -1,4 +1,4 @@
-import 'package:e_clot_shop/features/theme/presentation/manager/change_theme/change_theme_cubit.dart';
+import 'package:e_clot_shop/core/utils/cached_and_reomve_user_id.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -7,6 +7,7 @@ import '../../../../core/utils/colors.dart';
 import '../../../../core/widgets/custom_button.dart';
 import '../../../../core/widgets/function/custom_snack_bar_widget.dart';
 import '../../../../core/widgets/function/show_alert_sign_in_successful.dart';
+import '../../../theme/presentation/manager/change_theme/change_theme_cubit.dart';
 import '../../../user_data/presentation/manager/save_user_data/save_user_data_cubit.dart';
 import 'function/tell_about_button_on_tap.dart';
 
@@ -16,6 +17,7 @@ class TellAboutFinshButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var saveUserData = context.read<SaveUserDataCubit>();
+
     return BlocConsumer<SaveUserDataCubit, SaveUserDataState>(
       listener: (context, state) {
         if (state is SaveUserDataLoading) {
@@ -23,6 +25,7 @@ class TellAboutFinshButton extends StatelessWidget {
         }
         if (state is SaveUserDataSuccess) {
           saveUserData.isLoading = false;
+          CachedAndRemoveUserId.removeRegisterUserID();
           showAlertSignInSuccessful(context);
         }
         if (state is SaveUserDataFailure) {

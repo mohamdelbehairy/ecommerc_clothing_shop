@@ -1,8 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:e_clot_shop/core/error/failure.dart';
-import 'package:e_clot_shop/core/utils/remove_user_id.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import '../../../../../core/utils/cached_user_id_and_first_login.dart';
+import '../../../../../core/utils/cached_and_reomve_user_id.dart';
 import 'email_auth_repo.dart';
 
 class EmailAuthRepoImpl extends EmailAuthRepo {
@@ -12,9 +11,9 @@ class EmailAuthRepoImpl extends EmailAuthRepo {
     try {
       final credential = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(email: email, password: password);
-      if (credential.user != null) {
-        await cachedUserIdAndFirstLogin(credential);
-      }
+      // if (credential.user != null) {
+      //   await CachedAndRemoveUserId.cachedRegisterUserID(credential);
+      // }
       return Right(credential);
     } catch (e) {
       if (e is FirebaseAuthException) {
@@ -32,7 +31,7 @@ class EmailAuthRepoImpl extends EmailAuthRepo {
       final credential = await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
       if (credential.user != null) {
-        await cachedUserIdAndFirstLogin(credential);
+        await CachedAndRemoveUserId.cachedLoginUserID(credential);
       }
       return Right(credential);
     } catch (e) {
@@ -61,7 +60,7 @@ class EmailAuthRepoImpl extends EmailAuthRepo {
   @override
   Future<Either<Failure, void>> emailLogout() async {
     try {
-      await removeUserId();
+      await CachedAndRemoveUserId.removeUserID();
       await FirebaseAuth.instance.signOut();
 
       return const Right(null);
