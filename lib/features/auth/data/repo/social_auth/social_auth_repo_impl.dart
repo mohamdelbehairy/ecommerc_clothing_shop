@@ -1,8 +1,7 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:e_clot_shop/core/error/failure.dart';
 import 'package:e_clot_shop/core/utils/api_service.dart';
-import 'package:e_clot_shop/core/utils/cached_and_reomve_user_id.dart';
+import 'package:e_clot_shop/core/utils/cached_and_remove_user_id.dart';
 import 'package:e_clot_shop/core/utils/constants.dart';
 import 'package:e_clot_shop/core/utils/setup_service_locator.dart';
 import 'package:e_clot_shop/features/payment/data/repo/strip_repo_impl.dart';
@@ -14,6 +13,7 @@ import 'package:github_sign_in/github_sign_in.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:twitter_login/twitter_login.dart';
 
+import '../../../../../core/utils/is_user_data_saved.dart';
 import '../../../../../core/utils/secret_key.dart';
 import '../../../../user_data/data/repo/user_data_repo_impl.dart';
 import 'social_auth_repo.dart';
@@ -37,7 +37,7 @@ class SocialAuthRepoImpl extends SocialAuthRepo {
         if (userCredential.user != null) {
           await saveUserDataFunc(userCredential, Constants.google);
 
-          await CachedAndRemoveUserId.cachedLoginUserID(userCredential);
+          // await CachedAndRemoveUserId.cachedLoginUserID(userCredential);
         }
       }
       return Right(userCredential!);
@@ -105,7 +105,7 @@ class SocialAuthRepoImpl extends SocialAuthRepo {
         if (userCredential.user != null) {
           await saveUserDataFunc(userCredential, Constants.twitter);
 
-          await CachedAndRemoveUserId.cachedLoginUserID(userCredential);
+          // await CachedAndRemoveUserId.cachedLoginUserID(userCredential);
         }
       }
       return Right(userCredential!);
@@ -139,7 +139,7 @@ class SocialAuthRepoImpl extends SocialAuthRepo {
         if (userCredential.user != null) {
           await saveUserDataFunc(userCredential, Constants.github);
 
-          await CachedAndRemoveUserId.cachedLoginUserID(userCredential);
+          // await CachedAndRemoveUserId.cachedLoginUserID(userCredential);
         }
       }
 
@@ -153,14 +153,7 @@ class SocialAuthRepoImpl extends SocialAuthRepo {
     }
   }
 
-  @override
-  Future<bool> isUserDataSaved(String userId) async {
-    final snapshot = await FirebaseFirestore.instance
-        .collection(Constants.usersCollection)
-        .doc(userId)
-        .get();
-    return snapshot.exists;
-  }
+
 
   @override
   Future<Either<Failure, bool>> googleLogout() async {

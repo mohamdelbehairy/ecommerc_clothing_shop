@@ -7,9 +7,9 @@ import '../../features/shared_pref/data/repo/shared_pref_repo_impl.dart';
 
 class CachedAndRemoveUserId {
   static final SharedPrefRepo _sharedPrefRepo = SharedPrefRepoImpl();
-  static Future<void> cachedLoginUserID(UserCredential credential) async {
+  static Future<void> cachedLoginUserID() async {
     await _firstLogin();
-    await _userData(credential.user!.uid);
+    await _userData(FirebaseAuth.instance.currentUser!.uid);
   }
 
   static Future<void> cachedRegisterUserID(String userName) async {
@@ -28,7 +28,7 @@ class CachedAndRemoveUserId {
   static Future<void> removeRegisterUserID() async {
     await _sharedPrefRepo.remove(Constants.registerDone);
     await _sharedPrefRepo.remove(Constants.listUserData);
-    await _userData( FirebaseAuth.instance.currentUser!.uid);
+    await _userData(FirebaseAuth.instance.currentUser!.uid);
   }
 
   static Future<void> removeUserID() async {

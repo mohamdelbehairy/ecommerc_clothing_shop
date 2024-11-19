@@ -9,7 +9,6 @@ abstract class SocialAuthRepo {
   Future<Either<Failure, UserCredential>> signInWithTwitter();
   Future<Either<Failure, UserCredential>> signInWithGithub(
       BuildContext context);
-  Future<bool> isUserDataSaved(String userId);
   Future<Either<Failure, void>> googleLogout();
   // Future<Either<Failure, void>> facebookLogout();
   Future<Either<Failure, void>> twitterLogout();

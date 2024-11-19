@@ -1,5 +1,10 @@
+import 'package:e_clot_shop/core/utils/app_router.dart';
+import 'package:e_clot_shop/core/utils/cached_and_remove_user_id.dart';
+import 'package:e_clot_shop/core/utils/is_user_data_saved.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../core/models/custom_button_model.dart';
 import '../../../../core/widgets/custom_button.dart';
@@ -16,18 +21,19 @@ class LoginButton extends StatelessWidget {
     var buildLogin = context.watch<BuildAppCubit>();
     var emailLogin = context.read<EmailLoginCubit>();
     return BlocConsumer<EmailLoginCubit, EmailLoginState>(
-      listener: (context, state) {
+      listener: (context, state) async {
         if (state is EmailLoginLoading) {
           emailLogin.isLoading = state.isLoading;
         }
         if (state is EmailLoginSuccess) {
-          emailLogin.isLoading = false;
-          showAlertSignInSuccessful(context);
+          await stateSuccessCode(context);
           buildLogin.email.clear();
           buildLogin.password.clear();
+          emailLogin.isLoading = false;
         }
         if (state is EmailLoginFailure) {
           emailLogin.isLoading = false;
+          // ignore: use_build_context_synchronously
           customSnackbarWidget(context,
               margin: const EdgeInsets.all(50), message: state.errorMessage);
         }
@@ -47,5 +53,20 @@ class LoginButton extends StatelessWidget {
                 buttonName: 'Continue'));
       },
     );
+  }
+
+  Future<void> stateSuccessCode(BuildContext context) async {
+    if (await isUserDataSaved(FirebaseAuth.instance.currentUser!.uid)) {
+      await CachedAndRemoveUserId.cachedLoginUserID();
+      // ignore: use_build_context_synchronously
+      showAlertSignInSuccessful(context);
+    } else {
+      CachedAndRemoveUserId.cachedRegisterUserID(
+          FirebaseAuth.instance.currentUser!.email != null
+              ? FirebaseAuth.instance.currentUser!.email!
+              : FirebaseAuth.instance.currentUser!.phoneNumber!);
+      // ignore: use_build_context_synchronously
+      GoRouter.of(context).go(AppRouter.tellAbout);
+    }
   }
 }

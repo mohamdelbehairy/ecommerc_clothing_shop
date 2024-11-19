@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:e_clot_shop/core/error/failure.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import '../../../../../core/utils/cached_and_reomve_user_id.dart';
+import '../../../../../core/utils/cached_and_remove_user_id.dart';
 import 'email_auth_repo.dart';
 
 class EmailAuthRepoImpl extends EmailAuthRepo {
@@ -30,9 +30,9 @@ class EmailAuthRepoImpl extends EmailAuthRepo {
     try {
       final credential = await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
-      if (credential.user != null) {
-        await CachedAndRemoveUserId.cachedLoginUserID(credential);
-      }
+      // if (credential.user != null) {
+      //   await CachedAndRemoveUserId.cachedLoginUserID(credential);
+      // }
       return Right(credential);
     } catch (e) {
       if (e is FirebaseAuthException) {
