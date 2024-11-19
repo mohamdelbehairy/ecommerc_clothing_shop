@@ -19,17 +19,19 @@ class TellAboutFinshButton extends StatelessWidget {
     var saveUserData = context.read<SaveUserDataCubit>();
 
     return BlocConsumer<SaveUserDataCubit, SaveUserDataState>(
-      listener: (context, state) {
+      listener: (context, state) async {
         if (state is SaveUserDataLoading) {
           saveUserData.isLoading = state.isLoading;
         }
         if (state is SaveUserDataSuccess) {
           saveUserData.isLoading = false;
-          CachedAndRemoveUserId.removeRegisterUserID();
+          await CachedAndRemoveUserId.removeRegisterUserID();
+          // ignore: use_build_context_synchronously
           showAlertSignInSuccessful(context);
         }
         if (state is SaveUserDataFailure) {
           saveUserData.isLoading = false;
+          // ignore: use_build_context_synchronously
           customSnackbarWidget(context, message: state.errorMessage);
         }
       },

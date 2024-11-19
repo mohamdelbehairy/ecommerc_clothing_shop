@@ -1,3 +1,4 @@
+import 'package:e_clot_shop/core/utils/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -26,6 +27,7 @@ Future<void> tellAboutButtonOnTap(
                 ? list[1]
                 : FirebaseAuth.instance.currentUser!.email!,
             userName: list != null ? list[2] : buildLogin.userName,
+            userImage: list != null ? list[3] : Constants.defaultUserImageUrl,
             type: tellAbout.activeIndex,
             age: tellAbout.year,
             dateTime: tellAbout.date));

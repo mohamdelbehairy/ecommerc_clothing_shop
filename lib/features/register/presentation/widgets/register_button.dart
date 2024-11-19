@@ -20,7 +20,7 @@ class RegisterButton extends StatelessWidget {
     var buildLogin = context.read<BuildAppCubit>();
     var emailRegister = context.read<EmailRegisterCubit>();
     return BlocConsumer<EmailRegisterCubit, EmailRegisterState>(
-      listener: (context, state) {
+      listener: (context, state) async{
         if (state is EmailRegisterLoading) {
           emailRegister.isLoading = state.isLoading;
         }
@@ -28,11 +28,13 @@ class RegisterButton extends StatelessWidget {
           emailRegister.isLoading = false;
           buildLogin.userName =
               '${buildRegister.firstName.text} ${buildRegister.lastName.text}';
-          CachedAndRemoveUserId.cachedRegisterUserID(buildLogin.userName);
+         await CachedAndRemoveUserId.cachedRegisterUserID(buildLogin.userName);
+          // ignore: use_build_context_synchronously
           GoRouter.of(context).go(AppRouter.tellAbout);
         }
         if (state is EmailRegisterFailure) {
           emailRegister.isLoading = false;
+          // ignore: use_build_context_synchronously
           customSnackbarWidget(context,
               margin: const EdgeInsets.all(50), message: state.errorMessage);
         }

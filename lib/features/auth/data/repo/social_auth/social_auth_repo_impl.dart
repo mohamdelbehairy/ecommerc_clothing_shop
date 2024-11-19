@@ -34,11 +34,11 @@ class SocialAuthRepoImpl extends SocialAuthRepo {
         userCredential =
             await FirebaseAuth.instance.signInWithCredential(credential);
 
-        if (userCredential.user != null) {
-          await saveUserDataFunc(userCredential, Constants.google);
+        // if (userCredential.user != null) {
+        //   await saveUserDataFunc(userCredential, Constants.google);
 
-          // await CachedAndRemoveUserId.cachedLoginUserID(userCredential);
-        }
+        //   await CachedAndRemoveUserId.cachedLoginUserID(userCredential);
+        // }
       }
       return Right(userCredential!);
     } catch (e) {
@@ -152,8 +152,6 @@ class SocialAuthRepoImpl extends SocialAuthRepo {
       return Left(Failure(message: e.toString()));
     }
   }
-
-
 
   @override
   Future<Either<Failure, bool>> googleLogout() async {
