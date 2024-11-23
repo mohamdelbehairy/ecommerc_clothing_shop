@@ -19,7 +19,7 @@ Future<void> orderDeliverdOnTap(BuildContext context,
       notifyModel: NotificationModel(
           notifyID: const Uuid().v4(),
           userName: FirebaseAuth.instance.currentUser!.displayName != null
-              ? FirebaseAuth.instance.currentUser!.displayName!
+              ? FirebaseAuth.instance.currentUser!.displayName!.split(' ')[0]
               : '',
           notifyDate: DateTime.now(),
           orderModel: orderData.copyWith(orderType: Constants.orderDelivered)));

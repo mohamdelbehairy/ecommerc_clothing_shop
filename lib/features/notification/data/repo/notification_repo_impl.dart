@@ -24,4 +24,16 @@ class NotificationRepoImpl extends NotificationRepo {
       return Left(Failure(message: e.toString()));
     }
   }
+
+  @override
+  void getNotification(
+      void Function(QuerySnapshot<Map<String, dynamic>>)? onData) {
+    FirebaseFirestore.instance
+        .collection(Constants.notificationCollection)
+        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .collection(Constants.notificationCollection)
+        .orderBy('notifyDate', descending: true)
+        .snapshots()
+        .listen(onData);
+  }
 }

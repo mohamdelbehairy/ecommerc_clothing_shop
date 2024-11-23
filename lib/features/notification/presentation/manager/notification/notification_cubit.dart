@@ -7,9 +7,12 @@ import '../../../data/repo/notification_repo.dart';
 part 'notification_state.dart';
 
 class NotificationCubit extends Cubit<NotificationState> {
-  NotificationCubit(this._notifiyRepo) : super(NotificationInitial());
+  NotificationCubit(this._notifiyRepo) : super(NotificationInitial()) {
+    _getNotification();
+  }
   final NotificationRepo _notifiyRepo;
 
+  List<NotificationModel> notifyList = [];
   Future<void> storeNotification(
       {required NotificationModel notifyModel}) async {
     emit(NotificationLoading());
@@ -19,5 +22,22 @@ class NotificationCubit extends Cubit<NotificationState> {
       emit(NotificationFailure(errorMessage: e.toString()));
       log('error from store notification: $e');
     }, (e) => emit(StoreNotifiySuccess()));
+  }
+
+  void _getNotification() async {
+    emit(NotificationLoading());
+    await Future.delayed(const Duration(seconds: 1));
+    try {
+      _notifiyRepo.getNotification((snapshot) {
+        notifyList = [];
+        for (var element in snapshot.docs) {
+          notifyList.add(NotificationModel.fromJson(element.data()));
+        }
+        emit(GetNotifiySuccess());
+      });
+    } catch (e) {
+      emit(NotificationFailure(errorMessage: e.toString()));
+      log('error from get notification: $e');
+    }
   }
 }

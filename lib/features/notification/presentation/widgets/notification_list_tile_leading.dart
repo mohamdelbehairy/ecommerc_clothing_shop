@@ -7,7 +7,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/utils/assets.dart';
 
 class NotificationListTileLeading extends StatelessWidget {
-  const NotificationListTileLeading({super.key});
+  const NotificationListTileLeading({super.key, required this.isSeen});
+  final bool isSeen;
 
   @override
   Widget build(BuildContext context) {
@@ -23,13 +24,14 @@ class NotificationListTileLeading extends StatelessWidget {
                       : Colors.black,
                   BlendMode.srcIn,
                 ))),
-        const Positioned(
-          right: 2,
-          child: CircleAvatar(
-            radius: 4,
-            backgroundColor: Color(0xffFA3636),
-          ),
-        )
+        if (!isSeen)
+          const Positioned(
+            right: 2,
+            child: CircleAvatar(
+              radius: 4,
+              backgroundColor: Color(0xffFA3636),
+            ),
+          )
       ],
     );
   }
