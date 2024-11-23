@@ -26,21 +26,18 @@ class OrderDetailsViewBody extends StatelessWidget {
           const SizedBox(height: 12),
           CartProductWidget(
               cartProduct: CartProductModel(
-                  size: orderData.size,
-                  color: orderData.color,
+                  orderModel: orderData,
                   isProduct: true,
                   isShipped: orderData.orderType == Constants.orderShipped
                       ? true
                       : false,
-                  quantity: orderData.quantity,
-                  orderID: orderData.id,
                   productData: orderData.productModel)),
           const SizedBox(height: 24),
           const OrderDetailsText(text: 'Shipping details'),
           const SizedBox(height: 12),
           ShippingDetailsListTile(
-              shippingAddress: orderData.shippingAddress,
-              shippingCost: orderData.shippingCost),
+              shippingAddress: orderData.shippingAddress!,
+              shippingCost: orderData.shippingCost!),
         ],
       ),
     );

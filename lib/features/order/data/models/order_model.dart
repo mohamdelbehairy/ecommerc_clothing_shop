@@ -4,7 +4,7 @@ import 'package:e_clot_shop/core/utils/constants.dart';
 import '../../../home/data/models/product_model.dart';
 
 class OrderModel {
-  final String id,
+  final String? id,
       orderID,
       quantity,
       color,
@@ -12,20 +12,20 @@ class OrderModel {
       shippingAddress,
       orderType,
       shippingCost;
-  final DateTime orderTime;
-  final ProductModel productModel;
+  final DateTime? orderTime;
+  final ProductModel? productModel;
 
   OrderModel(
-      {required this.id,
-      required this.orderID,
-      required this.quantity,
-      required this.color,
-      required this.size,
-      required this.shippingAddress,
+      {this.id,
+      this.orderID,
+      this.quantity,
+      this.color,
+      this.size,
+      this.shippingAddress,
       this.orderType = Constants.orderProcessing,
-      required this.shippingCost,
-      required this.orderTime,
-      required this.productModel});
+      this.shippingCost,
+      this.orderTime,
+      this.productModel});
 
   factory OrderModel.fromJson(json) {
     return OrderModel(
@@ -53,7 +53,33 @@ class OrderModel {
       'shippingCost': shippingCost,
       'orderType': orderType,
       'orderTime': orderTime,
-      'productModel': productModel.toJson(),
+      'productModel': productModel!.toJson(),
     };
+  }
+
+  OrderModel copyWith({
+    String? id,
+    String? orderID,
+    String? quantity,
+    String? color,
+    String? size,
+    String? shippingAddress,
+    String? orderType,
+    String? shippingCost,
+    DateTime? orderTime,
+    ProductModel? productModel,
+  }) {
+    return OrderModel(
+      id: id ?? this.id,
+      orderID: orderID ?? this.orderID,
+      quantity: quantity ?? this.quantity,
+      color: color ?? this.color,
+      size: size ?? this.size,
+      shippingAddress: shippingAddress ?? this.shippingAddress,
+      orderType: orderType ?? this.orderType,
+      shippingCost: shippingCost ?? this.shippingCost,
+      orderTime: orderTime ?? this.orderTime,
+      productModel: productModel ?? this.productModel,
+    );
   }
 }

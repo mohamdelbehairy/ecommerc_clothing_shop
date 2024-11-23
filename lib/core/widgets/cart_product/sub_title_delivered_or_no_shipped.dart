@@ -1,18 +1,17 @@
-import 'package:e_clot_shop/core/utils/constants.dart';
+import 'package:e_clot_shop/core/widgets/cart_product/function/order_not_deliverd_ontap.dart';
+import 'package:e_clot_shop/features/order/data/models/order_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../features/order/presentation/manager/order/order_cubit.dart';
 import '../../../features/product/presentation/widgets/custom_add_or_minus_widget.dart';
+import 'function/order_deliverd_ontap.dart';
 
 class SubTitleDeliveredOrNoshipped extends StatelessWidget {
-  const SubTitleDeliveredOrNoshipped({super.key, required this.orderID});
-  final String orderID;
+  const SubTitleDeliveredOrNoshipped({super.key, required this.orderData});
+  final OrderModel orderData;
 
   @override
   Widget build(BuildContext context) {
-    var updateOrder = context.read<OrderCubit>();
     return Row(
       children: [
         CustomAddOrMinusWidget(
@@ -20,8 +19,7 @@ class SubTitleDeliveredOrNoshipped extends StatelessWidget {
             icon: Icons.done,
             onTap: () async {
               GoRouter.of(context).pop();
-              await updateOrder.updateOrder(
-                  orderID: orderID, value: Constants.orderDelivered);
+              await orderDeliverdOnTap(context, orderData: orderData);
             }),
         const SizedBox(width: 12),
         CustomAddOrMinusWidget(
@@ -29,8 +27,7 @@ class SubTitleDeliveredOrNoshipped extends StatelessWidget {
             icon: Icons.close,
             onTap: () async {
               GoRouter.of(context).pop();
-              await updateOrder.updateOrder(
-                  orderID: orderID, value: Constants.orderNotDelivered);
+              await orderNotDeliverdOnTap(context, orderData: orderData);
             }),
       ],
     );

@@ -1,19 +1,24 @@
 import 'dart:developer';
 
 import 'package:e_clot_shop/core/utils/constants.dart';
+import 'package:e_clot_shop/features/notification/data/models/notification_model.dart';
 import 'package:e_clot_shop/features/order/data/repos/order_repo.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:uuid/uuid.dart';
 
+import '../../../../notification/data/repo/notification_repo.dart';
 import '../../../data/models/order_model.dart';
 
 part 'order_state.dart';
 
 class OrderCubit extends Cubit<OrderState> {
-  OrderCubit(this._orderRepo) : super(OrderInitial()) {
+  OrderCubit(this._orderRepo, this._notifyRepo) : super(OrderInitial()) {
     _changeProcessingToShippedOrder();
   }
 
   final OrderRepo _orderRepo;
+  final NotificationRepo _notifyRepo;
 
   List<OrderModel> processing = [];
   List<OrderModel> shipped = [];
@@ -88,8 +93,16 @@ class OrderCubit extends Cubit<OrderState> {
       for (var element in snapshot.docs) {
         var order = OrderModel.fromJson(element.data());
         if (order.orderType == Constants.orderProcessing &&
-            DateTime.now().difference(order.orderTime).inHours > 1) {
-          await updateOrder(orderID: order.id, value: Constants.orderShipped);
+            DateTime.now().difference(order.orderTime!).inHours > 1) {
+          await updateOrder(orderID: order.id!, value: Constants.orderShipped);
+          await _notifyRepo.storeNotification(NotificationModel(
+              notifyID: const Uuid().v4(),
+              notifyDate: order.orderTime!.add(const Duration(hours: 1)),
+              userName: FirebaseAuth.instance.currentUser!.displayName != null
+                  ? FirebaseAuth.instance.currentUser!.displayName!
+                      .split(' ')[0]
+                  : '',
+              orderModel: order.copyWith(orderType: Constants.orderShipped)));
         }
       }
       emit(ChangeProccessingToShippedOrder());

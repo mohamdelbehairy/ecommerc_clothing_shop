@@ -19,7 +19,7 @@ class OrderItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var number = int.parse(orderData.quantity);
+    var number = int.parse(orderData.quantity!);
 
     return BackgroundListTile(
         height: 72,

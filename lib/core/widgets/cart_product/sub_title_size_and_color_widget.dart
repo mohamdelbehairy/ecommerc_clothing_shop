@@ -15,10 +15,10 @@ class SubTitleSizeAndColorWidget extends StatelessWidget {
     return Row(
       children: [
         Text('Size - ', style: Styles.styleMediumWithOpacity12(context)),
-        Text(cartProduct.size!, style: Styles.styleBoldGarabito12(context)),
+        Text(cartProduct.orderModel!.size!, style: Styles.styleBoldGarabito12(context)),
         const SizedBox(width: 24),
         Text('Color - ', style: Styles.styleMediumWithOpacity12(context)),
-        Text(cartProduct.color!, style: Styles.styleBoldGarabito12(context)),
+        Text(cartProduct.orderModel!.color!, style: Styles.styleBoldGarabito12(context)),
         if (cartProduct.isOrder && !cartProduct.isProduct)
           const SizedBox(width: 24),
         if (cartProduct.isOrder && !cartProduct.isProduct)

@@ -22,8 +22,8 @@ class CartListTileTitle extends StatelessWidget {
                   style: Styles.styleMedium12(context))),
           const SizedBox(width: 6),
           Text(
-              cartProduct.isProduct 
-                  ? '\$${num.parse(cartProduct.productData!.price) * num.parse(cartProduct.quantity!)}'
+              cartProduct.isProduct
+                  ? '\$${num.parse(cartProduct.productData!.price) * num.parse(cartProduct.orderModel!.quantity!)}'
                   : '\$${cartProduct.productData!.price}',
               style: Styles.styleBoldGarabito12(context)),
         ],

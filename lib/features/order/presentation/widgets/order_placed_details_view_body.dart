@@ -1,5 +1,6 @@
 import 'package:e_clot_shop/core/manager/build_app/build_app_cubit.dart';
 import 'package:e_clot_shop/core/models/cart_product_model.dart';
+import 'package:e_clot_shop/features/order/data/models/order_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/widgets/cart_product/cart_product_widget.dart';
@@ -25,8 +26,8 @@ class OrderPlacedDetailsViewBody extends StatelessWidget {
           const SizedBox(height: 12),
           CartProductWidget(
               cartProduct: CartProductModel(
-                  size: buildApp.size,
-                  color: buildApp.color,
+                  orderModel:
+                      OrderModel(size: buildApp.size, color: buildApp.color),
                   isOrder: true,
                   productData: buildApp.productData!)),
           const SizedBox(height: 24),

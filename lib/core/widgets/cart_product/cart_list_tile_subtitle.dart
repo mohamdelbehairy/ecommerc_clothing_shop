@@ -26,7 +26,7 @@ class CartListTileSubTitle extends StatelessWidget {
                 const SubTitleAddOrRemoveQuantity(),
               if (cartProduct.isShipped)
                 SubTitleDeliveredOrNoshipped(
-                    orderID: cartProduct.orderID.toString()),
+                    orderData: cartProduct.orderModel!),
             ],
           )
         : SingleChildScrollView(
@@ -41,7 +41,7 @@ class CartListTileSubTitle extends StatelessWidget {
                   const SubTitleAddOrRemoveQuantity(),
                 if (cartProduct.isShipped)
                   SubTitleDeliveredOrNoshipped(
-                      orderID: cartProduct.orderID.toString()),
+                      orderData: cartProduct.orderModel!),
               ],
             ),
           );

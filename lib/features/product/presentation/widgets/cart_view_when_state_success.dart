@@ -1,3 +1,4 @@
+import 'package:e_clot_shop/features/order/data/models/order_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -34,8 +35,8 @@ class CartViewWhenStateSuccess extends StatelessWidget {
                 const SizedBox(height: 24),
                 CartProductWidget(
                     cartProduct: CartProductModel(
-                        size: buildApp.size,
-                        color: buildApp.color,
+                        orderModel: OrderModel(
+                            size: buildApp.size, color: buildApp.color),
                         productData: productData)),
                 const SizedBox(height: 16),
                 CartShippingAndPaymentSection(userData: userData),

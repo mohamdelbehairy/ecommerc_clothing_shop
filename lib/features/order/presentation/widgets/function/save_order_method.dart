@@ -1,5 +1,6 @@
 import 'package:e_clot_shop/features/notification/data/models/notification_model.dart';
 import 'package:e_clot_shop/features/notification/presentation/manager/notification/notification_cubit.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:uuid/uuid.dart';
@@ -14,7 +15,8 @@ Future<void> saveOrderMethod(BuildContext context) async {
   var notifiy = context.read<NotificationCubit>();
   var saveOrder = context.read<OrderCubit>();
 
-  String id = const Uuid().v4();
+  final id = const Uuid().v4();
+  final dateTime = DateTime.now();
   var orderModel = OrderModel(
       id: id,
       orderID: generateOrderID(),
@@ -25,11 +27,16 @@ Future<void> saveOrderMethod(BuildContext context) async {
           ? buildAppCubit.shippingAddress
           : buildAppCubit.userData!.shippingAddress!,
       shippingCost: buildAppCubit.shippingCost.toString(),
-      orderTime: DateTime.now(),
+      orderTime: dateTime,
       productModel: buildAppCubit.productData!);
 
   await notifiy.storeNotification(
       notifyModel: NotificationModel(
-          notifyID: id, userName: "user", orderModel: orderModel));
+          notifyID: id,
+          notifyDate: dateTime,
+          userName: FirebaseAuth.instance.currentUser!.displayName != null
+              ? FirebaseAuth.instance.currentUser!.displayName!.split(" ")[0]
+              : '',
+          orderModel: orderModel));
   await saveOrder.saveOrder(orderModel: orderModel);
 }
