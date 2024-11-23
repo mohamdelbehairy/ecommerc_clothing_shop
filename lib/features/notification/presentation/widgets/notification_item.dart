@@ -21,7 +21,7 @@ class NotificationItem extends StatelessWidget {
                     'Gilbert, you placed and order check your order history for full details.',
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
-                    style: Styles.styleMedium12(context))),
+                    style: Styles.styleMedium14(context))),
           ),
         ));
   }

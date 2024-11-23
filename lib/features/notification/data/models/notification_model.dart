@@ -8,13 +8,14 @@ class NotificationModel {
   NotificationModel(
       {required this.notifyID,
       required this.userName,
-      this.isSeen = true,
+      this.isSeen = false,
       required this.orderModel});
 
   factory NotificationModel.fromJson(json) {
     return NotificationModel(
         notifyID: json['notifyID'],
         userName: json['userName'],
+        isSeen: json['isSeen'],
         orderModel: OrderModel.fromJson(json['orderModel']));
   }
 
@@ -22,7 +23,8 @@ class NotificationModel {
     return {
       'notifyID': notifyID,
       'userName': userName,
-      'orderModel': orderModel
+      'isSeen': isSeen,
+      'orderModel': orderModel.toJson()
     };
   }
 }

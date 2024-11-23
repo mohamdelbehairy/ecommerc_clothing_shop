@@ -1,3 +1,5 @@
+import 'package:e_clot_shop/features/notification/data/repo/notification_repo_impl.dart';
+import 'package:e_clot_shop/features/notification/presentation/manager/notification/notification_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -36,6 +38,8 @@ class CustomMultiBlocProvider extends StatelessWidget {
       BlocProvider(create: (context) => UpdateDataCubit(UpdateDataRepoImpl())),
       BlocProvider(
           create: (context) => ChangeThemeCubit(ChangeThemeRepoImpl())),
+      BlocProvider(
+          create: (context) => NotificationCubit(NotificationRepoImpl()))
     ], child: child);
   }
 }
