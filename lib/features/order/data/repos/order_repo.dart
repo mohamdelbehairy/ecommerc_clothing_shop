@@ -8,5 +8,5 @@ abstract class OrderRepo {
 
   void getOrders(void Function(QuerySnapshot<Map<String, dynamic>>)? onData);
 
-  Future<Either<Failure,void>> updateOrder(String orderID,String value);
+  Future<Either<Failure, void>> updateOrder(String orderID, String value);
 }

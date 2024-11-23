@@ -9,7 +9,9 @@ import '../../../data/models/order_model.dart';
 part 'order_state.dart';
 
 class OrderCubit extends Cubit<OrderState> {
-  OrderCubit(this._orderRepo) : super(OrderInitial());
+  OrderCubit(this._orderRepo) : super(OrderInitial()) {
+    _changeProcessingToShippedOrder();
+  }
 
   final OrderRepo _orderRepo;
 
@@ -79,5 +81,19 @@ class OrderCubit extends Cubit<OrderState> {
       emit(OrderFailure(errorMessage: failure.message));
       log('error from update order: ${failure.message}');
     }, (success) => emit(UpdateOrderSuccess()));
+  }
+
+  void _changeProcessingToShippedOrder() {
+    _orderRepo.getOrders((snapshot) async {
+      for (var element in snapshot.docs) {
+        var order = OrderModel.fromJson(element.data());
+
+        if (order.orderType == Constants.orderProcessing &&
+            DateTime.now().difference(order.orderTime).inHours > 1) {
+          await updateOrder(orderID: order.id, value: Constants.orderShipped);
+        }
+      }
+      emit(ChangeProccessingToShippedOrder());
+    });
   }
 }
