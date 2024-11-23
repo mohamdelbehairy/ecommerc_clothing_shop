@@ -87,7 +87,6 @@ class OrderCubit extends Cubit<OrderState> {
     _orderRepo.getOrders((snapshot) async {
       for (var element in snapshot.docs) {
         var order = OrderModel.fromJson(element.data());
-
         if (order.orderType == Constants.orderProcessing &&
             DateTime.now().difference(order.orderTime).inHours > 1) {
           await updateOrder(orderID: order.id, value: Constants.orderShipped);

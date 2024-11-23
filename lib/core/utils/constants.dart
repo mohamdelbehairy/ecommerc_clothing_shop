@@ -6,6 +6,7 @@ class Constants {
   static const productsCollection = 'products';
   static const wishlistCollection = 'wishlist';
   static const ordersCollection = 'orders';
+  static const notificationCollection = 'notification';
 
   static const userImage = 'userImage';
   static const userName = 'userName';
