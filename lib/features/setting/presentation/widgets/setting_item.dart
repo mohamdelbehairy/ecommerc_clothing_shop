@@ -1,6 +1,6 @@
 import 'package:e_clot_shop/core/models/back_widget_model.dart';
 import 'package:e_clot_shop/core/utils/styles.dart';
-import 'package:e_clot_shop/core/widgets/background_list_tiled.dart';
+import 'package:e_clot_shop/core/widgets/background_list_tile.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/widgets/back_widget.dart';

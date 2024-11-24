@@ -6,6 +6,7 @@ class BackgroundModel {
   final double borderRadiusDouble, padding;
   final BorderRadiusGeometry? borderRadius;
   final Color? color;
+  final Function()? onTap;
 
   BackgroundModel(
       {required this.child,
@@ -14,5 +15,6 @@ class BackgroundModel {
       this.borderRadiusDouble = 8,
       this.padding = 16,
       this.borderRadius,
-      this.color});
+      this.color,
+      this.onTap});
 }

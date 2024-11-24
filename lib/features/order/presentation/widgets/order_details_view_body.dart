@@ -9,8 +9,10 @@ import 'order_details_text.dart';
 import 'shipping_details_list_view.dart';
 
 class OrderDetailsViewBody extends StatelessWidget {
-  const OrderDetailsViewBody({super.key, required this.orderData});
+  const OrderDetailsViewBody(
+      {super.key, required this.orderData, required this.isNotify});
   final OrderModel orderData;
+  final bool isNotify;
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +30,7 @@ class OrderDetailsViewBody extends StatelessWidget {
               cartProduct: CartProductModel(
                   orderModel: orderData,
                   isProduct: true,
+                  isNotify: isNotify,
                   isShipped: orderData.orderType == Constants.orderShipped
                       ? true
                       : false,

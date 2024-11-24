@@ -1,5 +1,5 @@
 import 'package:e_clot_shop/core/utils/styles.dart';
-import 'package:e_clot_shop/core/widgets/background_list_tiled.dart';
+import 'package:e_clot_shop/core/widgets/background_list_tile.dart';
 import 'package:flutter/material.dart';
 
 class ShippingDetailsListTile extends StatelessWidget {

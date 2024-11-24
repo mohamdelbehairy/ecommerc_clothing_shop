@@ -8,22 +8,26 @@ class CustomBakgroundContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: backgroundModel.height,
-      width: backgroundModel.width,
-      decoration: BoxDecoration(
-          color: backgroundModel.color ?? AppColors.secondaryColor,
-          borderRadius: backgroundModel.borderRadius ??
-              BorderRadius.circular(backgroundModel.borderRadiusDouble)),
-      child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: backgroundModel.padding),
-          child: backgroundModel.child),
+    return GestureDetector(
+      onTap: backgroundModel.onTap,
+      child: Container(
+        height: backgroundModel.height,
+        width: backgroundModel.width,
+        decoration: BoxDecoration(
+            color: backgroundModel.color ?? AppColors.secondaryColor,
+            borderRadius: backgroundModel.borderRadius ??
+                BorderRadius.circular(backgroundModel.borderRadiusDouble)),
+        child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: backgroundModel.padding),
+            child: backgroundModel.child),
+      ),
     );
   }
 }
 
 class CustomBakgroundAnimatedContainer extends StatelessWidget {
-  const CustomBakgroundAnimatedContainer({super.key, required this.backgroundModel});
+  const CustomBakgroundAnimatedContainer(
+      {super.key, required this.backgroundModel});
   final BackgroundModel backgroundModel;
 
   @override

@@ -24,7 +24,7 @@ class CartListTileSubTitle extends StatelessWidget {
                   quantity: buildApp.quantity.toString()),
               if (!cartProduct.isOrder && !cartProduct.isProduct)
                 const SubTitleAddOrRemoveQuantity(),
-              if (cartProduct.isShipped)
+              if (cartProduct.isShipped && !cartProduct.isNotify)
                 SubTitleDeliveredOrNoshipped(
                     orderData: cartProduct.orderModel!),
             ],
@@ -39,7 +39,7 @@ class CartListTileSubTitle extends StatelessWidget {
                     quantity: buildApp.quantity.toString()),
                 if (!cartProduct.isOrder && !cartProduct.isProduct)
                   const SubTitleAddOrRemoveQuantity(),
-                if (cartProduct.isShipped)
+                if (cartProduct.isShipped && !cartProduct.isNotify)
                   SubTitleDeliveredOrNoshipped(
                       orderData: cartProduct.orderModel!),
               ],

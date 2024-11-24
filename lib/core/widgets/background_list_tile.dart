@@ -7,8 +7,10 @@ import '../models/background_model.dart';
 import 'custom_background_container.dart';
 
 class BackgroundListTile extends StatelessWidget {
-  const BackgroundListTile({super.key, this.height, required this.child, this.padding});
+  const BackgroundListTile(
+      {super.key, this.height, required this.child, this.padding, this.onTap});
   final double? height, padding;
+  final Function()? onTap;
   final Widget child;
 
   @override
@@ -17,6 +19,7 @@ class BackgroundListTile extends StatelessWidget {
 
     return CustomBakgroundContainer(
         backgroundModel: BackgroundModel(
+            onTap: onTap,
             height: height ?? 72,
             padding: padding ?? 16,
             width: double.infinity,
