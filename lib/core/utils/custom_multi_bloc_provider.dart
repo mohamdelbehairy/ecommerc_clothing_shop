@@ -1,10 +1,9 @@
-import 'package:e_clot_shop/features/notification/data/repo/notification_repo_impl.dart';
-import 'package:e_clot_shop/features/notification/presentation/manager/notification/notification_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../features/home/data/repo/product_repo_impl.dart';
 import '../../features/home/presentation/manager/product/product_cubit.dart';
+import '../../features/notification/data/repo/notification_repo_impl.dart';
 import '../../features/order/data/repos/order_repo_impl.dart';
 import '../../features/order/presentation/manager/order/order_cubit.dart';
 import '../../features/shared_pref/data/repo/shared_pref_repo_impl.dart';
@@ -27,7 +26,9 @@ class CustomMultiBlocProvider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(providers: [
-      BlocProvider(create: (context) => BuildAppCubit()),
+      BlocProvider(
+          create: (context) =>
+              BuildAppCubit(getIt.get<NotificationRepoImpl>())),
       BlocProvider(create: (context) => SharedPrefCubit(SharedPrefRepoImpl())),
       BlocProvider(
           create: (context) => GetUserDataCubit(getIt.get<UserDataRepoImpl>())),
@@ -40,9 +41,6 @@ class CustomMultiBlocProvider extends StatelessWidget {
       BlocProvider(create: (context) => UpdateDataCubit(UpdateDataRepoImpl())),
       BlocProvider(
           create: (context) => ChangeThemeCubit(ChangeThemeRepoImpl())),
-      BlocProvider(
-          create: (context) =>
-              NotificationCubit(getIt.get<NotificationRepoImpl>()))
     ], child: child);
   }
 }
