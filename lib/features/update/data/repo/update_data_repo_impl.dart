@@ -55,4 +55,20 @@ class UpdateDataRepoImpl extends UpdateDataRepo {
       return Left(Failure(message: e.toString()));
     }
   }
+
+  @override
+  Future<Either<Failure, void>> updateNotification(String notifyID) async {
+    try {
+      await FirebaseFirestore.instance
+          .collection(Constants.notificationCollection)
+          .doc(FirebaseAuth.instance.currentUser!.uid)
+          .collection(Constants.notificationCollection)
+          .doc(notifyID)
+          .update({Constants.isSeen: true});
+
+      return const Right(null);
+    } catch (e) {
+      return Left(Failure(message: e.toString()));
+    }
+  }
 }

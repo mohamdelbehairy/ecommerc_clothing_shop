@@ -14,6 +14,8 @@ final class UpdateAllUserDataSuccess extends UpdateDataState {}
 
 final class UpdateProductDataSuccess extends UpdateDataState {}
 
+final class UpdateNotificationSuccess extends UpdateDataState {}
+
 final class UpdateDataFailure extends UpdateDataState {
   final String errorMessage;
 

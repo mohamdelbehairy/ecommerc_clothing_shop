@@ -1,6 +1,8 @@
 import 'package:e_clot_shop/core/utils/styles.dart';
 import 'package:e_clot_shop/features/order/presentation/views/order_details_view.dart';
+import 'package:e_clot_shop/features/update/presentation/manager/update_data/update_data_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/widgets/background_list_tile.dart';
 import '../../data/models/notification_model.dart';
@@ -15,9 +17,16 @@ class NotificationItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return BackgroundListTile(
         height: 80,
-        onTap: () => Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => OrderDetailsView(
-                orderData: notifyModel.orderModel, isNotify: true))),
+        onTap: () async {
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => OrderDetailsView(
+                  orderData: notifyModel.orderModel, isNotify: true)));
+          if (!notifyModel.isSeen) {
+            await context
+                .read<UpdateDataCubit>()
+                .updateNotification(notifyID: notifyModel.notifyID);
+          }
+        },
         child: Center(
           child: ListTile(
             contentPadding: EdgeInsets.zero,

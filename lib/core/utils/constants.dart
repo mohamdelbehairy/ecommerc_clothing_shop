@@ -43,4 +43,6 @@ class Constants {
 
   static const men = 'Men';
   static const women = 'Women';
+
+  static const isSeen = 'isSeen';
 }
