@@ -35,8 +35,8 @@ class CustomMultiBlocProvider extends StatelessWidget {
           create: (context) => ProductCubit(getIt.get<ProductRepoImpl>())),
       BlocProvider(create: (context) => WishlistCubit(WishlistRepoImpl())),
       BlocProvider(
-          create: (context) => BuildOrderCubit(
-              OrderRepoImpl(), NotificationRepoImpl(), UpdateDataRepoImpl())),
+          create: (context) => BuildOrderCubit(OrderRepoImpl(),
+              getIt.get<NotificationRepoImpl>(), UpdateDataRepoImpl())),
       BlocProvider(
           create: (context) =>
               NotificationCubit(getIt.get<NotificationRepoImpl>()))

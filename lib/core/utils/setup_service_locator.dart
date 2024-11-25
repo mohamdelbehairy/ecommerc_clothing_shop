@@ -3,6 +3,7 @@ import 'package:e_clot_shop/core/utils/api_service.dart';
 import 'package:e_clot_shop/features/notification/data/repo/notification_repo_impl.dart';
 import 'package:e_clot_shop/features/user_data/data/repo/user_data_repo_impl.dart';
 import 'package:get_it/get_it.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../features/auth/data/repo/email_auth/email_auth_repo_impl.dart';
 import '../../features/auth/data/repo/social_auth/social_auth_repo_impl.dart';
@@ -18,4 +19,10 @@ void setupServiceLocator() {
   getIt.registerSingleton<NotificationRepoImpl>(NotificationRepoImpl());
 
   getIt.registerSingleton<ApiService>(ApiService(Dio()));
+
+  // shared prefrence
+  getIt.registerSingletonAsync<SharedPreferences>(() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs;
+  });
 }
