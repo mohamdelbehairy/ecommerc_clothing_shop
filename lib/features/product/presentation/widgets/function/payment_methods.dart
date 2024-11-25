@@ -24,22 +24,46 @@ Future<void> paymentMethods(BuildContext context,
     buildApp.shippingAddress =
         convertShippingAddress(userData.shippingAddress!);
   }
-  if (buildApp.paymentIndex == 0 || userData.paymentMethod == 0) {
-    // ignore: use_build_context_synchronously
-    await payWithCard(context,
-        totalPrice: buildApp.isCouponApplied
-            ? (totalPrice - num.parse(discount))
-            : totalPrice);
-  } else if (buildApp.paymentIndex == 1 || userData.paymentMethod == 1) {
-    // ignore: use_build_context_synchronously
-    payWithPaymob(context,
-        userData: userData,
-        totalPrice: buildApp.isCouponApplied
-            ? (totalPrice - num.parse(discount))
-            : totalPrice,
-        productData: productData);
-  } else {
-    // ignore: use_build_context_synchronously
-    payWithPayPal(context, userData: userData, productData: productData);
+
+  if (buildApp.paymentIndex == -1) {
+    if (userData.paymentMethod == 0) {
+      // ignore: use_build_context_synchronously
+      await payWithCard(context,
+          totalPrice: buildApp.isCouponApplied
+              ? (totalPrice - num.parse(discount))
+              : totalPrice);
+    } else if (userData.paymentMethod == 1) {
+      // ignore: use_build_context_synchronously
+      payWithPaymob(context,
+          userData: userData,
+          totalPrice: buildApp.isCouponApplied
+              ? (totalPrice - num.parse(discount))
+              : totalPrice,
+          productData: productData);
+    } else {
+      // ignore: use_build_context_synchronously
+      payWithPayPal(context, userData: userData, productData: productData);
+    }
+  }
+
+  if (buildApp.paymentIndex != -1) {
+    if (buildApp.paymentIndex == 0) {
+      // ignore: use_build_context_synchronously
+      await payWithCard(context,
+          totalPrice: buildApp.isCouponApplied
+              ? (totalPrice - num.parse(discount))
+              : totalPrice);
+    } else if (buildApp.paymentIndex == 1) {
+      // ignore: use_build_context_synchronously
+      payWithPaymob(context,
+          userData: userData,
+          totalPrice: buildApp.isCouponApplied
+              ? (totalPrice - num.parse(discount))
+              : totalPrice,
+          productData: productData);
+    } else {
+      // ignore: use_build_context_synchronously
+      payWithPayPal(context, userData: userData, productData: productData);
+    }
   }
 }

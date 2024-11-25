@@ -7,10 +7,12 @@ import '../../../data/repo/user_data_repo.dart';
 part 'get_user_data_state.dart';
 
 class GetUserDataCubit extends Cubit<GetUserDataState> {
-  GetUserDataCubit(this._userDataRepo) : super(GetUserDataInitial());
+  GetUserDataCubit(this._userDataRepo) : super(GetUserDataInitial()) {
+    _getUserData();
+  }
   final UserDataRepo _userDataRepo;
 
-  void getUserData() {
+  void _getUserData() async {
     emit(GetUserDataLoading());
     try {
       _userDataRepo.getUserData((snapshot) {
