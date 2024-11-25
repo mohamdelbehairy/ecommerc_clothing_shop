@@ -1,16 +1,12 @@
-import 'dart:developer';
-
 import 'package:e_clot_shop/core/utils/constants.dart';
-import 'package:e_clot_shop/features/user_data/data/models/user_data_model.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../features/home/data/models/product_model.dart';
-import '../../../features/notification/data/models/notification_model.dart';
-import '../../../features/notification/data/repo/notification_repo.dart';
 import '../../../features/order/presentation/views/order_view.dart';
 import '../../../features/product/data/models/product_select_details_model.dart';
+import '../../../features/user_data/data/models/user_data_model.dart';
 import '../../models/category_item_model.dart';
 import '../../models/text_field_model.dart';
 import '../../utils/assets.dart';
@@ -22,13 +18,11 @@ import '../../../features/setting/presentation/views/setting_view.dart';
 part 'build_app_state.dart';
 
 class BuildAppCubit extends Cubit<BuildAppState> {
-  BuildAppCubit(this._notifiyRepo) : super(BuildAppInitial()) {
+  BuildAppCubit() : super(BuildAppInitial()) {
     _initializeLogin();
     _initializeAddAddressTextFields();
     _initializeUserTextFields();
   }
-
-  final NotificationRepo _notifiyRepo;
 
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
@@ -451,14 +445,14 @@ class BuildAppCubit extends Cubit<BuildAppState> {
     emit(ClearFilterBottomSheet());
   }
 
-  Future<void> storeNotification(
-      {required NotificationModel notifyModel}) async {
-    emit(NotificationLoading());
-    final result = await _notifiyRepo.storeNotification(notifyModel);
+  // Future<void> storeNotification(
+  //     {required NotificationModel notifyModel}) async {
+  //   emit(NotificationLoading());
+  //   final result = await _notifiyRepo.storeNotification(notifyModel);
 
-    result.fold((e) {
-      emit(NotificationFailure(errorMessage: e.toString()));
-      log('error from store notification: $e');
-    }, (e) => emit(StoreNotifiySuccess()));
-  }
+  //   result.fold((e) {
+  //     emit(NotificationFailure(errorMessage: e.toString()));
+  //     log('error from store notification: $e');
+  //   }, (e) => emit(StoreNotifiySuccess()));
+  // }
 }

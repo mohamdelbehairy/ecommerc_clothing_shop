@@ -6,6 +6,8 @@ final class NotificationInitial extends NotificationState {}
 
 final class NotificationLoading extends NotificationState {}
 
+final class StoreNotifiySuccess extends  NotificationState {}
+
 final class GetNotifiySuccess extends NotificationState {}
 
 final class NotificationFailure extends NotificationState {

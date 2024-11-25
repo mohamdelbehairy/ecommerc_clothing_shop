@@ -66,7 +66,6 @@ class OrderViewBodyDetails extends StatelessWidget {
             ],
           );
         }
-
         return const NoNotificationAndOrdersWidget(
             text: 'No Orders yet', image: Assets.imagesNoOrders);
       },

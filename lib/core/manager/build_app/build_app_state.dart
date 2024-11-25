@@ -31,13 +31,3 @@ final class CouponSussess extends BuildAppState {}
 final class ClearFilterBottomSheet extends BuildAppState {}
 
 final class ClearUserTextField extends BuildAppState {}
-
-final class NotificationLoading extends BuildAppState {}
-
-final class StoreNotifiySuccess extends BuildAppState {}
-
-final class NotificationFailure extends BuildAppState {
-  final String errorMessage;
-
-  NotificationFailure({required this.errorMessage});
-}

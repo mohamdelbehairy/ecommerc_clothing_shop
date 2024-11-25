@@ -14,6 +14,17 @@ class NotificationCubit extends Cubit<NotificationState> {
 
   List<NotificationModel> notifyList = [];
 
+  Future<void> storeNotification(
+      {required NotificationModel notifyModel}) async {
+    emit(NotificationLoading());
+    final result = await _notifiyRepo.storeNotification(notifyModel);
+
+    result.fold((e) {
+      emit(NotificationFailure(errorMessage: e.toString()));
+      log('error from store notification: $e');
+    }, (e) => emit(StoreNotifiySuccess()));
+  }
+
   void _getNotification() async {
     emit(NotificationLoading());
     await Future.delayed(const Duration(seconds: 1));

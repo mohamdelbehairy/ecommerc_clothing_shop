@@ -16,8 +16,7 @@ part 'build_order_state.dart';
 class BuildOrderCubit extends Cubit<BuildOrderState> {
   BuildOrderCubit(this._orderRepo, this._notifyRepo, this._updateDataRepo)
       : super(BuildOrderInitial()) {
-    _getOrders();
-    _changeProcessingToShippedOrder();
+    _initMethod();
   }
   final OrderRepo _orderRepo;
   final NotificationRepo _notifyRepo;
@@ -117,5 +116,11 @@ class BuildOrderCubit extends Cubit<BuildOrderState> {
       }
       emit(ChangeProccessingToShippedOrder());
     });
+  }
+
+  _initMethod() async {
+    _getOrders();
+    await Future.delayed(const Duration(seconds: 1));
+    _changeProcessingToShippedOrder();
   }
 }

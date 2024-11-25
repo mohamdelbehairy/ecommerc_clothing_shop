@@ -5,6 +5,7 @@ import 'package:uuid/uuid.dart';
 
 import '../../../../../core/manager/build_app/build_app_cubit.dart';
 import '../../../../notification/data/models/notification_model.dart';
+import '../../../../notification/presentation/manager/notification/notification_cubit.dart';
 import '../../../data/models/order_model.dart';
 import '../../manager/build_order/build_order_cubit.dart';
 import 'generate_order_id.dart';
@@ -12,6 +13,7 @@ import 'generate_order_id.dart';
 Future<void> storeOrderMethod(BuildContext context) async {
   var buildApp = context.read<BuildAppCubit>();
   var storeOrder = context.read<BuildOrderCubit>();
+  var storeNotifiy = context.read<NotificationCubit>();
 
   final id = const Uuid().v4();
   final dateTime = DateTime.now();
@@ -28,7 +30,7 @@ Future<void> storeOrderMethod(BuildContext context) async {
       orderTime: dateTime,
       productModel: buildApp.productData!);
 
-  await buildApp.storeNotification(
+  await storeNotifiy.storeNotification(
       notifyModel: NotificationModel(
           notifyID: id,
           notifyDate: dateTime,
