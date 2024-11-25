@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../features/home/data/models/product_model.dart';
 import '../../../features/order/presentation/views/order_view.dart';
 import '../../../features/product/data/models/product_select_details_model.dart';
+import '../../../features/shared_pref/data/repo/shared_pref_repo.dart';
 import '../../../features/user_data/data/models/user_data_model.dart';
 import '../../models/category_item_model.dart';
 import '../../models/text_field_model.dart';
@@ -18,11 +19,12 @@ import '../../../features/setting/presentation/views/setting_view.dart';
 part 'build_app_state.dart';
 
 class BuildAppCubit extends Cubit<BuildAppState> {
-  BuildAppCubit() : super(BuildAppInitial()) {
+  BuildAppCubit(this._sharedPrefRepo) : super(BuildAppInitial()) {
     _initializeLogin();
     _initializeAddAddressTextFields();
     _initializeUserTextFields();
   }
+  final SharedPrefRepo _sharedPrefRepo;
 
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
@@ -445,14 +447,25 @@ class BuildAppCubit extends Cubit<BuildAppState> {
     emit(ClearFilterBottomSheet());
   }
 
-  // Future<void> storeNotification(
-  //     {required NotificationModel notifyModel}) async {
-  //   emit(NotificationLoading());
-  //   final result = await _notifiyRepo.storeNotification(notifyModel);
+  // shared pref
+  Future<bool> getBool({required String key}) async {
+    return await _sharedPrefRepo.getBool(key).then((value) {
+      emit(SharedPrefGetBoolSuccess());
+      return value;
+    });
+  }
 
-  //   result.fold((e) {
-  //     emit(NotificationFailure(errorMessage: e.toString()));
-  //     log('error from store notification: $e');
-  //   }, (e) => emit(StoreNotifiySuccess()));
-  // }
+  Future<String?> getString({required String key}) async {
+    return await _sharedPrefRepo.getString(key).then((value) {
+      emit(SharedPrefGetStringSuccess());
+      return value;
+    });
+  }
+
+  Future<List<String>?> getListString() async {
+    return await _sharedPrefRepo.getList().then((value) {
+      emit(SharedPrefGetListSuccess());
+      return value;
+    });
+  }
 }

@@ -8,7 +8,6 @@ import '../../features/notification/presentation/manager/notification/notificati
 import '../../features/order/data/repos/order_repo_impl.dart';
 import '../../features/order/presentation/manager/build_order/build_order_cubit.dart';
 import '../../features/shared_pref/data/repo/shared_pref_repo_impl.dart';
-import '../../features/shared_pref/presentation/manager/shared_pref/shared_pref_cubit.dart';
 import '../../features/theme/data/repo/change_theme_repo_impl.dart';
 import '../../features/theme/presentation/manager/change_theme/change_theme_cubit.dart';
 import '../../features/update/data/repo/update_data_repo_impl.dart';
@@ -27,10 +26,7 @@ class CustomMultiBlocProvider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(providers: [
-      BlocProvider(
-          create: (context) =>
-              BuildAppCubit()),
-      BlocProvider(create: (context) => SharedPrefCubit(SharedPrefRepoImpl())),
+      BlocProvider(create: (context) => BuildAppCubit(SharedPrefRepoImpl())),
       BlocProvider(
           create: (context) => GetUserDataCubit(getIt.get<UserDataRepoImpl>())),
       BlocProvider(
