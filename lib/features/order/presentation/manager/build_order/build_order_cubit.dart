@@ -89,7 +89,7 @@ class BuildOrderCubit extends Cubit<BuildOrderState> {
     isLoading = true;
     emit(OrderLoading());
     try {
-      await _orderRepo.saveOrder(orderModel);
+      await _orderRepo.storeOrder(orderModel);
       isLoading = false;
       emit(StoreOrderSuccess());
     } catch (e) {
