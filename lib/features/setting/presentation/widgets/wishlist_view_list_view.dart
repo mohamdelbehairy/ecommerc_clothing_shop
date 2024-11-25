@@ -1,10 +1,10 @@
 import 'package:e_clot_shop/core/utils/app_router.dart';
-import 'package:e_clot_shop/features/order/presentation/manager/order/order_cubit.dart';
-import 'package:e_clot_shop/features/order/presentation/views/order_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../order/presentation/manager/build_order/build_order_cubit.dart';
+import '../../../order/presentation/views/order_view.dart';
 import '../../../wishlist/presentation/manager/wishlist/wishlist_cubit.dart';
 import '../../data/models/wishlist_list_tile_model.dart';
 import 'wishlist_view_list_tile.dart';
@@ -15,7 +15,7 @@ class WishlistViewListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var wishList = context.read<WishlistCubit>();
-    var orderList = context.read<OrderCubit>();
+    var orderList = context.read<BuildOrderCubit>();
     return Column(
       children: [
         WishlistViewListTile(

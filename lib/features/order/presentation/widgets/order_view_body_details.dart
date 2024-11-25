@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/widgets/no_notification_and_orders_widget.dart';
+import '../../../../core/widgets/notification_and_order_state_loading_widget.dart';
 import '../../data/models/order_model.dart';
 import '../manager/build_order/build_order_cubit.dart';
-import '../manager/order/order_cubit.dart';
 import 'no_proccessing_or_shipping_or_deliverd_widget.dart';
 import 'order_header_list_view.dart';
 import 'order_list_view.dart';
@@ -15,54 +15,55 @@ class OrderViewBodyDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var buildOrder = context.watch<BuildOrderCubit>();
-    var order = context.read<OrderCubit>();
+    var buildOrder = context.read<BuildOrderCubit>();
 
-    return BlocBuilder<OrderCubit, OrderState>(
+    return BlocBuilder<BuildOrderCubit, BuildOrderState>(
       builder: (context, state) {
+        if (state is OrderLoading) {
+          return const NotificationAndOrderStateLoadingWidget();
+        }
         List<OrderModel> orders;
         if (buildOrder.orderActiveIndex == 0) {
-          orders = order.processing;
+          orders = buildOrder.processing;
         } else if (buildOrder.orderActiveIndex == 1) {
-          orders = order.shipped;
+          orders = buildOrder.shipped;
         } else if (buildOrder.orderActiveIndex == 2) {
-          orders = order.delivered;
+          orders = buildOrder.delivered;
         } else {
-          orders = order.notDelivered;
+          orders = buildOrder.notDelivered;
         }
-        if (order.processing.isNotEmpty ||
-            order.shipped.isNotEmpty ||
-            order.delivered.isNotEmpty ||
-            order.notDelivered.isNotEmpty) {
-          return Flexible(
-            child: Column(
-              children: [
-                const OrderHeaderListView(),
-                OrderListView(orders: orders),
-                if (buildOrder.orderActiveIndex == 0 &&
-                    order.processing.isEmpty)
-                  const NoProccessingorShippedOrDeliverdWidget(
-                      text: 'Processing'),
-                if (buildOrder.orderActiveIndex == 1 && order.shipped.isEmpty)
-                  const NoProccessingorShippedOrDeliverdWidget(text: 'Shipped'),
-                if (buildOrder.orderActiveIndex == 2 && order.delivered.isEmpty)
-                  const NoProccessingorShippedOrDeliverdWidget(
-                      text: 'Delivered'),
-                if (buildOrder.orderActiveIndex == 3 &&
-                    order.notDelivered.isEmpty)
-                  const NoProccessingorShippedOrDeliverdWidget(
-                      text: 'Not Delivered'),
-                if ((buildOrder.orderActiveIndex == 0 &&
-                        order.processing.isEmpty) ||
-                    (buildOrder.orderActiveIndex == 1 &&
-                        order.shipped.isEmpty) ||
-                    (buildOrder.orderActiveIndex == 2 &&
-                        order.delivered.isEmpty) ||
-                    (buildOrder.orderActiveIndex == 3 &&
-                        order.notDelivered.isEmpty))
-                  const Spacer(),
-              ],
-            ),
+        if (buildOrder.processing.isNotEmpty ||
+            buildOrder.shipped.isNotEmpty ||
+            buildOrder.delivered.isNotEmpty ||
+            buildOrder.notDelivered.isNotEmpty) {
+          return Column(
+            children: [
+              const OrderHeaderListView(),
+              OrderListView(orders: orders),
+              if (buildOrder.orderActiveIndex == 0 &&
+                  buildOrder.processing.isEmpty)
+                const NoProccessingorShippedOrDeliverdWidget(
+                    text: 'Processing'),
+              if (buildOrder.orderActiveIndex == 1 &&
+                  buildOrder.shipped.isEmpty)
+                const NoProccessingorShippedOrDeliverdWidget(text: 'Shipped'),
+              if (buildOrder.orderActiveIndex == 2 &&
+                  buildOrder.delivered.isEmpty)
+                const NoProccessingorShippedOrDeliverdWidget(text: 'Delivered'),
+              if (buildOrder.orderActiveIndex == 3 &&
+                  buildOrder.notDelivered.isEmpty)
+                const NoProccessingorShippedOrDeliverdWidget(
+                    text: 'Not Delivered'),
+              if ((buildOrder.orderActiveIndex == 0 &&
+                      buildOrder.processing.isEmpty) ||
+                  (buildOrder.orderActiveIndex == 1 &&
+                      buildOrder.shipped.isEmpty) ||
+                  (buildOrder.orderActiveIndex == 2 &&
+                      buildOrder.delivered.isEmpty) ||
+                  (buildOrder.orderActiveIndex == 3 &&
+                      buildOrder.notDelivered.isEmpty))
+                const Spacer(),
+            ],
           );
         }
 

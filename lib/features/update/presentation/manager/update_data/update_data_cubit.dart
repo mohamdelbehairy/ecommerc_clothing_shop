@@ -55,4 +55,14 @@ class UpdateDataCubit extends Cubit<UpdateDataState> {
       log('error from update notification: $e');
     }, (e) => emit(UpdateNotificationSuccess()));
   }
+
+  Future<void> updateOrder(
+      {required String orderID, required String value}) async {
+    final result = await _userDataRepo.updateOrder(orderID, value);
+
+    result.fold((failure) {
+      emit(UpdateDataFailure(errorMessage: failure.message));
+      log('error from update order: ${failure.message}');
+    }, (success) => emit(UpdateOrderSuccess()));
+  }
 }

@@ -19,7 +19,7 @@ class OrderViewBody extends StatelessWidget {
         if (!isSetting)
           Center(child: Text('Orders', style: Styles.styleBold16(context))),
         const SizedBox(height: 24),
-        const OrderViewBodyDetails()
+        const Flexible(child: OrderViewBodyDetails())
       ],
     );
   }

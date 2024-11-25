@@ -71,4 +71,21 @@ class UpdateDataRepoImpl extends UpdateDataRepo {
       return Left(Failure(message: e.toString()));
     }
   }
+
+  @override
+  Future<Either<Failure, void>> updateOrder(
+      String orderID, String value) async {
+    try {
+      await FirebaseFirestore.instance
+          .collection(Constants.ordersCollection)
+          .doc(FirebaseAuth.instance.currentUser!.uid)
+          .collection(Constants.ordersCollection)
+          .doc(orderID)
+          .update({'orderType': value});
+
+      return right(null);
+    } catch (e) {
+      return left(Failure(message: e.toString()));
+    }
+  }
 }

@@ -6,17 +6,17 @@ import '../../../../core/manager/build_app/build_app_cubit.dart';
 import '../../../../core/models/custom_button_model.dart';
 import '../../../../core/utils/app_router.dart';
 import '../../../../core/widgets/custom_button.dart';
-import '../manager/order/order_cubit.dart';
-import 'function/save_order_method.dart';
+import '../manager/build_order/build_order_cubit.dart';
+import 'function/store_order_method.dart';
 
 class OrderPlacedDetailsButton extends StatelessWidget {
   const OrderPlacedDetailsButton({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<OrderCubit, OrderState>(
+    return BlocConsumer<BuildOrderCubit, BuildOrderState>(
       listener: (context, state) {
-        if (state is SaveOrderSuccess) {
+        if (state is StoreOrderSuccess) {
           GoRouter.of(context).go(AppRouter.bottomNavigationBar);
           context.read<BuildAppCubit>().resetOrder();
         }
@@ -24,13 +24,12 @@ class OrderPlacedDetailsButton extends StatelessWidget {
       builder: (context, state) {
         return CustomButton(
             customButtonModel: CustomButtonModel(
-                isLoading: context.read<OrderCubit>().isLoading,
+                isLoading: context.read<BuildOrderCubit>().isLoading,
                 onTap: () async {
-                  await saveOrderMethod(context);
+                  await storeOrderMethod(context);
                 },
                 buttonName: 'Go to Home'));
       },
     );
   }
 }
-

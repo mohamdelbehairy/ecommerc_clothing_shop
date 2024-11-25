@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../manager/notification/notification_cubit.dart';
 import 'notification_item.dart';
 import 'notification_list_empty_widget.dart';
-import 'notification_state_loading_widget.dart';
+import '../../../../core/widgets/notification_and_order_state_loading_widget.dart';
 
 class NotificationBlocBuilder extends StatelessWidget {
   const NotificationBlocBuilder({super.key});
@@ -15,7 +15,7 @@ class NotificationBlocBuilder extends StatelessWidget {
     return BlocBuilder<NotificationCubit, NotificationState>(
       builder: (context, state) {
         if (state is NotificationLoading) {
-          return const NotificationStateLoadingWidget();
+          return const NotificationAndOrderStateLoadingWidget();
         }
         return notify.notifyList.isNotEmpty
             ? ListView.builder(

@@ -6,12 +6,12 @@ import 'package:uuid/uuid.dart';
 import '../../../../../core/manager/build_app/build_app_cubit.dart';
 import '../../../../notification/data/models/notification_model.dart';
 import '../../../data/models/order_model.dart';
-import '../../manager/order/order_cubit.dart';
+import '../../manager/build_order/build_order_cubit.dart';
 import 'generate_order_id.dart';
 
-Future<void> saveOrderMethod(BuildContext context) async {
+Future<void> storeOrderMethod(BuildContext context) async {
   var buildApp = context.read<BuildAppCubit>();
-  var saveOrder = context.read<OrderCubit>();
+  var storeOrder = context.read<BuildOrderCubit>();
 
   final id = const Uuid().v4();
   final dateTime = DateTime.now();
@@ -36,5 +36,5 @@ Future<void> saveOrderMethod(BuildContext context) async {
               ? FirebaseAuth.instance.currentUser!.displayName!.split(" ")[0]
               : '',
           orderModel: orderModel));
-  await saveOrder.saveOrder(orderModel: orderModel);
+  await storeOrder.storeOrder(orderModel: orderModel);
 }

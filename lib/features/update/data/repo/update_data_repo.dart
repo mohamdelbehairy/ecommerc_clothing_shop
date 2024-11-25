@@ -11,4 +11,6 @@ abstract class UpdateDataRepo {
       String productID, String key, var value);
 
   Future<Either<Failure, void>> updateNotification(String notifyID);
+
+  Future<Either<Failure, void>> updateOrder(String orderID, String value);
 }

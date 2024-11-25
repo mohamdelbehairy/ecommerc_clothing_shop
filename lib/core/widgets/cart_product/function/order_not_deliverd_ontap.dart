@@ -7,11 +7,11 @@ import 'package:uuid/uuid.dart';
 
 import '../../../../features/notification/data/models/notification_model.dart';
 import '../../../../features/order/data/models/order_model.dart';
-import '../../../../features/order/presentation/manager/order/order_cubit.dart';
+import '../../../../features/update/presentation/manager/update_data/update_data_cubit.dart';
 
 Future<void> orderNotDeliverdOnTap(BuildContext context,
     {required OrderModel orderData}) async {
-  var updateOrder = context.read<OrderCubit>();
+  var updateOrder = context.read<UpdateDataCubit>();
   var notify = context.read<BuildAppCubit>();
 
   await updateOrder.updateOrder(
