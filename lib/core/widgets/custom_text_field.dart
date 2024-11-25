@@ -1,9 +1,10 @@
 import 'package:e_clot_shop/core/models/text_field_model.dart';
 import 'package:e_clot_shop/core/utils/colors.dart';
 import 'package:e_clot_shop/core/utils/styles.dart';
-import 'package:e_clot_shop/features/theme/presentation/manager/change_theme/change_theme_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../manager/build_app/build_app_cubit.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField({super.key, required this.textFieldModel});
@@ -35,7 +36,7 @@ class CustomTextField extends StatelessWidget {
                     Styles.styleHintTextField16(context),
                 border: InputBorder.none,
                 filled: true,
-                fillColor: context.read<ChangeThemeCubit>().isDarkMode
+                fillColor: context.read<BuildAppCubit>().isDarkMode
                     ? AppColors.darkModeSecondryColor
                     : AppColors.secondaryColor)),
       ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../features/theme/presentation/manager/change_theme/change_theme_cubit.dart';
+import '../manager/build_app/build_app_cubit.dart';
 import 'custom_fading_widget.dart';
 
 class CustomPlaceholderWidget extends StatelessWidget {
@@ -20,7 +20,7 @@ class CustomPlaceholderWidget extends StatelessWidget {
       height: height,
       width: width,
       decoration: BoxDecoration(
-          color: context.read<ChangeThemeCubit>().isDarkMode
+          color: context.read<BuildAppCubit>().isDarkMode
               ? Colors.grey.shade800
               : Colors.grey.shade300,
           borderRadius: BorderRadius.circular(borderRadius)),

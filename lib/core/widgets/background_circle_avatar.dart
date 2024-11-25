@@ -1,7 +1,7 @@
-import 'package:e_clot_shop/features/theme/presentation/manager/change_theme/change_theme_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../manager/build_app/build_app_cubit.dart';
 import '../models/svg_model.dart';
 import '../utils/assets.dart';
 import '../utils/colors.dart';
@@ -21,7 +21,7 @@ class BackgroundCircleAvatar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var isDarkMode = context.watch<ChangeThemeCubit>().isDarkMode;
+    var isDarkMode = context.watch<BuildAppCubit>().isDarkMode;
     return CircleAvatar(
       radius: 20,
       backgroundColor: isDarkMode
@@ -35,7 +35,7 @@ class BackgroundCircleAvatar extends StatelessWidget {
         colorFilter: ColorFilter.mode(
             isWishlisted
                 ? Colors.red
-                : context.read<ChangeThemeCubit>().isDarkMode
+                : isDarkMode
                     ? AppColors.whiteColor
                     : AppColors.blackColor.withOpacity(.8),
             BlendMode.srcIn),

@@ -1,5 +1,5 @@
+import 'package:e_clot_shop/core/manager/build_app/build_app_cubit.dart';
 import 'package:e_clot_shop/core/utils/colors.dart';
-import 'package:e_clot_shop/features/theme/presentation/manager/change_theme/change_theme_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -17,7 +17,7 @@ class OrderPlacedSuccessfullyWidget extends StatelessWidget {
             padding: 32,
             borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(16), topRight: Radius.circular(16)),
-            color: context.read<ChangeThemeCubit>().isDarkMode
+            color: context.read<BuildAppCubit>().isDarkMode
                 ? AppColors.darkModeSecondryColor
                 : null,
             child: const OrderPlacedTextsAndButtonSection()));

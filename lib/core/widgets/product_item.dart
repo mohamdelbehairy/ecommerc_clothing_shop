@@ -1,6 +1,6 @@
+import 'package:e_clot_shop/core/manager/build_app/build_app_cubit.dart';
 import 'package:e_clot_shop/core/utils/colors.dart';
 import 'package:e_clot_shop/core/utils/styles.dart';
-import 'package:e_clot_shop/features/theme/presentation/manager/change_theme/change_theme_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -22,7 +22,7 @@ class ProductItem extends StatelessWidget {
           height: 281,
           width: customProductModel.width ?? 159,
           padding: 0.0,
-          color: context.read<ChangeThemeCubit>().isDarkMode ? AppColors.darkModeSecondryColor:null,
+          color: context.read<BuildAppCubit>().isDarkMode ? AppColors.darkModeSecondryColor:null,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

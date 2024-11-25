@@ -1,8 +1,8 @@
+import 'package:e_clot_shop/core/manager/build_app/build_app_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
-import '../../../../theme/presentation/manager/change_theme/change_theme_cubit.dart';
 import '../home_categories_section.dart';
 import 'home_header_skeleronizer.dart';
 import 'home_search_skeleronzier.dart';
@@ -13,7 +13,7 @@ class HomeWhenStateLoading extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var isDarkMode = context.read<ChangeThemeCubit>().isDarkMode;
+    var isDarkMode = context.read<BuildAppCubit>().isDarkMode;
 
     return Skeletonizer(
       enabled: true,

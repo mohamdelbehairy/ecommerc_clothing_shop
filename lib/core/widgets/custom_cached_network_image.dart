@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../features/theme/presentation/manager/change_theme/change_theme_cubit.dart';
+import '../manager/build_app/build_app_cubit.dart';
 import '../models/cached_network_image_model.dart';
 
 class CustomCachedNetworkImage extends StatelessWidget {
@@ -35,7 +35,7 @@ class CustomCachedNetworkImageProvider extends StatelessWidget {
   Widget build(BuildContext context) {
     return CircleAvatar(
         radius: cachedImage.raduis,
-        backgroundColor: context.read<ChangeThemeCubit>().isDarkMode
+        backgroundColor: context.read<BuildAppCubit>().isDarkMode
             ? Colors.grey.shade800
             : Colors.grey.shade300,
         backgroundImage: cachedImage.fileImage != null

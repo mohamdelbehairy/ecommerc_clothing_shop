@@ -1,9 +1,8 @@
+import 'package:e_clot_shop/core/manager/build_app/build_app_cubit.dart';
 import 'package:e_clot_shop/core/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import '../../features/theme/presentation/manager/change_theme/change_theme_cubit.dart';
 
 class Styles {
   static TextStyle styleBold32(BuildContext context) {
@@ -224,5 +223,5 @@ double _getScallFactor(BuildContext context) {
 }
 
 bool _isDarkMode(BuildContext context) {
-  return context.watch<ChangeThemeCubit>().isDarkMode;
+  return context.watch<BuildAppCubit>().isDarkMode;
 }

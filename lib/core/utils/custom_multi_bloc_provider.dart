@@ -9,7 +9,6 @@ import '../../features/order/data/repos/order_repo_impl.dart';
 import '../../features/order/presentation/manager/build_order/build_order_cubit.dart';
 import '../../features/shared_pref/data/repo/shared_pref_repo_impl.dart';
 import '../../features/theme/data/repo/change_theme_repo_impl.dart';
-import '../../features/theme/presentation/manager/change_theme/change_theme_cubit.dart';
 import '../../features/update/data/repo/update_data_repo_impl.dart';
 import '../../features/update/presentation/manager/update_data/update_data_cubit.dart';
 import '../../features/user_data/data/repo/user_data_repo_impl.dart';
@@ -26,15 +25,15 @@ class CustomMultiBlocProvider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(providers: [
-      BlocProvider(create: (context) => BuildAppCubit(SharedPrefRepoImpl())),
+      BlocProvider(
+          create: (context) =>
+              BuildAppCubit(SharedPrefRepoImpl(), ChangeThemeRepoImpl())),
       BlocProvider(
           create: (context) => GetUserDataCubit(getIt.get<UserDataRepoImpl>())),
+      BlocProvider(create: (context) => UpdateDataCubit(UpdateDataRepoImpl())),
       BlocProvider(
           create: (context) => ProductCubit(getIt.get<ProductRepoImpl>())),
       BlocProvider(create: (context) => WishlistCubit(WishlistRepoImpl())),
-      BlocProvider(create: (context) => UpdateDataCubit(UpdateDataRepoImpl())),
-      BlocProvider(
-          create: (context) => ChangeThemeCubit(ChangeThemeRepoImpl())),
       BlocProvider(
           create: (context) => BuildOrderCubit(
               OrderRepoImpl(), NotificationRepoImpl(), UpdateDataRepoImpl())),

@@ -1,3 +1,4 @@
+import 'package:e_clot_shop/core/manager/build_app/build_app_cubit.dart';
 import 'package:e_clot_shop/core/utils/colors.dart';
 import 'package:e_clot_shop/core/utils/styles.dart';
 import 'package:flutter/material.dart';
@@ -5,7 +6,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/models/custom_button_model.dart';
 import '../../../../core/widgets/custom_button.dart';
-import '../../../theme/presentation/manager/change_theme/change_theme_cubit.dart';
 
 class SearchPriceButton extends StatelessWidget {
   const SearchPriceButton(
@@ -22,7 +22,7 @@ class SearchPriceButton extends StatelessWidget {
               height: 58,
               buttonColor: isActive
                   ? AppColors.primaryColor
-                  : context.read<ChangeThemeCubit>().isDarkMode
+                  : context.read<BuildAppCubit>().isDarkMode
                       ? AppColors.darkModeSecondryColor
                       : AppColors.secondaryColor,
               widget: Padding(

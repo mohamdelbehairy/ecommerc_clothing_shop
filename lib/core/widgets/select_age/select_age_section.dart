@@ -1,6 +1,6 @@
+import 'package:e_clot_shop/core/manager/build_app/build_app_cubit.dart';
 import 'package:e_clot_shop/core/models/bottom_picker_date_model.dart';
 import 'package:e_clot_shop/core/utils/styles.dart';
-import 'package:e_clot_shop/features/theme/presentation/manager/change_theme/change_theme_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -13,7 +13,7 @@ class SelectAgeSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var isDarkMode = context.watch<ChangeThemeCubit>().isDarkMode;
+    var isDarkMode = context.read<BuildAppCubit>().isDarkMode;
     return GestureDetector(
       onTap: () {
         customBottomPickerBottomSheet(context, isDarkMode,

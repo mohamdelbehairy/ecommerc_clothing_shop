@@ -1,3 +1,4 @@
+import 'package:e_clot_shop/core/manager/build_app/build_app_cubit.dart';
 import 'package:e_clot_shop/core/models/background_model.dart';
 import 'package:e_clot_shop/core/utils/colors.dart';
 import 'package:e_clot_shop/core/utils/styles.dart';
@@ -5,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/widgets/custom_background_container.dart';
-import '../../../../theme/presentation/manager/change_theme/change_theme_cubit.dart';
 import 'circle_avatar_skeleronizer.dart';
 
 class ProductItemSkeleronizer extends StatelessWidget {
@@ -13,6 +13,7 @@ class ProductItemSkeleronizer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var isDarkMode = context.read<BuildAppCubit>();
     return Stack(
       children: [
         CustomBakgroundContainer(
@@ -20,7 +21,7 @@ class ProductItemSkeleronizer extends StatelessWidget {
               height: 281,
               width: 165,
               padding: 0.0,
-              color: context.read<ChangeThemeCubit>().isDarkMode
+              color: isDarkMode.isDarkMode
                   ? AppColors.darkModeSecondryColor
                   : null,
               child: Column(
@@ -30,7 +31,7 @@ class ProductItemSkeleronizer extends StatelessWidget {
                       backgroundModel: BackgroundModel(
                           height: 220,
                           width: double.infinity,
-                          color: context.read<ChangeThemeCubit>().isDarkMode
+                          color: isDarkMode.isDarkMode
                               ? AppColors.darkModeSecondryColor
                               : null,
                           child: const SizedBox())),

@@ -1,9 +1,9 @@
 import 'package:e_clot_shop/core/utils/colors.dart';
 import 'package:e_clot_shop/core/utils/styles.dart';
-import 'package:e_clot_shop/features/theme/presentation/manager/change_theme/change_theme_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../manager/build_app/build_app_cubit.dart';
 import '../models/custom_button_model.dart';
 import 'custom_button.dart';
 import '../../features/product/data/models/product_select_details_model.dart';
@@ -23,7 +23,7 @@ class BottomSheetListViewItem extends StatelessWidget {
               height: 58,
               buttonColor: isActive
                   ? AppColors.primaryColor
-                  : context.watch<ChangeThemeCubit>().isDarkMode
+                  : context.watch<BuildAppCubit>().isDarkMode
                       ? AppColors.darkModeSecondryColor
                       : AppColors.secondaryColor,
               widget: Padding(

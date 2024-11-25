@@ -1,5 +1,5 @@
+import 'package:e_clot_shop/core/manager/build_app/build_app_cubit.dart';
 import 'package:e_clot_shop/core/utils/app_router.dart';
-import 'package:e_clot_shop/features/theme/presentation/manager/change_theme/change_theme_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -11,14 +11,13 @@ class EClotShop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomMultiBlocProvider(
-        child: BlocBuilder<ChangeThemeCubit, ChangeThemeState>(
+        child: BlocBuilder<BuildAppCubit, BuildAppState>(
       builder: (context, state) {
+        final isDarkMode = context.read<BuildAppCubit>();
         return MaterialApp.router(
-            theme: context.read<ChangeThemeCubit>().lightMode(),
-            darkTheme: context.read<ChangeThemeCubit>().darkMode(),
-            themeMode: context.read<ChangeThemeCubit>().isDarkMode
-                ? ThemeMode.dark
-                : ThemeMode.light,
+            theme: isDarkMode.lightMode(),
+            darkTheme: isDarkMode.darkMode(),
+            themeMode: isDarkMode.isDarkMode ? ThemeMode.dark : ThemeMode.light,
             debugShowCheckedModeBanner: false,
             routerConfig: AppRouter.router);
       },

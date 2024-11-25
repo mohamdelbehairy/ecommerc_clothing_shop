@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:e_clot_shop/core/utils/constants.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
@@ -7,6 +9,7 @@ import '../../../features/home/data/models/product_model.dart';
 import '../../../features/order/presentation/views/order_view.dart';
 import '../../../features/product/data/models/product_select_details_model.dart';
 import '../../../features/shared_pref/data/repo/shared_pref_repo.dart';
+import '../../../features/theme/data/repo/change_theme_repo.dart';
 import '../../../features/user_data/data/models/user_data_model.dart';
 import '../../models/category_item_model.dart';
 import '../../models/text_field_model.dart';
@@ -19,12 +22,18 @@ import '../../../features/setting/presentation/views/setting_view.dart';
 part 'build_app_state.dart';
 
 class BuildAppCubit extends Cubit<BuildAppState> {
-  BuildAppCubit(this._sharedPrefRepo) : super(BuildAppInitial()) {
+  BuildAppCubit(this._sharedPrefRepo, this._changeThemeRepo)
+      : super(BuildAppInitial()) {
+    getDarkMode().then((value) {
+      isDarkMode = value;
+      emit(AppThemeChanged());
+    });
     _initializeLogin();
     _initializeAddAddressTextFields();
     _initializeUserTextFields();
   }
   final SharedPrefRepo _sharedPrefRepo;
+  final ChangeThemeRepo _changeThemeRepo;
 
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
@@ -467,5 +476,47 @@ class BuildAppCubit extends Cubit<BuildAppState> {
       emit(SharedPrefGetListSuccess());
       return value;
     });
+  }
+
+  // dark mode
+
+  bool isDarkMode = false;
+
+  Future<void> saveDarkMode({required bool isDarkMode}) async {
+    try {
+      await _changeThemeRepo.saveDarkMode(isDarkMode);
+    } catch (e) {
+      emit(ChangeThemeFailure(errorMessage: e.toString()));
+      log('error from save dark mode: $e');
+    }
+  }
+
+  Future<bool> getDarkMode() async {
+    return await _changeThemeRepo.getDarkMode();
+  }
+
+  void changeDarkMode(bool darkMode) async {
+    isDarkMode = darkMode;
+    await saveDarkMode(isDarkMode: isDarkMode);
+    emit(AppThemeChanged());
+  }
+
+  int themeIndex = 0;
+
+  List<String> themeList = ['Light Mode', 'Dark Mode'];
+
+  void changeThemeIndex(int index) {
+    if (themeIndex == index) return;
+    themeIndex = index;
+
+    emit(IndexChanged());
+  }
+
+  ThemeData lightMode() {
+    return _changeThemeRepo.lightMode();
+  }
+
+  ThemeData darkMode() {
+    return _changeThemeRepo.darkMode();
   }
 }

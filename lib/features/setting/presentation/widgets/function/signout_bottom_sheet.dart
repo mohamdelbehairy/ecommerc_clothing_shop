@@ -1,5 +1,5 @@
+import 'package:e_clot_shop/core/manager/build_app/build_app_cubit.dart';
 import 'package:e_clot_shop/core/utils/colors.dart';
-import 'package:e_clot_shop/features/theme/presentation/manager/change_theme/change_theme_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -11,7 +11,7 @@ Future<dynamic> signOutBottomSheet(
           decoration: BoxDecoration(
               borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(24), topRight: Radius.circular(24)),
-              color: context.read<ChangeThemeCubit>().isDarkMode
+              color: context.read<BuildAppCubit>().isDarkMode
                   ? AppColors.darkModePrimaryColor
                   : Colors.white),
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),

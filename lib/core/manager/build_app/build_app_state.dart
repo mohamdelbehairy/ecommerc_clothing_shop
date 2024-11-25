@@ -25,3 +25,11 @@ final class SharedPrefGetBoolSuccess extends BuildAppState {}
 final class SharedPrefGetStringSuccess extends BuildAppState {}
 
 final class SharedPrefGetListSuccess extends BuildAppState {}
+
+final class AppThemeChanged extends BuildAppState {}
+
+final class ChangeThemeFailure extends BuildAppState {
+  final String errorMessage;
+
+  ChangeThemeFailure({required this.errorMessage});
+}

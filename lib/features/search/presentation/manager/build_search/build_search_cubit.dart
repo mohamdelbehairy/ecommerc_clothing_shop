@@ -1,3 +1,4 @@
+import 'package:e_clot_shop/core/manager/build_app/build_app_cubit.dart';
 import 'package:e_clot_shop/core/utils/colors.dart';
 import 'package:e_clot_shop/core/utils/constants.dart';
 import 'package:e_clot_shop/features/home/data/models/product_model.dart';
@@ -6,7 +7,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/widgets/function/custom_bottom_sheet.dart';
 import '../../../../home/data/repo/product_repo.dart';
-import '../../../../theme/presentation/manager/change_theme/change_theme_cubit.dart';
 import '../../../data/models/search_filter_model.dart';
 import '../../widgets/gender_filter_bottom_sheet.dart';
 import '../../widgets/price_filter_bottom_sheet.dart';
@@ -78,7 +78,7 @@ class BuildSearchCubit extends Cubit<BuildSearchState> {
               child: const PriceFilterBottomSheet())),
       SearchFilterModel(
           isBool: false,
-          background: _context.read<ChangeThemeCubit>().isDarkMode
+          background: _context.read<BuildAppCubit>().isDarkMode
               ? AppColors.darkModeSecondryColor
               : AppColors.secondaryColor,
           text: 'Sort  by',

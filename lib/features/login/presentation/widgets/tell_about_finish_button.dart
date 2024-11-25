@@ -1,3 +1,4 @@
+import 'package:e_clot_shop/core/manager/build_app/build_app_cubit.dart';
 import 'package:e_clot_shop/core/utils/cached_and_remove_user_id.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -7,7 +8,6 @@ import '../../../../core/utils/colors.dart';
 import '../../../../core/widgets/custom_button.dart';
 import '../../../../core/widgets/function/custom_snack_bar_widget.dart';
 import '../../../../core/widgets/function/show_alert_sign_in_successful.dart';
-import '../../../theme/presentation/manager/change_theme/change_theme_cubit.dart';
 import '../../../user_data/presentation/manager/save_user_data/save_user_data_cubit.dart';
 import 'function/tell_about_button_on_tap.dart';
 
@@ -39,7 +39,7 @@ class TellAboutFinshButton extends StatelessWidget {
         return Container(
           height: 100,
           width: MediaQuery.sizeOf(context).width,
-          color: context.read<ChangeThemeCubit>().isDarkMode
+          color: context.read<BuildAppCubit>().isDarkMode
               ? AppColors.darkModeSecondryColor
               : AppColors.secondaryColor,
           padding: const EdgeInsets.symmetric(horizontal: 24),

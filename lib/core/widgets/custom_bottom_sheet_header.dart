@@ -1,8 +1,9 @@
 import 'package:e_clot_shop/core/utils/styles.dart';
-import 'package:e_clot_shop/features/theme/presentation/manager/change_theme/change_theme_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+
+import '../manager/build_app/build_app_cubit.dart';
 
 class CustomBottomSheetheader extends StatelessWidget {
   const CustomBottomSheetheader(
@@ -32,7 +33,7 @@ class CustomBottomSheetheader extends StatelessWidget {
               onPressed: () => GoRouter.of(context).pop(),
               icon: Icon(Icons.close,
                   size: 28,
-                  color: context.watch<ChangeThemeCubit>().isDarkMode
+                  color: context.watch<BuildAppCubit>().isDarkMode
                       ? Colors.white
                       : const Color(0xff272727)))
         ],
