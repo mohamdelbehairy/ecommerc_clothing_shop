@@ -1,3 +1,4 @@
+import 'package:e_clot_shop/features/app/presentation/views/unsupported_platform_view.dart';
 import 'package:e_clot_shop/features/bottom_navigation_bar/presentation/views/bottom_navigation_bar_view.dart';
 import 'package:e_clot_shop/features/login/presentation/views/login_view.dart';
 import 'package:e_clot_shop/features/login/presentation/views/tell_about_view.dart';
@@ -5,6 +6,7 @@ import 'package:e_clot_shop/features/profile/presentation/views/profile_view.dar
 import 'package:e_clot_shop/features/register/presentation/views/register_view.dart';
 import 'package:e_clot_shop/features/search/presentation/views/search_view.dart';
 import 'package:e_clot_shop/features/setting/presentation/views/wishlist_view.dart';
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/home/presentation/views/categories_view.dart';
@@ -42,7 +44,11 @@ class AppRouter {
 
   static final router = GoRouter(
     routes: [
-      GoRoute(path: '/', builder: (context, state) => const SplashView()),
+      GoRoute(
+          path: '/',
+          builder: (context, state) => MediaQuery.sizeOf(context).width > 700
+              ? const UnsupportedPlatformView()
+              : const SplashView()),
       GoRoute(
           path: onBoardring,
           builder: (context, state) => const OnBoardringView()),

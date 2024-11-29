@@ -27,8 +27,6 @@ class ChangeThemeRepoImpl extends ChangeThemeRepo {
 
   @override
   ThemeData darkMode() {
-    return ThemeData(
-      scaffoldBackgroundColor: AppColors.darkModePrimaryColor,
-    );
+    return ThemeData(scaffoldBackgroundColor: AppColors.darkModePrimaryColor);
   }
 }
