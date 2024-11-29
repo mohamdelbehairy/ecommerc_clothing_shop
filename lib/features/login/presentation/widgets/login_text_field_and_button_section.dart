@@ -6,7 +6,7 @@ import 'package:go_router/go_router.dart';
 import '../../../../core/models/custom_button_model.dart';
 import '../../../../core/widgets/custom_button.dart';
 import '../../../../core/widgets/custom_text_field.dart';
-import '../../../../core/manager/build_app/build_app_cubit.dart';
+import '../../../app/presentation/manager/build_app/build_app_cubit.dart';
 import 'dont_have_account_and_create_one.dart';
 
 class LoginTextFieldAndButtonsSection extends StatelessWidget {

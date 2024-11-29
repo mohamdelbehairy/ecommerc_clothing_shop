@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../core/manager/build_app/build_app_cubit.dart';
+import '../../../../app/presentation/manager/build_app/build_app_cubit.dart';
 import '../../../../home/data/models/product_model.dart';
 import '../../../../payment/presentation/widgets/function/pay_with_card.dart';
 import '../../../../payment/presentation/widgets/function/pay_with_paymob.dart';

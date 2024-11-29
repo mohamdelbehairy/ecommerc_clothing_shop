@@ -2,7 +2,7 @@ import 'package:e_clot_shop/core/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../manager/build_app/build_app_cubit.dart';
+import '../../features/app/presentation/manager/build_app/build_app_cubit.dart';
 import '../models/background_model.dart';
 import 'custom_background_container.dart';
 

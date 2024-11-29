@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../manager/build_app/build_app_cubit.dart';
+import '../../../features/app/presentation/manager/build_app/build_app_cubit.dart';
 import '../../models/cart_product_model.dart';
 import 'sub_title_add_or_remove_quantity.dart';
 import 'sub_title_delivered_or_no_shipped.dart';

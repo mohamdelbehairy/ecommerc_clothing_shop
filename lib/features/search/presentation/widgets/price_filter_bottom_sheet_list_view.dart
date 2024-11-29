@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../core/manager/build_app/build_app_cubit.dart';
+import '../../../app/presentation/manager/build_app/build_app_cubit.dart';
 import 'search_price_button.dart';
 
 class PriceFilterBottomSheetListView extends StatelessWidget {

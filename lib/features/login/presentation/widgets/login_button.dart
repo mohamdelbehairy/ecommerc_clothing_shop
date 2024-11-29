@@ -6,7 +6,7 @@ import '../../../../core/models/custom_button_model.dart';
 import '../../../../core/widgets/custom_button.dart';
 import '../../../../core/widgets/function/custom_snack_bar_widget.dart';
 import '../../../auth/presentation/manager/email_login/email_login_cubit.dart';
-import '../../../../core/manager/build_app/build_app_cubit.dart';
+import '../../../app/presentation/manager/build_app/build_app_cubit.dart';
 import 'function/state_success_login.dart';
 
 class LoginButton extends StatelessWidget {

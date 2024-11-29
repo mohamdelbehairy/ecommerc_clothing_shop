@@ -5,19 +5,19 @@ import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../features/home/data/models/product_model.dart';
-import '../../../features/order/presentation/views/order_view.dart';
-import '../../../features/product/data/models/product_select_details_model.dart';
-import '../../../features/shared_pref/data/repo/shared_pref_repo.dart';
-import '../../../features/theme/data/repo/change_theme_repo.dart';
-import '../../../features/user_data/data/models/user_data_model.dart';
-import '../../models/category_item_model.dart';
-import '../../models/text_field_model.dart';
-import '../../utils/assets.dart';
-import '../../../features/bottom_navigation_bar/data/models/bottom_navigation_bar_model.dart';
-import '../../../features/home/presentation/views/home_view.dart';
-import '../../../features/notification/presentation/views/notification_view.dart';
-import '../../../features/setting/presentation/views/setting_view.dart';
+import '../../../../home/data/models/product_model.dart';
+import '../../../../order/presentation/views/order_view.dart';
+import '../../../../product/data/models/product_select_details_model.dart';
+import '../../../../shared_pref/data/repo/shared_pref_repo.dart';
+import '../../../../theme/data/repo/change_theme_repo.dart';
+import '../../../../user_data/data/models/user_data_model.dart';
+import '../../../../../core/models/category_item_model.dart';
+import '../../../../../core/models/text_field_model.dart';
+import '../../../../../core/utils/assets.dart';
+import '../../../../bottom_navigation_bar/data/models/bottom_navigation_bar_model.dart';
+import '../../../../home/presentation/views/home_view.dart';
+import '../../../../notification/presentation/views/notification_view.dart';
+import '../../../../setting/presentation/views/setting_view.dart';
 
 part 'build_app_state.dart';
 

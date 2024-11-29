@@ -2,7 +2,7 @@ import 'package:e_clot_shop/features/product/presentation/widgets/product_color_
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/manager/build_app/build_app_cubit.dart';
+import '../../../app/presentation/manager/build_app/build_app_cubit.dart';
 import '../../../../core/widgets/function/custom_bottom_sheet.dart';
 import 'product_size_bottom_sheet.dart';
 import 'product_select_details_widget.dart';

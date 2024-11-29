@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:uuid/uuid.dart';
 
-import '../../../../../core/manager/build_app/build_app_cubit.dart';
+import '../../../../app/presentation/manager/build_app/build_app_cubit.dart';
 import '../../../../notification/data/models/notification_model.dart';
 import '../../../../notification/presentation/manager/notification/notification_cubit.dart';
 import '../../../data/models/order_model.dart';

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../manager/build_app/build_app_cubit.dart';
+import '../../features/app/presentation/manager/build_app/build_app_cubit.dart';
 import '../models/svg_model.dart';
 import '../utils/assets.dart';
 import '../utils/colors.dart';

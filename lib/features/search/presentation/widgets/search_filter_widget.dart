@@ -7,7 +7,7 @@ import 'package:e_clot_shop/core/widgets/custom_background_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/manager/build_app/build_app_cubit.dart';
+import '../../../app/presentation/manager/build_app/build_app_cubit.dart';
 import '../../data/models/search_filter_model.dart';
 
 class SearchFilterWidget extends StatelessWidget {

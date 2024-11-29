@@ -1,9 +1,9 @@
-import 'package:e_clot_shop/core/manager/build_app/build_app_cubit.dart';
+import 'package:e_clot_shop/features/app/presentation/manager/build_app/build_app_cubit.dart';
 import 'package:e_clot_shop/core/utils/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../utils/custom_multi_bloc_provider.dart';
+import 'custom_multi_bloc_provider.dart';
 
 class EClotShop extends StatelessWidget {
   const EClotShop({super.key});

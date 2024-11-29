@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/manager/build_app/build_app_cubit.dart';
+import '../../../app/presentation/manager/build_app/build_app_cubit.dart';
 import '../../../home/data/models/product_model.dart';
 import '../../../user_data/presentation/manager/get_user_data/get_user_data_cubit.dart';
 import 'cart_view_when_state_success.dart';

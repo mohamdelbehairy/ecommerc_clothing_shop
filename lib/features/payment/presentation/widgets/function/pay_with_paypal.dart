@@ -9,7 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_paypal_payment2/flutter_paypal_payment.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../../core/manager/build_app/build_app_cubit.dart';
+import '../../../../app/presentation/manager/build_app/build_app_cubit.dart';
 import '../../../../home/data/models/product_model.dart';
 import '../../../../update/presentation/manager/update_data/update_data_cubit.dart';
 import '../../../data/models/paypal/amount_model.dart';

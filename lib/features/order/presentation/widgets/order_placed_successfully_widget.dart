@@ -1,4 +1,4 @@
-import 'package:e_clot_shop/core/manager/build_app/build_app_cubit.dart';
+import 'package:e_clot_shop/features/app/presentation/manager/build_app/build_app_cubit.dart';
 import 'package:e_clot_shop/core/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

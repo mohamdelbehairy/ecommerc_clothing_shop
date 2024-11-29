@@ -4,7 +4,7 @@ import 'package:e_clot_shop/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../manager/build_app/build_app_cubit.dart';
+import '../../features/app/presentation/manager/build_app/build_app_cubit.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField({super.key, required this.textFieldModel});

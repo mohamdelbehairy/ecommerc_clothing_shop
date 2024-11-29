@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../manager/build_app/build_app_cubit.dart';
+import '../../../features/app/presentation/manager/build_app/build_app_cubit.dart';
 import '../../utils/app_router.dart';
 
 Future<Object?> showAlertSignInSuccessful(BuildContext context) {

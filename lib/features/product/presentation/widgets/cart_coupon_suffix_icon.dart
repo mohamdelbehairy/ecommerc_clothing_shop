@@ -4,7 +4,7 @@ import 'package:e_clot_shop/core/widgets/function/loading_animation_widget.dart'
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/manager/build_app/build_app_cubit.dart';
+import '../../../app/presentation/manager/build_app/build_app_cubit.dart';
 import '../../../../core/models/svg_model.dart';
 import '../../../../core/widgets/custom_svg.dart';
 

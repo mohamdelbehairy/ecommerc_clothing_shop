@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../manager/build_app/build_app_cubit.dart';
+import '../../features/app/presentation/manager/build_app/build_app_cubit.dart';
 import '../models/cached_network_image_model.dart';
 
 class CustomCachedNetworkImage extends StatelessWidget {

@@ -1,4 +1,4 @@
-import 'package:e_clot_shop/core/manager/build_app/build_app_cubit.dart';
+import 'package:e_clot_shop/features/app/presentation/manager/build_app/build_app_cubit.dart';
 import 'package:e_clot_shop/core/models/background_model.dart';
 import 'package:e_clot_shop/core/utils/colors.dart';
 import 'package:e_clot_shop/core/utils/styles.dart';

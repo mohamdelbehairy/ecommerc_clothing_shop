@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:e_clot_shop/core/manager/build_app/build_app_cubit.dart';
+import 'package:e_clot_shop/features/app/presentation/manager/build_app/build_app_cubit.dart';
 import 'package:e_clot_shop/core/utils/secret_key.dart';
 import 'package:e_clot_shop/features/update/presentation/manager/update_data/update_data_cubit.dart';
 import 'package:e_clot_shop/features/user_data/data/models/user_data_model.dart';

@@ -9,7 +9,7 @@ import 'package:go_router/go_router.dart';
 import '../../../../core/models/custom_button_model.dart';
 import '../../../../core/widgets/function/custom_snack_bar_widget.dart';
 import '../../../auth/presentation/manager/email_register/email_register_cubit.dart';
-import '../../../../core/manager/build_app/build_app_cubit.dart';
+import '../../../app/presentation/manager/build_app/build_app_cubit.dart';
 import '../manager/build_register/build_register_cubit.dart';
 
 class RegisterButton extends StatelessWidget {

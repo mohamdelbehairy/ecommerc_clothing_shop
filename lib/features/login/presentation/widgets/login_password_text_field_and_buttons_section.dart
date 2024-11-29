@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/widgets/custom_text_field.dart';
 import '../../../../core/widgets/forget_password_and_reset.dart';
-import '../../../../core/manager/build_app/build_app_cubit.dart';
+import '../../../app/presentation/manager/build_app/build_app_cubit.dart';
 import 'login_button.dart';
 
 class LoginPasswordTextFieldAndButtonSetcion extends StatelessWidget {

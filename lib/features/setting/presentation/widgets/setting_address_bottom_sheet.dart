@@ -2,7 +2,7 @@ import 'package:e_clot_shop/features/user_data/presentation/manager/get_user_dat
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/manager/build_app/build_app_cubit.dart';
+import '../../../app/presentation/manager/build_app/build_app_cubit.dart';
 import '../../../product/presentation/widgets/add_address_list_view.dart';
 import 'function/init_add_address_text_field.dart';
 import 'setting_add_address_bottom_sheet_header.dart';

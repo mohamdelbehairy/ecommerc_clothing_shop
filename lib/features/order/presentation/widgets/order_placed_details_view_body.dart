@@ -1,4 +1,4 @@
-import 'package:e_clot_shop/core/manager/build_app/build_app_cubit.dart';
+import 'package:e_clot_shop/features/app/presentation/manager/build_app/build_app_cubit.dart';
 import 'package:e_clot_shop/core/models/cart_product_model.dart';
 import 'package:e_clot_shop/features/order/data/models/order_model.dart';
 import 'package:flutter/material.dart';
