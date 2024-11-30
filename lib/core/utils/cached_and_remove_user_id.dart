@@ -22,7 +22,9 @@ class CachedAndRemoveUserId {
           ? FirebaseAuth.instance.currentUser!.email!
           : FirebaseAuth.instance.currentUser!.phoneNumber!,
       userName,
-      FirebaseAuth.instance.currentUser!.photoURL!,
+      FirebaseAuth.instance.currentUser!.photoURL != null
+          ? FirebaseAuth.instance.currentUser!.photoURL!
+          : Constants.defaultUserImageUrl,
       type
     ]);
   }
