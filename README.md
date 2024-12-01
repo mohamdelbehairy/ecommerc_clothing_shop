@@ -2,7 +2,7 @@
 
 #### Cloth Shop is an e-commerce app that offers a wide range of clothing products, providing a convenient shopping experience for fashion-conscious customers. With an easy-to-use interface, users can browse categories, view product details, check sizes, and make secure purchases. The app features trendy styles and brands to cater to diverse fashion needs.
 
-### Here are the features you'll find in the Sophiee
+### Here are the features you'll find in the Cloth
 
 ### 1) using firebase
 - Authentication options include Email, Twitter, Google and Github.
