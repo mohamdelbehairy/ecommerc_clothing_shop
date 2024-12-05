@@ -33,7 +33,7 @@ dependencies:
   cloud_firestore: ^5.4.3
   cupertino_icons: ^1.0.8
   dartz: ^0.10.1
-  device_preview: ^1.2.0
+  # device_preview: ^1.2.0
   dio: ^5.7.0
   email_validator: ^3.0.0
   firebase_auth: ^5.3.0
