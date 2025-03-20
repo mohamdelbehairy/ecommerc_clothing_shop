@@ -16,7 +16,7 @@ class OnBoardringSmoothIndicator extends StatelessWidget {
         effect: ExpandingDotsEffect(
             dotHeight: 8,
             dotWidth: 8,
-            dotColor: const Color(0xff585186).withOpacity(.5),
+            dotColor: const Color(0xff585186).withValues(alpha: .5),
             activeDotColor: AppColors.primaryColor),
         onDotClicked: onDotClicked);
   }

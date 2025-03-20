@@ -41,8 +41,8 @@ class Styles {
     return GoogleFonts.nunito(
         fontWeight: FontWeight.w500,
         color: _isDarkMode(context)
-            ? AppColors.whiteColor.withOpacity(.5)
-            : AppColors.blackColor.withOpacity(.5),
+            ? AppColors.whiteColor.withValues(alpha: .5)
+            : AppColors.blackColor.withValues(alpha: .5),
         fontSize: _getResponsiveFontSize(context, 16));
   }
 
@@ -79,8 +79,8 @@ class Styles {
     return GoogleFonts.nunito(
         fontWeight: FontWeight.w500,
         color: _isDarkMode(context)
-            ? AppColors.whiteColor.withOpacity(.5)
-            : AppColors.blackColor.withOpacity(.5),
+            ? AppColors.whiteColor.withValues(alpha: .5)
+            : AppColors.blackColor.withValues(alpha: .5),
         fontSize: _getResponsiveFontSize(context, 12));
   }
 
@@ -88,8 +88,8 @@ class Styles {
     return GoogleFonts.nunito(
         fontWeight: FontWeight.w500,
         color: _isDarkMode(context)
-            ? AppColors.whiteColor.withOpacity(.5)
-            : AppColors.blackColor.withOpacity(.5),
+            ? AppColors.whiteColor.withValues(alpha: .5)
+            : AppColors.blackColor.withValues(alpha: .5),
         fontSize: _getResponsiveFontSize(context, 16));
   }
 
@@ -172,15 +172,15 @@ class Styles {
     return GoogleFonts.poppins(
         fontSize: _getResponsiveFontSize(context, 16),
         fontWeight: FontWeight.w600,
-        color: const Color(0xff25213C).withOpacity(.8));
+        color: const Color(0xff25213C).withValues(alpha: .8));
   }
 
   static TextStyle styleHintTextField16(BuildContext context) {
     return GoogleFonts.nunito(
         fontWeight: FontWeight.w500,
         color: _isDarkMode(context)
-            ? AppColors.whiteColor.withOpacity(.5)
-            : AppColors.blackColor.withOpacity(.5),
+            ? AppColors.whiteColor.withValues(alpha: .5)
+            : AppColors.blackColor.withValues(alpha: .5),
         fontSize: _getResponsiveFontSize(context, 16));
   }
 

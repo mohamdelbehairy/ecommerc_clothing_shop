@@ -17,7 +17,7 @@ BottomNavigationBarItem customBottomNavigationBarItem(
                   isActive
                       ? model.activeColor
                       : context.watch<BuildAppCubit>().isDarkMode
-                          ? Colors.white.withOpacity(.5)
+                          ? Colors.white.withValues(alpha:  .5)
                           : model.inActiveColor,
                   BlendMode.srcIn))),
       label: '');

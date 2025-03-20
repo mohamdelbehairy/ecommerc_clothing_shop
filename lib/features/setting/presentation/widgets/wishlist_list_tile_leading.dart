@@ -20,7 +20,7 @@ class WishlistListTileLeading extends StatelessWidget {
             colorFilter: ColorFilter.mode(
                 isDarkMode
                     ? AppColors.whiteColor
-                    : AppColors.blackColor.withOpacity(.8),
+                    : AppColors.blackColor.withValues(alpha:  .8),
                 BlendMode.srcIn)));
   }
 }

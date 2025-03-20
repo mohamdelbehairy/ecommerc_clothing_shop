@@ -37,7 +37,7 @@ class BackgroundCircleAvatar extends StatelessWidget {
                 ? Colors.red
                 : isDarkMode
                     ? AppColors.whiteColor
-                    : AppColors.blackColor.withOpacity(.8),
+                    : AppColors.blackColor.withValues(alpha:  .8),
             BlendMode.srcIn),
       )),
     );

@@ -49,7 +49,7 @@ class ProductItemWidget extends StatelessWidget {
                         isWishlisted  ? Colors.red:
                                 context.read<BuildAppCubit>().isDarkMode
                             ? AppColors.whiteColor
-                            : AppColors.blackColor.withOpacity(.8),
+                            : AppColors.blackColor.withValues(alpha:  .8),
                         BlendMode.srcIn),
                   )))
             ],
