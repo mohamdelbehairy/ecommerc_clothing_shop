@@ -57,7 +57,7 @@ class ProductCubit extends Cubit<ProductState> {
           }
 
           if (product.createdTime
-              .isAfter(DateTime.now().subtract(const Duration(days: 60)))) {
+              .isAfter(DateTime.now().subtract(const Duration(days: 1000)))) {
             newIn.add(product);
           }
         }
