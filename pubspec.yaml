@@ -61,6 +61,7 @@ dependencies:
   uuid: ^4.5.1
 
 dev_dependencies:
+  flutter_launcher_icons: ^0.14.3
   flutter_lints: ^4.0.0
   flutter_test:
     sdk: flutter
@@ -115,3 +116,21 @@ flutter_assets:
 #   android_12:
 #     image: "assets/images/logo.png"
 #     color: "#8E6CEF"
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/app_logo.png"
+  min_sdk_android: 21
+  web:
+    generate: true
+    image_path: "assets/images/app_logo.png"
+    background_color: "#hexcode"
+    theme_color: "#hexcode"
+  windows:
+    generate: true
+    image_path: "assets/images/app_logo.png"
+    icon_size: 48
+  macos:
+    generate: true
+    image_path: "assets/images/app_logo.png"

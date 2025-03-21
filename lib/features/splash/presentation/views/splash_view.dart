@@ -1,11 +1,11 @@
-import 'package:e_clot_shop/features/app/presentation/manager/build_app/build_app_cubit.dart';
 import 'package:e_clot_shop/core/utils/app_router.dart';
-import 'package:e_clot_shop/core/utils/assets.dart';
 import 'package:e_clot_shop/core/utils/colors.dart';
 import 'package:e_clot_shop/core/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+
+import '../../../app/presentation/manager/build_app/build_app_cubit.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -23,12 +23,12 @@ class _SplashViewState extends State<SplashView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.primaryColor,
-      body: Center(
-          child: Padding(
-              padding: const EdgeInsets.only(top: 32),
-              child: Image.asset(Assets.imagesLogo, height: 300))),
+    return const Scaffold(
+      backgroundColor: AppColors.whiteColor,
+      // body: Center(
+      //     child: Padding(
+      //         padding: const EdgeInsets.only(top: 32),
+      //         child: Image.asset(Assets.imagesLogo, height: 300))),
     );
   }
 

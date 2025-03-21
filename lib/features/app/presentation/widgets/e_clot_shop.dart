@@ -15,6 +15,7 @@ class EClotShop extends StatelessWidget {
       builder: (context, state) {
         final isDarkMode = context.read<BuildAppCubit>();
         return MaterialApp.router(
+            title: "E-Clothing Shop",
             theme: isDarkMode.lightMode(),
             darkTheme: isDarkMode.darkMode(),
             themeMode: isDarkMode.isDarkMode ? ThemeMode.dark : ThemeMode.light,
