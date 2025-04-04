@@ -16,8 +16,8 @@ class ChangeThemeRepoImpl extends ChangeThemeRepo {
   }
 
   @override
-  Future<bool> getDarkMode() async {
-    return await _sharedPrefRepo.getBool(Constants.isDarkMode);
+  bool getDarkMode()  {
+    return  _sharedPrefRepo.getBool(Constants.isDarkMode);
   }
 
   @override

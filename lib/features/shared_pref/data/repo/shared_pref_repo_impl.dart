@@ -19,7 +19,7 @@ class SharedPrefRepoImpl extends SharedPrefRepo {
   }
 
   @override
-  Future<bool> getBool(String key) async {
+  bool getBool(String key) {
     final prefs = getIt.get<SharedPreferences>();
     return prefs.getBool(key) ?? false;
   }

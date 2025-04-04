@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:e_clot_shop/core/utils/constants.dart';
+import 'package:e_clot_shop/core/utils/set_system_setting.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -24,14 +25,16 @@ part 'build_app_state.dart';
 class BuildAppCubit extends Cubit<BuildAppState> {
   BuildAppCubit(this._sharedPrefRepo, this._changeThemeRepo)
       : super(BuildAppInitial()) {
-    getDarkMode().then((value) {
-      isDarkMode = value;
-      emit(AppThemeChanged());
-    });
+    _importsAppCubit();
+  }
+
+  void _importsAppCubit() {
+    _initDarkMode();
     _initializeLogin();
     _initializeAddAddressTextFields();
     _initializeUserTextFields();
   }
+
   final SharedPrefRepo _sharedPrefRepo;
   final ChangeThemeRepo _changeThemeRepo;
 
@@ -457,11 +460,14 @@ class BuildAppCubit extends Cubit<BuildAppState> {
   }
 
   // shared pref
-  Future<bool> getBool({required String key}) async {
-    return await _sharedPrefRepo.getBool(key).then((value) {
-      emit(SharedPrefGetBoolSuccess());
-      return value;
-    });
+  bool getBool({required String key}) {
+    final prefs = _sharedPrefRepo.getBool(key);
+    emit(SharedPrefGetBoolSuccess());
+    return prefs;
+    // return _sharedPrefRepo.getBool(key).then((value) {
+    //   emit(SharedPrefGetBoolSuccess());
+    //   return value;
+    // });
   }
 
   Future<String?> getString({required String key}) async {
@@ -491,13 +497,14 @@ class BuildAppCubit extends Cubit<BuildAppState> {
     }
   }
 
-  Future<bool> getDarkMode() async {
-    return await _changeThemeRepo.getDarkMode();
+  bool getDarkMode() {
+    return _changeThemeRepo.getDarkMode();
   }
 
   void changeDarkMode(bool darkMode) async {
     isDarkMode = darkMode;
     await saveDarkMode(isDarkMode: isDarkMode);
+    setSystemSetting();
     emit(AppThemeChanged());
   }
 
@@ -518,5 +525,11 @@ class BuildAppCubit extends Cubit<BuildAppState> {
 
   ThemeData darkMode() {
     return _changeThemeRepo.darkMode();
+  }
+
+  void _initDarkMode() {
+    final value = getDarkMode();
+    isDarkMode = value;
+    emit(AppThemeChanged());
   }
 }

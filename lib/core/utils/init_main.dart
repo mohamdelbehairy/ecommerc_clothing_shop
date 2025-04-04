@@ -12,13 +12,11 @@ import 'setup_service_locator.dart';
 
 Future<void> initMain() async {
   WidgetsFlutterBinding.ensureInitialized();
-
   Bloc.observer = SimpleBlocObserver();
-  setSystemSetting();
-
   Stripe.publishableKey = SecretKey.stripPublishableKey;
 
   setupServiceLocator();
+  setSystemSetting();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
   runApp(const EClotShop());
