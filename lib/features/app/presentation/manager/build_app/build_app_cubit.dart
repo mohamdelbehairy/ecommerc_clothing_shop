@@ -532,4 +532,11 @@ class BuildAppCubit extends Cubit<BuildAppState> {
     isDarkMode = value;
     emit(AppThemeChanged());
   }
+
+  bool isDialogOpen = true;
+
+  void changeDialogOpen() {
+    isDialogOpen = false;
+    emit(ChangeDialogState());
+  }
 }

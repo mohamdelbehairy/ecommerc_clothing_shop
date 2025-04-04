@@ -5,6 +5,7 @@ import '../../../app/presentation/manager/build_app/build_app_cubit.dart';
 import '../../../home/data/models/product_model.dart';
 import '../../../user_data/presentation/manager/get_user_data/get_user_data_cubit.dart';
 import 'cart_view_when_state_success.dart';
+import 'function/testing_card_show_dialog.dart';
 
 class CartViewBody extends StatelessWidget {
   const CartViewBody({super.key, required this.productData});
@@ -16,6 +17,12 @@ class CartViewBody extends StatelessWidget {
 
     return BlocBuilder<GetUserDataCubit, GetUserDataState>(
         builder: (context, state) {
+      if (buildApp.isDialogOpen) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          testingCardShowDialog(context, buildApp);
+        });
+      }
+
       if (state is GetUserDataSuccess) {
         if (productData.discountNumber != null &&
             productData.discountNumber!.isNotEmpty) {

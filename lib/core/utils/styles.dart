@@ -184,6 +184,14 @@ class Styles {
         fontSize: _getResponsiveFontSize(context, 16));
   }
 
+  static TextStyle style16(BuildContext context) {
+    return GoogleFonts.nunito(
+        fontWeight: FontWeight.w500,
+        color:
+            _isDarkMode(context) ? AppColors.whiteColor : AppColors.blackColor,
+        fontSize: _getResponsiveFontSize(context, 16));
+  }
+
   static TextStyle styleTextField18(BuildContext context) {
     return GoogleFonts.nunito(
         fontWeight: FontWeight.w500,

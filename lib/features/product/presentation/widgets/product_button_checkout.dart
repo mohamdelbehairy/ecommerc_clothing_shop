@@ -1,14 +1,14 @@
-import 'package:e_clot_shop/features/app/presentation/manager/build_app/build_app_cubit.dart';
 import 'package:e_clot_shop/core/utils/colors.dart';
 import 'package:e_clot_shop/core/utils/styles.dart';
-import 'package:e_clot_shop/features/product/presentation/views/cart_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/models/custom_button_model.dart';
 import '../../../../core/widgets/custom_button.dart';
 import '../../../../core/widgets/function/loading_animation_widget.dart';
+import '../../../app/presentation/manager/build_app/build_app_cubit.dart';
 import '../../../home/data/models/product_model.dart';
+import '../views/cart_view.dart';
 
 class ProductButtonCheckout extends StatelessWidget {
   const ProductButtonCheckout({super.key, required this.productData});
@@ -17,7 +17,7 @@ class ProductButtonCheckout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var price = num.parse(productData.price);
-    var buildApp = context.watch<BuildAppCubit>();
+    var buildApp = context.read<BuildAppCubit>();
 
     return BlocConsumer<BuildAppCubit, BuildAppState>(
       listener: (context, state) async {

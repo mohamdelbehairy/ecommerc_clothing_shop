@@ -8,6 +8,7 @@ import 'add_address_bottom_sheet_widget.dart';
 import 'cart_shipping_and_payment_item.dart';
 import '../../../../core/widgets/function/custom_bottom_sheet.dart';
 import 'function/convert_shipping_address.dart';
+import 'function/testing_card_show_dialog.dart';
 import 'select_payment_bottom_sheet.dart';
 
 class CartShippingAndPaymentSection extends StatelessWidget {
@@ -43,9 +44,15 @@ class CartShippingAndPaymentSection extends StatelessWidget {
                 child: const SelectPaymentBottomSheet()),
           ),
         ),
+        const SizedBox(height: 16),
+        CartShippingAndPaymentItem(
+          shippingAndPaymentModel: ShippingAndPaymentModel(
+            title: 'Sandbox Payment Info',
+            subtitle: 'For testing only. Use the demo card info',
+            onTap: () => testingCardShowDialog(context, buildApp),
+          ),
+        ),
       ],
     );
   }
 }
-
-

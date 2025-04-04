@@ -33,3 +33,7 @@ final class ChangeThemeFailure extends BuildAppState {
 
   ChangeThemeFailure({required this.errorMessage});
 }
+
+
+final class ChangeDialogState extends BuildAppState {}
+
