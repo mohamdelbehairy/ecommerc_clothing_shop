@@ -43,3 +43,4 @@ app.*.map.json
 /android/app/release
 
 lib/core/utils/secret_key.dart
+upload-keystore.jks

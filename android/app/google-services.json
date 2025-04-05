@@ -7,12 +7,17 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:655474431388:android:f8627d386f1836ad746459",
+        "mobilesdk_app_id": "1:655474431388:android:3d5cec28374c12d8746459",
         "android_client_info": {
-          "package_name": "com.example.e_clot_shop"
+          "package_name": "com.android.clothingShop"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "655474431388-asds1d0cmtni44t8cgi2k7mhm66o3vu3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyDKZ1GNSKYfRTFEZgdSLqpQwtE00MWlZ6s"
@@ -20,7 +25,63 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "655474431388-asds1d0cmtni44t8cgi2k7mhm66o3vu3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "655474431388-dd3hdhujk2s590tgnuosegmd4ibbhs72.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.eClotShop"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:655474431388:android:42b9af5ed86e790f746459",
+        "android_client_info": {
+          "package_name": "com.clothing.shop.eg"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "655474431388-q2e1jf8kksu7bchn6cailt152ihhvckd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.clothing.shop.eg",
+            "certificate_hash": "1c7a9edd12a66555c81f17f4767ec055e08fbd70"
+          }
+        },
+        {
+          "client_id": "655474431388-asds1d0cmtni44t8cgi2k7mhm66o3vu3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKZ1GNSKYfRTFEZgdSLqpQwtE00MWlZ6s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "655474431388-asds1d0cmtni44t8cgi2k7mhm66o3vu3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "655474431388-dd3hdhujk2s590tgnuosegmd4ibbhs72.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.eClotShop"
+              }
+            }
+          ]
         }
       }
     }
