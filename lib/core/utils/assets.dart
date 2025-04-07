@@ -6,6 +6,10 @@ class Assets {
   /// assets/images/accessories.png
   static const String imagesAccessories = "assets/images/accessories.png";
 
+  /// Assets for imagesAppLogo
+  /// assets/images/app_logo.png
+  static const String imagesAppLogo = "assets/images/app_logo.png";
+
   /// Assets for imagesBack
   /// assets/images/back.svg
   static const String imagesBack = "assets/images/back.svg";
@@ -58,10 +62,6 @@ class Assets {
   /// assets/images/hoodies.png
   static const String imagesHoodies = "assets/images/hoodies.png";
 
-  /// Assets for imagesLogo
-  /// assets/images/logo.png
-  static const String imagesLogo = "assets/images/logo.png";
-
   /// Assets for imagesNoOrders
   /// assets/images/no_orders.png
   static const String imagesNoOrders = "assets/images/no_orders.png";
@@ -109,22 +109,6 @@ class Assets {
   /// Assets for imagesSigninSuccess
   /// assets/images/signin_success.svg
   static const String imagesSigninSuccess = "assets/images/signin_success.svg";
-
-  /// Assets for imagesTest1
-  /// assets/images/test1.png
-  static const String imagesTest1 = "assets/images/test1.png";
-
-  /// Assets for imagesTest2
-  /// assets/images/test2.png
-  static const String imagesTest2 = "assets/images/test2.png";
-
-  /// Assets for imagesTest3
-  /// assets/images/test3.png
-  static const String imagesTest3 = "assets/images/test3.png";
-
-  /// Assets for imagesTest4
-  /// assets/images/test4.png
-  static const String imagesTest4 = "assets/images/test4.png";
 
   /// Assets for imagesThree
   /// assets/images/three.png

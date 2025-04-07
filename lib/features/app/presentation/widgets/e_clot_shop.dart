@@ -6,7 +6,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'custom_multi_bloc_provider.dart';
 
 class EClotShop extends StatelessWidget {
-  const EClotShop({super.key});
+  const EClotShop({super.key, required this.scaffoldMessengerKey});
+  final GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey;
 
   @override
   Widget build(BuildContext context) {
@@ -16,6 +17,7 @@ class EClotShop extends StatelessWidget {
         final isDarkMode = context.read<BuildAppCubit>();
         return MaterialApp.router(
             title: "E-Clothing Shop",
+            scaffoldMessengerKey: scaffoldMessengerKey,
             theme: isDarkMode.lightMode(),
             darkTheme: isDarkMode.darkMode(),
             themeMode: isDarkMode.isDarkMode ? ThemeMode.dark : ThemeMode.light,

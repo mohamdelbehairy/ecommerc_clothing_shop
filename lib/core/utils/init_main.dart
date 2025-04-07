@@ -1,4 +1,5 @@
 import 'package:e_clot_shop/core/utils/bloc_observer.dart';
+import 'package:e_clot_shop/core/utils/cached_images.dart';
 import 'package:e_clot_shop/core/utils/secret_key.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -12,12 +13,21 @@ import 'setup_service_locator.dart';
 
 Future<void> initMain() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   Bloc.observer = SimpleBlocObserver();
   Stripe.publishableKey = SecretKey.stripPublishableKey;
 
   setupServiceLocator();
   setSystemSetting();
+
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
-  runApp(const EClotShop());
+  final GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey =
+      GlobalKey<ScaffoldMessengerState>();
+
+  WidgetsBinding.instance.addPostFrameCallback((_) async {
+    await CachedImages.loadImages(scaffoldMessengerKey.currentContext!);
+  });
+
+  runApp(EClotShop(scaffoldMessengerKey: scaffoldMessengerKey));
 }

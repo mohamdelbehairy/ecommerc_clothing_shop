@@ -52,7 +52,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyDKZ1GNSKYfRTFEZgdSLqpQwtE00MWlZ6s',
-    appId: '1:655474431388:android:f8627d386f1836ad746459',
+    appId: '1:655474431388:android:a10cd04a5b91a4c0746459',
     messagingSenderId: '655474431388',
     projectId: 'ecomerce-clot-shop',
     storageBucket: 'ecomerce-clot-shop.appspot.com',
@@ -64,6 +64,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '655474431388',
     projectId: 'ecomerce-clot-shop',
     storageBucket: 'ecomerce-clot-shop.appspot.com',
+    androidClientId: '655474431388-bkbrsgurauisc9g9rsj9ga9rt8juigo7.apps.googleusercontent.com',
+    iosClientId: '655474431388-dd3hdhujk2s590tgnuosegmd4ibbhs72.apps.googleusercontent.com',
     iosBundleId: 'com.example.eClotShop',
   );
 
@@ -73,6 +75,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '655474431388',
     projectId: 'ecomerce-clot-shop',
     storageBucket: 'ecomerce-clot-shop.appspot.com',
+    androidClientId: '655474431388-bkbrsgurauisc9g9rsj9ga9rt8juigo7.apps.googleusercontent.com',
+    iosClientId: '655474431388-dd3hdhujk2s590tgnuosegmd4ibbhs72.apps.googleusercontent.com',
     iosBundleId: 'com.example.eClotShop',
   );
 
